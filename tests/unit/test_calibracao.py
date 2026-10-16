@@ -74,3 +74,10 @@ def test_curva_nunca_diminui_quando_a_faixa_alta_acerta_menos_que_a_baixa():
     curva = ajustar_curva(amostra, faixas=2)
     assert curva(0.25) == pytest.approx(0.5)
     assert curva(0.85) == pytest.approx(0.5)
+
+
+def test_bootstrap_guarda_o_limiar_de_cada_repeticao_para_a_incerteza_da_cobertura():
+    amostra = [Rotulo(i / 100, acertou=i % 5 != 0) for i in range(50)]
+    estimativa = estimar_precisao(amostra, alvo=0.97, repeticoes=100, semente=1)
+    assert 0 < len(estimativa.limiares) <= 100
+    assert len(set(estimativa.limiares)) > 1
