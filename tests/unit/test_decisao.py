@@ -120,3 +120,18 @@ def test_concordancia_na_disciplina_nao_publica():
         limiar=LIMIAR,
     )
     assert resultado.decisao is Decisao.REVISAR
+
+
+def test_sem_voto_valido_revisa_com_a_sugestao_de_reserva():
+    resultado = decidir(
+        ARVORE,
+        classificador=None,
+        verificador=Voto(4521),
+        juiz=None,
+        confianca=0.0,
+        limiar=LIMIAR,
+        reserva=11,
+    )
+    assert resultado.decisao is Decisao.REVISAR
+    assert resultado.tema_central_id == 11
+    assert "similaridade" in resultado.motivo
