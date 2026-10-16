@@ -12,6 +12,7 @@ from classificacao.aplicacao.prompts import (
     SISTEMA_VERIFICADOR,
     disputa_para_prompt,
     questao_para_prompt,
+    sistema_com_arvore,
 )
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.decisao import Voto
@@ -68,14 +69,14 @@ def classificar_questao(
     classificador = votar(
         "classificador",
         papeis.classificador,
-        SISTEMA_CLASSIFICADOR,
-        questao_para_prompt(questao, arvore, True),
+        sistema_com_arvore(SISTEMA_CLASSIFICADOR, arvore),
+        questao_para_prompt(questao, com_origem=True),
     )
     verificador = votar(
         "verificador",
         papeis.verificador,
-        SISTEMA_VERIFICADOR,
-        questao_para_prompt(questao, arvore, False),
+        sistema_com_arvore(SISTEMA_VERIFICADOR, arvore),
+        questao_para_prompt(questao, com_origem=False),
     )
     juiz = None
     houve_desacordo = (
@@ -88,8 +89,8 @@ def classificar_questao(
         juiz = votar(
             "juiz",
             papeis.juiz,
-            SISTEMA_JUIZ,
-            disputa_para_prompt(questao, arvore, classificador, verificador),
+            sistema_com_arvore(SISTEMA_JUIZ, arvore),
+            disputa_para_prompt(questao, classificador, verificador),
         )
     return Classificacao(questao.id, classificador, verificador, juiz)
 

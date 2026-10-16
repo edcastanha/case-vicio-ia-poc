@@ -3,7 +3,9 @@ name = "classificacao"
 version = "0.1.0"
 description = "Classificação de questões penais na árvore de temas (case Vício)"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "anthropic>=1.15.0",
+]
 
 [project.scripts]
 classificacao = "classificacao.entrada.cli:main"
