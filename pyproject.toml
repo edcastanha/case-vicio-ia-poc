@@ -5,6 +5,7 @@ description = "Classificação de questões penais na árvore de temas (case Ví
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=1.15.0",
+    "numpy>=2.5.4",
 ]
 
 [project.scripts]
