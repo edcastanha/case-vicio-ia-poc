@@ -78,3 +78,22 @@ def test_com_paralelismo_todas_as_questoes_terminam_registradas():
         paralelismo=2,
     )
     assert set(registro.classificacoes) == {q.id for q in questoes}
+
+
+def test_classificacao_incompleta_por_falha_e_tentada_de_novo_na_proxima_rodada():
+    from tests.unit.fakes import falha_sempre
+
+    registro = RegistroEmMemoria()
+    fora_do_ar = Papeis(
+        ModeloFake("c", falha_sempre), ModeloFake("v", sempre(10)), ModeloFake("j", sempre(10))
+    )
+    processar([questao("Q0001")], registro, papeis=fora_do_ar)
+    assert registro.classificacoes["Q0001"].classificador is None
+    de_volta = ModeloFake("c", sempre(10))
+    processar(
+        [questao("Q0001")],
+        registro,
+        papeis=Papeis(de_volta, ModeloFake("v", sempre(10)), ModeloFake("j", sempre(10))),
+    )
+    assert len(de_volta.chamadas) == 1
+    assert registro.classificacoes["Q0001"].classificador.no_id == 10

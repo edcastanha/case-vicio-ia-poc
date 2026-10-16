@@ -69,3 +69,10 @@ def test_soma_o_custo_informado_pelos_envelopes():
     modelo.responder("s", "u", SCHEMA_DO_VOTO)
     modelo.responder("s", "u", SCHEMA_DO_VOTO)
     assert modelo.custo_usd == pytest.approx(2 * 0.0004469, rel=1e-3)
+
+
+def test_codigo_de_saida_com_envelope_de_erro_guarda_o_motivo():
+    envelope = json.dumps({"is_error": True, "result": "Claude usage limit reached"})
+    executor = ExecutorGravado(stdout=envelope, codigo=1)
+    with pytest.raises(FalhaDoModelo, match="usage limit"):
+        ModeloClaudeCode("haiku", executar=executor).responder("s", "u", SCHEMA_DO_VOTO)

@@ -44,6 +44,11 @@ class Classificacao:
     verificador: Proposta | None
     juiz: Proposta | None
 
+    @property
+    def completa(self) -> bool:
+        """Os dois votos obrigatórios chegaram; incompleta é tentada de novo na próxima rodada."""
+        return self.classificador is not None and self.verificador is not None
+
 
 def classificar_questao(
     questao: Questao,
