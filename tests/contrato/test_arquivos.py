@@ -39,3 +39,12 @@ def test_registro_em_arquivo_permite_retomar_e_devolve_as_classificacoes(tmp_pat
     assert retomado.ja_classificada("Q0001")
     assert not retomado.ja_classificada("Q0002")
     assert retomado.todas() == [CLASSIFICACAO]
+
+
+def test_registro_considera_feita_so_a_classificacao_completa(tmp_path):
+    caminho = tmp_path / "classificacoes.jsonl"
+    incompleta = Classificacao("Q0002", None, Proposta(10, 0.9, "v"), None)
+    RegistroEmArquivo(caminho).salvar(incompleta)
+    assert not RegistroEmArquivo(caminho).ja_classificada("Q0002")
+    RegistroEmArquivo(caminho).salvar(CLASSIFICACAO)
+    assert RegistroEmArquivo(caminho).ja_classificada("Q0001")

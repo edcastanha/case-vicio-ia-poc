@@ -47,6 +47,9 @@ class ModeloClaudeCode:
         except subprocess.TimeoutExpired as erro:
             raise FalhaDoModelo(f"claude -p excedeu {_TEMPO_LIMITE_EM_SEGUNDOS}s") from erro
         if processo.returncode != 0:
+            motivo = _motivo_do_erro(processo.stdout)
+            if motivo:
+                raise FalhaDoModelo(f"claude -p saiu com código {processo.returncode}: {motivo}")
             raise FalhaDoModelo(
                 f"claude -p saiu com código {processo.returncode}: {processo.stderr}"
             )
@@ -73,3 +76,11 @@ def _voto(envelope: dict) -> dict:
     if not isinstance(voto, dict):
         raise FalhaDoModelo("envelope do claude -p sem structured_output")
     return voto
+
+
+def _motivo_do_erro(saida: str) -> str:
+    try:
+        envelope = json.loads(saida)
+    except json.JSONDecodeError:
+        return ""
+    return str(envelope.get("result") or "") if isinstance(envelope, dict) else ""

@@ -68,7 +68,8 @@ class RegistroEmMemoria:
         self.classificacoes: dict[str, object] = {}
 
     def ja_classificada(self, questao_id: str) -> bool:
-        return questao_id in self.classificacoes
+        classificacao = self.classificacoes.get(questao_id)
+        return classificacao is not None and classificacao.completa
 
     def salvar(self, classificacao) -> None:
         self.classificacoes[classificacao.questao_id] = classificacao

@@ -44,7 +44,8 @@ class RegistroEmArquivo:
         self._classificacoes = {c.questao_id: c for c in self._ler()}
 
     def ja_classificada(self, questao_id: str) -> bool:
-        return questao_id in self._classificacoes
+        classificacao = self._classificacoes.get(questao_id)
+        return classificacao is not None and classificacao.completa
 
     def salvar(self, classificacao: Classificacao) -> None:
         with self._caminho.open("a") as arquivo:
