@@ -31,6 +31,9 @@ _Avoid_: Família, linha
 **Nó inativo**:
 Nó com status inativo, que nunca pode receber questões.
 
+**Tema duplicado**:
+Tema cujo título se repete num Tema de outra Disciplina; seus Subtemas herdam a condição.
+
 **Lixeira**:
 Nó genérico ou introdutório que atraiu questões que não têm relação com ele.
 _Avoid_: Tema genérico, catch-all

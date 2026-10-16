@@ -3,6 +3,9 @@ from enum import Enum
 
 from classificacao.dominio.arvore import Arvore
 
+# Q39: se um dos modelos diz que está em dúvida, a questão vai para o Professor.
+CONFIANCA_DECLARADA_MINIMA = 0.5
+
 
 class Decisao(Enum):
     PUBLICAR = "publicar"
@@ -55,6 +58,10 @@ def _decidir_pelos_votos(
     consenso = arvore.no_de_consenso(classificador.no_id, verificador.no_id)
     if consenso is None:
         return Resultado(Decisao.REVISAR, sugestao, "classificador e verificador discordam")
+    if arvore.em_tema_duplicado(consenso):
+        return Resultado(Decisao.REVISAR, consenso, "tema duplicado na árvore")
+    if min(classificador.confianca, verificador.confianca) < CONFIANCA_DECLARADA_MINIMA:
+        return Resultado(Decisao.REVISAR, consenso, "um dos modelos declarou dúvida")
     if confianca < limiar:
         return Resultado(Decisao.REVISAR, consenso, f"confiança {confianca:.2f} abaixo do limiar")
     return Resultado(Decisao.PUBLICAR, consenso)
