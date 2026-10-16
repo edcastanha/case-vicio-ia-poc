@@ -13,6 +13,7 @@ class Decisao(Enum):
 @dataclass(frozen=True)
 class Voto:
     no_id: int | None
+    confianca: float = 0.0
 
 
 @dataclass(frozen=True)
