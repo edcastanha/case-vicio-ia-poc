@@ -21,7 +21,7 @@ class EmbeddingsFake:
 
     def vetorizar(self, textos):
         self.chamadas += 1
-        return [next(v for chave, v in VETORES.items() if chave in t) for t in textos]
+        return [VETORES.get(t) or next(v for k, v in VETORES.items() if k in t) for t in textos]
 
 
 QUESTAO = Questao("Q0001", "legítima defesa", "", {}, "", "")
