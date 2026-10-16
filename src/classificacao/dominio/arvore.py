@@ -38,3 +38,6 @@ class Arvore:
         else:
             return None
         return candidato if self.pode_receber_questao(candidato) else None
+
+    def nos_que_podem_receber_questao(self) -> list[No]:
+        return [no for no in self._nos.values() if self.pode_receber_questao(no.id)]
