@@ -42,6 +42,7 @@ def intervalo_de_wilson(acertos: int, total: int, z: float = 1.96) -> tuple[floa
 class EstimativaDePrecisao:
     precisao: float
     intervalo: tuple[float, float]
+    limiares: tuple[float, ...] = ()
 
 
 def estimar_precisao(
@@ -51,6 +52,7 @@ def estimar_precisao(
     sorteio = random.Random(semente)
     acertos_total = publicadas_total = 0
     precisoes: list[float] = []
+    limiares: list[float] = []
     for _ in range(repeticoes):
         indices = [sorteio.randrange(len(amostra)) for _ in amostra]
         limiar = calibrar([amostra[i] for i in indices], alvo).limiar
@@ -65,6 +67,7 @@ def estimar_precisao(
         acertos_total += acertos
         publicadas_total += len(publicadas)
         precisoes.append(acertos / len(publicadas))
+        limiares.append(limiar)
     if not precisoes:
         return None
     precisoes.sort()
@@ -72,7 +75,7 @@ def estimar_precisao(
         precisoes[int(0.025 * (len(precisoes) - 1))],
         precisoes[int(0.975 * (len(precisoes) - 1))],
     )
-    return EstimativaDePrecisao(acertos_total / publicadas_total, intervalo)
+    return EstimativaDePrecisao(acertos_total / publicadas_total, intervalo, tuple(limiares))
 
 
 def ajustar_curva(amostra: Sequence[Rotulo], faixas: int) -> Callable[[float], float]:
