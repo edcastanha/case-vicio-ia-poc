@@ -5,6 +5,8 @@ from pathlib import Path
 
 from classificacao.adaptadores.anthropic_api import ModeloAnthropic
 from classificacao.adaptadores.claude_code import ModeloClaudeCode
+from classificacao.adaptadores.deepseek_api import ModeloDeepSeek
+from classificacao.adaptadores.gemini_api import EmbeddingsGemini, ModeloGemini
 from classificacao.aplicacao.classificar_questao import Papeis
 from classificacao.aplicacao.portas import Embeddings, ModeloDeLinguagem
 
@@ -52,8 +54,12 @@ def criar_modelo(papel: str) -> ModeloDeLinguagem:
 def _modelo_api(papel: str, modelo: str) -> ModeloDeLinguagem:
     if modelo.startswith("claude-"):
         return ModeloAnthropic(modelo)
+    if modelo.startswith("gemini-"):
+        return ModeloGemini(modelo)
+    if modelo.startswith("deepseek-"):
+        return ModeloDeepSeek(modelo)
     raise SystemExit(f"backend api ainda sem adaptador para o modelo {modelo!r} ({papel})")
 
 
 def criar_embeddings() -> Embeddings:
-    raise SystemExit("embeddings do Gemini ainda não implementados")
+    return EmbeddingsGemini(modelo=os.environ.get("EMBEDDINGS_MODELO", "gemini-embedding-2"))
