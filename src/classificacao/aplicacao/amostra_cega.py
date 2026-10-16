@@ -53,7 +53,8 @@ def _candidatos(
     }
     publicaveis = sorted(no.id for no in arvore.nos_que_podem_receber_questao())
     vizinhos = sorted(n for v in votados for n in publicaveis if _vizinhos(arvore, v, n))
-    candidatos = set(votados)
+    # Q38: os dois lados de um tema duplicado, para o rótulo revelar a convenção.
+    candidatos = set(votados) | {h for v in votados for h in arvore.homonimos(v)}
     for fonte in (vizinhos, publicaveis):
         disponiveis = [n for n in fonte if n not in candidatos]
         sorteio.shuffle(disponiveis)

@@ -72,3 +72,32 @@ def test_nao_ha_consenso_entre_subtema_e_tema_de_outro_ramo():
 def test_voto_em_no_inexistente_nao_gera_ramo_nem_consenso():
     assert not arvore().mesmo_ramo(999, 10)
     assert arvore().no_de_consenso(999, 10) is None
+
+
+def arvore_com_duplicado() -> Arvore:
+    # Penal (1) > Lavagem de Dinheiro (12) > Delação (120)
+    # Leg. Especial (2) > Lavagem de Dinheiro (21)
+    return Arvore(
+        [
+            PENAL,
+            TEORIA_DO_CRIME,
+            ILICITUDE,
+            No(id=12, pai_id=1, nivel=1, caminho="Penal > Lavagem de Dinheiro"),
+            No(id=120, pai_id=12, nivel=2, caminho="Penal > Lavagem de Dinheiro > Delação"),
+            No(id=2, pai_id=None, nivel=0, caminho="Leg. Especial"),
+            No(id=21, pai_id=2, nivel=1, caminho="Leg. Especial > Lavagem de dinheiro"),
+        ]
+    )
+
+
+def test_tema_com_mesmo_titulo_em_outra_disciplina_e_duplicado_assim_como_seus_subtemas():
+    arvore = arvore_com_duplicado()
+    assert arvore.em_tema_duplicado(12)
+    assert arvore.em_tema_duplicado(21)
+    assert arvore.em_tema_duplicado(120)
+
+
+def test_tema_sem_par_em_outra_disciplina_nao_e_duplicado():
+    arvore = arvore_com_duplicado()
+    assert not arvore.em_tema_duplicado(10)
+    assert not arvore.em_tema_duplicado(100)

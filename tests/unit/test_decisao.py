@@ -18,8 +18,8 @@ LIMIAR = 0.9
 def test_concordancia_com_confianca_acima_do_limiar_publica_no_no_de_consenso():
     resultado = decidir(
         ARVORE,
-        classificador=Voto(100),
-        verificador=Voto(101),
+        classificador=Voto(100, 0.9),
+        verificador=Voto(101, 0.9),
         juiz=None,
         confianca=0.95,
         limiar=LIMIAR,
@@ -135,3 +135,39 @@ def test_sem_voto_valido_revisa_com_a_sugestao_de_reserva():
     assert resultado.decisao is Decisao.REVISAR
     assert resultado.tema_central_id == 11
     assert "similaridade" in resultado.motivo
+
+
+def test_concordancia_em_tema_duplicado_nao_publica():
+    arvore = Arvore(
+        [
+            No(id=1, pai_id=None, nivel=0, caminho="Penal"),
+            No(id=12, pai_id=1, nivel=1, caminho="Penal > Lavagem de Dinheiro"),
+            No(id=2, pai_id=None, nivel=0, caminho="Leg. Especial"),
+            No(id=21, pai_id=2, nivel=1, caminho="Leg. Especial > Lavagem de Dinheiro"),
+        ]
+    )
+    resultado = decidir(
+        arvore,
+        classificador=Voto(12, 0.95),
+        verificador=Voto(12, 0.95),
+        juiz=None,
+        confianca=0.99,
+        limiar=LIMIAR,
+    )
+    assert resultado.decisao is Decisao.REVISAR
+    assert resultado.tema_central_id == 12
+    assert "duplicado" in resultado.motivo
+
+
+def test_modelo_que_declara_duvida_impede_a_publicacao_mesmo_com_concordancia():
+    resultado = decidir(
+        ARVORE,
+        classificador=Voto(100, 0.2),
+        verificador=Voto(100, 0.9),
+        juiz=None,
+        confianca=0.99,
+        limiar=LIMIAR,
+    )
+    assert resultado.decisao is Decisao.REVISAR
+    assert resultado.tema_central_id == 100
+    assert "dúvida" in resultado.motivo

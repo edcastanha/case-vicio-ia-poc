@@ -67,3 +67,9 @@ def test_arvore_no_prompt_nao_leva_as_contagens_de_questoes_do_source():
     texto = arvore_para_prompt(ler_arvore(ZIP))
     assert "[4366] Criminologia > Classificação das Vítimas" in texto
     assert "questões" not in texto
+
+
+def test_arvore_real_tem_8_pares_de_temas_duplicados_entre_disciplinas():
+    arvore = ler_arvore(ZIP)
+    temas = [no for no in arvore.nos_que_podem_receber_questao() if no.nivel == 1]
+    assert sum(arvore.em_tema_duplicado(no.id) for no in temas) == 16

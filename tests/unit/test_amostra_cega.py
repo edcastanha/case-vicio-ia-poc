@@ -71,3 +71,23 @@ def test_oitenta_por_cento_da_amostra_vem_das_questoes_com_concordancia():
     amostra = gerar(concordantes + desacordos, n=20)
     ids_concordantes = {c.questao_id for c in concordantes}
     assert sum(item.questao.id in ids_concordantes for item in amostra) == 16
+
+
+def test_voto_em_tema_duplicado_traz_o_homonimo_da_outra_disciplina_como_candidato():
+    arvore = Arvore(
+        [
+            No(id=1, pai_id=None, nivel=0, caminho="Penal"),
+            No(id=12, pai_id=1, nivel=1, caminho="Penal > Lavagem de Dinheiro"),
+            No(id=13, pai_id=1, nivel=1, caminho="Penal > Furto"),
+            No(id=14, pai_id=1, nivel=1, caminho="Penal > Roubo"),
+            No(id=15, pai_id=1, nivel=1, caminho="Penal > Estelionato"),
+            No(id=16, pai_id=1, nivel=1, caminho="Penal > Dano"),
+            No(id=2, pai_id=None, nivel=0, caminho="Leg. Especial"),
+            No(id=21, pai_id=2, nivel=1, caminho="Leg. Especial > Lavagem de Dinheiro"),
+        ]
+    )
+    classificacao = Classificacao("Q0001", Proposta(12, 0.9, "c"), Proposta(12, 0.9, "v"), None)
+    [item] = gerar_amostra_cega(
+        [classificacao], {"Q0001": questao("Q0001")}, arvore, n=1, semente=7
+    )
+    assert {12, 21} <= set(item.candidatos)
