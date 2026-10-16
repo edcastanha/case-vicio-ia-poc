@@ -3,6 +3,7 @@
 import os
 from pathlib import Path
 
+from classificacao.adaptadores.anthropic_api import ModeloAnthropic
 from classificacao.adaptadores.claude_code import ModeloClaudeCode
 from classificacao.aplicacao.classificar_questao import Papeis
 from classificacao.aplicacao.portas import ModeloDeLinguagem
@@ -44,5 +45,11 @@ def criar_modelo(papel: str) -> ModeloDeLinguagem:
     if backend == "claude-code":
         return ModeloClaudeCode(modelo)
     if backend == "api":
-        raise SystemExit(f"backend api do {papel} ainda não implementado (aguardando chaves)")
+        return _modelo_api(papel, modelo)
     raise SystemExit(f"{papel.upper()}_BACKEND inválido: {backend!r} (use api ou claude-code)")
+
+
+def _modelo_api(papel: str, modelo: str) -> ModeloDeLinguagem:
+    if modelo.startswith("claude-"):
+        return ModeloAnthropic(modelo)
+    raise SystemExit(f"backend api ainda sem adaptador para o modelo {modelo!r} ({papel})")

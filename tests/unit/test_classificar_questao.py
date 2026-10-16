@@ -60,16 +60,21 @@ def test_no_desacordo_o_juiz_ve_as_duas_propostas_e_seu_voto_e_registrado():
     assert "escolhi 11" in prompt_do_juiz
 
 
-def test_so_o_classificador_ve_a_origem_e_os_dois_veem_a_arvore():
+def test_so_o_classificador_ve_a_origem_e_a_arvore_vai_no_system_prompt():
     classificador = ModeloFake("c", sempre(10))
     verificador = ModeloFake("v", sempre(10))
     classificar(classificador, verificador, ModeloFake("j", sempre(10)))
-    [(_, prompt_classificador)] = classificador.chamadas
-    [(_, prompt_verificador)] = verificador.chamadas
+    [(sistema_classificador, prompt_classificador)] = classificador.chamadas
+    [(sistema_verificador, prompt_verificador)] = verificador.chamadas
     assert "Procedimento do Júri" in prompt_classificador
     assert "Procedimento do Júri" not in prompt_verificador
-    for prompt in (prompt_classificador, prompt_verificador):
-        assert "Processo Penal > Júri > Desaforamento" in prompt
+    # A árvore é igual em toda chamada: fica no system prompt, prefixo estável para o cache.
+    for sistema, prompt in (
+        (sistema_classificador, prompt_classificador),
+        (sistema_verificador, prompt_verificador),
+    ):
+        assert "Processo Penal > Júri > Desaforamento" in sistema
+        assert "Processo Penal > Júri > Desaforamento" not in prompt
 
 
 def test_resposta_malformada_ou_falha_passageira_e_tentada_de_novo():

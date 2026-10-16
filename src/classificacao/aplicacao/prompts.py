@@ -5,11 +5,12 @@ SCHEMA_DO_VOTO = {
     "type": "object",
     "properties": {
         "no_id": {"type": ["integer", "null"]},
-        "confianca": {"type": "number", "minimum": 0, "maximum": 1},
+        "confianca": {"type": "number"},
         "justificativa": {"type": "string"},
         "extras": {"type": "array", "items": {"type": "integer"}},
     },
     "required": ["no_id", "confianca", "justificativa", "extras"],
+    "additionalProperties": False,
 }
 
 _REGRAS_COMUNS = """\
@@ -79,11 +80,14 @@ def arvore_para_prompt(arvore: Arvore) -> str:
     return "\n".join(f"[{no.id}] {no.caminho}" for no in nos)
 
 
-def questao_para_prompt(questao: Questao, arvore: Arvore, com_origem: bool) -> str:
+def sistema_com_arvore(sistema: str, arvore: Arvore) -> str:
+    """Instruções + árvore: igual em toda chamada do papel, prefixo estável para o cache."""
+    return f"{sistema}\n## Árvore de temas\n\n{arvore_para_prompt(arvore)}"
+
+
+def questao_para_prompt(questao: Questao, com_origem: bool) -> str:
     alternativas = "\n".join(f"{letra}) {texto}" for letra, texto in questao.alternativas.items())
     partes = [
-        "## Árvore de temas",
-        arvore_para_prompt(arvore),
         "## Questão",
         questao.enunciado,
         questao.comando,
@@ -97,10 +101,10 @@ def questao_para_prompt(questao: Questao, arvore: Arvore, com_origem: bool) -> s
     return "\n\n".join(partes)
 
 
-def disputa_para_prompt(questao: Questao, arvore: Arvore, proposta_a, proposta_b) -> str:
+def disputa_para_prompt(questao: Questao, proposta_a, proposta_b) -> str:
     return "\n".join(
         [
-            questao_para_prompt(questao, arvore, com_origem=False),
+            questao_para_prompt(questao, com_origem=False),
             f"Proposta A: {proposta_a.no_id} — {proposta_a.justificativa}",
             f"Proposta B: {proposta_b.no_id} — {proposta_b.justificativa}",
         ]
