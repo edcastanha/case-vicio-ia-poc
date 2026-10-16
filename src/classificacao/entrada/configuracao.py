@@ -6,7 +6,7 @@ from pathlib import Path
 from classificacao.adaptadores.anthropic_api import ModeloAnthropic
 from classificacao.adaptadores.claude_code import ModeloClaudeCode
 from classificacao.aplicacao.classificar_questao import Papeis
-from classificacao.aplicacao.portas import ModeloDeLinguagem
+from classificacao.aplicacao.portas import Embeddings, ModeloDeLinguagem
 
 # Q15 (modo api) e Q21 (modo claude-code): modelos diferentes por papel.
 MODELO_PADRAO = {
@@ -53,3 +53,7 @@ def _modelo_api(papel: str, modelo: str) -> ModeloDeLinguagem:
     if modelo.startswith("claude-"):
         return ModeloAnthropic(modelo)
     raise SystemExit(f"backend api ainda sem adaptador para o modelo {modelo!r} ({papel})")
+
+
+def criar_embeddings() -> Embeddings:
+    raise SystemExit("embeddings do Gemini ainda não implementados")
