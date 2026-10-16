@@ -5,6 +5,10 @@ import pytest
 from classificacao.adaptadores.anexos import ler_arvore, ler_questoes, limpar_html
 
 ZIP = Path(__file__).parents[2] / "anexos-case-ia.zip"
+Q0016_HTML = (
+    'sobre o tema\n<span style="font-style: italic;">prisão</span>, '
+    "avalie as assertivas a seguir.\n  <br>  <br>  I. Consoante a jurisprudência"
+)
 
 
 @pytest.mark.parametrize(
@@ -17,8 +21,7 @@ ZIP = Path(__file__).parents[2] / "anexos-case-ia.zip"
         ),
         # Q0016, enunciado
         (
-            'sobre o tema\n<span style="font-style: italic;">prisão</span>, avalie as assertivas a seguir.'
-            "\n  <br>  <br>  I. Consoante a jurisprudência",
+            Q0016_HTML,
             "sobre o tema prisão, avalie as assertivas a seguir.\nI. Consoante a jurisprudência",
         ),
         # Q0001, enunciado
