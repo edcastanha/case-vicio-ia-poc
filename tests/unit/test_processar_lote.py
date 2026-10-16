@@ -60,3 +60,21 @@ def test_erro_inesperado_numa_questao_nao_derruba_o_lote():
     processar([questao("Q0001"), questao("Q0002"), questao("Q0003")], registro, papeis, fila)
     assert set(registro.classificacoes) == {"Q0001", "Q0003"}
     assert [(q, papel) for q, papel, _ in fila.falhas] == [("Q0002", "lote")]
+
+
+def test_com_paralelismo_todas_as_questoes_terminam_registradas():
+    registro = RegistroEmMemoria()
+    questoes = [questao(f"Q{i:04d}") for i in range(1, 21)]
+    processar_lote(
+        questoes,
+        ARVORE,
+        Papeis(
+            ModeloFake("c", sempre(10)), ModeloFake("v", sempre(11)), ModeloFake("j", sempre(10))
+        ),
+        registro=registro,
+        fila_de_falhas=FilaDeFalhasEmMemoria(),
+        cache=CacheEmMemoria(),
+        esperar=lambda tentativa: None,
+        paralelismo=2,
+    )
+    assert set(registro.classificacoes) == {q.id for q in questoes}

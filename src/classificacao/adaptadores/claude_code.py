@@ -1,5 +1,6 @@
 import json
 import subprocess
+import threading
 from collections.abc import Callable
 
 from classificacao.aplicacao.portas import FalhaDoModelo
@@ -16,6 +17,8 @@ class ModeloClaudeCode:
         self.modelo = modelo
         self.identificador = f"claude-code:{modelo}"
         self._executar = executar
+        self._trava = threading.Lock()
+        self.custo_usd = 0.0
 
     def responder(self, sistema: str, usuario: str, schema: dict) -> dict:
         comando = [
@@ -47,14 +50,23 @@ class ModeloClaudeCode:
             raise FalhaDoModelo(
                 f"claude -p saiu com código {processo.returncode}: {processo.stderr}"
             )
-        return _voto_do_envelope(processo.stdout)
+        envelope = _envelope(processo.stdout)
+        with self._trava:
+            self.custo_usd += float(envelope.get("total_cost_usd") or 0.0)
+        return _voto(envelope)
 
 
-def _voto_do_envelope(saida: str) -> dict:
+def _envelope(saida: str) -> dict:
     try:
         envelope = json.loads(saida)
     except json.JSONDecodeError as erro:
         raise FalhaDoModelo("claude -p não devolveu JSON") from erro
+    if not isinstance(envelope, dict):
+        raise FalhaDoModelo("claude -p não devolveu um objeto JSON")
+    return envelope
+
+
+def _voto(envelope: dict) -> dict:
     if envelope.get("is_error") or envelope.get("subtype") != "success":
         raise FalhaDoModelo(f"claude -p devolveu erro: {envelope.get('result')!r}")
     voto = envelope.get("structured_output")
