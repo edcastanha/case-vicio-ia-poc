@@ -4,7 +4,7 @@ from classificacao.dominio.questao import Questao
 SCHEMA_DO_VOTO = {
     "type": "object",
     "properties": {
-        "no_id": {"type": ["integer", "null"]},
+        "no_id": {"anyOf": [{"type": "integer"}, {"type": "null"}]},
         "confianca": {"type": "number"},
         "justificativa": {"type": "string"},
         "extras": {"type": "array", "items": {"type": "integer"}},
