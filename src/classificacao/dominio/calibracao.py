@@ -1,4 +1,5 @@
 import math
+import random
 from collections.abc import Sequence
 from dataclasses import dataclass
 
@@ -35,3 +36,40 @@ def intervalo_de_wilson(acertos: int, total: int, z: float = 1.96) -> tuple[floa
     centro = (p + z**2 / (2 * total)) / denominador
     margem = z * math.sqrt(p * (1 - p) / total + z**2 / (4 * total**2)) / denominador
     return max(0.0, centro - margem), min(1.0, centro + margem)
+
+
+@dataclass(frozen=True)
+class EstimativaDePrecisao:
+    precisao: float
+    intervalo: tuple[float, float]
+
+
+def estimar_precisao(
+    amostra: Sequence[Rotulo], alvo: float, repeticoes: int, semente: int
+) -> EstimativaDePrecisao | None:
+    """Bootstrap do procedimento inteiro: calibra numa reamostra e mede fora dela."""
+    sorteio = random.Random(semente)
+    acertos_total = publicadas_total = 0
+    precisoes: list[float] = []
+    for _ in range(repeticoes):
+        indices = [sorteio.randrange(len(amostra)) for _ in amostra]
+        limiar = calibrar([amostra[i] for i in indices], alvo).limiar
+        sorteados = set(indices)
+        fora_da_reamostra = [r for i, r in enumerate(amostra) if i not in sorteados]
+        if limiar is None:
+            continue
+        publicadas = [r for r in fora_da_reamostra if r.pontuacao >= limiar]
+        if not publicadas:
+            continue
+        acertos = sum(r.acertou for r in publicadas)
+        acertos_total += acertos
+        publicadas_total += len(publicadas)
+        precisoes.append(acertos / len(publicadas))
+    if not precisoes:
+        return None
+    precisoes.sort()
+    intervalo = (
+        precisoes[int(0.025 * (len(precisoes) - 1))],
+        precisoes[int(0.975 * (len(precisoes) - 1))],
+    )
+    return EstimativaDePrecisao(acertos_total / publicadas_total, intervalo)
