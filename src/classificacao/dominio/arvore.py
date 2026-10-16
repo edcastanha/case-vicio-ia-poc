@@ -41,3 +41,6 @@ class Arvore:
 
     def nos_que_podem_receber_questao(self) -> list[No]:
         return [no for no in self._nos.values() if self.pode_receber_questao(no.id)]
+
+    def no(self, id: int) -> No | None:
+        return self._nos.get(id)

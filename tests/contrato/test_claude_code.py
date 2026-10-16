@@ -62,3 +62,10 @@ def test_identificador_separa_backend_e_modelo_para_o_cache():
 def test_falhas_do_claude_code_viram_falha_do_modelo(executor):
     with pytest.raises(FalhaDoModelo):
         ModeloClaudeCode("haiku", executar=executor).responder("s", "u", SCHEMA_DO_VOTO)
+
+
+def test_soma_o_custo_informado_pelos_envelopes():
+    modelo = ModeloClaudeCode("haiku", executar=ExecutorGravado())
+    modelo.responder("s", "u", SCHEMA_DO_VOTO)
+    modelo.responder("s", "u", SCHEMA_DO_VOTO)
+    assert modelo.custo_usd == pytest.approx(2 * 0.0004469, rel=1e-3)

@@ -5,6 +5,9 @@ description = "Classificação de questões penais na árvore de temas (case Ví
 requires-python = ">=3.12"
 dependencies = []
 
+[project.scripts]
+classificacao = "classificacao.entrada.cli:main"
+
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]
 

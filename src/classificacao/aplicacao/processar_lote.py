@@ -1,5 +1,7 @@
+import threading
 import time
 from collections.abc import Callable, Sequence
+from concurrent.futures import ThreadPoolExecutor
 
 from classificacao.aplicacao.classificar_questao import Papeis, classificar_questao
 from classificacao.aplicacao.portas import Cache, FilaDeFalhas, RegistroDeClassificacoes
@@ -15,15 +17,22 @@ def processar_lote(
     fila_de_falhas: FilaDeFalhas,
     cache: Cache,
     esperar: Callable[[int], None] = lambda tentativa: time.sleep(2**tentativa),
+    paralelismo: int = 1,
 ) -> None:
-    for questao in questoes:
-        if registro.ja_classificada(questao.id):
-            continue
+    trava = threading.Lock()
+
+    def processar(questao: Questao) -> None:
         try:
             classificacao = classificar_questao(
                 questao, arvore, papeis, fila_de_falhas, cache, esperar=esperar
             )
         except Exception as erro:  # noqa: BLE001 - uma questão nunca derruba o lote
-            fila_de_falhas.registrar(questao.id, "lote", repr(erro))
-            continue
-        registro.salvar(classificacao)
+            with trava:
+                fila_de_falhas.registrar(questao.id, "lote", repr(erro))
+            return
+        with trava:
+            registro.salvar(classificacao)
+
+    pendentes = [q for q in questoes if not registro.ja_classificada(q.id)]
+    with ThreadPoolExecutor(max_workers=paralelismo) as executor:
+        list(executor.map(processar, pendentes))

@@ -1,4 +1,5 @@
 import json
+import threading
 from dataclasses import asdict
 from pathlib import Path
 
@@ -24,12 +25,13 @@ class FilaDeFalhasEmArquivo:
     """DLQ: uma falha por linha, só acrescentando."""
 
     def __init__(self, caminho: Path) -> None:
+        self._trava = threading.Lock()
         self._caminho = caminho
         self._caminho.parent.mkdir(parents=True, exist_ok=True)
 
     def registrar(self, questao_id: str, papel: str, erro: str) -> None:
         linha = {"questao_id": questao_id, "papel": papel, "erro": erro}
-        with self._caminho.open("a") as arquivo:
+        with self._trava, self._caminho.open("a") as arquivo:
             arquivo.write(json.dumps(linha, ensure_ascii=False) + "\n")
 
 
