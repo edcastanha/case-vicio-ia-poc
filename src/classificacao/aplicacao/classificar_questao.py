@@ -92,7 +92,22 @@ def classificar_questao(
             sistema_com_arvore(SISTEMA_JUIZ, arvore),
             disputa_para_prompt(questao, classificador, verificador),
         )
+    elif _sem_voto_valido(arvore, classificador, verificador):
+        # Q42: sem embeddings, o Juiz classifica sozinho para que Revisar tenha uma sugestão.
+        juiz = votar(
+            "juiz",
+            papeis.juiz,
+            sistema_com_arvore(SISTEMA_VERIFICADOR, arvore),
+            questao_para_prompt(questao, com_origem=False),
+        )
     return Classificacao(questao.id, classificador, verificador, juiz)
+
+
+def _sem_voto_valido(arvore: Arvore, *propostas: Proposta | None) -> bool:
+    presentes = [p for p in propostas if p is not None]
+    if presentes and all(p.no_id is None for p in presentes) and len(presentes) == 2:
+        return False  # os dois dizem que nenhum nó serve: é Fora, não falta de voto
+    return not any(arvore.pode_receber_questao(p.no_id) for p in presentes)
 
 
 def _chave_do_cache(papel: str, identificador: str, sistema: str, usuario: str) -> str:

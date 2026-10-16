@@ -2,6 +2,8 @@
 
 Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e Criminologia na árvore de temas da plataforma e decide, para cada uma, **publicar**, **revisar** ou **fora**, sob a régua de ≥ 95% de precisão nas publicadas. Enunciado: [`case-ia-classificacao-de-topicos.pdf`](case-ia-classificacao-de-topicos.pdf). Dados: [`anexos-case-ia.zip`](anexos-case-ia.zip) (lido direto, sem extrair).
 
+> **Configuração usada na entrega** (só havia chave do DeepSeek; fallback previsto na decisão Q22 e declarado aqui): Classificador = `claude -p` com `sonnet` (assinatura Claude Code), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, **sem embeddings** (similaridade 0; a sugestão de reserva vem do Juiz). Classificador e Verificador seguem de famílias diferentes, que é o que a regra de publicação exige. A calibração foi feita nessa mesma configuração.
+
 ## Como funciona, em uma frase por etapa
 
 1. **Classificador** (Anthropic, `claude-sonnet-5-5`) escolhe o nó da árvore vendo a questão e a classificação de origem.

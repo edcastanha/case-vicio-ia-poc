@@ -1,5 +1,6 @@
 import json
 import os
+import threading
 
 import openai
 
@@ -20,6 +21,8 @@ class ModeloDeepSeek:
             api_key=os.environ.get("DEEPSEEK_API_KEY"), base_url=_URL
         )
         self._esforco = esforco
+        self._trava = threading.Lock()
+        self.tokens = {"entrada_cache": 0, "entrada_sem_cache": 0, "saida": 0}
 
     def responder(self, sistema: str, usuario: str, schema: dict) -> dict:
         try:
@@ -34,6 +37,7 @@ class ModeloDeepSeek:
             )
         except openai.APIError as erro:
             raise FalhaDoModelo(f"DeepSeek: {erro}") from erro
+        self._contar(resposta.usage)
         escolha = resposta.choices[0]
         if escolha.finish_reason != "stop":
             raise FalhaDoModelo(f"DeepSeek parou com finish_reason={escolha.finish_reason}")
@@ -42,6 +46,15 @@ class ModeloDeepSeek:
             return json.loads(escolha.message.content or "")
         except json.JSONDecodeError as erro:
             raise FalhaDoModelo("DeepSeek não devolveu JSON") from erro
+
+    def _contar(self, uso) -> None:
+        if uso is None:
+            return
+        acerto = getattr(uso, "prompt_cache_hit_tokens", 0) or 0
+        with self._trava:
+            self.tokens["entrada_cache"] += acerto
+            self.tokens["entrada_sem_cache"] += (uso.prompt_tokens or 0) - acerto
+            self.tokens["saida"] += uso.completion_tokens or 0
 
 
 def _instrucao_json(schema: dict) -> str:
