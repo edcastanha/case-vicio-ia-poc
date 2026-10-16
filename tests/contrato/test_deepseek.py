@@ -14,7 +14,10 @@ VOTO = '{"no_id": 10, "confianca": 0.9, "justificativa": "j", "extras": []}'
 
 def resposta(conteudo=VOTO, fim="stop"):
     mensagem = SimpleNamespace(content=conteudo, reasoning_content="raciocínio")
-    return SimpleNamespace(choices=[SimpleNamespace(message=mensagem, finish_reason=fim)])
+    uso = SimpleNamespace(prompt_tokens=1000, prompt_cache_hit_tokens=800, completion_tokens=200)
+    return SimpleNamespace(
+        choices=[SimpleNamespace(message=mensagem, finish_reason=fim)], usage=uso
+    )
 
 
 class ClienteFalso:
@@ -68,3 +71,10 @@ def test_voto_em_json_mode_com_thinking_e_exemplo_do_formato_no_prompt():
 def test_falhas_do_deepseek_viram_falha_do_modelo(cliente):
     with pytest.raises(FalhaDoModelo):
         ModeloDeepSeek("deepseek-v4-pro", cliente=cliente).responder("s", "u", SCHEMA_DO_VOTO)
+
+
+def test_soma_os_tokens_informados_pela_api_para_estimar_o_custo():
+    modelo = ModeloDeepSeek("deepseek-flash", cliente=ClienteFalso())
+    modelo.responder("s", "u", SCHEMA_DO_VOTO)
+    modelo.responder("s", "u", SCHEMA_DO_VOTO)
+    assert modelo.tokens == {"entrada_cache": 1600, "entrada_sem_cache": 400, "saida": 400}

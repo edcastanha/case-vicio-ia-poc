@@ -89,6 +89,9 @@ def _classificar(questoes: list[Questao], zip_anexos: Path, saida: Path, paralel
     )
     escrever_resumo(registro, arvore, saida / "resumo.csv")
     custo = sum(getattr(m, "custo_usd", 0.0) for m in vars(papeis).values())
+    for papel, modelo in vars(papeis).items():
+        if hasattr(modelo, "tokens"):
+            print(f"tokens {papel} ({modelo.identificador}): {modelo.tokens}")
     classificadas = len(registro.todas())
     print(f"{classificadas}/{len(questoes)} classificadas; custo desta execução US$ {custo:.2f}")
     print(f"resumo: {saida / 'resumo.csv'}")

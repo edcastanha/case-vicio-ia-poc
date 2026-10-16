@@ -122,3 +122,17 @@ def test_trocar_o_modelo_nao_reaproveita_o_cache_do_anterior():
     novo_classificador = ModeloFake("api:sonnet", sempre(10))
     classificar(novo_classificador, verificador, juiz, cache=cache)
     assert len(novo_classificador.chamadas) == 1
+
+
+def test_sem_nenhum_voto_valido_o_juiz_e_chamado_sozinho_para_sugerir():
+    juiz = ModeloFake("j", sempre(11))
+    resultado = classificar(ModeloFake("c", falha_sempre), ModeloFake("v", sempre(999)), juiz)
+    assert resultado.juiz.no_id == 11
+    [(_, prompt_do_juiz)] = juiz.chamadas
+    assert "Proposta" not in prompt_do_juiz
+
+
+def test_com_um_voto_valido_o_juiz_nao_e_chamado():
+    juiz = ModeloFake("j", sempre(11))
+    classificar(ModeloFake("c", falha_sempre), ModeloFake("v", sempre(10)), juiz)
+    assert juiz.chamadas == []
