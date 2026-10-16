@@ -29,6 +29,22 @@ def decidir(
     juiz: Voto | None,
     confianca: float,
     limiar: float,
+    reserva: int | None = None,
+) -> Resultado:
+    resultado = _decidir_pelos_votos(arvore, classificador, verificador, juiz, confianca, limiar)
+    if resultado.decisao is Decisao.REVISAR and resultado.tema_central_id is None:
+        motivo = f"{resultado.motivo}; sem voto válido, sugestão por similaridade"
+        return Resultado(Decisao.REVISAR, reserva, motivo)
+    return resultado
+
+
+def _decidir_pelos_votos(
+    arvore: Arvore,
+    classificador: Voto | None,
+    verificador: Voto | None,
+    juiz: Voto | None,
+    confianca: float,
+    limiar: float,
 ) -> Resultado:
     sugestao = _primeira_sugestao_valida(arvore, juiz, classificador, verificador)
     if classificador is None or verificador is None:
