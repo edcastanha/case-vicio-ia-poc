@@ -1,6 +1,6 @@
 import pytest
 
-from classificacao.dominio.calibracao import Rotulo, calibrar, estimar_precisao
+from classificacao.dominio.calibracao import Rotulo, ajustar_curva, calibrar, estimar_precisao
 
 AMOSTRA = [
     Rotulo(pontuacao=0.99, acertou=True),
@@ -52,3 +52,25 @@ def test_bootstrap_denuncia_o_otimismo_quando_a_pontuacao_nao_informa_o_acerto()
 def test_bootstrap_sem_nenhuma_publicacao_nao_tem_precisao():
     amostra = [Rotulo(0.5 + i / 100, False) for i in range(20)]
     assert estimar_precisao(amostra, alvo=0.97, repeticoes=50, semente=1) is None
+
+
+def test_curva_converte_pontuacao_na_taxa_de_acerto_da_sua_faixa():
+    # faixa baixa (0.1–0.4): 1 acerto em 4; faixa alta (0.6–0.9): 3 em 4
+    amostra = [
+        Rotulo(0.1, False), Rotulo(0.2, False), Rotulo(0.3, True), Rotulo(0.4, False),
+        Rotulo(0.6, True), Rotulo(0.7, True), Rotulo(0.8, False), Rotulo(0.9, True),
+    ]  # fmt: skip
+    curva = ajustar_curva(amostra, faixas=2)
+    assert curva(0.25) == pytest.approx(0.25)
+    assert curva(0.85) == pytest.approx(0.75)
+
+
+def test_curva_nunca_diminui_quando_a_faixa_alta_acerta_menos_que_a_baixa():
+    # faixa baixa: 3 em 4; faixa alta: 1 em 4 → unidas: 4 em 8
+    amostra = [
+        Rotulo(0.1, True), Rotulo(0.2, True), Rotulo(0.3, False), Rotulo(0.4, True),
+        Rotulo(0.6, False), Rotulo(0.7, False), Rotulo(0.8, True), Rotulo(0.9, False),
+    ]  # fmt: skip
+    curva = ajustar_curva(amostra, faixas=2)
+    assert curva(0.25) == pytest.approx(0.5)
+    assert curva(0.85) == pytest.approx(0.5)

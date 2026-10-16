@@ -1,6 +1,6 @@
 import math
 import random
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 
 
@@ -73,3 +73,27 @@ def estimar_precisao(
         precisoes[int(0.975 * (len(precisoes) - 1))],
     )
     return EstimativaDePrecisao(acertos_total / publicadas_total, intervalo)
+
+
+def ajustar_curva(amostra: Sequence[Rotulo], faixas: int) -> Callable[[float], float]:
+    """Faixas com o mesmo número de rótulos; a pontuação vira a taxa de acerto da sua faixa."""
+    ordenada = sorted(amostra, key=lambda r: r.pontuacao)
+    tamanho = math.ceil(len(ordenada) / faixas)
+    grupos = [ordenada[i : i + tamanho] for i in range(0, len(ordenada), tamanho)]
+    # Une faixas vizinhas que violam a ordem (pool adjacent violators).
+    blocos: list[list[Rotulo]] = []
+    for grupo in grupos:
+        blocos.append(list(grupo))
+        while len(blocos) > 1 and _taxa(blocos[-2]) > _taxa(blocos[-1]):
+            ultimo = blocos.pop()
+            blocos[-1].extend(ultimo)
+    limites = [(max(r.pontuacao for r in b), _taxa(b)) for b in blocos]
+
+    def curva(pontuacao: float) -> float:
+        return next((taxa for teto, taxa in limites if pontuacao <= teto), limites[-1][1])
+
+    return curva
+
+
+def _taxa(rotulos: Sequence[Rotulo]) -> float:
+    return sum(r.acertou for r in rotulos) / len(rotulos)
