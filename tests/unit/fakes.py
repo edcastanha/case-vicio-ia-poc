@@ -61,3 +61,14 @@ def em_sequencia(*respostas: Callable[[str, str], dict]) -> Callable[[str, str],
 
 def malformada(sistema: str, usuario: str) -> dict:
     return {"confianca": 0.9}
+
+
+class RegistroEmMemoria:
+    def __init__(self) -> None:
+        self.classificacoes: dict[str, object] = {}
+
+    def ja_classificada(self, questao_id: str) -> bool:
+        return questao_id in self.classificacoes
+
+    def salvar(self, classificacao) -> None:
+        self.classificacoes[classificacao.questao_id] = classificacao
