@@ -1,0 +1,1438 @@
+{
+ "Q0001": {
+  "similaridade": 0.8965762618692248,
+  "reserva": 5527
+ },
+ "Q0002": {
+  "similaridade": 0.7869904953157417,
+  "reserva": 5199
+ },
+ "Q0003": {
+  "similaridade": 0.8423135280640088,
+  "reserva": 5534
+ },
+ "Q0004": {
+  "similaridade": 0.8513432073424101,
+  "reserva": 5484
+ },
+ "Q0005": {
+  "similaridade": 0.8019698065387483,
+  "reserva": 5208
+ },
+ "Q0006": {
+  "similaridade": 0.8280753613393139,
+  "reserva": 5159
+ },
+ "Q0007": {
+  "similaridade": 0.8093078612511424,
+  "reserva": 5130
+ },
+ "Q0008": {
+  "similaridade": 0.7649336188801565,
+  "reserva": 5087
+ },
+ "Q0009": {
+  "similaridade": 0.8146774704317499,
+  "reserva": 5159
+ },
+ "Q0010": {
+  "similaridade": 0.8431996869698701,
+  "reserva": 6717
+ },
+ "Q0011": {
+  "similaridade": 0.8484550617003359,
+  "reserva": 6723
+ },
+ "Q0012": {
+  "similaridade": 0.8218120978908305,
+  "reserva": 5569
+ },
+ "Q0013": {
+  "similaridade": 0.8613824262275132,
+  "reserva": 5503
+ },
+ "Q0014": {
+  "similaridade": 0.8222595667029382,
+  "reserva": 5477
+ },
+ "Q0015": {
+  "similaridade": 0.8595635731081113,
+  "reserva": 5498
+ },
+ "Q0016": {
+  "similaridade": 0.8041870880198899,
+  "reserva": 5587
+ },
+ "Q0017": {
+  "similaridade": 0.8014995801441807,
+  "reserva": 5487
+ },
+ "Q0018": {
+  "similaridade": 0.8402286561288167,
+  "reserva": 4701
+ },
+ "Q0019": {
+  "similaridade": 0.8554986658380128,
+  "reserva": 5475
+ },
+ "Q0020": {
+  "similaridade": 0.7763327386301045,
+  "reserva": 5080
+ },
+ "Q0021": {
+  "similaridade": 0.8302844518035499,
+  "reserva": 5503
+ },
+ "Q0022": {
+  "similaridade": 0.8410126428153617,
+  "reserva": 5081
+ },
+ "Q0023": {
+  "similaridade": 0.8608788957826166,
+  "reserva": 5527
+ },
+ "Q0024": {
+  "similaridade": 0.8597699867219767,
+  "reserva": 4388
+ },
+ "Q0025": {
+  "similaridade": 0.8247745407919245,
+  "reserva": 5093
+ },
+ "Q0026": {
+  "similaridade": 0.8396036730238808,
+  "reserva": 6724
+ },
+ "Q0027": {
+  "similaridade": 0.8386090125647979,
+  "reserva": 5487
+ },
+ "Q0028": {
+  "similaridade": 0.7923536910472617,
+  "reserva": 5531
+ },
+ "Q0029": {
+  "similaridade": 0.83520558868568,
+  "reserva": 6716
+ },
+ "Q0030": {
+  "similaridade": 0.8433386771805658,
+  "reserva": 5128
+ },
+ "Q0031": {
+  "similaridade": 0.8435045963868114,
+  "reserva": 4385
+ },
+ "Q0032": {
+  "similaridade": 0.8591762030839791,
+  "reserva": 5497
+ },
+ "Q0033": {
+  "similaridade": 0.8654324542164082,
+  "reserva": 5519
+ },
+ "Q0034": {
+  "similaridade": 0.8834875337451578,
+  "reserva": 5477
+ },
+ "Q0035": {
+  "similaridade": 0.8757958603039263,
+  "reserva": 4706
+ },
+ "Q0036": {
+  "similaridade": 0.8172373239365716,
+  "reserva": 4704
+ },
+ "Q0037": {
+  "similaridade": 0.8305549503180456,
+  "reserva": 5081
+ },
+ "Q0038": {
+  "similaridade": 0.838996426138017,
+  "reserva": 5549
+ },
+ "Q0039": {
+  "similaridade": 0.8017697200366266,
+  "reserva": 4687
+ },
+ "Q0040": {
+  "similaridade": 0.8344358213434213,
+  "reserva": 5529
+ },
+ "Q0041": {
+  "similaridade": 0.860409003179915,
+  "reserva": 5184
+ },
+ "Q0042": {
+  "similaridade": 0.8458270604839209,
+  "reserva": 5222
+ },
+ "Q0043": {
+  "similaridade": 0.8350213186444732,
+  "reserva": 5203
+ },
+ "Q0044": {
+  "similaridade": 0.7940197739662754,
+  "reserva": 5548
+ },
+ "Q0045": {
+  "similaridade": 0.8843692282639776,
+  "reserva": 5091
+ },
+ "Q0046": {
+  "similaridade": 0.8596023391669932,
+  "reserva": 5510
+ },
+ "Q0047": {
+  "similaridade": 0.8382883769829481,
+  "reserva": 5164
+ },
+ "Q0048": {
+  "similaridade": 0.8175400827660824,
+  "reserva": 5193
+ },
+ "Q0049": {
+  "similaridade": 0.8485208157928652,
+  "reserva": 5152
+ },
+ "Q0050": {
+  "similaridade": 0.8027233363732174,
+  "reserva": 5557
+ },
+ "Q0051": {
+  "similaridade": 0.780804952511152,
+  "reserva": 4690
+ },
+ "Q0052": {
+  "similaridade": 0.804107033246675,
+  "reserva": 4703
+ },
+ "Q0053": {
+  "similaridade": 0.8394583401022311,
+  "reserva": 5541
+ },
+ "Q0054": {
+  "similaridade": 0.8198191879394907,
+  "reserva": 5157
+ },
+ "Q0055": {
+  "similaridade": 0.8090565851399589,
+  "reserva": 5547
+ },
+ "Q0056": {
+  "similaridade": 0.8502984743327555,
+  "reserva": 5066
+ },
+ "Q0057": {
+  "similaridade": 0.9240414879937314,
+  "reserva": 5175
+ },
+ "Q0058": {
+  "similaridade": 0.7885462333752354,
+  "reserva": 4374
+ },
+ "Q0059": {
+  "similaridade": 0.7835036879691524,
+  "reserva": 5199
+ },
+ "Q0060": {
+  "similaridade": 0.837156022270271,
+  "reserva": 5096
+ },
+ "Q0061": {
+  "similaridade": 0.809093061387447,
+  "reserva": 6734
+ },
+ "Q0062": {
+  "similaridade": 0.818636464245788,
+  "reserva": 5182
+ },
+ "Q0063": {
+  "similaridade": 0.7897775783558229,
+  "reserva": 4704
+ },
+ "Q0064": {
+  "similaridade": 0.7806011475732944,
+  "reserva": 4695
+ },
+ "Q0065": {
+  "similaridade": 0.8292819224108419,
+  "reserva": 5161
+ },
+ "Q0066": {
+  "similaridade": 0.8623966595005337,
+  "reserva": 4373
+ },
+ "Q0067": {
+  "similaridade": 0.8778849333625172,
+  "reserva": 5091
+ },
+ "Q0068": {
+  "similaridade": 0.8262053006869744,
+  "reserva": 5102
+ },
+ "Q0069": {
+  "similaridade": 0.8503837237428911,
+  "reserva": 5173
+ },
+ "Q0070": {
+  "similaridade": 0.7709912548382565,
+  "reserva": 5576
+ },
+ "Q0071": {
+  "similaridade": 0.8379729559979098,
+  "reserva": 6717
+ },
+ "Q0072": {
+  "similaridade": 0.8383454779372996,
+  "reserva": 5592
+ },
+ "Q0073": {
+  "similaridade": 0.8626175304402506,
+  "reserva": 5087
+ },
+ "Q0074": {
+  "similaridade": 0.840064825304801,
+  "reserva": 5180
+ },
+ "Q0075": {
+  "similaridade": 0.8422125165072011,
+  "reserva": 5076
+ },
+ "Q0076": {
+  "similaridade": 0.8563871139573109,
+  "reserva": 4382
+ },
+ "Q0077": {
+  "similaridade": 0.7550906650484654,
+  "reserva": 4698
+ },
+ "Q0078": {
+  "similaridade": 0.8088678999285234,
+  "reserva": 4697
+ },
+ "Q0079": {
+  "similaridade": 0.8676041347324313,
+  "reserva": 5581
+ },
+ "Q0080": {
+  "similaridade": 0.8629506428091511,
+  "reserva": 4370
+ },
+ "Q0081": {
+  "similaridade": 0.8679813607410489,
+  "reserva": 4373
+ },
+ "Q0082": {
+  "similaridade": 0.836559629077607,
+  "reserva": 5100
+ },
+ "Q0083": {
+  "similaridade": 0.8209809817806667,
+  "reserva": 5150
+ },
+ "Q0084": {
+  "similaridade": 0.806989298519573,
+  "reserva": 4704
+ },
+ "Q0085": {
+  "similaridade": 0.8742295972929299,
+  "reserva": 5076
+ },
+ "Q0086": {
+  "similaridade": 0.8420202029609722,
+  "reserva": 5092
+ },
+ "Q0087": {
+  "similaridade": 0.8161498566381666,
+  "reserva": 5521
+ },
+ "Q0088": {
+  "similaridade": 0.8878426140041145,
+  "reserva": 4389
+ },
+ "Q0089": {
+  "similaridade": 0.7969341605441451,
+  "reserva": 5227
+ },
+ "Q0090": {
+  "similaridade": 0.8193346182336121,
+  "reserva": 5531
+ },
+ "Q0091": {
+  "similaridade": 0.7851111928064798,
+  "reserva": 4693
+ },
+ "Q0092": {
+  "similaridade": 0.8413465556727042,
+  "reserva": 5509
+ },
+ "Q0093": {
+  "similaridade": 0.8331906519504437,
+  "reserva": 5142
+ },
+ "Q0094": {
+  "similaridade": 0.8234000505665149,
+  "reserva": 4373
+ },
+ "Q0095": {
+  "similaridade": 0.839090018347453,
+  "reserva": 5197
+ },
+ "Q0096": {
+  "similaridade": 0.861205769601047,
+  "reserva": 5483
+ },
+ "Q0097": {
+  "similaridade": 0.790992327639414,
+  "reserva": 4702
+ },
+ "Q0098": {
+  "similaridade": 0.8631576715042153,
+  "reserva": 5548
+ },
+ "Q0099": {
+  "similaridade": 0.7997715813581481,
+  "reserva": 5100
+ },
+ "Q0100": {
+  "similaridade": 0.8018815468040994,
+  "reserva": 5108
+ },
+ "Q0101": {
+  "similaridade": 0.8227173022873572,
+  "reserva": 6724
+ },
+ "Q0102": {
+  "similaridade": 0.8596177683412165,
+  "reserva": 5577
+ },
+ "Q0103": {
+  "similaridade": 0.8698094142539192,
+  "reserva": 5478
+ },
+ "Q0104": {
+  "similaridade": 0.8094795842677183,
+  "reserva": 5500
+ },
+ "Q0105": {
+  "similaridade": 0.8224666543180379,
+  "reserva": 4377
+ },
+ "Q0106": {
+  "similaridade": 0.8227376762311458,
+  "reserva": 5166
+ },
+ "Q0107": {
+  "similaridade": 0.8298623588880614,
+  "reserva": 4699
+ },
+ "Q0108": {
+  "similaridade": 0.8257034205850933,
+  "reserva": 5560
+ },
+ "Q0109": {
+  "similaridade": 0.8261374898613518,
+  "reserva": 6728
+ },
+ "Q0110": {
+  "similaridade": 0.831176117520966,
+  "reserva": 5480
+ },
+ "Q0111": {
+  "similaridade": 0.8509427913048191,
+  "reserva": 4373
+ },
+ "Q0112": {
+  "similaridade": 0.8421043740941372,
+  "reserva": 4705
+ },
+ "Q0113": {
+  "similaridade": 0.8115985028754886,
+  "reserva": 5185
+ },
+ "Q0114": {
+  "similaridade": 0.7762510975046275,
+  "reserva": 5470
+ },
+ "Q0115": {
+  "similaridade": 0.829621119634294,
+  "reserva": 4385
+ },
+ "Q0116": {
+  "similaridade": 0.8366533696719043,
+  "reserva": 4708
+ },
+ "Q0117": {
+  "similaridade": 0.8698987672656643,
+  "reserva": 5199
+ },
+ "Q0118": {
+  "similaridade": 0.8369886396264387,
+  "reserva": 5505
+ },
+ "Q0119": {
+  "similaridade": 0.8216346444521518,
+  "reserva": 5181
+ },
+ "Q0120": {
+  "similaridade": 0.8522618068576009,
+  "reserva": 5547
+ },
+ "Q0121": {
+  "similaridade": 0.8296292187810428,
+  "reserva": 5472
+ },
+ "Q0122": {
+  "similaridade": 0.8019137430548746,
+  "reserva": 5199
+ },
+ "Q0123": {
+  "similaridade": 0.796341386539776,
+  "reserva": 4690
+ },
+ "Q0124": {
+  "similaridade": 0.8483553305121817,
+  "reserva": 4384
+ },
+ "Q0125": {
+  "similaridade": 0.7929124026555023,
+  "reserva": 4708
+ },
+ "Q0126": {
+  "similaridade": 0.821491353650178,
+  "reserva": 5076
+ },
+ "Q0127": {
+  "similaridade": 0.7809836638441843,
+  "reserva": 5580
+ },
+ "Q0128": {
+  "similaridade": 0.8267721043320435,
+  "reserva": 5184
+ },
+ "Q0129": {
+  "similaridade": 0.8180962647884229,
+  "reserva": 5550
+ },
+ "Q0130": {
+  "similaridade": 0.82437180693957,
+  "reserva": 5160
+ },
+ "Q0131": {
+  "similaridade": 0.8245041953438133,
+  "reserva": 5218
+ },
+ "Q0132": {
+  "similaridade": 0.7633126431413368,
+  "reserva": 5583
+ },
+ "Q0133": {
+  "similaridade": 0.8237703119569355,
+  "reserva": 5524
+ },
+ "Q0134": {
+  "similaridade": 0.8645531849716398,
+  "reserva": 5092
+ },
+ "Q0135": {
+  "similaridade": 0.868722385967921,
+  "reserva": 5169
+ },
+ "Q0136": {
+  "similaridade": 0.8182809665211235,
+  "reserva": 6724
+ },
+ "Q0137": {
+  "similaridade": 0.8388894907525735,
+  "reserva": 5500
+ },
+ "Q0138": {
+  "similaridade": 0.8400028520431277,
+  "reserva": 5207
+ },
+ "Q0139": {
+  "similaridade": 0.8523486861934118,
+  "reserva": 5211
+ },
+ "Q0140": {
+  "similaridade": 0.8239100359261884,
+  "reserva": 5159
+ },
+ "Q0141": {
+  "similaridade": 0.8653003599393531,
+  "reserva": 4388
+ },
+ "Q0142": {
+  "similaridade": 0.0,
+  "reserva": 4695
+ },
+ "Q0143": {
+  "similaridade": 0.8768331477521796,
+  "reserva": 5507
+ },
+ "Q0144": {
+  "similaridade": 0.8372224391734455,
+  "reserva": 5529
+ },
+ "Q0145": {
+  "similaridade": 0.8334499276363216,
+  "reserva": 6723
+ },
+ "Q0146": {
+  "similaridade": 0.8182008927975652,
+  "reserva": 5594
+ },
+ "Q0147": {
+  "similaridade": 0.8172616294357262,
+  "reserva": 5556
+ },
+ "Q0148": {
+  "similaridade": 0.7996339846591723,
+  "reserva": 5203
+ },
+ "Q0149": {
+  "similaridade": 0.8289041314302015,
+  "reserva": 5498
+ },
+ "Q0150": {
+  "similaridade": 0.8082267244891743,
+  "reserva": 6728
+ },
+ "Q0151": {
+  "similaridade": 0.8165186843003773,
+  "reserva": 5522
+ },
+ "Q0152": {
+  "similaridade": 0.8437378357122869,
+  "reserva": 5474
+ },
+ "Q0153": {
+  "similaridade": 0.815068245942304,
+  "reserva": 5222
+ },
+ "Q0154": {
+  "similaridade": 0.0,
+  "reserva": 4690
+ },
+ "Q0155": {
+  "similaridade": 0.8026088345946356,
+  "reserva": 4703
+ },
+ "Q0156": {
+  "similaridade": 0.8489945762599203,
+  "reserva": 6717
+ },
+ "Q0157": {
+  "similaridade": 0.8409738116707999,
+  "reserva": 5520
+ },
+ "Q0158": {
+  "similaridade": 0.8376734140310615,
+  "reserva": 4707
+ },
+ "Q0159": {
+  "similaridade": 0.7868169817018656,
+  "reserva": 5150
+ },
+ "Q0160": {
+  "similaridade": 0.8218398212479563,
+  "reserva": 5205
+ },
+ "Q0161": {
+  "similaridade": 0.7985363815950319,
+  "reserva": 5589
+ },
+ "Q0162": {
+  "similaridade": 0.8018051354096021,
+  "reserva": 4373
+ },
+ "Q0163": {
+  "similaridade": 0.832852853209935,
+  "reserva": 5133
+ },
+ "Q0164": {
+  "similaridade": 0.8220956365684513,
+  "reserva": 4703
+ },
+ "Q0165": {
+  "similaridade": 0.8353427849080044,
+  "reserva": 4705
+ },
+ "Q0166": {
+  "similaridade": 0.7987961175978515,
+  "reserva": 5208
+ },
+ "Q0167": {
+  "similaridade": 0.803891126187153,
+  "reserva": 5524
+ },
+ "Q0168": {
+  "similaridade": 0.0,
+  "reserva": 5092
+ },
+ "Q0169": {
+  "similaridade": 0.8586606736529128,
+  "reserva": 5492
+ },
+ "Q0170": {
+  "similaridade": 0.7626039584718182,
+  "reserva": 5210
+ },
+ "Q0171": {
+  "similaridade": 0.7961833847908244,
+  "reserva": 4693
+ },
+ "Q0172": {
+  "similaridade": 0.8279538065395078,
+  "reserva": 5524
+ },
+ "Q0173": {
+  "similaridade": 0.8188396351968708,
+  "reserva": 6734
+ },
+ "Q0174": {
+  "similaridade": 0.7993515580020274,
+  "reserva": 5107
+ },
+ "Q0175": {
+  "similaridade": 0.863445748741771,
+  "reserva": 5092
+ },
+ "Q0176": {
+  "similaridade": 0.8643400680702026,
+  "reserva": 5081
+ },
+ "Q0177": {
+  "similaridade": 0.8285007732494409,
+  "reserva": 5547
+ },
+ "Q0178": {
+  "similaridade": 0.7705645238814207,
+  "reserva": 4697
+ },
+ "Q0179": {
+  "similaridade": 0.8381195671273776,
+  "reserva": 4369
+ },
+ "Q0180": {
+  "similaridade": 0.8201176624192158,
+  "reserva": 5554
+ },
+ "Q0181": {
+  "similaridade": 0.8267475862306712,
+  "reserva": 4695
+ },
+ "Q0182": {
+  "similaridade": 0.8036581444323773,
+  "reserva": 5139
+ },
+ "Q0183": {
+  "similaridade": 0.8041619470002968,
+  "reserva": 5185
+ },
+ "Q0184": {
+  "similaridade": 0.7974888110930889,
+  "reserva": 6728
+ },
+ "Q0185": {
+  "similaridade": 0.8139234449388272,
+  "reserva": 5566
+ },
+ "Q0186": {
+  "similaridade": 0.8580400904943866,
+  "reserva": 5202
+ },
+ "Q0187": {
+  "similaridade": 0.8006969644475815,
+  "reserva": 5092
+ },
+ "Q0188": {
+  "similaridade": 0.8479456616985437,
+  "reserva": 5217
+ },
+ "Q0189": {
+  "similaridade": 0.8236253202872157,
+  "reserva": 5472
+ },
+ "Q0190": {
+  "similaridade": 0.7814206513695023,
+  "reserva": 4701
+ },
+ "Q0191": {
+  "similaridade": 0.8701164326323166,
+  "reserva": 5560
+ },
+ "Q0192": {
+  "similaridade": 0.8587156949775561,
+  "reserva": 5087
+ },
+ "Q0193": {
+  "similaridade": 0.8321452234512484,
+  "reserva": 5557
+ },
+ "Q0194": {
+  "similaridade": 0.7887881544166551,
+  "reserva": 5089
+ },
+ "Q0195": {
+  "similaridade": 0.8385620215217412,
+  "reserva": 4373
+ },
+ "Q0196": {
+  "similaridade": 0.834574250080214,
+  "reserva": 4385
+ },
+ "Q0197": {
+  "similaridade": 0.7805916246840885,
+  "reserva": 5498
+ },
+ "Q0198": {
+  "similaridade": 0.8068022512838643,
+  "reserva": 5073
+ },
+ "Q0199": {
+  "similaridade": 0.8504668685804685,
+  "reserva": 5221
+ },
+ "Q0200": {
+  "similaridade": 0.8409636387706527,
+  "reserva": 4705
+ },
+ "Q0201": {
+  "similaridade": 0.8176760806853702,
+  "reserva": 5103
+ },
+ "Q0202": {
+  "similaridade": 0.7774343138424143,
+  "reserva": 5108
+ },
+ "Q0203": {
+  "similaridade": 0.8576647004850996,
+  "reserva": 6723
+ },
+ "Q0204": {
+  "similaridade": 0.8660909981336139,
+  "reserva": 5507
+ },
+ "Q0205": {
+  "similaridade": 0.8481444488344096,
+  "reserva": 5567
+ },
+ "Q0206": {
+  "similaridade": 0.8104925020161453,
+  "reserva": 5583
+ },
+ "Q0207": {
+  "similaridade": 0.8242014390509097,
+  "reserva": 5185
+ },
+ "Q0208": {
+  "similaridade": 0.8176981640684758,
+  "reserva": 5074
+ },
+ "Q0209": {
+  "similaridade": 0.8193621005577365,
+  "reserva": 5498
+ },
+ "Q0210": {
+  "similaridade": 0.8585199987606738,
+  "reserva": 4697
+ },
+ "Q0211": {
+  "similaridade": 0.8063348919476143,
+  "reserva": 5535
+ },
+ "Q0212": {
+  "similaridade": 0.8394655512062137,
+  "reserva": 5488
+ },
+ "Q0213": {
+  "similaridade": 0.8138041509717924,
+  "reserva": 6728
+ },
+ "Q0214": {
+  "similaridade": 0.8935795351057164,
+  "reserva": 5494
+ },
+ "Q0215": {
+  "similaridade": 0.8064057712605932,
+  "reserva": 5576
+ },
+ "Q0216": {
+  "similaridade": 0.838763548831985,
+  "reserva": 4701
+ },
+ "Q0217": {
+  "similaridade": 0.7738147228913146,
+  "reserva": 5199
+ },
+ "Q0218": {
+  "similaridade": 0.8368841831585019,
+  "reserva": 5518
+ },
+ "Q0219": {
+  "similaridade": 0.8156787458789181,
+  "reserva": 5074
+ },
+ "Q0220": {
+  "similaridade": 0.8223770960574177,
+  "reserva": 5501
+ },
+ "Q0221": {
+  "similaridade": 0.8503741515693608,
+  "reserva": 5199
+ },
+ "Q0222": {
+  "similaridade": 0.7965090171929471,
+  "reserva": 4376
+ },
+ "Q0223": {
+  "similaridade": 0.8205378746072831,
+  "reserva": 5084
+ },
+ "Q0224": {
+  "similaridade": 0.7989519828997463,
+  "reserva": 5207
+ },
+ "Q0225": {
+  "similaridade": 0.8266134496877807,
+  "reserva": 5478
+ },
+ "Q0226": {
+  "similaridade": 0.833242339621961,
+  "reserva": 5544
+ },
+ "Q0227": {
+  "similaridade": 0.8150766912656813,
+  "reserva": 5104
+ },
+ "Q0228": {
+  "similaridade": 0.8473136299710439,
+  "reserva": 5208
+ },
+ "Q0229": {
+  "similaridade": 0.8464780061040026,
+  "reserva": 5517
+ },
+ "Q0230": {
+  "similaridade": 0.8326302169959181,
+  "reserva": 5211
+ },
+ "Q0231": {
+  "similaridade": 0.8678873774403948,
+  "reserva": 5224
+ },
+ "Q0232": {
+  "similaridade": 0.8434321201272796,
+  "reserva": 5080
+ },
+ "Q0233": {
+  "similaridade": 0.8719014931416966,
+  "reserva": 5178
+ },
+ "Q0234": {
+  "similaridade": 0.8547690421712137,
+  "reserva": 4380
+ },
+ "Q0235": {
+  "similaridade": 0.8110512617230443,
+  "reserva": 5485
+ },
+ "Q0236": {
+  "similaridade": 0.80852918593824,
+  "reserva": 5495
+ },
+ "Q0237": {
+  "similaridade": 0.8648601000702187,
+  "reserva": 5178
+ },
+ "Q0238": {
+  "similaridade": 0.7928971417673846,
+  "reserva": 5490
+ },
+ "Q0239": {
+  "similaridade": 0.8349582293911972,
+  "reserva": 5207
+ },
+ "Q0240": {
+  "similaridade": 0.806605200776985,
+  "reserva": 5489
+ },
+ "Q0241": {
+  "similaridade": 0.8679980288370758,
+  "reserva": 5224
+ },
+ "Q0242": {
+  "similaridade": 0.8320642322698241,
+  "reserva": 5570
+ },
+ "Q0243": {
+  "similaridade": 0.8553531627722999,
+  "reserva": 5178
+ },
+ "Q0244": {
+  "similaridade": 0.8626563200129161,
+  "reserva": 5091
+ },
+ "Q0245": {
+  "similaridade": 0.8398495002624016,
+  "reserva": 5189
+ },
+ "Q0246": {
+  "similaridade": 0.8751761609020092,
+  "reserva": 5527
+ },
+ "Q0247": {
+  "similaridade": 0.8339102862567576,
+  "reserva": 5502
+ },
+ "Q0248": {
+  "similaridade": 0.8478042869240014,
+  "reserva": 5092
+ },
+ "Q0249": {
+  "similaridade": 0.8571770753141834,
+  "reserva": 5492
+ },
+ "Q0250": {
+  "similaridade": 0.8112710346929393,
+  "reserva": 5576
+ },
+ "Q0251": {
+  "similaridade": 0.8540522844213156,
+  "reserva": 5193
+ },
+ "Q0252": {
+  "similaridade": 0.7899832254565496,
+  "reserva": 5208
+ },
+ "Q0253": {
+  "similaridade": 0.870944817821303,
+  "reserva": 4373
+ },
+ "Q0254": {
+  "similaridade": 0.786220173478586,
+  "reserva": 6724
+ },
+ "Q0255": {
+  "similaridade": 0.8528869171978279,
+  "reserva": 5213
+ },
+ "Q0256": {
+  "similaridade": 0.8262880952674121,
+  "reserva": 5214
+ },
+ "Q0257": {
+  "similaridade": 0.8538446676325064,
+  "reserva": 5227
+ },
+ "Q0258": {
+  "similaridade": 0.894124828309897,
+  "reserva": 5545
+ },
+ "Q0259": {
+  "similaridade": 0.8103247586233434,
+  "reserva": 5164
+ },
+ "Q0260": {
+  "similaridade": 0.7833233078902471,
+  "reserva": 4376
+ },
+ "Q0261": {
+  "similaridade": 0.8015965491812374,
+  "reserva": 5136
+ },
+ "Q0262": {
+  "similaridade": 0.8007220247825639,
+  "reserva": 6734
+ },
+ "Q0263": {
+  "similaridade": 0.8416845447058906,
+  "reserva": 5492
+ },
+ "Q0264": {
+  "similaridade": 0.8382015686424436,
+  "reserva": 5103
+ },
+ "Q0265": {
+  "similaridade": 0.8554089826687994,
+  "reserva": 5066
+ },
+ "Q0266": {
+  "similaridade": 0.8056325325980658,
+  "reserva": 5485
+ },
+ "Q0267": {
+  "similaridade": 0.7982164687681705,
+  "reserva": 6728
+ },
+ "Q0268": {
+  "similaridade": 0.8273358216376376,
+  "reserva": 5122
+ },
+ "Q0269": {
+  "similaridade": 0.7751131042459389,
+  "reserva": 4384
+ },
+ "Q0270": {
+  "similaridade": 0.8700878774743637,
+  "reserva": 5091
+ },
+ "Q0271": {
+  "similaridade": 0.8169615409145871,
+  "reserva": 5562
+ },
+ "Q0272": {
+  "similaridade": 0.8209289966181028,
+  "reserva": 6734
+ },
+ "Q0273": {
+  "similaridade": 0.8245779919432608,
+  "reserva": 5096
+ },
+ "Q0274": {
+  "similaridade": 0.8185659852247871,
+  "reserva": 5177
+ },
+ "Q0275": {
+  "similaridade": 0.8013153813885503,
+  "reserva": 4701
+ },
+ "Q0276": {
+  "similaridade": 0.8427343765341451,
+  "reserva": 5548
+ },
+ "Q0277": {
+  "similaridade": 0.8682754946737012,
+  "reserva": 6722
+ },
+ "Q0278": {
+  "similaridade": 0.849501339156647,
+  "reserva": 5542
+ },
+ "Q0279": {
+  "similaridade": 0.8112044588760374,
+  "reserva": 5178
+ },
+ "Q0280": {
+  "similaridade": 0.8211437343868417,
+  "reserva": 5121
+ },
+ "Q0281": {
+  "similaridade": 0.7747622205259579,
+  "reserva": 5555
+ },
+ "Q0282": {
+  "similaridade": 0.7830791674881932,
+  "reserva": 4697
+ },
+ "Q0283": {
+  "similaridade": 0.8567240616600387,
+  "reserva": 5496
+ },
+ "Q0284": {
+  "similaridade": 0.8041368408061882,
+  "reserva": 5231
+ },
+ "Q0285": {
+  "similaridade": 0.882798962735305,
+  "reserva": 4376
+ },
+ "Q0286": {
+  "similaridade": 0.8360016220505133,
+  "reserva": 5066
+ },
+ "Q0287": {
+  "similaridade": 0.8788959492688929,
+  "reserva": 5230
+ },
+ "Q0288": {
+  "similaridade": 0.8215401678766863,
+  "reserva": 5103
+ },
+ "Q0289": {
+  "similaridade": 0.7994035332117652,
+  "reserva": 6724
+ },
+ "Q0290": {
+  "similaridade": 0.83181069058167,
+  "reserva": 4701
+ },
+ "Q0291": {
+  "similaridade": 0.8223728786399592,
+  "reserva": 4708
+ },
+ "Q0292": {
+  "similaridade": 0.8560939366928906,
+  "reserva": 4374
+ },
+ "Q0293": {
+  "similaridade": 0.8348800959004194,
+  "reserva": 5185
+ },
+ "Q0294": {
+  "similaridade": 0.8245503410467501,
+  "reserva": 5211
+ },
+ "Q0295": {
+  "similaridade": 0.8548018319194601,
+  "reserva": 5489
+ },
+ "Q0296": {
+  "similaridade": 0.840163585363553,
+  "reserva": 5466
+ },
+ "Q0297": {
+  "similaridade": 0.8395816825825075,
+  "reserva": 4695
+ },
+ "Q0298": {
+  "similaridade": 0.8328165027409224,
+  "reserva": 4694
+ },
+ "Q0299": {
+  "similaridade": 0.8403801871478449,
+  "reserva": 4384
+ },
+ "Q0300": {
+  "similaridade": 0.8642475127036928,
+  "reserva": 5084
+ },
+ "Q0301": {
+  "similaridade": 0.8451970138805569,
+  "reserva": 5197
+ },
+ "Q0302": {
+  "similaridade": 0.8364705051551836,
+  "reserva": 5214
+ },
+ "Q0303": {
+  "similaridade": 0.8392827784816193,
+  "reserva": 5180
+ },
+ "Q0304": {
+  "similaridade": 0.8503590238668677,
+  "reserva": 4701
+ },
+ "Q0305": {
+  "similaridade": 0.8268029888757684,
+  "reserva": 5064
+ },
+ "Q0306": {
+  "similaridade": 0.7876227463286049,
+  "reserva": 4705
+ },
+ "Q0307": {
+  "similaridade": 0.8409132500942715,
+  "reserva": 4707
+ },
+ "Q0308": {
+  "similaridade": 0.8819999502272601,
+  "reserva": 5501
+ },
+ "Q0309": {
+  "similaridade": 0.8305483633896078,
+  "reserva": 6717
+ },
+ "Q0310": {
+  "similaridade": 0.8616486256853204,
+  "reserva": 5508
+ },
+ "Q0311": {
+  "similaridade": 0.8403474677707998,
+  "reserva": 5487
+ },
+ "Q0312": {
+  "similaridade": 0.8391095654188292,
+  "reserva": 4384
+ },
+ "Q0313": {
+  "similaridade": 0.8492152481370854,
+  "reserva": 5577
+ },
+ "Q0314": {
+  "similaridade": 0.8712027050326263,
+  "reserva": 5477
+ },
+ "Q0315": {
+  "similaridade": 0.8101997613764159,
+  "reserva": 5185
+ },
+ "Q0316": {
+  "similaridade": 0.8340466120221337,
+  "reserva": 5211
+ },
+ "Q0317": {
+  "similaridade": 0.8148267602305016,
+  "reserva": 5198
+ },
+ "Q0318": {
+  "similaridade": 0.8401495678240047,
+  "reserva": 5178
+ },
+ "Q0319": {
+  "similaridade": 0.8492482450973774,
+  "reserva": 5073
+ },
+ "Q0320": {
+  "similaridade": 0.8534399918459387,
+  "reserva": 5550
+ },
+ "Q0321": {
+  "similaridade": 0.8502280010746,
+  "reserva": 5073
+ },
+ "Q0322": {
+  "similaridade": 0.8224415620841022,
+  "reserva": 6716
+ },
+ "Q0323": {
+  "similaridade": 0.8154329141779333,
+  "reserva": 5593
+ },
+ "Q0324": {
+  "similaridade": 0.8171046385898739,
+  "reserva": 5576
+ },
+ "Q0325": {
+  "similaridade": 0.8036448887607499,
+  "reserva": 5473
+ },
+ "Q0326": {
+  "similaridade": 0.8413181506442373,
+  "reserva": 6728
+ },
+ "Q0327": {
+  "similaridade": 0.8255523070154744,
+  "reserva": 5203
+ },
+ "Q0328": {
+  "similaridade": 0.8540061590921901,
+  "reserva": 4382
+ },
+ "Q0329": {
+  "similaridade": 0.8320074095433931,
+  "reserva": 5557
+ },
+ "Q0330": {
+  "similaridade": 0.8294093409929832,
+  "reserva": 5501
+ },
+ "Q0331": {
+  "similaridade": 0.8520213561098406,
+  "reserva": 5477
+ },
+ "Q0332": {
+  "similaridade": 0.8272146398932685,
+  "reserva": 5541
+ },
+ "Q0333": {
+  "similaridade": 0.8219783675873717,
+  "reserva": 5178
+ },
+ "Q0334": {
+  "similaridade": 0.8681100636949048,
+  "reserva": 4381
+ },
+ "Q0335": {
+  "similaridade": 0.8235134720068518,
+  "reserva": 5222
+ },
+ "Q0336": {
+  "similaridade": 0.8227009574140978,
+  "reserva": 5159
+ },
+ "Q0337": {
+  "similaridade": 0.8525460364247341,
+  "reserva": 4684
+ },
+ "Q0338": {
+  "similaridade": 0.8376597618486107,
+  "reserva": 5548
+ },
+ "Q0339": {
+  "similaridade": 0.8275120478358573,
+  "reserva": 5578
+ },
+ "Q0340": {
+  "similaridade": 0.8645263154738467,
+  "reserva": 5074
+ },
+ "Q0341": {
+  "similaridade": 0.8745452102199259,
+  "reserva": 5157
+ },
+ "Q0342": {
+  "similaridade": 0.8326418255581931,
+  "reserva": 5545
+ },
+ "Q0343": {
+  "similaridade": 0.8576752844586552,
+  "reserva": 5196
+ },
+ "Q0344": {
+  "similaridade": 0.8548026904940138,
+  "reserva": 6717
+ },
+ "Q0345": {
+  "similaridade": 0.8251035528407047,
+  "reserva": 5103
+ },
+ "Q0346": {
+  "similaridade": 0.7968916799452365,
+  "reserva": 5524
+ },
+ "Q0347": {
+  "similaridade": 0.8190621649068907,
+  "reserva": 5199
+ },
+ "Q0348": {
+  "similaridade": 0.8115453424418055,
+  "reserva": 5093
+ },
+ "Q0349": {
+  "similaridade": 0.811825791474023,
+  "reserva": 5160
+ },
+ "Q0350": {
+  "similaridade": 0.8390822147082393,
+  "reserva": 4702
+ },
+ "Q0351": {
+  "similaridade": 0.8621693750304322,
+  "reserva": 5119
+ },
+ "Q0352": {
+  "similaridade": 0.8504172806422441,
+  "reserva": 5513
+ },
+ "Q0353": {
+  "similaridade": 0.8359850916798639,
+  "reserva": 5185
+ },
+ "Q0354": {
+  "similaridade": 0.8214669319448896,
+  "reserva": 5226
+ },
+ "Q0355": {
+  "similaridade": 0.8101690355811528,
+  "reserva": 6728
+ },
+ "Q0356": {
+  "similaridade": 0.8890061803268977,
+  "reserva": 5067
+ },
+ "Q0357": {
+  "similaridade": 0.8408459161571886,
+  "reserva": 5135
+ },
+ "Q0358": {
+  "similaridade": 0.8261878364280083,
+  "reserva": 5133
+ },
+ "Q0359": {
+  "similaridade": 0.8497728354796721,
+  "reserva": 4696
+ }
+}

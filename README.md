@@ -2,12 +2,12 @@
 
 Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e Criminologia na árvore de temas da plataforma e decide, para cada uma, **publicar**, **revisar** ou **fora**, sob a régua de ≥ 95% de precisão nas publicadas. Enunciado: [`case-ia-classificacao-de-topicos.pdf`](case-ia-classificacao-de-topicos.pdf). Dados: [`anexos-case-ia.zip`](anexos-case-ia.zip) (lido direto, sem extrair).
 
-> **Configuração usada na entrega** (só havia chave do DeepSeek; fallback previsto na decisão Q22 e declarado aqui): Classificador = `claude -p` com `sonnet` (assinatura Claude Code), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, **sem embeddings** (similaridade 0; a sugestão de reserva vem do Juiz). Classificador e Verificador seguem de famílias diferentes, que é o que a regra de publicação exige. A calibração foi feita nessa mesma configuração.
+> **Configuração usada na entrega:** Classificador = `claude -p` com `sonnet` (assinatura Claude Code, sem chave da API da Anthropic), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, embeddings = `gemini-embedding-2`. Classificador e Verificador são de famílias diferentes, que é o que a regra de publicação exige (ADR 0002). O Verificador planejado era o `gemini-3.8-flash`, mas a chave do Gemini disponível é do plano gratuito, que permite 20 chamadas por dia. A tentativa parou na 29ª Questão, e a rodada completa com DeepSeek foi mantida. A calibração foi feita nessa mesma configuração.
 
 ## Como funciona, em uma frase por etapa
 
-1. **Classificador** (Anthropic, `claude-sonnet-5-5`) escolhe o nó da árvore vendo a questão e a classificação de origem.
-2. **Verificador** (Gemini, `gemini-3.8-flash`) escolhe de forma independente, **sem** ver a origem nem o Classificador.
+1. **Classificador** (Anthropic, Sonnet via `claude -p`) escolhe o nó da árvore vendo a questão e a classificação de origem.
+2. **Verificador** (DeepSeek, `deepseek-flash`) escolhe de forma independente, **sem** ver a origem nem o Classificador.
 3. **Juiz** (DeepSeek, `deepseek-v4-pro`) só entra quando os dois discordam, e só escolhe a sugestão que vai para o professor: **nunca publica**.
 4. **Embeddings** (Gemini, `gemini-embedding-2`) dão um sinal extra (similaridade) e uma sugestão de reserva.
 5. **Publica** só quem tem concordância de ramo entre dois provedores diferentes, nenhum modelo em dúvida, tema não duplicado e pontuação acima do limiar calibrado em uma amostra rotulada às cegas por um humano, mirando 97%.

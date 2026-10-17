@@ -6,6 +6,7 @@ Versionados para que a entrega seja auditável e reproduzível sem gastar chamad
 |---|---|
 | `rodada/classificacoes.jsonl` | Votos do Classificador, Verificador e Juiz nas 359 Questões, com a versão do prompt de cada voto (ADR 0003). Insumo da entrega. |
 | `rodada/classificacoes.pre-versionamento.jsonl` | O mesmo arquivo antes do versionamento de prompts, com o histórico de tentativas incompletas. |
+| `rodada/sinais.json` | Similaridade entre a Questão e o Nó votado, e o Nó mais parecido como reserva (embeddings Gemini). |
 | `rodada/resumo.csv` | Leitura humana da rodada: situação (mesmo nó, mesmo ramo, desacordo, fora), caminho do Nó e justificativa. |
 | `rodada/falhas-rodada1.jsonl` | DLQ da primeira tentativa da rodada (falhas de provedor depois refeitas). |
 | `rotulagem.csv` | Amostra cega de 50 Questões para calibração; a coluna `resposta` é preenchida por `classificacao consolidar` (fonte em `observacao`). |
