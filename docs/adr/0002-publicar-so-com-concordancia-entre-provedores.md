@@ -2,6 +2,19 @@
 
 Uma Questão só recebe a Decisão Publicar quando o Classificador (Anthropic) e o Verificador (Gemini), modelos de famílias diferentes e com entradas diferentes (só o Classificador vê a Origem), apontam Nós do mesmo Ramo **e** a Confiança calibrada passa do limiar. O limiar é calibrado na amostra rotulada às cegas pelo usuário mirando 97% de Precisão pontual, não 95%, porque com cerca de 50 rótulos o intervalo é largo e mirar a Régua exata dá cerca de 50% de chance de estourá-la.
 
+```mermaid
+flowchart TD
+    Q[Questão] --> C["Classificador<br>vê a Origem"]
+    Q --> V["Verificador<br>sem Origem"]
+    C --> K{"Concordância<br>(mesmo Ramo)?"}
+    V --> K
+    K -- "não" --> J["Juiz escolhe a sugestão"] --> R["Revisar"]
+    K -- "os dois: nenhum Nó serve" --> F["Fora"]
+    K -- "sim" --> T{"Tema duplicado, modelo em dúvida<br>ou Confiança abaixo do limiar?"}
+    T -- "sim" --> R
+    T -- "não" --> P["Publicar no Nó de consenso"]
+```
+
 Regras que decorrem disso e que parecem estranhas sem contexto:
 
 - **O Juiz nunca publica.** Ele só entra no desacordo e escolhe a sugestão que vai para o Professor. Desacordo marca as Questões difíceis, e publicá-las arrisca a Régua.
