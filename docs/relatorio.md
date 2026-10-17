@@ -10,7 +10,7 @@
 
 **Usar a régua a favor, sem trapacear.** A régua aceita como certo o nó do gabarito, o pai ou o filho. Quando os dois modelos escolhem subtemas irmãos, publico no tema pai: ele está certo se o gabarito for qualquer um dos dois. Publicar na disciplina (o "pai do pai") seria o mesmo atalho levado ao extremo — e recriaria a lixeira que o case critica; descartei.
 
-**A previsão de precisão vem de rótulos humanos, não da confiança do modelo.** Rotulei às cegas 50 questões (sem ver a resposta dos modelos; candidatos embaralhados, com distratores vizinhos na árvore). 80% delas foram sorteadas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica.
+**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Um terceiro modelo, o Rotulador (Opus), respondeu as 50 às cegas, sem ver a origem nem os votos. Onde ele discordou do pipeline (fora do ramo), eu arbitrei entre as duas respostas sem saber qual era de quem. O julgamento humano fica onde muda o resultado. A limitação está declarada: o Rotulador é da mesma família do Classificador, e erros que os dois cometem juntos não chegam até mim, o que pode deixar a previsão otimista (ADR 0004). «a preencher: quantos conflitos, quantas vezes o pipeline venceu a arbitragem»
 
 **Becos sem saída e correções de rota:**
 

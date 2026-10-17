@@ -63,6 +63,17 @@ class RegistroEmArquivo:
         ]
 
 
+def gravar_propostas(caminho: Path, propostas: dict[str, Proposta]) -> None:
+    """Uma Proposta por Questão, num JSON legível (ex.: os rótulos do Rotulador)."""
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    conteudo = {id: asdict(proposta) for id, proposta in sorted(propostas.items())}
+    caminho.write_text(json.dumps(conteudo, ensure_ascii=False, indent=1) + "\n")
+
+
+def ler_propostas(caminho: Path) -> dict[str, Proposta]:
+    return {id: _proposta(bruta) for id, bruta in json.loads(caminho.read_text()).items()}
+
+
 def _classificacao(bruta: dict) -> Classificacao:
     return Classificacao(
         bruta["questao_id"],

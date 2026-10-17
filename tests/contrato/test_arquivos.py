@@ -4,6 +4,8 @@ from classificacao.adaptadores.arquivos import (
     CacheEmDisco,
     FilaDeFalhasEmArquivo,
     RegistroEmArquivo,
+    gravar_propostas,
+    ler_propostas,
 )
 from classificacao.aplicacao.classificar_questao import Classificacao, Proposta
 
@@ -57,3 +59,12 @@ def test_linha_gravada_antes_do_versionamento_e_lida_sem_versao(tmp_path):
     caminho.write_text(json.dumps(linha) + "\n")
     [classificacao] = RegistroEmArquivo(caminho).todas()
     assert classificacao.classificador.prompt == ""
+
+
+def test_propostas_gravadas_sao_lidas_de_volta(tmp_path):
+    propostas = {
+        "Q0002": Proposta(None, 0.6, "nenhum", prompt="rotulador/v1@c"),
+        "Q0001": CLASSIFICACAO.classificador,
+    }
+    gravar_propostas(tmp_path / "rotulador.json", propostas)
+    assert ler_propostas(tmp_path / "rotulador.json") == propostas
