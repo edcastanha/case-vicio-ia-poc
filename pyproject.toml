@@ -14,7 +14,12 @@ dependencies = [
 classificacao = "classificacao.entrada.cli:main"
 
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = [
+    "mkdocs>=1.6.1,<2",
+    "mkdocs-material>=9.7.7",
+    "pytest>=8",
+    "ruff>=0.6",
+]
 
 [build-system]
 requires = ["hatchling"]

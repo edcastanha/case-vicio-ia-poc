@@ -14,6 +14,8 @@ Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e
 
 As regras e o porquê de cada uma estão em [`docs/adr/`](docs/adr/); o vocabulário, em [`GLOSSARY.md`](GLOSSARY.md).
 
+Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`.
+
 ## Como rodar
 
 Requer [uv](https://docs.astral.sh/uv/) e as três chaves de API.
@@ -50,7 +52,7 @@ Clean Architecture em `src/classificacao/`, com dependências apontando para den
 | `dominio/` | árvore e regra do ramo, decisão (publicar/revisar/fora), pontuação, calibração (limiar, bootstrap, curva), validação da entrega |
 | `aplicacao/` | casos de uso (classificar questão, processar lote, sinais, amostra cega, calibração, entrega), portas e prompts |
 | `adaptadores/` | Anthropic, Gemini, DeepSeek, `claude -p`, leitura do zip, planilha de rotulagem, cache/DLQ/registro em arquivo |
-| `entrada/` | linha de comando e configuração por `.env` |
+| `entrada/` | linha de comando, configuração por `.env` e páginas geradas do site (`site.py`, chamado por `docs/hooks/site.py`) |
 
 Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, com respostas gravadas e o zip real).
 

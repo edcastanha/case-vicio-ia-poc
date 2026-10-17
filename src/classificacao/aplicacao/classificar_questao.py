@@ -50,6 +50,20 @@ class Classificacao:
         return self.classificador is not None and self.verificador is not None
 
 
+def situacao(classificacao: Classificacao, arvore: Arvore) -> str:
+    """Relação entre os dois votos obrigatórios: falha, fora, mesmo nó, mesmo ramo, desacordo."""
+    if classificacao.classificador is None or classificacao.verificador is None:
+        return "falha"
+    a, b = classificacao.classificador.no_id, classificacao.verificador.no_id
+    if a is None and b is None:
+        return "fora"
+    if a == b and arvore.pode_receber_questao(a):
+        return "mesmo no"
+    if arvore.no_de_consenso(a, b) is not None:
+        return "mesmo ramo"
+    return "desacordo"
+
+
 def classificar_questao(
     questao: Questao,
     arvore: Arvore,

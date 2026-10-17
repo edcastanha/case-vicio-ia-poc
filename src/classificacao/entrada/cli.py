@@ -23,6 +23,7 @@ from classificacao.adaptadores.rotulagem import (
 from classificacao.aplicacao.amostra_cega import gerar_amostra_cega
 from classificacao.aplicacao.calcular_sinais import calcular_sinais
 from classificacao.aplicacao.calibrar_com_rotulos import rotulos_de_calibracao
+from classificacao.aplicacao.classificar_questao import situacao
 from classificacao.aplicacao.gerar_entrega import Sinais, gerar_entrega
 from classificacao.aplicacao.processar_lote import processar_lote
 from classificacao.aplicacao.prompts import VersoesDePromptMisturadas, exigir_versao_unica
@@ -277,14 +278,14 @@ def escrever_resumo(registro: RegistroEmArquivo, arvore: Arvore, caminho: Path) 
             ["id", "situacao", "papel", "no_id", "caminho", "confianca", "justificativa", "prompt"]
         )
         for c in sorted(registro.todas(), key=lambda c: c.questao_id):
-            situacao = _situacao(c, arvore)
+            situacao_da_questao = situacao(c, arvore)
             for papel in ("classificador", "verificador", "juiz"):
                 proposta = getattr(c, papel)
                 if proposta is not None:
                     escritor.writerow(
                         [
                             c.questao_id,
-                            situacao,
+                            situacao_da_questao,
                             papel,
                             proposta.no_id,
                             caminho_do(proposta.no_id),
@@ -293,19 +294,6 @@ def escrever_resumo(registro: RegistroEmArquivo, arvore: Arvore, caminho: Path) 
                             proposta.prompt,
                         ]
                     )
-
-
-def _situacao(c, arvore: Arvore) -> str:
-    if c.classificador is None or c.verificador is None:
-        return "falha"
-    a, b = c.classificador.no_id, c.verificador.no_id
-    if a is None and b is None:
-        return "fora"
-    if a == b and arvore.pode_receber_questao(a):
-        return "mesmo no"
-    if arvore.no_de_consenso(a, b) is not None:
-        return "mesmo ramo"
-    return "desacordo"
 
 
 if __name__ == "__main__":
