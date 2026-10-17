@@ -2,6 +2,7 @@ from classificacao.aplicacao.classificar_questao import Papeis
 from classificacao.aplicacao.processar_lote import processar_lote
 from classificacao.dominio.questao import Questao
 from tests.unit.fakes import (
+    PROMPTS,
     CacheEmMemoria,
     FilaDeFalhasEmMemoria,
     ModeloFake,
@@ -23,6 +24,7 @@ def processar(questoes, registro, papeis=None, fila=None):
         questoes,
         ARVORE,
         papeis,
+        PROMPTS,
         registro=registro,
         fila_de_falhas=fila or FilaDeFalhasEmMemoria(),
         cache=CacheEmMemoria(),
@@ -71,6 +73,7 @@ def test_com_paralelismo_todas_as_questoes_terminam_registradas():
         Papeis(
             ModeloFake("c", sempre(10)), ModeloFake("v", sempre(11)), ModeloFake("j", sempre(10))
         ),
+        PROMPTS,
         registro=registro,
         fila_de_falhas=FilaDeFalhasEmMemoria(),
         cache=CacheEmMemoria(),

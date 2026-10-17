@@ -1,4 +1,4 @@
-"""Raiz de composição: lê o .env e monta os papéis com o backend e o modelo de cada um."""
+"""Raiz de composição: lê o .env e monta os papéis com o backend, o modelo e o prompt de cada um."""
 
 import os
 from pathlib import Path
@@ -7,8 +7,16 @@ from classificacao.adaptadores.anthropic_api import ModeloAnthropic
 from classificacao.adaptadores.claude_code import ModeloClaudeCode
 from classificacao.adaptadores.deepseek_api import ModeloDeepSeek
 from classificacao.adaptadores.gemini_api import EmbeddingsGemini, ModeloGemini
+from classificacao.adaptadores.prompts_em_arquivo import (
+    PAPEIS,
+    carregar_prompts,
+    ler_versoes_ativas,
+)
 from classificacao.aplicacao.classificar_questao import Papeis
 from classificacao.aplicacao.portas import Embeddings, ModeloDeLinguagem
+from classificacao.aplicacao.prompts import PromptsDosPapeis
+
+PASTA_DE_PROMPTS = Path("prompts")
 
 # Q15 (modo api) e Q21 (modo claude-code): modelos diferentes por papel.
 MODELO_PADRAO = {
@@ -39,6 +47,14 @@ def criar_papeis() -> Papeis:
         verificador=criar_modelo("verificador"),
         juiz=criar_modelo("juiz"),
     )
+
+
+def criar_prompts(pasta: Path = PASTA_DE_PROMPTS) -> PromptsDosPapeis:
+    """Versão ativa de prompts/versoes.toml; <PAPEL>_PROMPT no .env troca a de um papel."""
+    versoes = ler_versoes_ativas(pasta)
+    for papel in PAPEIS:
+        versoes[papel] = os.environ.get(f"{papel.upper()}_PROMPT") or versoes[papel]
+    return carregar_prompts(pasta, versoes)
 
 
 def criar_modelo(papel: str) -> ModeloDeLinguagem:

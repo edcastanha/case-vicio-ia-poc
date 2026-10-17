@@ -75,5 +75,9 @@ def _classificacao(bruta: dict) -> Classificacao:
 
 def _proposta(bruta: dict) -> Proposta:
     return Proposta(
-        bruta["no_id"], bruta["confianca"], bruta["justificativa"], tuple(bruta["extras"])
+        bruta["no_id"],
+        bruta["confianca"],
+        bruta["justificativa"],
+        tuple(bruta["extras"]),
+        bruta.get("prompt", ""),  # linhas de antes do versionamento não têm o campo
     )

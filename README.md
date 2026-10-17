@@ -32,6 +32,10 @@ uv run classificacao entrega      # 5. calibra nos rótulos e grava publicacao.c
 
 O que gera o `publicacao.csv`: o passo 5, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3–4). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
 
+## Prompts
+
+O prompt de cada papel fica em [`prompts/<papel>/<versao>.md`](prompts/), e a versão ativa, em [`prompts/versoes.toml`](prompts/versoes.toml). Para testar uma versão nova, crie `prompts/classificador/v2.md` e rode o piloto com `CLASSIFICADOR_PROMPT=v2`. Uma versão publicada nunca é editada (ADR 0003). Cada voto grava o prompt que o gerou (`classificador/v1@dce3cb01`), e `entrega` recusa rodadas com versões misturadas: mudou o prompt, refaça a rodada e a calibração.
+
 `uv run classificacao piloto --n 30` roda uma amostra; com `*_BACKEND=claude-code` no `.env` usa o `claude -p` local em vez das APIs (só para teste).
 
 ## Código

@@ -1,7 +1,11 @@
+from dataclasses import replace
+
 from classificacao.aplicacao.classificar_questao import Papeis, classificar_questao
+from classificacao.aplicacao.prompts import Prompt
 from classificacao.dominio.arvore import Arvore, No
 from classificacao.dominio.questao import Questao
 from tests.unit.fakes import (
+    PROMPTS,
     CacheEmMemoria,
     FilaDeFalhasEmMemoria,
     ModeloFake,
@@ -31,11 +35,12 @@ ARVORE = Arvore(
 )
 
 
-def classificar(classificador, verificador, juiz, fila=None, cache=None):
+def classificar(classificador, verificador, juiz, fila=None, cache=None, prompts=PROMPTS):
     return classificar_questao(
         QUESTAO,
         ARVORE,
         Papeis(classificador=classificador, verificador=verificador, juiz=juiz),
+        prompts,
         fila_de_falhas=fila or FilaDeFalhasEmMemoria(),
         cache=cache or CacheEmMemoria(),
         esperar=lambda tentativa: None,
@@ -136,3 +141,52 @@ def test_com_um_voto_valido_o_juiz_nao_e_chamado():
     juiz = ModeloFake("j", sempre(11))
     classificar(ModeloFake("c", falha_sempre), ModeloFake("v", sempre(10)), juiz)
     assert juiz.chamadas == []
+
+
+def test_cada_papel_recebe_o_texto_do_seu_prompt_no_system_prompt():
+    classificador = ModeloFake("c", sempre(10))
+    verificador = ModeloFake("v", sempre(11))
+    juiz = ModeloFake("j", sempre(11))
+    classificar(classificador, verificador, juiz)
+    for modelo, prompt in (
+        (classificador, PROMPTS.classificador),
+        (verificador, PROMPTS.verificador),
+        (juiz, PROMPTS.juiz),
+    ):
+        [(sistema, _)] = modelo.chamadas
+        assert sistema.startswith(prompt.texto)
+
+
+def test_cada_voto_registra_a_versao_do_prompt_que_o_gerou():
+    resultado = classificar(
+        ModeloFake("c", sempre(10)), ModeloFake("v", sempre(11)), ModeloFake("j", sempre(11))
+    )
+    assert resultado.classificador.prompt == PROMPTS.classificador.rotulo
+    assert resultado.verificador.prompt == PROMPTS.verificador.rotulo
+    assert resultado.juiz.prompt == PROMPTS.juiz.rotulo
+
+
+def test_juiz_sozinho_usa_e_registra_o_prompt_do_verificador():
+    resultado = classificar(
+        ModeloFake("c", falha_sempre), ModeloFake("v", sempre(999)), ModeloFake("j", sempre(11))
+    )
+    assert resultado.juiz.prompt == PROMPTS.verificador.rotulo
+
+
+def test_voto_vindo_do_cache_tambem_registra_a_versao_do_prompt():
+    cache = CacheEmMemoria()
+    modelos = ModeloFake("c", sempre(10)), ModeloFake("v", sempre(10)), ModeloFake("j", sempre(10))
+    classificar(*modelos, cache=cache)
+    segunda = classificar(*modelos, cache=cache)
+    assert segunda.classificador.prompt == PROMPTS.classificador.rotulo
+
+
+def test_nova_versao_do_prompt_nao_reaproveita_o_cache_da_anterior():
+    cache = CacheEmMemoria()
+    verificador, juiz = ModeloFake("v", sempre(10)), ModeloFake("j", sempre(10))
+    classificar(ModeloFake("c", sempre(10)), verificador, juiz, cache=cache)
+    v2 = replace(PROMPTS, classificador=Prompt("classificador", "v2", "Texto novo.\n"))
+    classificador = ModeloFake("c", sempre(10))
+    resultado = classificar(classificador, verificador, juiz, cache=cache, prompts=v2)
+    assert len(classificador.chamadas) == 1
+    assert resultado.classificador.prompt.startswith("classificador/v2@")

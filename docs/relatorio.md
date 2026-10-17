@@ -19,6 +19,7 @@
 - **Calibração ingênua (corrigida).** Escolher o limiar na amostra rotulada e medir a precisão nela mesma infla o número. Num teste com pontuação sem informação nenhuma, a conta ingênua dizia 100% de precisão; o bootstrap do procedimento inteiro (recalibrar em reamostras e medir fora delas) estimou 77%, perto dos 80% reais. A previsão entregue usa o bootstrap.
 - **Concordância que não informa (corrigida).** No piloto, questões que misturam cinco assuntos tiveram os dois modelos concordando… com confiança declarada de 0,2. Passou a valer: se um dos modelos se declara em dúvida, não publica.
 - **Mesmo modelo nos dois papéis (corrigido).** Com só uma chave de API disponível, testei Classificador e Verificador no mesmo modelo: na Q0328 vieram o mesmo nó, a mesma confiança e quase a mesma justificativa. É o modelo concordando consigo mesmo. A configuração final mantém famílias diferentes (Claude no Classificador, DeepSeek no Verificador).
+- **Prompts sem versão (corrigido).** Os prompts nasceram como constantes no código, e nada no resultado dizia qual texto tinha gerado cada voto. Como a previsão de precisão vale para um par (modelo, prompt), passei a versionar o prompt de cada papel em arquivo (`prompts/<papel>/v1.md`), a gravar a versão em cada voto e a recusar calibrar rodadas com versões misturadas. A v1 é o texto que gerou a rodada: refazer as 359 só pelo cache reproduziu todas as classificações sem nenhuma chamada (ADR 0003).
 - **Temas duplicados (descoberto no piloto).** Na Q0112 um modelo escolheu "Penal > Organizações Criminosas" e o outro "Legislação Especial > Organizações Criminosas". Ver diagnóstico.
 
 ## b) Diagnóstico: o que atrapalha classificar certo
@@ -62,7 +63,7 @@
 - **Auditoria amostral semanal**: o professor revisa às cegas uma amostra aleatória das *publicadas* (ex.: 50/semana). É o único número que mede de fato a régua; com ele recalibro o limiar.
 - **Reportes de alunos** como sinal: questão reportada sai da publicação e entra na fila; taxa de reporte por tema denuncia lixeiras novas.
 - **Deriva**: acompanhar taxa de concordância, de dúvida e de desacordo por tema e por lote de importação; uma queda repentina indica mudança na fonte ou no modelo.
-- **Mudou modelo ou prompt → recalibra** na amostra auditada antes de publicar com a configuração nova.
+- **Mudou modelo ou prompt → recalibra** na amostra auditada antes de publicar com a configuração nova. Cada voto já grava a versão do prompt (`classificador/v1@hash`), o que permite medir precisão e deriva por versão e reverter trocando a versão ativa.
 
 ## d) Memo ao professor
 

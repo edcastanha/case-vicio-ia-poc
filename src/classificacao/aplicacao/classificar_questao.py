@@ -2,14 +2,13 @@ import hashlib
 import json
 import time
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from classificacao.aplicacao.portas import Cache, FalhaDoModelo, FilaDeFalhas, ModeloDeLinguagem
 from classificacao.aplicacao.prompts import (
     SCHEMA_DO_VOTO,
-    SISTEMA_CLASSIFICADOR,
-    SISTEMA_JUIZ,
-    SISTEMA_VERIFICADOR,
+    Prompt,
+    PromptsDosPapeis,
     disputa_para_prompt,
     questao_para_prompt,
     sistema_com_arvore,
@@ -32,6 +31,7 @@ class Proposta:
     confianca: float
     justificativa: str
     extras: tuple[int, ...] = ()
+    prompt: str = ""  # rótulo da versão do prompt que gerou o voto (Prompt.rotulo)
 
     def voto(self) -> Voto:
         return Voto(self.no_id, self.confianca)
@@ -54,19 +54,23 @@ def classificar_questao(
     questao: Questao,
     arvore: Arvore,
     papeis: Papeis,
+    prompts: PromptsDosPapeis,
     fila_de_falhas: FilaDeFalhas,
     cache: Cache,
     tentativas: int = 3,
     esperar: Callable[[int], None] = lambda tentativa: time.sleep(2**tentativa),
 ) -> Classificacao:
-    def votar(papel: str, modelo: ModeloDeLinguagem, sistema: str, usuario: str) -> Proposta | None:
+    def votar(
+        papel: str, modelo: ModeloDeLinguagem, prompt: Prompt, usuario: str
+    ) -> Proposta | None:
+        sistema = sistema_com_arvore(prompt.texto, arvore)
         chave = _chave_do_cache(papel, modelo.identificador, sistema, usuario)
         if (guardada := cache.obter(chave)) is not None:
-            return _ler_proposta(guardada)
+            return replace(_ler_proposta(guardada), prompt=prompt.rotulo)
         try:
             resposta = _responder_com_retry(modelo, sistema, usuario, tentativas, esperar)
             cache.guardar(chave, resposta)
-            return _ler_proposta(resposta)
+            return replace(_ler_proposta(resposta), prompt=prompt.rotulo)
         except FalhaDoModelo as erro:
             fila_de_falhas.registrar(questao.id, papel, str(erro))
             return None
@@ -74,13 +78,13 @@ def classificar_questao(
     classificador = votar(
         "classificador",
         papeis.classificador,
-        sistema_com_arvore(SISTEMA_CLASSIFICADOR, arvore),
+        prompts.classificador,
         questao_para_prompt(questao, com_origem=True),
     )
     verificador = votar(
         "verificador",
         papeis.verificador,
-        sistema_com_arvore(SISTEMA_VERIFICADOR, arvore),
+        prompts.verificador,
         questao_para_prompt(questao, com_origem=False),
     )
     juiz = None
@@ -94,15 +98,16 @@ def classificar_questao(
         juiz = votar(
             "juiz",
             papeis.juiz,
-            sistema_com_arvore(SISTEMA_JUIZ, arvore),
+            prompts.juiz,
             disputa_para_prompt(questao, classificador, verificador),
         )
     elif _sem_voto_valido(arvore, classificador, verificador):
-        # Q42: sem embeddings, o Juiz classifica sozinho para que Revisar tenha uma sugestão.
+        # Q42: sem embeddings, o Juiz classifica sozinho (com o prompt do Verificador)
+        # para que Revisar tenha uma sugestão.
         juiz = votar(
             "juiz",
             papeis.juiz,
-            sistema_com_arvore(SISTEMA_VERIFICADOR, arvore),
+            prompts.verificador,
             questao_para_prompt(questao, com_origem=False),
         )
     return Classificacao(questao.id, classificador, verificador, juiz)

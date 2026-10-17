@@ -1,5 +1,14 @@
+import hashlib
+from collections import defaultdict
+from collections.abc import Iterable
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.questao import Questao
+
+if TYPE_CHECKING:
+    from classificacao.aplicacao.classificar_questao import Classificacao
 
 SCHEMA_DO_VOTO = {
     "type": "object",
@@ -13,66 +22,55 @@ SCHEMA_DO_VOTO = {
     "additionalProperties": False,
 }
 
-_REGRAS_COMUNS = """\
-Regras da árvore:
-- Escolha um Tema ou um Subtema pelo número entre colchetes. Nunca uma Disciplina, e nunca um \
-número que não esteja na lista.
-- Prefira o Subtema mais específico que cubra o assunto central. Se a questão cobre vários \
-Subtemas do mesmo Tema por igual, escolha o Tema.
-- Cuidado com nós genéricos ou introdutórios (noções gerais, introdução, conceito, princípios, \
-disposições gerais). Eles atraem questões que não são deles. Só os escolha se a questão for de \
-fato sobre a noção geral; antes, procure um nó específico que trate do instituto cobrado.
-- Se nenhum nó da árvore serve (por exemplo, a questão é de outra disciplina), devolva no_id null.
 
-Campos da resposta:
-- no_id: o número do nó, ou null.
-- confianca: de 0 a 1, a chance de um professor especialista concordar com a sua escolha. \
-Seja calibrado: 0.9 deve significar que você erraria cerca de 1 em 10 escolhas assim.
-- justificativa: 1 a 3 frases, citando o instituto ou dispositivo legal que decide a questão.
-- extras: até 3 outros nós que a questão também cobre de forma substancial; \
-lista vazia se não houver.
-"""
+@dataclass(frozen=True)
+class Prompt:
+    """Instruções de sistema de um papel; o texto de cada versão fica em prompts/<papel>/."""
 
-SISTEMA_CLASSIFICADOR = (
-    """\
-Você classifica questões de concurso de Direito Penal, Processo Penal, Legislação Penal Especial \
-e Criminologia numa árvore de temas. O aluno estuda por tema: se a questão ficar no tema errado, \
-ele estuda a matéria errada.
+    papel: str
+    versao: str
+    texto: str
 
-Pergunte-se: qual é o assunto central desta questão? Leia o enunciado e as alternativas inteiros; \
-o assunto central é o que diferencia a alternativa certa das erradas, não apenas o contexto citado \
-no enunciado. A origem informada (como o site de origem classificou) é só uma pista e pode estar \
-errada.
+    @property
+    def rotulo(self) -> str:
+        """Papel, versão e hash do texto: texto editado sem versão nova não passa despercebido."""
+        return f"{self.papel}/{self.versao}@{hashlib.sha256(self.texto.encode()).hexdigest()[:8]}"
 
-"""
-    + _REGRAS_COMUNS
-)
 
-SISTEMA_VERIFICADOR = (
-    """\
-Você é professor de cursinho para concursos da área criminal e organiza um banco de questões por \
-tema para os seus alunos.
+@dataclass(frozen=True)
+class PromptsDosPapeis:
+    classificador: Prompt
+    verificador: Prompt
+    juiz: Prompt
 
-Para esta questão, identifique primeiro qual instituto jurídico o aluno precisa dominar para \
-acertá-la (por exemplo, um crime específico, uma regra processual, uma teoria). Depois localize \
-esse instituto na árvore de temas.
 
-"""
-    + _REGRAS_COMUNS
-)
+class VersoesDePromptMisturadas(ValueError):
+    pass
 
-SISTEMA_JUIZ = (
-    """\
-Dois classificadores independentes discordaram sobre em que nó da árvore de temas uma questão de \
-concurso deve ficar. Você recebe a questão, a árvore e as duas propostas com as justificativas.
 
-Decida qual nó é o correto para o assunto central da questão. Pode escolher uma das propostas ou, \
-se ambas estiverem erradas, outro nó da árvore. Na justificativa, explique em linguagem simples, \
-para um professor de Direito, por que a proposta descartada está errada.
-
-"""
-    + _REGRAS_COMUNS
-)
+def exigir_versao_unica(classificacoes: Iterable["Classificacao"]) -> list[str]:
+    """A calibração vale para uma versão de cada prompt; mudou o prompt, recalibra."""
+    sem_versao: list[str] = []
+    por_prompt: dict[str, set[str]] = defaultdict(set)
+    for c in classificacoes:
+        for proposta in (c.classificador, c.verificador, c.juiz):
+            if proposta is None:
+                continue
+            if not proposta.prompt:
+                sem_versao.append(c.questao_id)
+            else:
+                por_prompt[proposta.prompt.split("/", 1)[0]].add(proposta.prompt)
+    problemas = []
+    if sem_versao:
+        problemas.append(f"votos sem versão de prompt: {', '.join(sorted(set(sem_versao)))}")
+    problemas += [
+        f"versões misturadas: {', '.join(sorted(rotulos))}"
+        for rotulos in por_prompt.values()
+        if len(rotulos) > 1
+    ]
+    if problemas:
+        raise VersoesDePromptMisturadas("; ".join(problemas))
+    return sorted(rotulo for rotulos in por_prompt.values() for rotulo in rotulos)
 
 
 def arvore_para_prompt(arvore: Arvore) -> str:

@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from classificacao.aplicacao.classificar_questao import Papeis, classificar_questao
 from classificacao.aplicacao.portas import Cache, FilaDeFalhas, RegistroDeClassificacoes
+from classificacao.aplicacao.prompts import PromptsDosPapeis
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.questao import Questao
 
@@ -13,6 +14,7 @@ def processar_lote(
     questoes: Sequence[Questao],
     arvore: Arvore,
     papeis: Papeis,
+    prompts: PromptsDosPapeis,
     registro: RegistroDeClassificacoes,
     fila_de_falhas: FilaDeFalhas,
     cache: Cache,
@@ -24,7 +26,7 @@ def processar_lote(
     def processar(questao: Questao) -> None:
         try:
             classificacao = classificar_questao(
-                questao, arvore, papeis, fila_de_falhas, cache, esperar=esperar
+                questao, arvore, papeis, prompts, fila_de_falhas, cache, esperar=esperar
             )
         except Exception as erro:  # noqa: BLE001 - uma questão nunca derruba o lote
             with trava:
