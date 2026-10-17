@@ -1,0 +1,465 @@
+{
+ "Q0011": {
+  "no_id": 4702,
+  "confianca": 0.6,
+  "justificativa": "A resposta depende de enquadrar o caso no art. 1º da Lei 9.613/98. Álvaro e Flávio ocultam a origem e o ingresso de valores vindos de corrupção passiva, e a autolavagem é punível. Também depende da competência da Justiça Federal (art. 2º, III, 'a', da mesma lei), já que o crime antecedente atinge interesse da União. A árvore tem dois nós de Lavagem de Dinheiro (4702 e 6723), e isso reduz a confiança na escolha.",
+  "extras": [
+   6723,
+   5482
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0020": {
+  "no_id": 5203,
+  "confianca": 0.25,
+  "justificativa": "A questão é uma miscelânea de jurisprudência do STJ e nenhum assunto domina. Cobra cinco pontos: concurso material entre os arts. 241-A e 241-B do ECA; compensação da confissão espontânea com a reincidência específica na segunda fase da dosimetria (Tema 585); falsa identidade do art. 307 do CP (Súmula 522); repouso noturno no furto qualificado (Tema 1087); e sursis processual/transação penal quando a multa é alternativa. Escolhi a segunda fase da dosimetria por ser o assunto de Parte Geral com mais peso, mas os demais têm o mesmo peso.",
+  "extras": [
+   5119,
+   5159,
+   5542
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0025": {
+  "no_id": 5101,
+  "confianca": 0.85,
+  "justificativa": "Quando um particular solicita vantagem a pretexto de influir em ato de funcionário público, comete tráfico de influência (art. 332 do CP), e não corrupção ativa (art. 333 do CP). Por isso, a assertiva está errada. É o tráfico de influência que decide a questão.",
+  "extras": [
+   5093
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0030": {
+  "no_id": 5135,
+  "confianca": 0.93,
+  "justificativa": "A conduta é o crime de atentado contra a liberdade de trabalho, previsto no art. 197, I, do CP, dentro do capítulo dos crimes contra a organização do trabalho. A alternativa C está correta.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0032": {
+  "no_id": 5497,
+  "confianca": 0.85,
+  "justificativa": "A resposta decorre do art. 149, §1º, do CPP. Na fase de inquérito, o exame de insanidade mental é ordenado pelo juiz mediante representação da autoridade policial (alternativa C). É matéria típica do incidente de insanidade mental.",
+  "extras": [
+   5500
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0036": {
+  "no_id": 4704,
+  "confianca": 0.72,
+  "justificativa": "A resposta depende do art. 16 da Lei 11.340/2006 e da interpretação do STJ no Tema Repetitivo 1167. Segundo esse entendimento, a audiência de retratação não é obrigatória e não pode ser designada de ofício. Ela só se realiza se a vítima manifestar antes o desejo de se retratar da representação, por isso a correta é a D.",
+  "extras": [
+   6724,
+   5471
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0037": {
+  "no_id": 5118,
+  "confianca": 0.6,
+  "justificativa": "A alternativa incorreta é a D. Inserir declaração falsa na CTPS ou em documento que deva produzir efeito perante a Previdência Social é a figura do art. 297, §3º, do CP, que equipara essa conduta à falsificação de documento público, e não à falsificação de documento particular do art. 298. Por isso a resposta é decidida pela falsidade documental. As alternativas A e B cobram o art. 149 (redução a condição análoga à de escravo) e a C cobra o art. 342 (falso testemunho), mas estão corretas.",
+  "extras": [
+   5132,
+   5081
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0038": {
+  "no_id": 5549,
+  "confianca": 0.6,
+  "justificativa": "A alternativa correta é a B. Ela reproduz o art. 201, §6º, do CPP, segundo o qual o juiz pode decretar segredo de justiça sobre os dados, depoimentos e informações do ofendido para preservar sua intimidade e evitar a exposição na mídia. Esse dispositivo fica no capítulo \"Do Ofendido\", dentro do título das provas. As alternativas erradas tratam do assistente de acusação, da apelação supletiva, da prisão temporária e do inquérito policial.",
+  "extras": [
+   5583
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0041": {
+  "no_id": 5184,
+  "confianca": 0.93,
+  "justificativa": "A questão trata das medidas de segurança: lógica manicomial, sistema vicariante (art. 98 do CP) no lugar do duplo binário, aplicação só a inimputáveis e semi-imputáveis, desinternação condicional (art. 97, §3º, do CP) e Lei 10.216/2001. A alternativa A é a correta, e todo o conteúdo cobrado está no nó Medida de Segurança.",
+  "extras": [
+   5213
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0042": {
+  "no_id": 5222,
+  "confianca": 0.92,
+  "justificativa": "A questão pede o conceito de dolo direto (art. 18, I, CP, teoria da vontade) e o separa do dolo eventual, da culpa inconsciente e da culpa consciente. Por isso o nó é o de Crime Doloso e Culposo.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0045": {
+  "no_id": 5091,
+  "confianca": 0.93,
+  "justificativa": "A questão pergunta qual é a forma qualificada do excesso de exação. A resposta é a alternativa E: pelo art. 316, § 2º, do CP, o crime é qualificado quando o funcionário desvia, em proveito próprio ou de outrem, o que recebeu indevidamente para recolher aos cofres públicos. Por isso a questão fica no nó de Concussão e Excesso de Exação.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0054": {
+  "no_id": 5174,
+  "confianca": 0.93,
+  "justificativa": "A questão pede que o candidato reconheça as classificações doutrinárias dos crimes: mera atividade, lesão, plurissubjetivo e pluriofensivo. A alternativa A está correta: violação de domicílio é crime de mera conduta, furto é de lesão, rixa é plurissubjetiva e roubo é pluriofensivo. Os tipos penais citados são só exemplos, e o que se cobra é a classificação dos crimes.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0056": {
+  "no_id": 5066,
+  "confianca": 0.6,
+  "justificativa": "A questão cobra os sistemas de aplicação da pena no concurso de crimes: cúmulo material, exasperação e cúmulo jurídico, nos arts. 69 a 72 do CP. A alternativa correta é a E: pelo art. 72, as multas são aplicadas de forma distinta e integral, e o STJ ressalva o crime continuado. Como as alternativas passam por vários subtemas, o nó escolhido é o Tema.",
+  "extras": [
+   5070,
+   5068,
+   5067
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0058": {
+  "no_id": 4377,
+  "confianca": 0.45,
+  "justificativa": "A questão gira em torno da seletividade do sistema penal contra os pobres. A alternativa correta (B) diz que a vitimização é seletiva, assim como a criminalização. As outras alternativas tratam da seletividade da criminalização secundária, da medida de segurança, da prisão como controle da pobreza e do garantismo, temas da criminologia crítica.",
+  "extras": [
+   4390,
+   4378,
+   4373
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0062": {
+  "no_id": 5182,
+  "confianca": 0.92,
+  "justificativa": "A resposta depende da extraterritorialidade incondicionada do art. 7º, I, \"b\", do CP, que alcança crimes contra o patrimônio de sociedade de economia mista. Pelo art. 7º, §1º, o agente é punido pela lei brasileira ainda que já tenha sido absolvido ou condenado no estrangeiro, por isso a alternativa E está correta. O tema é lei penal no espaço.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0065": {
+  "no_id": 5161,
+  "confianca": 0.85,
+  "justificativa": "A questão cobra as qualificadoras, a consumação e a tentativa da extorsão mediante sequestro (art. 159 do CP), que está no capítulo da extorsão. A alternativa A é a correta: os §§ 2º e 3º qualificam o crime quando resulta lesão corporal grave ou morte. A B erra porque o § 1º fala em menor de 18 ou maior de 60 anos, e a D e a E erram porque o crime é formal e se consuma com a privação da liberdade, mesmo sem pedir ou obter o resgate.",
+  "extras": [
+   4693
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0074": {
+  "no_id": 5181,
+  "confianca": 0.55,
+  "justificativa": "A questão trata da retroatividade da lei penal mais benéfica depois do trânsito em julgado (art. 2º, parágrafo único, do CP). O gabarito é Errado: pela Súmula 611 do STF e pelo art. 66, I, da LEP, quem aplica a lei mais benigna após o trânsito em julgado é o juízo da execução, e não o juízo da condenação.",
+  "extras": [
+   6734,
+   4703
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0077": {
+  "no_id": 5171,
+  "confianca": 0.5,
+  "justificativa": "A questão gira em torno das espécies de norma penal em branco: homogênea/heterogênea, homovitelina/heterovitelina e \"ao avesso\" (invertida). A alternativa correta é a D: o art. 1º da Lei 2.889/56 tem o preceito secundário completado pelo art. 121, § 2º, do CP, e o art. 309 do Código Eleitoral pune a tentativa com a mesma pena do crime consumado (crime de atentado). As alternativas também cobram, em segundo plano, a continuidade normativo-típica (art. 214 do CP), a classificação dos crimes e a competência do STJ para conceder exequatur.",
+  "extras": [
+   5174,
+   5181
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0082": {
+  "no_id": 5100,
+  "confianca": 0.9,
+  "justificativa": "Tício se opôs à execução de ato legal ameaçando um funcionário competente para executá-lo. Isso é resistência (art. 329 do CP), e ele responde por ela em concurso com o crime contra a companheira. As outras alternativas são crimes próprios de funcionário público ou não se encaixam no caso.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0087": {
+  "no_id": 6734,
+  "confianca": 0.5,
+  "justificativa": "A questão trata da prisão domiciliar na execução da pena, prevista no art. 117 da LEP. A resposta certa é a E: para o STJ, o rol do art. 117 não é taxativo. Por isso, o tribunal admite a domiciliar, em caráter excepcional, também no regime fechado ou semiaberto, por exemplo para a mãe cujo cuidado com o filho é imprescindível. O instituto que decide é a execução penal, e não a prisão domiciliar cautelar do CPP.",
+  "extras": [
+   4703,
+   5521
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0109": {
+  "no_id": 4708,
+  "confianca": 0.85,
+  "justificativa": "A questão cobra o tipo privilegiado de uso compartilhado do art. 33, §3º, da Lei 11.343/06: quem oferece droga de forma eventual e sem objetivo de lucro a pessoa de seu relacionamento, para consumirem juntos, está sujeito a detenção de 6 meses a 1 ano e a 700 a 1.500 dias-multa, sem prejuízo das penas do art. 28 (alternativa D).",
+  "extras": [
+   6728
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0117": {
+  "no_id": 4384,
+  "confianca": 0.62,
+  "justificativa": "A questão compara as teorias da pena (absoluta, relativa, unificadora e agnóstica). A resposta é a teoria agnóstica ou negativa, de Zaffaroni: ela nega que a pena tenha finalidade legítima e reconhece nela apenas a neutralização do condenado. Por isso o tema central são as teorias que buscam legitimar a pena.",
+  "extras": [
+   5200
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0128": {
+  "no_id": 5468,
+  "confianca": 0.68,
+  "justificativa": "A doutrina classifica a ação penal condenatória conforme o seu objetivo. Uma das espécies é a \"ação penal de prevenção penal\", ajuizada contra o inimputável do art. 26, caput, do CP para que se aplique a ele medida de segurança, por meio de sentença absolutória imprópria. A questão cobra essa classificação da ação penal, e a assertiva está correta.",
+  "extras": [
+   5184,
+   5574
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0132": {
+  "no_id": 5550,
+  "confianca": 0.5,
+  "justificativa": "A questão cobra a Resolução CNJ nº 427/2021: registro em apartado e sob sigilo dos dados qualificativos e endereços de vítimas e testemunhas ameaçadas, que o juiz pode determinar inclusive de ofício, com acesso controlado pelas partes. É uma regra de proteção da prova testemunhal e das declarações do ofendido, na linha do art. 201, §6º, do CPP e da Lei 9.807/99.",
+  "extras": [
+   5549
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0138": {
+  "no_id": 5205,
+  "confianca": 0.8,
+  "justificativa": "A alternativa correta (B) reproduz o art. 44, §5º, do CP, sobre a conversão da pena restritiva de direitos quando sobrevém nova condenação. As alternativas A e D também tratam da substituição (art. 44, §3º, e art. 46 do CP). A alternativa C trata do sursis (art. 77 do CP).",
+  "extras": [
+   5207
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0139": {
+  "no_id": 5212,
+  "confianca": 0.62,
+  "justificativa": "A frase define a coculpabilidade, proposta por Zaffaroni: o Estado e a sociedade dividem a reprovação quando causas sociais reduzem a autodeterminação do agente. As alternativas confrontam a coculpabilidade com as teorias da culpabilidade (psicológico-normativa, normativa pura, funcionalista) e com a causa supralegal exculpante. Por isso, o nó central é Conceito e Elementos da Culpabilidade.",
+  "extras": [
+   5217,
+   5203
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0149": {
+  "no_id": 5500,
+  "confianca": 0.8,
+  "justificativa": "A alternativa correta é a C. Ela reproduz o art. 13-B, §4º, do CPP: se o juiz não se manifestar em 12 horas, o delegado pode requisitar diretamente os meios técnicos de localização da vítima de tráfico de pessoas e comunica o juiz imediatamente. As demais alternativas tratam das diligências do inquérito: a requisição de dados cadastrais do art. 13-A, que dispensa autorização judicial; a busca pessoal feita durante a busca domiciliar (art. 244 do CPP); e a prioridade no exame de corpo de delito do art. 158, parágrafo único, que não inclui indígena nem gestante.",
+  "extras": [
+   5554,
+   5545
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0150": {
+  "no_id": 4708,
+  "confianca": 0.8,
+  "justificativa": "A questão cobra as súmulas sobre a Lei 11.343/2006: Súmula 607/STJ (transnacionalidade), Súmula 587/STJ (interestadualidade) e Súmula 501/STJ (retroatividade sem combinação de leis). Cobra também o entendimento do STJ de que a majorante do art. 40, III, não exige prova de mercancia perto da escola. Por isso o instituto que decide é o tráfico de drogas e suas majorantes.",
+  "extras": [
+   6728,
+   5181
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0180": {
+  "no_id": 5554,
+  "confianca": 0.6,
+  "justificativa": "A resposta depende dos requisitos da busca domiciliar (art. 5º, XI, da CF e arts. 240-245 do CPP). Fora do flagrante, ela exige ordem judicial e deve ser feita durante o dia, salvo consentimento do morador. Sem isso, a prova obtida é ilícita, como afirma a alternativa E.",
+  "extras": [
+   5594,
+   5582
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0186": {
+  "no_id": 5202,
+  "confianca": 0.93,
+  "justificativa": "A questão pergunta como valorar, na primeira fase da dosimetria, as circunstâncias judiciais do art. 59 do CP. Segundo o STJ, a condenação definitiva por fato anterior ao delito, mesmo com trânsito em julgado só no curso da ação penal, entra apenas como maus antecedentes. Ela não pode ser usada para avaliar conduta social nem personalidade.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0196": {
+  "no_id": 4388,
+  "confianca": 0.6,
+  "justificativa": "A questão cobra as características da teoria do Labelling Approach (etiquetamento social): o controle social penal é seletivo e discriminatório e acaba produzindo a criminalidade, e a teoria rompe com o paradigma etiológico. Por isso o tema central é uma teoria criminológica em espécie.",
+  "extras": [
+   4387,
+   4378
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0205": {
+  "no_id": 5567,
+  "confianca": 0.5,
+  "justificativa": "A alternativa correta (A) reproduz o art. 639, I, do CPP: cabe carta testemunhável contra a decisão que denegar o recurso. As alternativas erradas tratam de temas gerais dos recursos: a vedação de o MP desistir do recurso (art. 576), a falta de interesse recursal depois da extinção da punibilidade e o efeito da apelação contra sentença absolutória (art. 596).",
+  "extras": [
+   5512,
+   5514,
+   5515
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0233": {
+  "no_id": 5178,
+  "confianca": 0.95,
+  "justificativa": "A questão cobra a distinção entre desistência voluntária e arrependimento eficaz, que o art. 15 do CP regula: o agente responde só pelos atos já praticados. Também cobra o arrependimento posterior (art. 16) e a diferença em relação ao crime impossível (art. 17). A alternativa B é a correta.",
+  "extras": [
+   5179
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0237": {
+  "no_id": 5178,
+  "confianca": 0.95,
+  "justificativa": "A questão pede a diferença entre desistência voluntária e arrependimento eficaz (art. 15 do CP). Na desistência voluntária, o agente interrompe os atos executórios. No arrependimento eficaz, ele termina a execução e depois age para impedir o resultado (alternativa A).",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0251": {
+  "no_id": 5191,
+  "confianca": 0.8,
+  "justificativa": "A questão trata da extinção da punibilidade em geral (art. 107 do CP). Ela cobra três pontos: o rol do art. 107 é exemplificativo, e não taxativo; a anistia alcança fatos e o indulto alcança pessoas; e a prescrição extingue a punibilidade. Como os itens cobrem vários Subtemas por igual, a escolha é o Tema Punibilidade.",
+  "extras": [
+   5193,
+   5186
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0266": {
+  "no_id": 5482,
+  "confianca": 0.72,
+  "justificativa": "A questão é de competência em razão da matéria, envolvendo justiça especializada e Júri. O crime doloso contra a vida de civil cometido por militar das Forças Armadas em operação de GLO é da Justiça Militar da União (art. 9º, §2º, III, do CPM, com a redação da Lei 13.491/2017). O mesmo crime cometido por policial militar estadual vai ao Tribunal do Júri (art. 125, §4º, da CF). A conexão não une os processos, por força do art. 79, I, do CPP. Gabarito: A.",
+  "extras": [
+   5481,
+   5486
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0268": {
+  "no_id": 5118,
+  "confianca": 0.5,
+  "justificativa": "A alternativa correta é a A, que traz os requisitos da falsidade ideológica (art. 299 do CP): alteração da verdade sobre fato juridicamente relevante, imitação da verdade, potencialidade de dano e dolo. A B também cobra falsidade documental, porque o uso de documento falso (art. 304) é crime formal. As alternativas D e E tratam de crimes contra a honra: a calúnia contra os mortos é punível (art. 138, §2º), e a exceção da verdade não cabe na injúria.",
+  "extras": [
+   5120,
+   4684
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0272": {
+  "no_id": 4703,
+  "confianca": 0.6,
+  "justificativa": "A questão trata das faltas graves na execução penal (arts. 50 a 52 da LEP) e da jurisprudência do STJ sobre elas. A alternativa A está correta: a fuga é falta grave permanente, e a prescrição para apurá-la só começa a correr com a recaptura. As demais estão erradas: as faltas graves também valem para o preso provisório, o rol do art. 50 é taxativo, a posse de droga para uso próprio é falta grave e deixar a tornozeleira sem bateria também configura falta grave.",
+  "extras": [
+   6734
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0277": {
+  "no_id": 4696,
+  "confianca": 0.8,
+  "justificativa": "A questão cobra os crimes do Estatuto da Pessoa Idosa (Lei 10.741/03). A resposta é a alternativa A, porque o art. 106 só pune quem induz a outorgar procuração a pessoa idosa sem discernimento de seus atos. As demais condutas são crimes: desdenhar ou menosprezar (art. 96, §1º), deixar de prestar assistência (art. 97), abandonar em hospital (art. 98) e reter cartão magnético (art. 104).",
+  "extras": [
+   6722
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0317": {
+  "no_id": 5198,
+  "confianca": 0.55,
+  "justificativa": "A questão cobra o prazo decadencial da representação. São seis meses contados do dia em que o ofendido vem a saber quem é o autor do crime (art. 103 do CP e art. 38 do CPP). Ela é Certa porque, no caso, o autor foi identificado na data do fato. O instituto que decide a resposta é a decadência como causa de extinção da punibilidade.",
+  "extras": [
+   5471
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0335": {
+  "no_id": 5218,
+  "confianca": 0.5,
+  "justificativa": "A correta é a A: o finalismo de Welzel levou o dolo natural, sem a consciência da ilicitude, e a culpa para o tipo, com desvalor da ação e do resultado. As outras alternativas cobram omissivos próprios, teoria do dolo adotada pelo CP (art. 18, I: vontade e assentimento), lei penal em branco e classificação dos crimes. Todas giram em torno do fato típico e se espalham por vários Subtemas, por isso escolhi o Tema.",
+  "extras": [
+   5221,
+   5222,
+   5223
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0340": {
+  "no_id": 5071,
+  "confianca": 0.72,
+  "justificativa": "A questão cobra vários pontos do concurso de pessoas por igual. As alternativas tratam de participação por omissão, concorrência de culpas, participação de menor importância (art. 29, §1º, CP, que prevê redução de 1/6 a 1/3) e comunicabilidade das elementares (art. 30). A correta (C) reproduz a agravante do art. 62, III, para quem instiga ou determina alguém sujeito à sua autoridade ou não punível. Como as alternativas se espalham por vários Subtemas, a escolha é o Tema.",
+  "extras": [
+   5074,
+   5076,
+   5203
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0342": {
+  "no_id": 5546,
+  "confianca": 0.75,
+  "justificativa": "A questão cobre as regras do CPP sobre perícias: perito não oficial (art. 159, §1º), quesitos e assistente técnico (art. 159, §3º), autópsia (art. 162), exumação (art. 163) e oitiva dos peritos (art. 159, §5º, I). Por isso o nó central é Perícia, e não apenas o exame de corpo de delito.",
+  "extras": [
+   5545
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0345": {
+  "no_id": 5103,
+  "confianca": 0.72,
+  "justificativa": "A resposta é a D. Os atos libidinosos praticados com menor de 14 anos configuram estupro de vulnerável consumado (art. 217-A do CP), e não importunação sexual nem tentativa. Para o STJ, aplicar ao mesmo tempo a agravante do art. 61, II, f, e o aumento do art. 226, II, pela mesma relação de autoridade é bis in idem.",
+  "extras": [
+   5110,
+   5203,
+   5204
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0346": {
+  "no_id": 5583,
+  "confianca": 0.85,
+  "justificativa": "A questão inteira trata do assistente de acusação, um dos sujeitos do processo (arts. 268 a 273 do CPP). Ela cobra a legitimidade do assistente para pedir a preventiva (art. 311 do CPP) e a intervenção de órgãos de defesa do consumidor como assistentes (art. 80 do CDC), o que leva à alternativa E. Também cobra a vedação de recurso contra a decisão que admite ou não o assistente (art. 273), a legitimidade para pedir o desaforamento (art. 427) e o momento a partir do qual ele pode intervir (art. 268).",
+  "extras": [
+   5519,
+   5528
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0349": {
+  "no_id": 5178,
+  "confianca": 0.92,
+  "justificativa": "A redução de um a dois terços pela restituição voluntária da coisa é o arrependimento posterior (art. 16 do CP). Ele só vale para crimes cometidos sem violência ou grave ameaça à pessoa, o que afasta o benefício no roubo com arma de fogo. A assertiva está certa.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0350": {
+  "no_id": 4702,
+  "confianca": 0.72,
+  "justificativa": "A questão é sobre a Lei n.º 9.613/1998, a Lei de Lavagem de Dinheiro. A alternativa correta é a C, que reproduz a colaboração espontânea do art. 1º, § 5º: redução de pena, regime aberto ou semiaberto, perdão judicial ou substituição por pena restritiva de direitos. As demais alternativas também tratam de pontos dessa lei (autolavagem, tentativa e gerações de legislação). Escolhi o nó de Legislação Especial, mas existe um nó duplicado em Penal, o que diminui a confiança.",
+  "extras": [
+   6723
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0351": {
+  "no_id": 5118,
+  "confianca": 0.93,
+  "justificativa": "Pelo art. 298, parágrafo único, do CP (incluído pela Lei 12.737/2012), o cartão de crédito ou débito é equiparado a documento particular. Falsificá-lo, portanto, é crime de falsificação de documento particular, que fica no capítulo da falsidade documental. A resposta é a alternativa E.",
+  "extras": [],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0356": {
+  "no_id": 5066,
+  "confianca": 0.8,
+  "justificativa": "A questão cobra vários subtemas do concurso de crimes em peso parecido. São eles: o concurso material, que exige mais de uma conduta (art. 69 do CP); o concurso formal impróprio, em que as penas são somadas (art. 70, segunda parte); e a multa no concurso, aplicada a cada crime de forma distinta e integral (art. 72). Como nenhum subtema predomina, o nó adequado é o Tema.",
+  "extras": [
+   5067,
+   5068,
+   5070
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ },
+ "Q0359": {
+  "no_id": 4696,
+  "confianca": 0.6,
+  "justificativa": "A questão cobra o art. 94 do Estatuto do Idoso (Lei 10.741/2003) e a interpretação do STF na ADI 3096: aos crimes contra idosos com pena máxima de até 4 anos aplica-se só o rito célere da Lei 9.099/95, e não as medidas despenalizadoras. Por isso a afirmativa está Certa.",
+  "extras": [
+   6722,
+   5539
+  ],
+  "prompt": "rotulador/v1@fc93cf7a"
+ }
+}
