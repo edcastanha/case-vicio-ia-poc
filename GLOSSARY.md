@@ -76,6 +76,13 @@ _Avoid_: Revisor
 **Juiz**:
 Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor.
 
+**Prompt do papel**:
+Instruções de sistema que um papel (Classificador, Verificador ou Juiz) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
+_Avoid_: Prompt do sistema, instrução
+
+**Versão do prompt**:
+Um texto fixo do Prompt do papel (`v1`, `v2`…), identificado em cada voto por `papel/versao@hash`; mudar o texto cria uma versão nova.
+
 **Professor**:
 O especialista humano em Direito que atende a fila de Revisar.
 _Avoid_: Revisor, especialista

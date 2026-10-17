@@ -9,8 +9,8 @@ from classificacao.aplicacao.classificar_questao import Classificacao, Proposta
 
 CLASSIFICACAO = Classificacao(
     "Q0001",
-    classificador=Proposta(10, 0.9, "júri", (100,)),
-    verificador=Proposta(100, 0.8, "desaforamento"),
+    classificador=Proposta(10, 0.9, "júri", (100,), "classificador/v1@a"),
+    verificador=Proposta(100, 0.8, "desaforamento", prompt="verificador/v1@b"),
     juiz=None,
 )
 
@@ -48,3 +48,12 @@ def test_registro_considera_feita_so_a_classificacao_completa(tmp_path):
     assert not RegistroEmArquivo(caminho).ja_classificada("Q0002")
     RegistroEmArquivo(caminho).salvar(CLASSIFICACAO)
     assert RegistroEmArquivo(caminho).ja_classificada("Q0001")
+
+
+def test_linha_gravada_antes_do_versionamento_e_lida_sem_versao(tmp_path):
+    caminho = tmp_path / "classificacoes.jsonl"
+    legado = {"no_id": 10, "confianca": 0.9, "justificativa": "j", "extras": []}
+    linha = {"questao_id": "Q0001", "classificador": legado, "verificador": legado, "juiz": None}
+    caminho.write_text(json.dumps(linha) + "\n")
+    [classificacao] = RegistroEmArquivo(caminho).todas()
+    assert classificacao.classificador.prompt == ""

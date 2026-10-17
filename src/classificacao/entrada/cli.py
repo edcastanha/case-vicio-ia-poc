@@ -16,10 +16,16 @@ from classificacao.aplicacao.calcular_sinais import calcular_sinais
 from classificacao.aplicacao.calibrar_com_rotulos import rotulos_de_calibracao
 from classificacao.aplicacao.gerar_entrega import Sinais, gerar_entrega
 from classificacao.aplicacao.processar_lote import processar_lote
+from classificacao.aplicacao.prompts import VersoesDePromptMisturadas, exigir_versao_unica
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.calibracao import ajustar_curva, calibrar, estimar_precisao
 from classificacao.dominio.questao import Questao
-from classificacao.entrada.configuracao import carregar_env, criar_embeddings, criar_papeis
+from classificacao.entrada.configuracao import (
+    carregar_env,
+    criar_embeddings,
+    criar_papeis,
+    criar_prompts,
+)
 
 ZIP_PADRAO = Path("anexos-case-ia.zip")
 RODADA = Path("dados/rodada")
@@ -77,11 +83,14 @@ def rodar_rodada(argumentos: argparse.Namespace) -> None:
 def _classificar(questoes: list[Questao], zip_anexos: Path, saida: Path, paralelismo: int) -> None:
     arvore = ler_arvore(zip_anexos)
     papeis = criar_papeis()
+    prompts = criar_prompts()
+    print("prompts: " + ", ".join(p.rotulo for p in vars(prompts).values()))
     registro = RegistroEmArquivo(saida / "classificacoes.jsonl")
     processar_lote(
         questoes,
         arvore,
         papeis,
+        prompts,
         registro=registro,
         fila_de_falhas=FilaDeFalhasEmArquivo(saida / "falhas.jsonl"),
         cache=CacheEmDisco(Path("dados/cache")),
@@ -129,6 +138,13 @@ def rodar_entrega(argumentos: argparse.Namespace) -> None:
     classificacoes = {
         c.questao_id: c for c in RegistroEmArquivo(RODADA / "classificacoes.jsonl").todas()
     }
+    try:
+        versoes = exigir_versao_unica(classificacoes.values())
+    except VersoesDePromptMisturadas as erro:
+        raise SystemExit(
+            f"rodada inconsistente, refaça com uma versão por prompt: {erro}"
+        ) from erro
+    print("prompts da rodada: " + ", ".join(versoes))
     sinais = _ler_sinais(RODADA / "sinais.json")
     rotulos = ler_rotulos(argumentos.rotulos, arvore)
     pares = rotulos_de_calibracao(classificacoes, rotulos, arvore, sinais)
@@ -177,7 +193,7 @@ def escrever_resumo(registro: RegistroEmArquivo, arvore: Arvore, caminho: Path) 
     with caminho.open("w", newline="") as arquivo:
         escritor = csv.writer(arquivo)
         escritor.writerow(
-            ["id", "situacao", "papel", "no_id", "caminho", "confianca", "justificativa"]
+            ["id", "situacao", "papel", "no_id", "caminho", "confianca", "justificativa", "prompt"]
         )
         for c in sorted(registro.todas(), key=lambda c: c.questao_id):
             situacao = _situacao(c, arvore)
@@ -193,6 +209,7 @@ def escrever_resumo(registro: RegistroEmArquivo, arvore: Arvore, caminho: Path) 
                             caminho_do(proposta.no_id),
                             proposta.confianca,
                             proposta.justificativa,
+                            proposta.prompt,
                         ]
                     )
 
