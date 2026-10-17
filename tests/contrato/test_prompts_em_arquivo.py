@@ -5,6 +5,7 @@ import pytest
 
 from classificacao.adaptadores.prompts_em_arquivo import (
     PromptInexistente,
+    carregar_prompt,
     carregar_prompts,
     ler_versoes_ativas,
 )
@@ -17,6 +18,7 @@ PUBLICADAS = {
     ("classificador", "v1"): "dce3cb015bed59a52c3e25b0afae8894c701101ffd3a99a94c9b2579dd3ada9b",
     ("verificador", "v1"): "7b8b74dbc3aca48b375ae7a186c432338f191ab2c5d3c60e3cf63013c99502b0",
     ("juiz", "v1"): "c47bdf2def9bac9520725ab2c47fa2ee9e0941bd5c5520a5ae973c36cc9eec2a",
+    ("rotulador", "v1"): "fc93cf7ae5296847a24bc8bf7e65054e1545aeaded49fa610ba490d5c7119b7f",
 }
 
 
@@ -54,3 +56,9 @@ def test_versoes_ativas_exigem_os_tres_papeis(tmp_path):
     (tmp_path / "versoes.toml").write_text('classificador = "v1"\n')
     with pytest.raises(PromptInexistente, match="verificador"):
         ler_versoes_ativas(tmp_path)
+
+
+def test_rotulador_tem_versao_ativa_propria_fora_dos_papeis_do_pipeline():
+    versao = ler_versoes_ativas(PASTA)["rotulador"]
+    prompt = carregar_prompt(PASTA, "rotulador", versao)
+    assert prompt.rotulo.startswith("rotulador/v1@")

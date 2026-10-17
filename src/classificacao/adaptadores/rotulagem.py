@@ -1,8 +1,9 @@
 import csv
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from classificacao.aplicacao.amostra_cega import ItemDeRotulagem
+from classificacao.aplicacao.rotulagem_assistida import ItemDeArbitragem
 from classificacao.dominio.arvore import Arvore
 
 _NENHUM = "nenhum"
@@ -49,6 +50,80 @@ def ler_rotulos(caminho: Path, arvore: Arvore) -> dict[str, int | None]:
                 continue
             rotulos[linha["id"]] = _rotulo(linha["id"], resposta, arvore)
     return rotulos
+
+
+def ids_da_planilha(caminho: Path) -> list[str]:
+    with caminho.open(newline="") as arquivo:
+        return [linha["id"] for linha in csv.DictReader(arquivo)]
+
+
+def preencher_respostas(caminho: Path, respostas: Mapping[str, tuple[int | None, str]]) -> None:
+    """Grava resposta e quem a deu; resposta que um humano já preencheu nunca é trocada."""
+    with caminho.open(newline="") as arquivo:
+        leitor = csv.DictReader(arquivo)
+        colunas, linhas = list(leitor.fieldnames or []), list(leitor)
+    for linha in linhas:
+        if linha["id"] in respostas and not (linha.get("resposta") or "").strip():
+            no_id, fonte = respostas[linha["id"]]
+            linha["resposta"] = _NENHUM if no_id is None else str(no_id)
+            linha["observacao"] = fonte
+    with caminho.open("w", newline="") as arquivo:
+        escritor = csv.DictWriter(arquivo, fieldnames=colunas)
+        escritor.writeheader()
+        escritor.writerows(linhas)
+
+
+def escrever_planilha_de_arbitragem(
+    itens: Sequence[ItemDeArbitragem], arvore: Arvore, caminho: Path
+) -> None:
+    """Conflitos com as opções A e B, sem dizer qual veio do Rotulador e qual do pipeline."""
+    colunas = ["id", "enunciado", "comando", "alternativas", "opcao_a", "opcao_b"]
+    colunas += ["escolha", "observacao"]
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    with caminho.open("w", newline="") as arquivo:
+        escritor = csv.DictWriter(arquivo, fieldnames=colunas)
+        escritor.writeheader()
+        for item in itens:
+            q = item.questao
+            linha = {
+                "id": q.id,
+                "enunciado": q.enunciado,
+                "comando": q.comando,
+                "alternativas": "\n".join(
+                    f"{letra}) {texto}" for letra, texto in q.alternativas.items()
+                ),
+                "opcao_a": "",
+                "opcao_b": "",
+                "escolha": "",
+                "observacao": "",
+            }
+            for coluna, no_id in zip(("opcao_a", "opcao_b"), item.opcoes, strict=False):
+                linha[coluna] = _opcao(no_id, arvore)
+            escritor.writerow(linha)
+
+
+def ler_escolhas(caminho: Path, arvore: Arvore) -> dict[str, int | None]:
+    """Escolha de cada Conflito já arbitrado: A, B, outro Nó ou 'nenhum'."""
+    escolhas: dict[str, int | None] = {}
+    with caminho.open(newline="") as arquivo:
+        for linha in csv.DictReader(arquivo):
+            escolha = (linha.get("escolha") or "").strip()
+            if not escolha:
+                continue
+            coluna = {"a": "opcao_a", "b": "opcao_b"}.get(escolha.casefold())
+            if coluna is not None:
+                opcao = (linha.get(coluna) or "").strip()
+                if not opcao:
+                    raise RotuloInvalido(f"{linha['id']}: escolha {escolha!r} sem opção")
+                escolha = opcao.split(" — ", 1)[0]
+            escolhas[linha["id"]] = _rotulo(linha["id"], escolha, arvore)
+    return escolhas
+
+
+def _opcao(no_id: int | None, arvore: Arvore) -> str:
+    if no_id is None:
+        return f"{_NENHUM} — nenhum nó da árvore serve"
+    return f"{no_id} — {arvore.no(no_id).caminho}"
 
 
 def _rotulo(questao_id: str, resposta: str, arvore: Arvore) -> int | None:

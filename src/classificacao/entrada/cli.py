@@ -9,27 +9,47 @@ from classificacao.adaptadores.arquivos import (
     CacheEmDisco,
     FilaDeFalhasEmArquivo,
     RegistroEmArquivo,
+    gravar_propostas,
+    ler_propostas,
 )
-from classificacao.adaptadores.rotulagem import escrever_planilha, ler_rotulos
+from classificacao.adaptadores.rotulagem import (
+    escrever_planilha,
+    escrever_planilha_de_arbitragem,
+    ids_da_planilha,
+    ler_escolhas,
+    ler_rotulos,
+    preencher_respostas,
+)
 from classificacao.aplicacao.amostra_cega import gerar_amostra_cega
 from classificacao.aplicacao.calcular_sinais import calcular_sinais
 from classificacao.aplicacao.calibrar_com_rotulos import rotulos_de_calibracao
 from classificacao.aplicacao.gerar_entrega import Sinais, gerar_entrega
 from classificacao.aplicacao.processar_lote import processar_lote
 from classificacao.aplicacao.prompts import VersoesDePromptMisturadas, exigir_versao_unica
+from classificacao.aplicacao.rotulagem_assistida import (
+    consolidar,
+    itens_de_arbitragem,
+    para_arbitrar,
+    rotular_as_cegas,
+)
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.calibracao import ajustar_curva, calibrar, estimar_precisao
 from classificacao.dominio.questao import Questao
 from classificacao.entrada.configuracao import (
     carregar_env,
     criar_embeddings,
+    criar_modelo,
     criar_papeis,
+    criar_prompt_do_rotulador,
     criar_prompts,
 )
 
 ZIP_PADRAO = Path("anexos-case-ia.zip")
 RODADA = Path("dados/rodada")
 ALVO_DE_PRECISAO = 0.97  # ADR 0002: margem sobre a Régua de 95%
+ROTULAGEM = Path("dados/rotulagem.csv")
+ROTULADOR = Path("dados/rotulador.json")
+ARBITRAGEM = Path("dados/arbitragem.csv")
 
 
 def main() -> None:
@@ -53,6 +73,15 @@ def main() -> None:
     amostra.add_argument("--semente", type=int, default=7)
     amostra.add_argument("--saida", type=Path, default=Path("dados/rotulagem.csv"))
 
+    rotular = comandos.add_parser(
+        "rotular", help="o Rotulador responde a amostra às cegas e gera a planilha de arbitragem"
+    )
+    rotular.add_argument("--semente", type=int, default=11)
+
+    comandos.add_parser(
+        "consolidar", help="grava na amostra as respostas do Rotulador e as escolhas da arbitragem"
+    )
+
     entrega = comandos.add_parser("entrega", help="calibra nos rótulos e gera a entrega")
     entrega.add_argument("--rotulos", type=Path, default=Path("dados/rotulagem.csv"))
     entrega.add_argument("--repeticoes", type=int, default=1000)
@@ -64,6 +93,8 @@ def main() -> None:
         "rodada": rodar_rodada,
         "sinais": rodar_sinais,
         "amostra": rodar_amostra,
+        "rotular": rodar_rotulagem,
+        "consolidar": rodar_consolidacao,
         "entrega": rodar_entrega,
     }[argumentos.comando](argumentos)
 
@@ -130,6 +161,56 @@ def rodar_amostra(argumentos: argparse.Namespace) -> None:
     )
     escrever_planilha(itens, arvore, argumentos.saida)
     print(f"{len(itens)} questões para rotular: {argumentos.saida}")
+
+
+def rodar_rotulagem(argumentos: argparse.Namespace) -> None:
+    if ARBITRAGEM.exists() and ler_escolhas(ARBITRAGEM, ler_arvore(argumentos.zip)):
+        raise SystemExit(f"{ARBITRAGEM} já tem escolhas; mova o arquivo antes de rotular de novo")
+    arvore = ler_arvore(argumentos.zip)
+    ids = ids_da_planilha(ROTULAGEM)
+    questoes = {q.id: q for q in ler_questoes(argumentos.zip)}
+    rotulador, prompt = criar_modelo("rotulador"), criar_prompt_do_rotulador()
+    print(f"rotulador {rotulador.identificador}, prompt {prompt.rotulo}")
+    propostas = rotular_as_cegas(
+        [questoes[id] for id in ids],
+        arvore,
+        rotulador,
+        prompt,
+        FilaDeFalhasEmArquivo(Path("dados/falhas-rotulador.jsonl")),
+        CacheEmDisco(Path("dados/cache")),
+    )
+    gravar_propostas(ROTULADOR, propostas)
+    rotulos = {id: proposta.no_id for id, proposta in propostas.items()}
+    classificacoes = _classificacoes_da_rodada()
+    ids_em_conflito = para_arbitrar(ids, rotulos, classificacoes, arvore)
+    itens = itens_de_arbitragem(
+        ids_em_conflito, rotulos, classificacoes, questoes, arvore, semente=argumentos.semente
+    )
+    escrever_planilha_de_arbitragem(itens, arvore, ARBITRAGEM)
+    custo = getattr(rotulador, "custo_usd", 0.0)
+    print(
+        f"{len(propostas)}/{len(ids)} rotuladas; {len(ids_em_conflito)} para arbitrar em "
+        f"{ARBITRAGEM}; custo US$ {custo:.2f}"
+    )
+
+
+def rodar_consolidacao(argumentos: argparse.Namespace) -> None:
+    arvore = ler_arvore(argumentos.zip)
+    rotulos = {id: proposta.no_id for id, proposta in ler_propostas(ROTULADOR).items()}
+    ids_em_conflito = para_arbitrar(
+        ids_da_planilha(ROTULAGEM), rotulos, _classificacoes_da_rodada(), arvore
+    )
+    escolhas = ler_escolhas(ARBITRAGEM, arvore) if ARBITRAGEM.exists() else {}
+    respostas = consolidar(rotulos, ids_em_conflito, escolhas)
+    preencher_respostas(ROTULAGEM, respostas)
+    pendentes = [id for id in ids_em_conflito if id not in escolhas]
+    print(f"{len(respostas)} respostas gravadas em {ROTULAGEM}")
+    if pendentes:
+        print(f"{len(pendentes)} conflitos sem escolha em {ARBITRAGEM}: {', '.join(pendentes)}")
+
+
+def _classificacoes_da_rodada() -> dict:
+    return {c.questao_id: c for c in RegistroEmArquivo(RODADA / "classificacoes.jsonl").todas()}
 
 
 def rodar_entrega(argumentos: argparse.Namespace) -> None:

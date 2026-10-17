@@ -83,6 +83,9 @@ _Avoid_: Prompt do sistema, instrução
 **Versão do prompt**:
 Um texto fixo do Prompt do papel (`v1`, `v2`…), identificado em cada voto por `papel/versao@hash`; mudar o texto cria uma versão nova.
 
+**Rotulador**:
+Modelo fora do pipeline que responde a Amostra de calibração às cegas, sem ver Origem nem votos, para que o humano só arbitre os Conflitos.
+
 **Professor**:
 O especialista humano em Direito que atende a fila de Revisar.
 _Avoid_: Revisor, especialista
@@ -103,6 +106,15 @@ A Questão vai para a fila do professor, levando o Tema central como sugestão.
 
 **Fora**:
 Nenhum Nó ativo da Árvore de temas serve para a Questão.
+
+**Amostra de calibração**:
+As Questões sorteadas cuja resposta certa é levantada (pelo Rotulador e pela Arbitragem) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
+
+**Conflito**:
+Questão da Amostra de calibração em que o Rotulador aponta um Nó fora do Ramo do Nó que o pipeline usaria.
+
+**Arbitragem**:
+Escolha humana entre as duas respostas de um Conflito, apresentadas como A e B em ordem sorteada, sem dizer qual é do pipeline.
 
 **Régua**:
 Exigência de que pelo menos 95% das Questões publicadas estejam no mesmo Ramo do Gabarito.

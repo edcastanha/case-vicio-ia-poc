@@ -26,11 +26,14 @@ uv run pytest                     # testes (nenhum chama rede)
 uv run classificacao rodada       # 1. classifica as 359 (retomável; cache em dados/cache)
 uv run classificacao sinais       # 2. embeddings: similaridade e reserva
 uv run classificacao amostra      # 3. gera dados/rotulagem.csv (50 questões, cega)
-#                                   4. um humano preenche a coluna `resposta` (id do nó ou "nenhum")
-uv run classificacao entrega      # 5. calibra nos rótulos e grava publicacao.csv e previsao.txt
+uv run classificacao rotular      # 4. o Rotulador (Opus) responde a amostra às cegas e grava
+#                                      os conflitos em dados/arbitragem.csv (opções A/B sorteadas)
+#                                   5. um humano preenche `escolha` (A, B, id do nó ou "nenhum")
+uv run classificacao consolidar   # 6. grava as respostas na coluna `resposta` de dados/rotulagem.csv
+uv run classificacao entrega      # 7. calibra nos rótulos e grava publicacao.csv e previsao.txt
 ```
 
-O que gera o `publicacao.csv`: o passo 5, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3–4). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
+O que gera o `publicacao.csv`: o passo 5, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3–6). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
 
 ## Prompts
 
@@ -53,7 +56,7 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 
 ## Decisões tomadas à mão
 
-- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): preenchidos por um humano, às cegas, antes de ver as respostas dos modelos.
+- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): respondidos às cegas pelo Rotulador (Opus, sem ver Origem nem votos); quando o rótulo dele sai do ramo do nó do pipeline, um humano arbitra entre as duas respostas sem saber qual é de quem (ADR 0004). A coluna `observacao` diz a fonte de cada resposta. Limitação declarada: o Rotulador é da mesma família do Classificador, e erros em comum não chegam ao humano.
 - _A completar ao longo da execução._
 
 ## Modelos, custo e tempo

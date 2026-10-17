@@ -63,17 +63,18 @@ def classificar_questao(
     def votar(
         papel: str, modelo: ModeloDeLinguagem, prompt: Prompt, usuario: str
     ) -> Proposta | None:
-        sistema = sistema_com_arvore(prompt.texto, arvore)
-        chave = _chave_do_cache(papel, modelo.identificador, sistema, usuario)
-        if (guardada := cache.obter(chave)) is not None:
-            return replace(_ler_proposta(guardada), prompt=prompt.rotulo)
-        try:
-            resposta = _responder_com_retry(modelo, sistema, usuario, tentativas, esperar)
-            cache.guardar(chave, resposta)
-            return replace(_ler_proposta(resposta), prompt=prompt.rotulo)
-        except FalhaDoModelo as erro:
-            fila_de_falhas.registrar(questao.id, papel, str(erro))
-            return None
+        return votar_com_cache(
+            questao.id,
+            papel,
+            modelo,
+            prompt,
+            usuario,
+            arvore,
+            fila_de_falhas,
+            cache,
+            tentativas,
+            esperar,
+        )
 
     classificador = votar(
         "classificador",
@@ -111,6 +112,32 @@ def classificar_questao(
             questao_para_prompt(questao, com_origem=False),
         )
     return Classificacao(questao.id, classificador, verificador, juiz)
+
+
+def votar_com_cache(
+    questao_id: str,
+    papel: str,
+    modelo: ModeloDeLinguagem,
+    prompt: Prompt,
+    usuario: str,
+    arvore: Arvore,
+    fila_de_falhas: FilaDeFalhas,
+    cache: Cache,
+    tentativas: int = 3,
+    esperar: Callable[[int], None] = lambda tentativa: time.sleep(2**tentativa),
+) -> Proposta | None:
+    """Um voto com a Árvore no system prompt, cache, retry e DLQ; None se o provedor falhou."""
+    sistema = sistema_com_arvore(prompt.texto, arvore)
+    chave = _chave_do_cache(papel, modelo.identificador, sistema, usuario)
+    if (guardada := cache.obter(chave)) is not None:
+        return replace(_ler_proposta(guardada), prompt=prompt.rotulo)
+    try:
+        resposta = _responder_com_retry(modelo, sistema, usuario, tentativas, esperar)
+        cache.guardar(chave, resposta)
+        return replace(_ler_proposta(resposta), prompt=prompt.rotulo)
+    except FalhaDoModelo as erro:
+        fila_de_falhas.registrar(questao_id, papel, str(erro))
+        return None
 
 
 def _sem_voto_valido(arvore: Arvore, *propostas: Proposta | None) -> bool:

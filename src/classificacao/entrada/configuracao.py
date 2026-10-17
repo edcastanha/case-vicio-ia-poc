@@ -9,12 +9,13 @@ from classificacao.adaptadores.deepseek_api import ModeloDeepSeek
 from classificacao.adaptadores.gemini_api import EmbeddingsGemini, ModeloGemini
 from classificacao.adaptadores.prompts_em_arquivo import (
     PAPEIS,
+    carregar_prompt,
     carregar_prompts,
     ler_versoes_ativas,
 )
 from classificacao.aplicacao.classificar_questao import Papeis
 from classificacao.aplicacao.portas import Embeddings, ModeloDeLinguagem
-from classificacao.aplicacao.prompts import PromptsDosPapeis
+from classificacao.aplicacao.prompts import Prompt, PromptsDosPapeis
 
 PASTA_DE_PROMPTS = Path("prompts")
 
@@ -26,6 +27,9 @@ MODELO_PADRAO = {
     ("classificador", "claude-code"): "sonnet",
     ("verificador", "claude-code"): "opus",
     ("juiz", "claude-code"): "opus",
+    # ADR 0004: o Rotulador é o modelo mais forte disponível, fora dos papéis do pipeline.
+    ("rotulador", "api"): "claude-opus-5-5",
+    ("rotulador", "claude-code"): "opus",
 }
 
 
@@ -55,6 +59,13 @@ def criar_prompts(pasta: Path = PASTA_DE_PROMPTS) -> PromptsDosPapeis:
     for papel in PAPEIS:
         versoes[papel] = os.environ.get(f"{papel.upper()}_PROMPT") or versoes[papel]
     return carregar_prompts(pasta, versoes)
+
+
+def criar_prompt_do_rotulador(pasta: Path = PASTA_DE_PROMPTS) -> Prompt:
+    versao = os.environ.get("ROTULADOR_PROMPT") or ler_versoes_ativas(pasta).get("rotulador")
+    if versao is None:
+        raise SystemExit("prompts/versoes.toml sem versão para o rotulador")
+    return carregar_prompt(pasta, "rotulador", versao)
 
 
 def criar_modelo(papel: str) -> ModeloDeLinguagem:
