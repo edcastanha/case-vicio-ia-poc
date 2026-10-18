@@ -110,3 +110,13 @@ def test_embeddings_com_outro_erro_do_sdk_falham_sem_esperar():
     with pytest.raises(FalhaDoModelo):
         EmbeddingsGemini(cliente=cliente, esperar=esperas.append).vetorizar(["a"])
     assert esperas == []
+
+
+def test_embeddings_com_cota_diaria_estourada_falham_sem_dormir_horas():
+    esperas: list[float] = []
+    cliente = ClienteFalso(erros_no_embed=[cota_estourada("76140s")])
+    embeddings = EmbeddingsGemini(cliente=cliente, esperar=esperas.append)
+    with pytest.raises(FalhaDoModelo, match="76140"):
+        embeddings.vetorizar(["a"])
+    assert esperas == []
+    assert len(cliente.chamadas) == 1

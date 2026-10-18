@@ -14,6 +14,7 @@ from classificacao.aplicacao.portas import Cache, FilaDeFalhas, ModeloDeLinguage
 from classificacao.aplicacao.prompts import Prompt, questao_para_prompt
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.decisao import decidir
+from classificacao.dominio.injecao import indicios_de_injecao
 from classificacao.dominio.questao import Questao
 
 
@@ -37,6 +38,8 @@ def rotular_as_cegas(
     """O Rotulador vê a Questão e a Árvore, como o Verificador: sem Origem nem votos."""
     propostas = {}
     for questao in questoes:
+        if indicios_de_injecao(questao):
+            continue  # sem rótulo: vai para a Arbitragem, como uma falha do Rotulador
         proposta = votar_com_cache(
             questao.id,
             "rotulador",
