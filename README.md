@@ -4,6 +4,36 @@ Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e
 
 > **Configuração usada na entrega:** Classificador = `claude -p` com `sonnet` (assinatura Claude Code, sem chave da API da Anthropic), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, embeddings = `gemini-embedding-2`. Classificador e Verificador são de famílias diferentes, que é o que a regra de publicação exige (ADR 0002). O Verificador planejado era o `gemini-3.8-flash`, mas a chave do Gemini disponível é do plano gratuito, que permite 20 chamadas por dia. A tentativa parou na 29ª Questão, e a rodada completa com DeepSeek foi mantida. A calibração foi feita nessa mesma configuração.
 
+### A solução do case inteira: classifica as 359 Questões na Árvore de temas e decide Publicar, Revisar ou Fora sob a Régua.
+
+```mermaid
+flowchart LR
+    H["HTML do zip"] --> L["limpar_html<br>só o texto visível"]
+    L --> I{"Indício de<br>injeção?"}
+    I -- "sim" --> R["Revisar"]
+    I -- "não" --> C["Classificador<br>claude -p sonnet, vê a Origem"]
+    I -- "não" --> V["Verificador<br>deepseek-flash, sem Origem"]
+    C & V --> K{"Concordância<br>de Ramo?"}
+    K -- "não" --> J["Juiz<br>deepseek-v4-pro, só sugere"] --> R
+    K -- "sim" --> D{"Tema duplicado, dúvida declarada<br>ou abaixo do limiar calibrado?"}
+    D -- "sim" --> R
+    D -- "não" --> P["Publicar"]
+```
+
+```text
+src/classificacao/
+├── dominio/      # Ramo, decidir, calibração (Wilson + bootstrap), entrega, indício de injeção
+├── aplicacao/    # classificar_questao, processar_lote, sinais, amostra cega, Rotulador
+├── adaptadores/  # claude -p, DeepSeek, Gemini, zip, planilhas, cache/DLQ em arquivo
+└── entrada/      # CLI (rodada, sinais, amostra, rotular, entrega) e páginas do site
+prompts/          # um prompt versionado por papel (ADR 0003)
+dados/            # rodada, sinais, Amostra rotulada, cache: tudo reproduzível sem chamar modelo
+docs/             # relatório, memo ao Professor, ADRs 0001–0006, site MkDocs
+```
+
+As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com Concordância entre provedores (0002), prompts versionados (0003), texto da Questão como dado e nunca como instrução (0005) e Amostra rotulada por agente jurídico, GPT 5.6 Terra (0006, que substitui o 0004).
+
+
 ## Como funciona, em uma frase por etapa
 
 1. **Classificador** (Anthropic, Sonnet via `claude -p`) escolhe o nó da árvore vendo a questão e a classificação de origem.
