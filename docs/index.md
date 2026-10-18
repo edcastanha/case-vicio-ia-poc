@@ -1,0 +1,35 @@
+# Classificação de tópicos
+
+O aluno estuda por tema: se uma questão fica no tema errado, ele estuda a matéria errada. Este trabalho classifica 359 questões de Direito Penal, Processo Penal, Legislação Penal Especial e Criminologia na árvore de temas da plataforma e decide, para cada uma, se ela vai **direto para o aluno**, se vai para a **revisão do professor** ou se **nenhum tema serve**. A regra é que pelo menos 95% das questões publicadas estejam certas, e a parte difícil é saber, sem gabarito, quando a máquina acertou.
+
+## Como cada questão é decidida
+
+```mermaid
+flowchart TD
+    Q[Questão] --> C["Classificador (Claude)<br>vê a classificação de origem"]
+    Q --> V["Verificador (DeepSeek)<br>não vê a origem"]
+    C --> K{"Os dois apontam<br>o mesmo ramo?"}
+    V --> K
+    K -- "não" --> J["Juiz escolhe a sugestão"] --> R["Revisar<br>fila do professor"]
+    K -- "os dois: nenhum tema serve" --> F["Fora"]
+    K -- "sim" --> T{"Tema duplicado,<br>modelo em dúvida ou<br>pontuação abaixo do limiar?"}
+    T -- "sim" --> R
+    T -- "não" --> P["Publicar<br>direto para o aluno"]
+```
+
+Dois modelos de famílias diferentes, com informações diferentes, classificam cada questão sem ver a resposta um do outro. Uma questão só é publicada quando os dois concordam e nada indica risco. O desacordo marca a questão difícil, e ela vai para o professor com uma sugestão.
+
+## O que prevemos
+
+Antes de conhecer o resultado, a previsão de quanto vamos acertar:
+
+<!-- previsao -->
+
+A previsão vem de uma amostra de 50 questões com a resposta certa levantada às cegas, e não da confiança que os modelos dizem ter. O [relatório](relatorio.md) explica como.
+
+## Onde ler mais
+
+- [Relatório](relatorio.md): como pensei, o que atrapalha classificar certo e como isto rodaria em produção.
+- [Resultados](resultados.md): cada uma das 359 questões, com o voto e a justificativa de cada modelo.
+- [Memo ao Professor](memo-professor.md): o que encontramos nos temas e do que precisamos dele.
+- [Decisões](adr/0002-publicar-so-com-concordancia-entre-provedores.md): o porquê de cada regra.
