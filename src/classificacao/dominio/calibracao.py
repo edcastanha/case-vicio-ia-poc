@@ -80,25 +80,34 @@ def estimar_precisao(
     if calibracao.limiar is not None:
         acima = [r for r in amostra if r.pontuacao >= calibracao.limiar]
         acertos = sum(r.acertou for r in acima)
-        precisao = min(precisao, (acertos + 1) / (len(acima) + 2))  # Laplace
+        precisao = min(precisao, taxa_de_laplace(acertos, len(acima)))
         piso, teto = intervalo_de_wilson(acertos, len(acima))
         minimo, maximo = min(minimo, piso), max(maximo, teto)
     return EstimativaDePrecisao(precisao, (minimo, maximo), tuple(limiares))
 
 
+def taxa_de_laplace(acertos: int, total: int) -> float:
+    """Taxa de acerto suavizada: nunca 0 nem 1, e 0,5 quando não há nenhum rótulo."""
+    return (acertos + 1) / (total + 2)
+
+
 def ajustar_curva(amostra: Sequence[Rotulo], faixas: int) -> Callable[[float], float]:
-    """Faixas com o mesmo número de rótulos; a pontuação vira a taxa de acerto da sua faixa."""
+    """Faixas com o mesmo número de rótulos; a pontuação vira a taxa suavizada da sua faixa."""
     ordenada = sorted(amostra, key=lambda r: r.pontuacao)
     tamanho = math.ceil(len(ordenada) / faixas)
     grupos = [ordenada[i : i + tamanho] for i in range(0, len(ordenada), tamanho)]
-    # Une faixas vizinhas que violam a ordem (pool adjacent violators).
+    # Une faixas vizinhas que violam a ordem (pool adjacent violators) ou empatam: com a
+    # suavização, faixas separadas de mesma taxa pareceriam menos certas que a soma delas.
     blocos: list[list[Rotulo]] = []
     for grupo in grupos:
         blocos.append(list(grupo))
-        while len(blocos) > 1 and _taxa(blocos[-2]) > _taxa(blocos[-1]):
+        while len(blocos) > 1 and _taxa(blocos[-2]) >= _taxa(blocos[-1]):
             ultimo = blocos.pop()
             blocos[-1].extend(ultimo)
-    limites = [(max(r.pontuacao for r in b), _taxa(b)) for b in blocos]
+    limites = [
+        (max(r.pontuacao for r in b), taxa_de_laplace(sum(r.acertou for r in b), len(b)))
+        for b in blocos
+    ]
 
     def curva(pontuacao: float) -> float:
         return next((taxa for teto, taxa in limites if pontuacao <= teto), limites[-1][1])
