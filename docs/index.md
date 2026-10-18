@@ -21,6 +21,7 @@ O texto acima é o mesmo do `previsao.txt` da entrega. A previsão vem da Amostr
 ## Onde ler mais
 
 - [Relatório](relatorio.md): como pensei, o que atrapalha classificar certo e como isto rodaria em produção.
+- [Relatório em PDF](https://github.com/edcastanha/case-vicio-ia-poc/blob/main/relatorio.pdf): o mesmo texto e o memo, em 5 páginas.
 - [Resultados](resultados.md): cada uma das 359 questões, com o voto e a justificativa de cada modelo.
 - [Memo ao Professor](memo-professor.md): o que encontramos nos temas e do que precisamos dele.
 - [Decisões](adr/0002-publicar-so-com-concordancia-entre-provedores.md): o porquê de cada regra.

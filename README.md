@@ -2,6 +2,8 @@
 
 Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e Criminologia na árvore de temas da plataforma e decide, para cada uma, **publicar**, **revisar** ou **fora**, sob a régua de ≥ 95% de precisão nas publicadas. Enunciado: [`case-ia-classificacao-de-topicos.pdf`](case-ia-classificacao-de-topicos.pdf). Dados: [`anexos-case-ia.zip`](anexos-case-ia.zip) (lido direto, sem extrair).
 
+**Relatório para leitura: [`relatorio.pdf`](relatorio.pdf)** (5 páginas A4, com as seções a) a c) e o memo ao Professor na última página). Ele é gerado de [`docs/relatorio.md`](docs/relatorio.md) e [`docs/memo-professor.md`](docs/memo-professor.md) por `uv run python scripts/gerar_relatorio_pdf.py` (precisa de um Chrome ou Chromium; passe o caminho ou defina `CHROME`).
+
 > **Configuração usada na entrega:** Classificador = `claude -p` com `sonnet` (assinatura Claude Code, sem chave da API da Anthropic), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, embeddings = `gemini-embedding-2`. Classificador e Verificador são de famílias diferentes, que é o que a regra de publicação exige (ADR 0002). O Verificador planejado era o `gemini-3.8-flash`, mas a chave do Gemini disponível é do plano gratuito, que permite 20 chamadas por dia. A tentativa parou na 29ª Questão, e a rodada completa com DeepSeek foi mantida. A calibração foi feita nessa mesma configuração.
 
 ### A solução do case inteira: classifica as 359 Questões na Árvore de temas e decide Publicar, Revisar ou Fora sob a Régua.
