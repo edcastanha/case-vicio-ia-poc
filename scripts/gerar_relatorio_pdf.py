@@ -62,7 +62,9 @@ def _html() -> str:
         _para_html(relatorio, "docs/relatorio.md"),
         f'<div class="memo">{_para_html(memo, "docs/memo-professor.md")}</div>',
     ]
-    return f'<!doctype html><meta charset="utf-8"><style>{ESTILO}</style>{"".join(partes)}'
+    titulo = "<title>Relatório — classificação de tópicos</title>"
+    cabecalho = f'<!doctype html><meta charset="utf-8">{titulo}'
+    return f"{cabecalho}<style>{ESTILO}</style>{''.join(partes)}"
 
 
 def _chrome(argumento: str | None) -> str:
