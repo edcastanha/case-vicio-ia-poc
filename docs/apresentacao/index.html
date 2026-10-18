@@ -39,66 +39,71 @@
 
       <!-- CÓPIA do island de composition/index.html; o teste test_apresentacao confere que são iguais -->
     <script type="application/hyperframes-slideshow+json">
-        {
-          "slides": [
-            {
-              "sceneId": "resultado",
-              "notes": "Abrir pelo resultado. 249 publicadas direto, 107 para o Professor, 3 fora da árvore. A previsão é 97 certas em cada 100, com intervalo de 90 a 100."
-            },
-            {
-              "sceneId": "fluxo",
-              "notes": "Revelar em quatro passos: o texto limpo (e o desvio por injeção), os dois modelos de empresas diferentes, a pergunta do mesmo Ramo, e as regras que ainda barram a publicação.",
-              "fragments": [10.3, 10.6, 10.9, 11.2]
-            },
-            {
-              "sceneId": "funil",
-              "notes": "359 entram, 295 têm Concordância, 249 passam pelas regras. O botão leva aos exemplos de desacordo da amostra.",
-              "fragments": [20.3, 20.6, 20.9],
-              "hotspots": [
-                {
-                  "id": "ver-desacordos",
-                  "label": "Ver 3 desacordos da amostra",
-                  "target": "desacordos",
-                  "region": { "x": 6, "y": 83, "w": 45, "h": 9 }
-                }
-              ]
-            },
-            {
-              "sceneId": "duplicados",
-              "notes": "O assunto dessas questões é inequívoco; o que muda é o lado da árvore. Uma regra do Professor libera todas de uma vez."
-            },
-            {
-              "sceneId": "previsao",
-              "notes": "Primeiro mostrar o 1,00 que o bootstrap dava, depois a previsão corrigida. Com 34 de 34, não dá para garantir 95% com 95% de confiança, e a previsão diz isso.",
-              "fragments": [40.3, 40.6]
-            },
-            {
-              "sceneId": "limpeza",
-              "notes": "Q0099: o modelo lia CSS do Word que o aluno não vê. É por onde uma instrução escondida passaria. Agora só o texto visível chega ao modelo, e texto que fala com o modelo vai para Revisar."
-            },
-            {
-              "sceneId": "custo",
-              "notes": "Projeção para 50 mil questões por semana. O Classificador é medido pelo custo equivalente que o claude -p informa. O maior corte é tirar a árvore inteira do prompt."
-            },
-            {
-              "sceneId": "pedidos",
-              "notes": "Fechar com o que depende do Professor."
-            }
-          ],
-          "slideSequences": [
-            {
-              "id": "desacordos",
-              "label": "Desacordos da amostra",
-              "slides": [
-                {
-                  "sceneId": "exemplos",
-                  "notes": "Q0205 e Q0268: o Juiz acertou, cada vez seguindo um modelo diferente. Q0180: errou. Por isso o Juiz só sugere."
-                }
-              ]
-            }
-          ]
-        }
-      </script>
+      {
+        "slides": [
+          {
+            "sceneId": "resultado",
+            "notes": "Abrir pelo resultado. 249 publicadas direto, 107 para o Professor, 3 fora da árvore. A previsão é 97 certas em cada 100, com intervalo de 90 a 100."
+          },
+          {
+            "sceneId": "fluxo",
+            "notes": "Revelar em quatro passos: o texto limpo (e o desvio por injeção), os dois modelos de empresas diferentes, a pergunta do mesmo Ramo, e as regras que ainda barram a publicação.",
+            "fragments": [10.3, 10.6, 10.9, 11.2]
+          },
+          {
+            "sceneId": "funil",
+            "notes": "359 entram, 295 têm Concordância, 249 passam pelas regras. O botão leva aos exemplos de desacordo da amostra.",
+            "fragments": [20.3, 20.6, 20.9],
+            "hotspots": [
+              {
+                "id": "ver-desacordos",
+                "label": "Ver 3 desacordos da amostra",
+                "target": "desacordos",
+                "region": { "x": 6, "y": 83, "w": 45, "h": 9 }
+              }
+            ]
+          },
+          {
+            "sceneId": "duplicados",
+            "notes": "O assunto dessas questões é inequívoco; o que muda é o lado da árvore. Uma regra do Professor libera todas de uma vez."
+          },
+          {
+            "sceneId": "previsao",
+            "notes": "Primeiro mostrar o 1,00 que o bootstrap dava, depois a previsão corrigida. Com 34 de 34, não dá para garantir 95% com 95% de confiança, e a previsão diz isso.",
+            "fragments": [40.3, 40.6]
+          },
+          {
+            "sceneId": "limpeza",
+            "notes": "Q0099: o modelo lia CSS do Word que o aluno não vê. É por onde uma instrução escondida passaria. Agora só o texto visível chega ao modelo, e texto que fala com o modelo vai para Revisar."
+          },
+          {
+            "sceneId": "producao",
+            "notes": "Revelar etapa por etapa. A regra do ADR 0002 não muda: só publica com dois votos independentes concordando. O Classificador treinado é um desses votos e nunca publica sozinho. Fechar no gargalo, que é o tempo do Professor.",
+            "fragments": [60.3, 60.6, 60.9, 61.2, 61.5, 61.8]
+          },
+          {
+            "sceneId": "custo",
+            "notes": "Hoje é medido; as fases são projeção, com as premissas do ADR 0007 (chamadas 5 vezes mais baratas com candidatos, 18% de desacordo). O voto caro sai do caminho principal."
+          },
+          {
+            "sceneId": "pedidos",
+            "notes": "Fechar com o que depende do Professor."
+          }
+        ],
+        "slideSequences": [
+          {
+            "id": "desacordos",
+            "label": "Desacordos da amostra",
+            "slides": [
+              {
+                "sceneId": "exemplos",
+                "notes": "Q0205 e Q0268: o Juiz acertou, cada vez seguindo um modelo diferente. Q0180: errou. Por isso o Juiz só sugere."
+              }
+            ]
+          }
+        ]
+      }
+    </script>
     </hyperframes-slideshow>
     <script>
       document.querySelector("hyperframes-slideshow").focus();

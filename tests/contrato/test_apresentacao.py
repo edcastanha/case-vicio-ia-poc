@@ -28,10 +28,15 @@ def _ilha(html: str) -> dict:
     return json.loads(bloco.group(1))
 
 
-def _dados_do_deck() -> dict:
-    bloco = re.search(r'<script type="application/json" id="dados-da-entrega">(.*?)</script>',
-                      COMPOSICAO, re.S)  # fmt: skip
+def _bloco_json(id: str) -> dict:
+    bloco = re.search(
+        rf'<script type="application/json" id="{id}">(.*?)</script>', COMPOSICAO, re.S
+    )
     return json.loads(bloco.group(1))
+
+
+def _dados_do_deck() -> dict:
+    return _bloco_json("dados-da-entrega")
 
 
 def test_wrapper_tem_copia_identica_do_island_da_composicao():
@@ -109,3 +114,26 @@ def medido() -> dict:
 
 def test_numeros_do_deck_sao_os_da_entrega(medido):
     assert _dados_do_deck() == medido
+
+
+def test_projecao_de_producao_sai_das_premissas_do_adr_0007_e_dos_numeros_da_entrega():
+    p, entrega = _bloco_json("projecao-de-producao"), _dados_do_deck()
+    deepseek = p["custo_deepseek"] / p["requisicoes_deepseek"]  # painel da DeepSeek, README
+    classificador = p["custo_piloto_classificador"] / p["questoes_do_piloto"]  # claude -p
+    fator = p["fator_dos_candidatos"]
+    assert p["desacordo"] == round((entrega["desacordo"] + entrega["fora"]) / entrega["total"], 2)
+    assert p["fila_por_semana"] == round(entrega["revisar"] / entrega["total"] * 50_000, -3)
+    hoje = classificador + p["custo_deepseek"] / entrega["total"]
+    fase1 = (classificador + deepseek) / fator + entrega["desacordo"] / entrega[
+        "total"
+    ] * deepseek / fator
+    fase2 = (
+        p["embeddings_por_questao"]
+        + deepseek / fator
+        + p["desacordo"] * (classificador + deepseek) / fator
+    )
+    for chave, valor in {"hoje": hoje, "fase1": fase1, "fase2": fase2}.items():
+        assert p[chave] == pytest.approx(valor, rel=0.03), chave
+        assert p[f"{chave}_semana"] == pytest.approx(valor * p["questoes_por_semana"], rel=0.02), (
+            chave
+        )

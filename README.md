@@ -31,10 +31,10 @@ src/classificacao/
 └── entrada/      # CLI (rodada, sinais, amostra, rotular, entrega) e páginas do site
 prompts/          # um prompt versionado por papel (ADR 0003)
 dados/            # rodada, sinais, Amostra rotulada, cache: tudo reproduzível sem chamar modelo
-docs/             # relatório, memo ao Professor, ADRs 0001–0006, site MkDocs
+docs/             # relatório, memo ao Professor, ADRs 0001–0007, site MkDocs
 ```
 
-As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com Concordância entre provedores (0002), prompts versionados (0003), texto da Questão como dado e nunca como instrução (0005) e Amostra rotulada por agente jurídico, GPT 5.6 Terra (0006, que substitui o 0004).
+As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com Concordância entre provedores (0002), prompts versionados (0003), texto da Questão como dado e nunca como instrução (0005) Amostra rotulada por agente jurídico, GPT 5.6 Terra (0006, que substitui o 0004) e o desenho de produção para 50 mil Questões por semana (0007).
 
 
 ## Como funciona, em uma frase por etapa
@@ -47,7 +47,7 @@ As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com 
 
 As regras e o porquê de cada uma estão em [`docs/adr/`](docs/adr/); o vocabulário, em [`GLOSSARY.md`](GLOSSARY.md).
 
-Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`. O site tem também uma apresentação interativa de 8 slides (`docs/apresentacao/`, feita com HyperFrames): use as setas ou aperte P para o modo apresentador. Os números do deck ficam num bloco JSON, e `tests/contrato/test_apresentacao.py` confere que eles batem com `dados/` e com a entrega. O player 0.8.116, o GSAP e a fonte Inter ficam guardados no repositório, com as licenças em `docs/apresentacao/vendor/LICENCAS.md`. Para validar a composição: `npx hyperframes@0.8.116 check docs/apresentacao/composition`.
+Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`. O site tem também uma apresentação interativa de 9 slides (`docs/apresentacao/`, feita com HyperFrames): use as setas ou aperte P para o modo apresentador. Os números do deck ficam em dois blocos JSON (a entrega e a projeção de produção do ADR 0007), e `tests/contrato/test_apresentacao.py` confere que eles batem com `dados/` e com a entrega. O player 0.8.116, o GSAP e a fonte Inter ficam guardados no repositório, com as licenças em `docs/apresentacao/vendor/LICENCAS.md`. Para validar a composição: `npx hyperframes@0.8.116 check docs/apresentacao/composition`.
 
 ## Como rodar
 
@@ -110,4 +110,4 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 
 **Embeddings (`gemini-embedding-2`):** cota gratuita do Gemini, sem custo. O que limita é a cota: 100 textos por minuto e um teto diário. Uma rodada de `sinais` vetoriza cerca de 730 textos (359 Questões e 371 Nós).
 
-**Classificador (`claude -p` com `sonnet`, assinatura Claude Code):** não gera cobrança por chamada. O `claude -p` informa um custo equivalente ao preço da API: US$ 5,84 no piloto de 30 Questões (~5 min), ou US$ 0,19 por Questão. É mais de 20 vezes o custo da DeepSeek por Questão, e é o que pesa na projeção para produção (relatório, seção c).
+**Classificador (`claude -p` com `sonnet`, assinatura Claude Code):** não gera cobrança por chamada. O `claude -p` informa um custo equivalente ao preço da API: US$ 5,84 no piloto de 30 Questões (~5 min), ou US$ 0,19 por Questão. É mais de 20 vezes o custo da DeepSeek por Questão, e é o que pesa na projeção para produção. Lá, com candidatos por embeddings e um Classificador treinado como primeiro voto, a conta cai de US$ 0,20 para cerca de US$ 0,009 por Questão (ADR 0007 e relatório, seção c).

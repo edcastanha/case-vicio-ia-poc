@@ -8,7 +8,7 @@
 
 **Usar a régua a favor, sem trapacear.** A régua aceita como certo o nó do gabarito, o pai ou o filho. Quando os dois modelos escolhem subtemas irmãos, publico no tema pai: ele está certo se o gabarito for qualquer um dos dois. Publicar na disciplina (o "pai do pai") seria o mesmo atalho levado ao extremo — e recriaria a lixeira que o case critica; descartei.
 
-**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Não tive acesso a um advogado ou professor de Direito para rotular, então rotulei as 50 com um agente de IA especializado (GPT 5.6 Terra), de outra família que os modelos do pipeline, com uma skill para questões jurídicas, e registrei a justificativa de cada escolha na planilha. Nas 40 em que Classificador e Verificador concordaram, o Nó do pipeline ficou no Ramo do rótulo em todas. Nas 10 de desacordo, que nunca são publicadas, ficou em 7. Um terceiro modelo, o Rotulador (Opus), respondeu às cegas como segunda opinião e caiu no Ramo do rótulo em 46 de 50. As limitações estão declaradas: o gabarito da calibração é de um modelo, não de um especialista, e os rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados. As duas coisas podem deixar a previsão otimista (ADR 0006). Em produção, a auditoria amostral do Professor substitui esta amostra por uma humana.
+**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Não tive acesso a um advogado ou professor de Direito para rotular, então rotulei as 50 com um agente de IA especializado (GPT 5.6 Terra), de outra família que os modelos do pipeline, com uma skill para questões jurídicas, e registrei a justificativa de cada escolha na planilha. Nas 40 em que Classificador e Verificador concordaram, o Nó do pipeline ficou no Ramo do rótulo em todas. Nas 10 de desacordo, que nunca são publicadas, ficou em 7. Um terceiro modelo, o Rotulador (Opus), respondeu às cegas como segunda opinião e caiu no Ramo do rótulo em 46 de 50. As limitações estão declaradas: o gabarito da calibração é de um modelo, não de um especialista, e os rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados. As duas coisas podem deixar a previsão otimista (ADR 0006).
 
 **Becos sem saída e correções de rota:**
 
@@ -55,28 +55,37 @@ Nenhuma Questão foi barrada só pelo limiar: as regras de Ramo, de Tema duplica
 
 ## c) Produção: 50 mil questões por semana
 
-**Custo medido.** A DeepSeek (Verificador e Juiz) custou US$ 3,04 em 439 requisições, testes incluídos: no máximo US$ 0,0085 por Questão, ou cerca de US$ 425 por semana para 50 mil Questões. O Classificador saiu da assinatura do Claude Code, mas pelo custo equivalente que o `claude -p` informa (US$ 0,19 por Questão no piloto) ele custaria cerca de US$ 9.700 por semana na API: mais de 95% do total. Cada requisição leva ~14,8 mil tokens porque a Árvore inteira vai no prompt. Por isso os dois cortes que mais rendem em produção são os candidatos por embeddings (item 2, abaixo), que tiram a maior parte desses tokens, e o cache de prompt da parte fixa (instruções e Árvore), que é igual em toda chamada.
+A regra de publicação não muda: só publica quem tem dois votos independentes, de famílias diferentes, concordando no mesmo Ramo. O que muda é quem vota e quanto texto vai em cada chamada (ADR 0007).
 
-**Fluxo**
+| Etapa | Tipo de IA | Quando entra | Custo por Questão |
+|---|---|---|---|
+| 1. Importação | nenhuma: limpeza do HTML e Indício de injeção | sempre | ~0 |
+| 2. Candidatos | embeddings: os ~15 Nós mais próximos | sempre | ~US$ 0,0002 |
+| 3. Primeiro voto | Classificador treinado com as revisões do Professor (antes de haver rótulos, o LLM Classificador) | sempre | ~0 |
+| 4. Segundo voto | LLM de outra família (DeepSeek) | sempre | US$ 0,0014 |
+| 5. Desempate | Classificador (Claude); o Juiz só sugere | no desacordo, ~18% | US$ 0,040 |
+| 6. Revisão | Professor | Revisar | tempo dele |
 
-1. **Importação** → normalização (HTML, comando, alternativas) → fila (RabbitMQ ou Redis Streams) com DLQ: uma questão que falha N vezes vai para a DLQ e para a revisão, nunca some.
-2. **Candidatos por embeddings**: em vez de mandar a árvore inteira, busca vetorial dos ~15 nós mais próximos. Corta tokens e permite árvores maiores. A árvore inteira continua no prompt quando a busca tem baixa confiança.
-3. **Classificador treinado** (barato, sobre embeddings) com os rótulos que o professor já produziu na revisão. Com volume, ele resolve a maior parte; os LLMs ficam para o que ele não tem certeza.
-4. **Dois LLMs de famílias diferentes** na faixa de dúvida, com a mesma regra de hoje: publica só com concordância de ramo, sem dúvida declarada, fora de temas duplicados e acima de um limiar calibrado. O Juiz só escolhe a sugestão do professor.
-5. **Revisão humana** com fila priorizada por impacto (tópicos mais estudados primeiro) e a sugestão + justificativa do Juiz já na tela. Cada revisão vira rótulo para o classificador treinado e para recalibrar.
+**Custo.** Hoje: US$ 0,20 por Questão, ~US$ 10.200 por semana, 95% no Classificador. A Árvore é 92% do texto de entrada, e com 15 candidatos a entrada cai cerca de 8 vezes. Assumo chamadas 5 vezes mais baratas, porque a saída não encolhe. Só com os candidatos, são US$ 0,041 (~US$ 2.000 por semana). Com o Classificador treinado como primeiro voto e o LLM caro só no desacordo, US$ 0,009 (~US$ 440). O fator 5 e os 18% são premissas a medir no piloto.
 
-**Qualidade contínua**
+**Agentes ficam fora da decisão.** Um agente que revisa outro ancora nele, como o crítico auditor descartado na seção a). Eles servem onde não publicam: montar o dossiê de cada Questão da fila do Professor, agrupar reportes de alunos e rascunhar descrições de Temas.
 
-- **Auditoria amostral semanal**: o professor revisa às cegas uma amostra aleatória das *publicadas* (ex.: 50/semana). É o único número que mede de fato a régua; com ele recalibro o limiar.
-- **Reportes de alunos** como sinal: questão reportada sai da publicação e entra na fila; taxa de reporte por tema denuncia lixeiras novas.
-- **Deriva**: acompanhar taxa de concordância, de dúvida e de desacordo por tema e por lote de importação; uma queda repentina indica mudança na fonte ou no modelo.
-- **Mudou modelo ou prompt → recalibra** na amostra auditada antes de publicar com a configuração nova. Cada voto já grava a versão do prompt (`classificador/v1@hash`), o que permite medir precisão e deriva por versão e reverter trocando a versão ativa.
+**O gargalo é o Professor, não o custo.** Com as taxas de hoje, são cerca de 15 mil Questões por semana em Revisar. As alavancas são a regra dos Temas duplicados (−10 pontos), a fila priorizada pelos Temas mais estudados e cada revisão virar rótulo do Classificador treinado. O que não for revisado fica fora do aluno: a fila nunca é esvaziada publicando.
+
+**Encaixe no fluxo.** A importação passa pelas etapas 1 a 5 e sai em Publicar, na fila ou em Fora. Toda semana, as revisões retreinam o Classificador treinado e recalibram o limiar. Um reporte de aluno tira a Questão da publicação na hora e a põe na fila.
+
+**Qualidade contínua, com gatilhos**
+
+- **Auditoria:** o Professor confere às cegas 50 publicadas sorteadas por semana. Com 3 erros ou mais, a publicação automática para até a recalibração. A Precisão é estimada nas últimas 4 semanas.
+- **Reportes:** um Tema com o dobro da taxa mediana de reporte passa a só Revisar. É assim que aparece uma Lixeira nova.
+- **Deriva:** se a Concordância ou a dúvida declarada de um lote muda mais de 5 pontos, o lote vai para Revisar.
+- **Mudou modelo ou prompt:** a calibração é refeita antes de publicar, e cada voto grava a versão (ADR 0003).
 
 ## O que faria com mais tempo
 
 1. **Gabarito humano e Amostra maior.** O Professor rotularia a Amostra às cegas, e `entrega` refaz a previsão sem mudar código. Mesmo sem nenhum erro, o piso de Wilson só passa de 0,95 com 73 acertos em 73.
-2. **A regra dos Temas duplicados**, que libera até 36 Questões (10 pontos de cobertura) sem mudar mais nada.
-3. **Prompts v2, candidatos por embeddings e o Gemini como Verificador numa cota paga**, cada um com uma rodada e uma calibração novas (ADR 0003).
+2. **A regra dos Temas duplicados**: até 36 Questões a mais, 10 pontos de cobertura.
+3. **Prompts v2 e o Gemini como Verificador numa cota paga**, cada um com rodada e calibração novas.
 
 ## d) Memo ao professor
 
