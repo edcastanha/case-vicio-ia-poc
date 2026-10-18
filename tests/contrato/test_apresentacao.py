@@ -75,7 +75,7 @@ def medido() -> dict:
     decisoes = Counter(linha["decisao"] for linha in linhas)
     motivos = Counter(linha["motivo"] for linha in linhas)
     previsao = dict(
-        linha.split(": ") for linha in (RAIZ / "previsao.txt").read_text().splitlines() if linha
+        linha.split(": ") for linha in (RAIZ / "previsao.txt").read_text().splitlines()[:4]
     )
     minimo, maximo = (float(v) for v in previsao["precisao_intervalo"].split("-"))
     rotulos = ler_rotulos(RAIZ / "dados/rotulagem.csv", arvore)

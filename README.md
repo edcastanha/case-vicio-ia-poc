@@ -43,7 +43,7 @@ As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com 
 2. **Verificador** (DeepSeek, `deepseek-flash`) escolhe de forma independente, **sem** ver a origem nem o Classificador.
 3. **Juiz** (DeepSeek, `deepseek-v4-pro`) só entra quando os dois discordam, e só escolhe a sugestão que vai para o professor: **nunca publica**.
 4. **Embeddings** (Gemini, `gemini-embedding-2`) dão um sinal extra (similaridade) e uma sugestão de reserva.
-5. **Publica** só quem tem concordância de ramo entre dois provedores diferentes, nenhum modelo em dúvida, tema não duplicado e pontuação acima do limiar calibrado em uma amostra rotulada às cegas por um humano, mirando 97%.
+5. **Publica** só quem tem concordância de ramo entre dois provedores diferentes, nenhum modelo em dúvida, tema não duplicado e pontuação acima do limiar calibrado numa Amostra de 50 rotulada às cegas por um agente jurídico de IA (ADR 0006), mirando 97%.
 
 As regras e o porquê de cada uma estão em [`docs/adr/`](docs/adr/); o vocabulário, em [`GLOSSARY.md`](GLOSSARY.md).
 
@@ -67,7 +67,7 @@ uv run classificacao rotular      # 5. opcional: o Rotulador (Opus) responde às
 uv run classificacao entrega      # 6. calibra nos rótulos e grava publicacao.csv e previsao.txt
 ```
 
-O que gera o `publicacao.csv`: o passo 6, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3 e 4). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
+O que gera o `publicacao.csv`: o passo 6, que também escreve no `previsao.txt` a explicação de como chegou nos números, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3 e 4). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
 
 ## Prompts
 
@@ -91,9 +91,13 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 ## Decisões tomadas à mão
 
 - **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): as 50 foram rotuladas por um agente de IA especializado (GPT 5.6 Terra, de outra família que os modelos do pipeline), com uma skill para questões jurídicas, com a justificativa de cada uma em `observacao`. Não houve especialista humano em Direito (ADR 0006). Limitações declaradas: o gabarito da calibração é de um modelo, e os 50 rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados pelo pipeline. As duas coisas puxam a Precisão prevista para cima.
-- _A completar ao longo da execução._
+- **Nenhuma linha do `publicacao.csv` foi editada à mão.** Decisão, tema, extras, confiança e motivo saem inteiros do passo 6. As regras que decidem também foram escolhas nossas, e cada uma está num ADR: publicar só com Concordância de Ramo entre provedores, mirar 97% para ter margem sobre os 95% da Régua, e nunca publicar em Tema duplicado nem com dúvida declarada (ADR 0002).
+- **Verificador DeepSeek em vez de Gemini.** O plano gratuito do Gemini parou na 29ª Questão (20 chamadas por dia). A rodada inteira ficou com DeepSeek, para a calibração medir um sistema só.
+- **Reclassificação da Q0030 e da Q0099**, depois que a limpeza nova tirou o lixo do Word que só elas tinham (ADR 0005). As outras 357 Questões ficaram com o mesmo texto e com o voto do cache.
 
 ## Modelos, custo e tempo
+
+**Tempo.** A rodada das 359 levou cerca de 3h45 de relógio (16/10/2026, das 00:20 às 04:05, pelos horários do cache), com 2 Questões em paralelo. O que limita é o `claude -p` da assinatura. Os embeddings dependem da cota gratuita do Gemini (100 textos por minuto), e o passo 6 (`entrega`, com 1.000 reamostras do bootstrap) leva segundos. Rotular a Amostra de 50 com o agente jurídico foi feito fora do código. Refazer tudo a partir de `dados/` não chama nenhum modelo.
 
 **DeepSeek (Verificador e Juiz), painel de uso da conta em 18/10/2026:** US$ 3,04 em 439 requisições e 6.475.840 tokens. O número é acumulado desde a primeira chamada: inclui os testes de fumaça e as reclassificações. A rodada responde por 420 dessas requisições (359 do Verificador e 61 do Juiz, que só entra nos desacordos), e a reclassificação da Q0030 e da Q0099 depois da limpeza (ADR 0005) por mais 2.
 

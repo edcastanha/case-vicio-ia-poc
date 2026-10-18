@@ -16,7 +16,7 @@ Antes de conhecer o resultado, a previsão de quanto vamos acertar:
 
 <!-- previsao -->
 
-A previsão vem de uma amostra de 50 questões com a resposta certa levantada às cegas, e não da confiança que os modelos dizem ter. O [relatório](relatorio.md) explica como.
+O texto acima é o mesmo do `previsao.txt` da entrega. A previsão vem da Amostra rotulada, e não da confiança que os modelos dizem ter. O [relatório](relatorio.md) conta como chegamos nessa regra.
 
 ## Onde ler mais
 

@@ -62,7 +62,7 @@ O Tema central atribuído pela equipe de especialistas, usado para avaliar a ent
 _Avoid_: Ground truth, rótulo verdadeiro
 
 **Confiança**:
-Probabilidade estimada de o Tema central estar no mesmo Ramo do Gabarito.
+Probabilidade estimada de o Tema central estar no mesmo Ramo do Gabarito: a taxa de acerto suavizada (Laplace) do mesmo grupo na Amostra, que é a faixa de pontuação em Publicar e o mesmo motivo em Revisar e Fora. Não confundir com a confiança que cada modelo declara no voto.
 
 ## Papéis
 

@@ -206,6 +206,7 @@ def rodar_entrega(argumentos: argparse.Namespace) -> None:
         limiar_de_pontuacao=calibracao.limiar,
         curva=ajustar_curva(pares, faixas=5),
         estimativa=estimativa,
+        rotulos=rotulos,
     )
     with Path("publicacao.csv").open("w", newline="") as arquivo:
         escritor = csv.DictWriter(arquivo, fieldnames=list(entrega.linhas[0]))
