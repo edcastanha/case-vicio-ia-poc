@@ -39,6 +39,9 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  - pymdownx.snippets:
+      base_path: [.]
+      check_paths: true  # trecho inexistente quebra o build, em vez de sumir calado
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

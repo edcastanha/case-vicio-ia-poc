@@ -6,6 +6,7 @@ Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e
 
 ### A solução do case inteira: classifica as 359 Questões na Árvore de temas e decide Publicar, Revisar ou Fora sob a Régua.
 
+<!-- --8<-- [start:fluxo] -->
 ```mermaid
 flowchart LR
     H["HTML do zip"] --> L["limpar_html<br>só o texto visível"]
@@ -15,10 +16,12 @@ flowchart LR
     I -- "não" --> V["Verificador<br>deepseek-flash, sem Origem"]
     C & V --> K{"Concordância<br>de Ramo?"}
     K -- "não" --> J["Juiz<br>deepseek-v4-pro, só sugere"] --> R
+    K -- "os dois: nenhum Nó serve" --> F["Fora"]
     K -- "sim" --> D{"Tema duplicado, dúvida declarada<br>ou abaixo do limiar calibrado?"}
     D -- "sim" --> R
     D -- "não" --> P["Publicar"]
 ```
+<!-- --8<-- [end:fluxo] -->
 
 ```text
 src/classificacao/
