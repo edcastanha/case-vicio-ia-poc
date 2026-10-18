@@ -15,6 +15,7 @@ from classificacao.aplicacao.prompts import (
 )
 from classificacao.dominio.arvore import Arvore
 from classificacao.dominio.decisao import Voto
+from classificacao.dominio.injecao import indicios_de_injecao
 from classificacao.dominio.questao import Questao
 
 
@@ -43,15 +44,23 @@ class Classificacao:
     classificador: Proposta | None
     verificador: Proposta | None
     juiz: Proposta | None
+    indicios_de_injecao: tuple[str, ...] = ()  # não vazio: nenhum modelo viu a Questão
 
     @property
     def completa(self) -> bool:
         """Os dois votos obrigatórios chegaram; incompleta é tentada de novo na próxima rodada."""
+        if self.indicios_de_injecao:
+            return True
         return self.classificador is not None and self.verificador is not None
 
 
 def situacao(classificacao: Classificacao, arvore: Arvore) -> str:
-    """Relação entre os dois votos obrigatórios: falha, fora, mesmo nó, mesmo ramo, desacordo."""
+    """Relação entre os dois votos obrigatórios: falha, fora, mesmo nó, mesmo ramo, desacordo.
+
+    Ou "injeção", quando a Questão não foi aos modelos.
+    """
+    if classificacao.indicios_de_injecao:
+        return "injeção"
     if classificacao.classificador is None or classificacao.verificador is None:
         return "falha"
     a, b = classificacao.classificador.no_id, classificacao.verificador.no_id
@@ -74,6 +83,9 @@ def classificar_questao(
     tentativas: int = 3,
     esperar: Callable[[int], None] = lambda tentativa: time.sleep(2**tentativa),
 ) -> Classificacao:
+    if indicios := indicios_de_injecao(questao):
+        return Classificacao(questao.id, None, None, None, indicios)
+
     def votar(
         papel: str, modelo: ModeloDeLinguagem, prompt: Prompt, usuario: str
     ) -> Proposta | None:

@@ -55,6 +55,7 @@ def gerar_entrega(
             confianca=pontuacao,
             limiar=math.inf if limiar_de_pontuacao is None else limiar_de_pontuacao,
             reserva=sinal.reserva,
+            indicios_de_injecao=c.indicios_de_injecao,
         )
         if _tem_concordancia(arvore, classificador, verificador):
             pontuacoes_publicaveis.append(pontuacao)

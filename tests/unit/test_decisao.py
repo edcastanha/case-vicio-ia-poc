@@ -171,3 +171,33 @@ def test_modelo_que_declara_duvida_impede_a_publicacao_mesmo_com_concordancia():
     assert resultado.decisao is Decisao.REVISAR
     assert resultado.tema_central_id == 100
     assert "dúvida" in resultado.motivo
+
+
+def test_indicio_de_injecao_vai_para_revisar_com_a_reserva_mesmo_com_votos_publicaveis():
+    resultado = decidir(
+        ARVORE,
+        classificador=Voto(100, 0.99),
+        verificador=Voto(100, 0.99),
+        juiz=None,
+        confianca=0.99,
+        limiar=LIMIAR,
+        reserva=11,
+        indicios_de_injecao=("enunciado: instrução ao modelo",),
+    )
+    assert resultado.decisao is Decisao.REVISAR
+    assert resultado.tema_central_id == 11
+    assert resultado.motivo == "possível injeção de prompt (enunciado: instrução ao modelo)"
+
+
+def test_indicio_de_injecao_nunca_vira_fora():
+    resultado = decidir(
+        ARVORE,
+        classificador=None,
+        verificador=None,
+        juiz=None,
+        confianca=0.0,
+        limiar=LIMIAR,
+        reserva=None,
+        indicios_de_injecao=("comando: ordem de classificar",),
+    )
+    assert resultado.decisao is Decisao.REVISAR

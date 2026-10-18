@@ -8,6 +8,9 @@ from google.genai import errors, types
 
 from classificacao.aplicacao.portas import FalhaDoModelo
 
+# Acima disso não é a cota por minuto, é a diária: esperar horas parece travamento.
+ESPERA_MAXIMA_EM_SEGUNDOS = 300.0
+
 
 class ModeloGemini:
     """Verificador no backend api: generateContent com JSON imposto pelo schema."""
@@ -51,12 +54,14 @@ class EmbeddingsGemini:
         cliente: genai.Client | None = None,
         esperar: Callable[[float], None] = time.sleep,
         tentativas: int = 4,
+        espera_maxima: float = ESPERA_MAXIMA_EM_SEGUNDOS,
     ) -> None:
         self._modelo = modelo
         self._dimensoes = dimensoes
         self._cliente = cliente or genai.Client()
         self._esperar = esperar
         self._tentativas = tentativas
+        self._espera_maxima = espera_maxima
 
     def vetorizar(self, textos: list[str]) -> list[list[float]]:
         # O v2 não aceita task_type: a tarefa vai no próprio texto.
@@ -74,7 +79,10 @@ class EmbeddingsGemini:
         return [list(embedding.values) for embedding in resultado.embeddings]
 
     def _embutir(self, conteudos: list[types.Content]):
-        """A cota gratuita é por minuto (100 textos): no 429, espera o que a API pedir."""
+        """A cota gratuita é por minuto (100 textos): no 429, espera o que a API pedir.
+
+        Se ela pedir mais que a espera máxima, a cota estourada é a diária: falha na hora.
+        """
         for tentativa in range(1, self._tentativas + 1):
             try:
                 return self._cliente.models.embed_content(
@@ -85,7 +93,12 @@ class EmbeddingsGemini:
             except errors.APIError as erro:
                 if erro.code != 429 or tentativa == self._tentativas:
                     raise FalhaDoModelo(f"Gemini embeddings: {erro}") from erro
-                self._esperar(_espera_pedida(erro) + 1)
+                espera = _espera_pedida(erro)
+                if espera > self._espera_maxima:
+                    raise FalhaDoModelo(
+                        f"Gemini embeddings: cota diária estourada, a API pede {espera:.0f}s"
+                    ) from erro
+                self._esperar(espera + 1)
         raise AssertionError("inalcançável")
 
 

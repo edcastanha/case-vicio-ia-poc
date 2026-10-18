@@ -34,7 +34,12 @@ def decidir(
     confianca: float,
     limiar: float,
     reserva: int | None = None,
+    indicios_de_injecao: tuple[str, ...] = (),
 ) -> Resultado:
+    if indicios_de_injecao:
+        # ADR 0005: o texto tenta instruir o modelo; vai ao Professor, nunca a Fora nem ao aluno.
+        motivo = f"possível injeção de prompt ({'; '.join(indicios_de_injecao)})"
+        return Resultado(Decisao.REVISAR, reserva, motivo)
     resultado = _decidir_pelos_votos(arvore, classificador, verificador, juiz, confianca, limiar)
     if resultado.decisao is Decisao.REVISAR and resultado.tema_central_id is None:
         motivo = f"{resultado.motivo}; sem voto válido, sugestão por similaridade"

@@ -61,6 +61,7 @@ nav:
       - adr/0002-publicar-so-com-concordancia-entre-provedores.md
       - adr/0003-prompts-versionados-por-papel.md
       - adr/0004-rotulagem-assistida.md
+      - adr/0005-texto-da-questao-e-dado-nunca-instrucao.md
   - Glossário: glossario.md
   - Como rodar: como-rodar.md
   - Dados gerados: dados.md

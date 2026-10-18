@@ -107,6 +107,10 @@ A Questão vai para a fila do professor, levando o Tema central como sugestão.
 **Fora**:
 Nenhum Nó ativo da Árvore de temas serve para a Questão.
 
+**Indício de injeção**:
+Trecho do texto de uma Questão que fala com o modelo em vez de com o aluno (ordem de ignorar instruções ou de classificar num Nó, campo do voto, marcador de papel); a Questão vai para Revisar sem passar por nenhum modelo.
+_Avoid_: Ataque, questão maliciosa
+
 **Amostra de calibração**:
 As Questões sorteadas cuja resposta certa é levantada (pelo Rotulador e pela Arbitragem) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
 

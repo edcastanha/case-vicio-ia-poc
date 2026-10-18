@@ -81,6 +81,7 @@ def _classificacao(bruta: dict) -> Classificacao:
             None if bruta[papel] is None else _proposta(bruta[papel])
             for papel in ("classificador", "verificador", "juiz")
         ),
+        tuple(bruta.get("indicios_de_injecao", ())),
     )
 
 

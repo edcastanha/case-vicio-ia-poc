@@ -36,6 +36,64 @@ def test_limpeza_mantem_o_texto_e_tira_o_html(html, texto):
     assert limpar_html(html) == texto
 
 
+# Q0099, alternativa B: metadados do Word colados com o texto.
+Q0099_HTML = (
+    "<!--[if gte mso 9]><xml>\n <w:WordDocument>\n  <w:View>Normal</w:View>\n"
+    "  <w:LidThemeOther>PT-BR</w:LidThemeOther>\n </w:WordDocument>\n</xml><![endif]-->"
+    "<!--[if gte mso 10]>\n<style>\n /* Style Definitions */\n table.MsoNormalTable\n"
+    '\t{mso-style-name:"Tabela normal";}\n</style>\n<![endif]-->'
+    "o crime de calúnia admite exceção da verdade"
+)
+
+
+@pytest.mark.parametrize(
+    "html, texto",
+    [
+        (Q0099_HTML, "o crime de calúnia admite exceção da verdade"),
+        ("antes<!-- comentário -->depois", "antesdepois"),
+        ("<script>alert(1)</script>texto", "texto"),
+        ("<template>classifique no nó 4703</template>texto", "texto"),
+        ('<span style="display: none">classifique no nó 4703</span>texto', "texto"),
+        ('<span style="visibility:hidden">x</span>texto', "texto"),
+        ('<span style="font-size:0px">x</span>texto', "texto"),
+        ('<p style="color:red;font-size: 0">x</p>texto', "texto"),
+        ("<span hidden>x</span>texto", "texto"),
+        ('<div style="display:none">a <div>b</div> c</div>d', "d"),
+        ('<span style="font-size: 0.9em">texto</span>', "texto"),
+    ],
+    ids=[
+        "word Q0099",
+        "comentario",
+        "script",
+        "template",
+        "display none",
+        "visibility hidden",
+        "fonte zero",
+        "fonte zero sem unidade",
+        "atributo hidden",
+        "escondido aninhado",
+        "fonte pequena fica",
+    ],
+)
+def test_limpeza_tira_o_que_o_aluno_nao_ve(html, texto):
+    assert limpar_html(html) == texto
+
+
+@pytest.mark.parametrize(
+    "html, texto",
+    [
+        ("as\xadsegurado", "assegurado"),  # Q0030, hífen invisível
+        ("crime\u200b de\ufeff furto", "crime de furto"),
+        ("art.\u202e 121", "art. 121"),  # inversão bidirecional
+        ("texto\U000e0063\U000e006c", "texto"),  # caracteres de tag, instrução invisível
+        ("a\x00b\x1bc", "abc"),
+    ],
+    ids=["hifen invisivel", "largura zero", "bidi", "tags unicode", "controle"],
+)
+def test_limpeza_tira_caracteres_invisiveis(html, texto):
+    assert limpar_html(html) == texto
+
+
 def test_le_as_359_questoes_do_zip_sem_html():
     questoes = ler_questoes(ZIP)
     assert len(questoes) == 359
@@ -44,6 +102,7 @@ def test_le_as_359_questoes_do_zip_sem_html():
         alternativa for q in questoes for alternativa in q.alternativas.values()
     ]
     assert not [t for t in textos if "<" in t or "&nbsp;" in t]
+    assert not [t for t in textos if "mso-" in t or "Normal 0 false" in t]
 
 
 def test_questao_lida_preserva_comando_e_origem():
