@@ -6,6 +6,7 @@ Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e
 
 ### A solução do case inteira: classifica as 359 Questões na Árvore de temas e decide Publicar, Revisar ou Fora sob a Régua.
 
+<!-- --8<-- [start:fluxo] -->
 ```mermaid
 flowchart LR
     H["HTML do zip"] --> L["limpar_html<br>só o texto visível"]
@@ -15,10 +16,12 @@ flowchart LR
     I -- "não" --> V["Verificador<br>deepseek-flash, sem Origem"]
     C & V --> K{"Concordância<br>de Ramo?"}
     K -- "não" --> J["Juiz<br>deepseek-v4-pro, só sugere"] --> R
+    K -- "os dois: nenhum Nó serve" --> F["Fora"]
     K -- "sim" --> D{"Tema duplicado, dúvida declarada<br>ou abaixo do limiar calibrado?"}
     D -- "sim" --> R
     D -- "não" --> P["Publicar"]
 ```
+<!-- --8<-- [end:fluxo] -->
 
 ```text
 src/classificacao/
@@ -44,7 +47,7 @@ As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com 
 
 As regras e o porquê de cada uma estão em [`docs/adr/`](docs/adr/); o vocabulário, em [`GLOSSARY.md`](GLOSSARY.md).
 
-Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`.
+Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`. O site tem também uma apresentação interativa de 8 slides (`docs/apresentacao/`, feita com HyperFrames): use as setas ou aperte P para o modo apresentador. Os números do deck ficam num bloco JSON, e `tests/contrato/test_apresentacao.py` confere que eles batem com `dados/` e com a entrega. O player 0.8.116, o GSAP e a fonte Inter ficam guardados no repositório, com as licenças em `docs/apresentacao/vendor/LICENCAS.md`. Para validar a composição: `npx hyperframes@0.8.116 check docs/apresentacao/composition`.
 
 ## Como rodar
 
