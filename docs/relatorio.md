@@ -1,7 +1,5 @@
 # Relatório — classificação de tópicos
 
-> Rascunho. Trechos marcados «a preencher» dependem da rodada completa e da calibração.
-
 ## a) Como pensei
 
 **O problema real não é classificar, é saber quando a classificação é confiável.** Um modelo de linguagem acerta a maioria das questões; o que a régua cobra é que, entre as publicadas, 95% estejam certas — e que eu diga antes quanto vou acertar. Então o desenho começou pela pergunta "que sinal, observável sem gabarito, separa acerto de erro?", e não pela escolha do modelo.
@@ -21,6 +19,7 @@
 - **Mesmo modelo nos dois papéis (corrigido).** Com só uma chave de API disponível, testei Classificador e Verificador no mesmo modelo: na Q0328 vieram o mesmo nó, a mesma confiança e quase a mesma justificativa. É o modelo concordando consigo mesmo. Daí em diante, os dois papéis sempre ficaram com famílias diferentes: Claude no Classificador e DeepSeek no Verificador. Quando chegou uma chave do Gemini, tentei a configuração planejada, com Gemini no Verificador. O plano gratuito permite 20 chamadas por dia, e a rodada parou na 29ª Questão. Não dá para misturar dois Verificadores numa mesma rodada, porque a calibração mediria uma mistura de dois sistemas. Por isso, mantive a rodada com DeepSeek e usei o Gemini só para os embeddings.
 - **Prompts sem versão (corrigido).** Os prompts nasceram como constantes no código, e nada no resultado dizia qual texto tinha gerado cada voto. Como a previsão de precisão vale para um par (modelo, prompt), passei a versionar o prompt de cada papel em arquivo (`prompts/<papel>/v1.md`), a gravar a versão em cada voto e a recusar calibrar rodadas com versões misturadas. A v1 é o texto que gerou a rodada: refazer as 359 só pelo cache reproduziu todas as classificações sem nenhuma chamada (ADR 0003).
 - **Texto que o aluno não vê chegava ao modelo (corrigido).** Auditando as entradas, achei na Q0099 cerca de 700 caracteres de metadados e CSS do Word em cada alternativa, restos de comentários condicionais que a limpeza antiga não tirava. Era lixo, mas é exatamente por onde uma instrução escondida passaria. A limpeza passou a manter só o texto visível, e uma Questão cujo texto fala com o modelo ("ignore as instruções", "classifique no nó", `no_id`) vai para Revisar sem passar por nenhum modelo. Nenhuma das 359 dispara (ADR 0005).
+- **Previsão de 100% sem margem (corrigida).** A primeira entrega previu precisão 1,00 com intervalo 1,00–1,00. Os 34 rótulos da calibração estavam todos certos, e o bootstrap só reamostra o que existe: sem um erro na amostra, ele não tem como mostrar incerteza. Passou a valer que a previsão nunca é mais confiante do que a amostra permite. O ponto é o menor entre o bootstrap e a suavização de Laplace, (34+1)/(34+2) = 0,97, e o intervalo inclui o de Wilson para 34 de 34, que começa em 0,90 (ADR 0002).
 - **Temas duplicados (descoberto no piloto).** Na Q0112 um modelo escolheu "Penal > Organizações Criminosas" e o outro "Legislação Especial > Organizações Criminosas". Ver diagnóstico.
 
 ## b) Diagnóstico: o que atrapalha classificar certo
@@ -44,7 +43,17 @@
 - **Fronteira entre disciplinas**: prescrição disciplinar (Administrativo) que usa o prazo penal (Q0113); lei especial que também está na parte especial do CP.
 - **Temas duplicados**: o assunto é inequívoco; o *lugar* não é.
 
-«a preencher: números da rodada — % de concordância, desacordos, fora, falhas; o que os rótulos mostraram sobre os temas duplicados e sobre o Juiz»
+**Os números da rodada.** As 359 foram classificadas, sem nenhuma falha que sobrasse. Houve Concordância de Ramo em 295 (82%): 255 no mesmo Nó e 40 em Nós do mesmo Ramo. Houve 61 desacordos (17%), e em 3 os dois modelos disseram que nenhum Nó servia.
+
+| Decisão | Questões | Por quê |
+|---|---|---|
+| Publicar | 249 (69%) | Concordância, fora de Tema duplicado, sem dúvida declarada e acima do limiar calibrado (0,55) |
+| Revisar | 107 (30%) | 61 desacordos, 36 Temas duplicados, 10 com um modelo em dúvida |
+| Fora | 3 (1%) | os dois modelos: nenhum Nó serve |
+
+Nenhuma Questão foi barrada só pelo limiar: as regras de Ramo, de Tema duplicado e de dúvida declarada já tiram as arriscadas. A previsão é **precisão de 0,97 (de 0,90 a 1,00) e cobertura de 0,69 (de 0,62 a 0,82)**. O intervalo de precisão é largo de propósito: 34 acertos em 34 não provam 95% com 95% de confiança (ver a correção de rota abaixo).
+
+**O que os rótulos mostraram.** Das 50 Questões da amostra, 8 têm o rótulo num Tema duplicado. O assunto delas era inequívoco; o que variava era o lado da árvore, e isso confirma a regra de não publicar ali. Nos 10 desacordos da amostra, o Juiz ficou no Ramo do rótulo em 6, o Classificador em 4 e o Verificador em 6. A sugestão que chega ao Professor, que é a do Juiz ou, sem ela, a do primeiro voto válido, acertou em 7. O Juiz ajuda a sugerir, mas não é um desempate confiável: é por isso que ele nunca publica.
 
 ## c) Produção: 50 mil questões por semana
 

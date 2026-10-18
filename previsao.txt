@@ -1,0 +1,4 @@
+precisao_prevista: 0.97
+precisao_intervalo: 0.90-1.00
+cobertura_prevista: 0.69
+cobertura_intervalo: 0.62-0.82
