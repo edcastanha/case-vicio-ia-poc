@@ -1,6 +1,6 @@
 # Amostra de calibração rotulada por um agente jurídico especializado, sem arbitragem
 
-Substitui o ADR 0004. As 50 Questões da Amostra de calibração (`dados/rotulagem.csv`) foram rotuladas uma a uma por um agente de IA especializado, com uma skill feita para questões jurídicas, conduzido pelo autor do case. A coluna `resposta` tem o Nó escolhido, e a `observacao` tem a justificativa de cada escolha. Não houve um especialista humano em Direito: o case não tinha acesso a um advogado ou professor da área para a rotulagem.
+Substitui o ADR 0004. As 50 Questões da Amostra de calibração (`dados/rotulagem.csv`) foram rotuladas uma a uma por um agente de IA especializado (GPT 5.6 Terra, da OpenAI), com uma skill feita para questões jurídicas, conduzido pelo autor do case. A coluna `resposta` tem o Nó escolhido, e a `observacao` tem a justificativa de cada escolha. Não houve um especialista humano em Direito: o case não tinha acesso a um advogado ou professor da área para a rotulagem.
 
 A arbitragem do ADR 0004 foi descartada, com o `classificacao consolidar`, a planilha A/B e o Conflito. Ela existia para um humano decidir só onde o Rotulador e o pipeline divergiam, e esse humano não existe neste case. O Rotulador continua como segunda opinião às cegas: `classificacao rotular` grava `dados/rotulador.json` e mede quantas respostas dele caem no Ramo do rótulo da Amostra. Ele não gera rótulo.
 
@@ -16,7 +16,7 @@ A arbitragem do ADR 0004 foi descartada, com o `classificacao consolidar`, a pla
 
 Estas limitações entram no relatório junto da previsão de Precisão:
 
-- **O gabarito da calibração é de um modelo, não de um especialista.** A previsão mede o quanto o pipeline concorda com um agente jurídico, e não com o Professor. Se o agente erra junto com os modelos do pipeline, o erro chega à amostra como acerto, e a Precisão prevista fica otimista. «a preencher: modelo do agente», para que se saiba se ele é da mesma família do Classificador (Claude).
+- **O gabarito da calibração é de um modelo, não de um especialista.** A previsão mede o quanto o pipeline concorda com um agente jurídico, e não com o Professor. Se o agente erra junto com os modelos do pipeline, o erro chega à amostra como acerto, e a Precisão prevista fica otimista. O agente é de outra família (GPT, da OpenAI) que o Classificador (Claude) e o Verificador e o Juiz (DeepSeek). Isso reduz os erros em comum, mas não os elimina, porque os três foram treinados em textos jurídicos parecidos.
 - **Os 50 rótulos saíram de dentro da lista de candidatos da planilha.** A lista é cega quanto à fonte, mas sempre contém os Nós votados pelo pipeline, embaralhados com homônimos (Temas duplicados) e Nós de preenchimento. Um rotulador que escolhe dentro da lista nunca aponta um Nó em que nenhum modelo pensou, e isso também puxa a Precisão prevista para cima.
 - **Temas duplicados são convenção, não Direito.** Na Q0036 (Lei Maria da Penha) e na Q0087 (Lei de Execução Penal), o assunto é inequívoco, e a escolha entre as Disciplinas repetidas é uma convenção do catálogo. Por isso essas Questões nunca são publicadas (ADR 0002).
 
