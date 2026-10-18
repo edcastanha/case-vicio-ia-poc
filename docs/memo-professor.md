@@ -1,22 +1,30 @@
 # Memo ao professor
 
-**Assunto:** as 359 questões de Penal, Processo Penal, Legislação Especial e Criminologia: o que encontrei e do que preciso do senhor.
+**Assunto:** as 359 questões de Penal, Processo Penal, Legislação Especial e Criminologia: o que encontrei e cinco pedidos concretos ao senhor.
 
-## O que fiz
+## O que fiz e o resultado
 
-Cada questão foi lida por dois sistemas de inteligência artificial **de empresas diferentes**, um sem ver o outro. Só publiquei direto para o aluno quando os dois apontaram o mesmo tema (ou o tema e um subtema dele) sem declarar dúvida. O resto vai para a sua fila, com sugestão e justificativa. Um terceiro sistema, de outra empresa e especializado em Direito, conferiu 50 questões. Não tive um especialista humano, e por isso a conferência do senhor (item 3, abaixo) é o que confirma o número.
+Cada questão foi lida por dois sistemas de inteligência artificial de **empresas diferentes**, um sem ver o outro. Só publiquei quando os dois apontaram o mesmo tema, ou o tema e um subtema dele. **249 questões (69%) foram para o aluno**, 107 estão na sua fila com uma sugestão e 3 não cabem em nenhum tema. Espero que **97 em cada 100 publicadas** estejam certas, e o número real deve ficar entre 90 e 100. Quem conferiu a amostra foi um terceiro sistema, não um especialista, e por isso o pedido 2 abaixo é o mais importante.
 
-**249 questões (69%) foram publicadas**, **107 estão na sua fila** e 3 não cabem em nenhum tema. Das 107, 36 estão lá só porque o tema existe em duas disciplinas. Espero que cerca de **97 em cada 100 publicadas** estejam no tema certo. Como a conferência teve só 50 questões, o real pode ficar entre 90 e 100.
-
-## O que encontrei na árvore de temas, e o que recomendo
-
-1. **Oito temas existem em duas disciplinas.** Lavagem de Dinheiro, Maria da Penha, Organizações Criminosas, Tráfico de Drogas, Abuso de Autoridade e Crimes Ambientais estão em Penal **e** em Legislação Especial. Execução Penal está em Legislação Especial **e** Processo Penal, e Ação Penal em Penal **e** Processo Penal. O aluno que estuda um lado não vê as questões do outro. **Recomendo** unificar os oito, ou adotar uma regra simples, como "lei especial vai sempre em Legislação Especial".
-2. **As descrições não descrevem o tema.** Quase todas dizem só "Subtema de Criminologia. 44 questões", e isso ainda puxa a classificação automática para os temas que já são grandes. **Recomendo** uma ou duas linhas por tema dizendo o que entra e, principalmente, o que **não** entra. Há também erros de cadastro, como "Escolas Crimonológicas".
-3. **Os temas mais cheios são os genéricos**, como "Sistemas e Princípios Processuais Penais", "Teoria da Pena" e "Introdução ao Estudo do Direito Penal". É assim que nascem as lixeiras. **Recomendo** deixar claro que os introdutórios só recebem questões sobre a noção geral.
+**Na árvore de temas** há três problemas: temas repetidos em duas disciplinas (pedido 1), descrições automáticas que não dizem o que entra no tema e temas genéricos, como "Teoria da Pena", que acumulam questões de outros temas.
 
 ## Do que preciso do senhor
 
-1. **A regra para os temas duplicados.** Enquanto ela não existir, nenhuma questão desses temas é publicada direto.
-2. **Revisar a fila.** Cada questão chega com a sugestão e o porquê. Quase sempre basta confirmar ou trocar o tema.
-3. **Conferir, toda semana, 50 questões já publicadas**, sorteadas e sem ver a resposta dos sistemas: é o que garante, semana a semana, que o aluno estuda no tema certo.
-4. **Decidir o destino das questões com assertivas de assuntos diferentes**: o tema da assertiva correta, um tema "misto" ou nenhum tema.
+**1. Decidir o lado de cada tema duplicado** (uma vez só: oito decisões). Basta marcar ✓ na nossa sugestão ou escrever a outra disciplina. Com isso, as questões paradas podem ser publicadas no lado escolhido.
+
+| Tema | Paradas | Sugestão: fica em | Sai de |
+|---|---|---|---|
+| Lei de Execução Penal | 9 | Legislação Especial | Processo Penal |
+| Ação Penal | 8 | Processo Penal | Penal |
+| Tráfico de Drogas | 7 | Legislação Especial | Penal |
+| Lei Maria da Penha | 5 | Legislação Especial | Penal |
+| Crimes Ambientais | 3 | Legislação Especial | Penal |
+| Abuso de Autoridade, Lavagem de Dinheiro e Organizações Criminosas | 2, 2 e 0 | Legislação Especial | Penal |
+
+**2. Conferir as 50 questões da amostra** (uma vez). O senhor recebe uma planilha com o enunciado e, para cada questão, escolhe o tema certo numa lista, sem ver a resposta dos sistemas. Com isso, a previsão de acerto passa a ser medida contra o senhor, e não contra outra máquina.
+
+**3. Revisar a fila**, nesta ordem: as 61 em que os dois sistemas discordaram (a sugestão acerta cerca de 7 em 10) e as 10 em que um deles declarou dúvida. Em cada uma, confirmar ou trocar o tema. As 36 dos temas duplicados se resolvem de uma vez pelo pedido 1.
+
+**4. Toda semana, conferir 50 questões publicadas**, sorteadas, do mesmo jeito do pedido 2. Se 3 ou mais estiverem erradas, a publicação automática para até corrigirmos.
+
+**5. Escolher uma regra para as questões com assertivas de assuntos diferentes**: o tema da assertiva correta, um tema "misto" ou nenhum tema.

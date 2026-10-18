@@ -32,6 +32,7 @@ Na Fase 2, o Classificador (LLM) só entra nos ~18% de desacordo, a taxa de desa
 ## O gargalo é o Professor
 
 Com as taxas do case, 30% de 50 mil são cerca de 15 mil Questões por semana em Revisar. Isso pesa mais que o custo dos modelos. Há três alavancas:
+
 - a regra dos Temas duplicados, que tira cerca de 10 pontos da fila;
 - a fila priorizada pelos Temas mais estudados;
 - cada revisão virar rótulo do Classificador treinado.
