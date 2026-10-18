@@ -10,7 +10,7 @@
 
 **Usar a régua a favor, sem trapacear.** A régua aceita como certo o nó do gabarito, o pai ou o filho. Quando os dois modelos escolhem subtemas irmãos, publico no tema pai: ele está certo se o gabarito for qualquer um dos dois. Publicar na disciplina (o "pai do pai") seria o mesmo atalho levado ao extremo — e recriaria a lixeira que o case critica; descartei.
 
-**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Um terceiro modelo, o Rotulador (Opus), respondeu as 50 às cegas, sem ver a origem nem os votos. Onde ele discordou do pipeline (fora do ramo), eu arbitrei entre as duas respostas sem saber qual era de quem. O julgamento humano fica onde muda o resultado. A limitação está declarada: o Rotulador é da mesma família do Classificador, e erros que os dois cometem juntos não chegam até mim, o que pode deixar a previsão otimista (ADR 0004). «a preencher: quantos conflitos, quantas vezes o pipeline venceu a arbitragem»
+**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Não tive acesso a um advogado ou professor de Direito para rotular, então rotulei as 50 com um agente de IA especializado, com uma skill para questões jurídicas, e registrei a justificativa de cada escolha na planilha. Nas 40 em que Classificador e Verificador concordaram, o Nó do pipeline ficou no Ramo do rótulo em todas. Nas 10 de desacordo, que nunca são publicadas, ficou em 7. Um terceiro modelo, o Rotulador (Opus), respondeu às cegas como segunda opinião e caiu no Ramo do rótulo em 46 de 50. As limitações estão declaradas: o gabarito da calibração é de um modelo, não de um especialista, e os rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados. As duas coisas podem deixar a previsão otimista (ADR 0006). Em produção, a auditoria amostral do Professor substitui esta amostra por uma humana.
 
 **Becos sem saída e correções de rota:**
 
@@ -48,7 +48,7 @@
 
 ## c) Produção: 50 mil questões por semana
 
-«a preencher: custo por questão medido na rodada»
+**Custo medido.** A DeepSeek (Verificador e Juiz) custou US$ 3,04 em 439 requisições, testes incluídos: no máximo US$ 0,0085 por Questão, ou cerca de US$ 425 por semana para 50 mil Questões. O Classificador saiu da assinatura do Claude Code, mas pelo custo equivalente que o `claude -p` informa (US$ 0,19 por Questão no piloto) ele custaria cerca de US$ 9.700 por semana na API: mais de 95% do total. Cada requisição leva ~14,8 mil tokens porque a Árvore inteira vai no prompt. Por isso os dois cortes que mais rendem em produção são os candidatos por embeddings (item 2, abaixo), que tiram a maior parte desses tokens, e o cache de prompt da parte fixa (instruções e Árvore), que é igual em toda chamada.
 
 **Fluxo**
 

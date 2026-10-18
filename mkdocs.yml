@@ -62,6 +62,7 @@ nav:
       - adr/0003-prompts-versionados-por-papel.md
       - adr/0004-rotulagem-assistida.md
       - adr/0005-texto-da-questao-e-dado-nunca-instrucao.md
+      - adr/0006-amostra-rotulada-por-agente-juridico.md
   - Glossário: glossario.md
   - Como rodar: como-rodar.md
   - Dados gerados: dados.md

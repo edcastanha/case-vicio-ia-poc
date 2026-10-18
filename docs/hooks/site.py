@@ -10,9 +10,11 @@ from mkdocs.structure.files import File
 
 from classificacao.adaptadores.anexos import ler_arvore, ler_questoes
 from classificacao.adaptadores.arquivos import RegistroEmArquivo
+from classificacao.adaptadores.rotulagem import ler_rotulos
 from classificacao.entrada.site import bloco_da_previsao, corrigir_links, pagina_de_resultados
 
 RAIZ = Path(__file__).resolve().parents[2]
+FONTE_DOS_ROTULOS = "agente jurídico"  # ADR 0006
 REPOSITORIO = "https://github.com/edcastanha/case-vicio-ia-poc"
 # Arquivo do repositório → página do site; os textos continuam com um dono só (o arquivo).
 PAGINAS_DA_RAIZ = {
@@ -46,7 +48,7 @@ def _resultados() -> str:
         {q.id: q for q in ler_questoes(zip_anexos)},
         ler_arvore(zip_anexos),
         _entrega(RAIZ / "publicacao.csv"),
-        _amostra(RAIZ / "dados/rotulagem.csv"),
+        _amostra(RAIZ / "dados/rotulagem.csv", ler_arvore(zip_anexos)),
     )
 
 
@@ -57,14 +59,7 @@ def _entrega(caminho: Path) -> dict[str, dict[str, str]] | None:
         return {linha["id"]: linha for linha in csv.DictReader(arquivo)}
 
 
-def _amostra(caminho: Path) -> dict[str, tuple[int | None, str]]:
+def _amostra(caminho: Path, arvore) -> dict[str, tuple[int | None, str]]:
     if not caminho.exists():
         return {}
-    respostas = {}
-    with caminho.open(newline="") as arquivo:
-        for linha in csv.DictReader(arquivo):
-            resposta = (linha.get("resposta") or "").strip()
-            if resposta:
-                no_id = None if resposta.casefold() == "nenhum" else int(resposta)
-                respostas[linha["id"]] = (no_id, (linha.get("observacao") or "humano").strip())
-    return respostas
+    return {id: (no_id, FONTE_DOS_ROTULOS) for id, no_id in ler_rotulos(caminho, arvore).items()}

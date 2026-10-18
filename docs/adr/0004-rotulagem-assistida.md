@@ -1,5 +1,7 @@
 # Rotulagem assistida: o Rotulador responde a amostra, o humano arbitra só os Conflitos
 
+> **Substituída pelo ADR 0006.** Não houve especialista humano para arbitrar. A amostra foi rotulada por um agente jurídico especializado, e a arbitragem saiu do código. Este registro fica como histórico da decisão.
+
 A Amostra de calibração (50 Questões, `dados/rotulagem.csv`) é respondida primeiro por um Rotulador, o modelo mais forte disponível (Opus), fora dos papéis do pipeline. Ele vê a Questão e a Árvore de temas, mas não vê a Origem nem os votos, e tem prompt próprio e versionado (`prompts/rotulador/`, ADR 0003). Há Conflito quando o rótulo do Rotulador fica fora do Ramo do Nó que o pipeline usaria: o consenso, ou a sugestão do Juiz no desacordo. Só os Conflitos, mais as Questões em que o Rotulador falhou, vão para o humano, numa planilha (`dados/arbitragem.csv`) com as duas respostas como opções A e B em ordem sorteada, sem dizer qual veio de onde. O humano escolhe A, B, outro Nó ou "nenhum". `classificacao consolidar` grava as respostas na amostra, com a fonte de cada uma na coluna `observacao` (`rotulador` ou `arbitragem`).
 
 ```mermaid

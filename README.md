@@ -28,14 +28,13 @@ uv run pytest                     # testes (nenhum chama rede)
 uv run classificacao rodada       # 1. classifica as 359 (retomável; cache em dados/cache)
 uv run classificacao sinais       # 2. embeddings: similaridade e reserva
 uv run classificacao amostra      # 3. gera dados/rotulagem.csv (50 questões, cega)
-uv run classificacao rotular      # 4. o Rotulador (Opus) responde a amostra às cegas e grava
-#                                      os conflitos em dados/arbitragem.csv (opções A/B sorteadas)
-#                                   5. um humano preenche `escolha` (A, B, id do nó ou "nenhum")
-uv run classificacao consolidar   # 6. grava as respostas na coluna `resposta` de dados/rotulagem.csv
-uv run classificacao entrega      # 7. calibra nos rótulos e grava publicacao.csv e previsao.txt
+#                                   4. preencha `resposta` (id do nó, "id — caminho" de um candidato
+#                                      ou "nenhum"); neste case, por um agente jurídico (ADR 0006)
+uv run classificacao rotular      # 5. opcional: o Rotulador (Opus) responde às cegas, como segunda opinião
+uv run classificacao entrega      # 6. calibra nos rótulos e grava publicacao.csv e previsao.txt
 ```
 
-O que gera o `publicacao.csv`: o passo 5, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3–6). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
+O que gera o `publicacao.csv`: o passo 6, a partir de `dados/rodada/classificacoes.jsonl` (passo 1), `dados/rodada/sinais.json` (passo 2) e `dados/rotulagem.csv` (passos 3 e 4). Falhas de provedor vão para `dados/rodada/falhas.jsonl` e a questão termina em `revisar`; a entrega se recusa a gravar um arquivo fora do formato do LEIA-ME.
 
 ## Prompts
 
@@ -58,9 +57,20 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 
 ## Decisões tomadas à mão
 
-- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): respondidos às cegas pelo Rotulador (Opus, sem ver Origem nem votos); quando o rótulo dele sai do ramo do nó do pipeline, um humano arbitra entre as duas respostas sem saber qual é de quem (ADR 0004). A coluna `observacao` diz a fonte de cada resposta. Limitação declarada: o Rotulador é da mesma família do Classificador, e erros em comum não chegam ao humano.
+- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): as 50 foram rotuladas por um agente de IA especializado, com uma skill para questões jurídicas, com a justificativa de cada uma em `observacao`. Não houve especialista humano em Direito (ADR 0006). Limitações declaradas: o gabarito da calibração é de um modelo, e os 50 rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados pelo pipeline. As duas coisas puxam a Precisão prevista para cima.
 - _A completar ao longo da execução._
 
 ## Modelos, custo e tempo
 
-_A completar com os números da rodada final._ Piloto de 30 questões no modo `claude-code`: ~5 min, custo equivalente informado pelo `claude -p` de US$ 5,84.
+**DeepSeek (Verificador e Juiz), painel de uso da conta em 18/10/2026:** US$ 3,04 em 439 requisições e 6.475.840 tokens. O número é acumulado desde a primeira chamada: inclui os testes de fumaça e as reclassificações. A rodada responde por 420 dessas requisições (359 do Verificador e 61 do Juiz, que só entra nos desacordos), e a reclassificação da Q0030 e da Q0099 depois da limpeza (ADR 0005) por mais 2.
+
+| | Valor |
+|---|---|
+| Custo por requisição | US$ 0,0069 |
+| Tokens por requisição | ~14,8 mil (a Árvore de temas inteira vai no system prompt) |
+| Requisições por Questão | 1,17 (o Juiz em 17% delas) |
+| Custo DeepSeek por Questão | até US$ 0,0085 (teto: divide o total, testes incluídos, pelas 359) |
+
+**Embeddings (`gemini-embedding-2`):** cota gratuita do Gemini, sem custo. O que limita é a cota: 100 textos por minuto e um teto diário. Uma rodada de `sinais` vetoriza cerca de 730 textos (359 Questões e 371 Nós).
+
+**Classificador (`claude -p` com `sonnet`, assinatura Claude Code):** não gera cobrança por chamada. O `claude -p` informa um custo equivalente ao preço da API: US$ 5,84 no piloto de 30 Questões (~5 min), ou US$ 0,19 por Questão. É mais de 20 vezes o custo da DeepSeek por Questão, e é o que pesa na projeção para produção (relatório, seção c).
