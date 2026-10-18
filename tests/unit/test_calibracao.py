@@ -34,11 +34,24 @@ def test_amostra_vazia_e_erro():
         calibrar([], alvo=0.97)
 
 
-def test_bootstrap_de_amostra_toda_correta_preve_precisao_total():
+def test_amostra_sem_nenhum_erro_nao_vira_previsao_de_precisao_total():
+    # 40 de 40 certas: o bootstrap só reamostra acertos e diria 1,00 (1,00–1,00).
     amostra = [Rotulo(0.5 + i / 100, True) for i in range(40)]
     estimativa = estimar_precisao(amostra, alvo=0.97, repeticoes=200, semente=1)
-    assert estimativa.precisao == pytest.approx(1.0)
-    assert estimativa.intervalo == pytest.approx((1.0, 1.0))
+    assert estimativa.precisao == pytest.approx(41 / 42)  # Laplace: (acertos + 1) / (n + 2)
+    minimo, maximo = estimativa.intervalo
+    assert minimo == pytest.approx(0.9124, abs=1e-4)  # Wilson de 40 em 40
+    assert maximo == pytest.approx(1.0)
+
+
+def test_com_erros_na_amostra_vale_o_bootstrap_quando_ele_e_mais_cauteloso():
+    # 1 em cada 5 errada: o bootstrap fora da reamostra fica abaixo de Laplace e de Wilson.
+    amostra = [Rotulo(i / 100, acertou=i % 5 != 0) for i in range(50)]
+    estimativa = estimar_precisao(amostra, alvo=0.97, repeticoes=500, semente=1)
+    calibracao = calibrar(amostra, alvo=0.97)
+    acima = [r for r in amostra if r.pontuacao >= calibracao.limiar]
+    assert estimativa.precisao < (sum(r.acertou for r in acima) + 1) / (len(acima) + 2)
+    assert estimativa.intervalo[0] <= calibracao.intervalo[0]
 
 
 def test_bootstrap_denuncia_o_otimismo_quando_a_pontuacao_nao_informa_o_acerto():

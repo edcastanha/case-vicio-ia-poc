@@ -71,11 +71,19 @@ def estimar_precisao(
     if not precisoes:
         return None
     precisoes.sort()
-    intervalo = (
-        precisoes[int(0.025 * (len(precisoes) - 1))],
-        precisoes[int(0.975 * (len(precisoes) - 1))],
-    )
-    return EstimativaDePrecisao(acertos_total / publicadas_total, intervalo, tuple(limiares))
+    minimo = precisoes[int(0.025 * (len(precisoes) - 1))]
+    maximo = precisoes[int(0.975 * (len(precisoes) - 1))]
+    precisao = acertos_total / publicadas_total
+    # Sem erros na amostra, o bootstrap só reamostra acertos e diria 1,00 (1,00–1,00).
+    # A previsão nunca é mais confiante do que os rotulados acima do limiar permitem.
+    calibracao = calibrar(amostra, alvo)
+    if calibracao.limiar is not None:
+        acima = [r for r in amostra if r.pontuacao >= calibracao.limiar]
+        acertos = sum(r.acertou for r in acima)
+        precisao = min(precisao, (acertos + 1) / (len(acima) + 2))  # Laplace
+        piso, teto = intervalo_de_wilson(acertos, len(acima))
+        minimo, maximo = min(minimo, piso), max(maximo, teto)
+    return EstimativaDePrecisao(precisao, (minimo, maximo), tuple(limiares))
 
 
 def ajustar_curva(amostra: Sequence[Rotulo], faixas: int) -> Callable[[float], float]:
