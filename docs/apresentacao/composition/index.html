@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Apresentação da entrega</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+        src: url("fontes/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+        src: url("fontes/inter-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+          U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+          U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      :root {
+        --fundo: #0e1422;
+        --painel: #172036;
+        --linha: #2c3a5c;
+        --texto: #eef2fa;
+        --suave: #a9b4cc;
+        --publicar: #3ccf8e;
+        --revisar: #f2b544;
+        --fora: #8d97ad;
+        --destaque: #7aa7ff;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--fundo);
+        color: var(--texto);
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      .scene-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        padding: 96px 120px 0;
+        background: var(--fundo);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .olho {
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--destaque);
+        margin-bottom: 24px;
+      }
+      h1,
+      h2 {
+        font-size: 72px;
+        line-height: 1.12;
+        font-weight: 750;
+        max-width: 1680px;
+      }
+      h1 {
+        font-size: 84px;
+      }
+      .corpo {
+        font-size: 48px;
+        line-height: 1.3;
+        color: var(--suave);
+      }
+      .fragmento {
+        opacity: 0;
+      }
+      .publicar {
+        color: var(--publicar);
+      }
+      .revisar {
+        color: var(--revisar);
+      }
+      .fora {
+        color: var(--fora);
+      }
+
+      /* Slide 1 — resultado */
+      .placar {
+        display: flex;
+        gap: 48px;
+        margin-top: 88px;
+      }
+      .placar .caixa {
+        flex: 1;
+        background: var(--painel);
+        border-radius: 28px;
+        padding: 40px 48px;
+      }
+      .placar .numero {
+        font-size: 168px;
+        font-weight: 800;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      .placar .rotulo {
+        font-size: 48px;
+        margin-top: 16px;
+        color: var(--suave);
+      }
+      .barra-total {
+        display: flex;
+        height: 40px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 56px;
+        width: 1680px;
+      }
+      .barra-total div {
+        height: 100%;
+      }
+
+      /* Slide 2 — fluxo */
+      .no {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: var(--painel);
+        border: 3px solid var(--linha);
+        border-radius: 24px;
+        font-size: 44px;
+        font-weight: 650;
+        line-height: 1.15;
+      }
+      .no small {
+        font-size: 40px;
+        font-weight: 500;
+        color: var(--suave);
+      }
+      .no.decisao {
+        border-color: var(--destaque);
+      }
+      .no.saida-publicar {
+        border-color: var(--publicar);
+        color: var(--publicar);
+      }
+      .no.saida-revisar {
+        border-color: var(--revisar);
+        color: var(--revisar);
+      }
+      .no.saida-fora {
+        border-color: var(--fora);
+        color: var(--fora);
+      }
+      .setas {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1020px;
+      }
+      .setas path {
+        fill: none;
+        stroke: var(--suave);
+        stroke-width: 5;
+      }
+      .setas text {
+        fill: var(--suave);
+        font-size: 40px;
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      .diagrama {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        width: 1920px;
+        height: 1020px;
+      }
+      .legenda {
+        position: absolute;
+        left: 120px;
+        top: 1005px;
+        width: 1380px;
+        font-size: 40px;
+        color: var(--suave);
+      }
+
+      /* Slide 3 — funil */
+      .funil {
+        margin-top: 72px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+      .degrau {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .degrau .faixa {
+        height: 120px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 40px;
+        font-size: 52px;
+        font-weight: 700;
+        color: var(--fundo);
+        white-space: nowrap;
+      }
+      .degrau .queda {
+        font-size: 40px;
+        color: var(--suave);
+      }
+      /* Slide 4 — temas duplicados */
+      .duplicados {
+        display: flex;
+        gap: 56px;
+        margin-top: 64px;
+      }
+      .duplicados .grande {
+        width: 360px;
+        flex: none;
+      }
+      .duplicados .grande .numero {
+        font-size: 220px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--revisar);
+      }
+      .duplicados ul {
+        list-style: none;
+        font-size: 40px;
+        line-height: 1.55;
+      }
+      .duplicados li span {
+        color: var(--suave);
+      }
+
+      /* Slide 5 — previsão */
+      .escala {
+        position: absolute;
+        left: 160px;
+        top: 520px;
+        width: 1600px;
+        height: 300px;
+      }
+      .escala .eixo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 150px;
+        height: 4px;
+        background: var(--linha);
+      }
+      .escala .marca {
+        position: absolute;
+        top: 180px;
+        font-size: 40px;
+        color: var(--suave);
+        width: 120px;
+        margin-left: -60px;
+        text-align: center;
+      }
+      .escala .regua {
+        position: absolute;
+        top: 40px;
+        height: 130px;
+        width: 4px;
+        background: var(--revisar);
+      }
+      .escala .regua-rotulo {
+        position: absolute;
+        top: -24px;
+        font-size: 40px;
+        color: var(--revisar);
+        width: 360px;
+        margin-left: -180px;
+        text-align: center;
+      }
+      .escala .intervalo {
+        position: absolute;
+        top: 126px;
+        height: 52px;
+        border-radius: 26px;
+        background: rgba(60, 207, 142, 0.35);
+        border: 3px solid var(--publicar);
+      }
+      .escala .ponto {
+        position: absolute;
+        top: 122px;
+        width: 60px;
+        height: 60px;
+        margin-left: -30px;
+        border-radius: 50%;
+      }
+      .escala .ponto-rotulo {
+        position: absolute;
+        top: 60px;
+        font-size: 40px;
+        width: 440px;
+        margin-left: -220px;
+        text-align: center;
+      }
+
+      /* Slide 6 — limpeza */
+      .comprimento {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+      }
+      .comprimento .linha-rotulo {
+        font-size: 44px;
+        margin-bottom: 16px;
+      }
+      .comprimento .tira {
+        display: flex;
+        height: 72px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .comprimento .visivel {
+        background: var(--publicar);
+      }
+      .comprimento .lixo {
+        background: repeating-linear-gradient(
+          45deg,
+          #59627a 0 16px,
+          #3c4560 16px 32px
+        );
+      }
+
+      /* Slide 7 — custo */
+      .custos {
+        margin-top: 88px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+      .custo .nome {
+        font-size: 44px;
+        margin-bottom: 14px;
+      }
+      .custo .valor-linha {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .custo .tira {
+        height: 80px;
+        border-radius: 12px;
+        min-width: 8px;
+      }
+      .custo .valor {
+        font-size: 48px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      /* Slide 8 e desvio — cartões */
+      .cartoes {
+        margin-top: 72px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 1680px;
+      }
+      .cartao {
+        background: var(--painel);
+        border-radius: 24px;
+        padding: 32px 44px;
+        display: flex;
+        gap: 40px;
+        align-items: baseline;
+      }
+      .cartao .marca-cartao {
+        font-size: 64px;
+        font-weight: 800;
+        color: var(--destaque);
+        width: 120px;
+        flex: none;
+      }
+      .cartao .marca-cartao.publicar {
+        color: var(--publicar);
+      }
+      .cartao .marca-cartao.revisar {
+        color: var(--revisar);
+      }
+      .cartao .texto {
+        font-size: 44px;
+        line-height: 1.3;
+      }
+      .cartao .texto span {
+        color: var(--suave);
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/hyperframes-slideshow+json">
+      {
+        "slides": [
+          {
+            "sceneId": "resultado",
+            "notes": "Abrir pelo resultado. 249 publicadas direto, 107 para o Professor, 3 fora da árvore. A previsão é 97 certas em cada 100, com intervalo de 90 a 100."
+          },
+          {
+            "sceneId": "fluxo",
+            "notes": "Revelar em quatro passos: o texto limpo (e o desvio por injeção), os dois modelos de empresas diferentes, a pergunta do mesmo Ramo, e as regras que ainda barram a publicação.",
+            "fragments": [10.3, 10.6, 10.9, 11.2]
+          },
+          {
+            "sceneId": "funil",
+            "notes": "359 entram, 295 têm Concordância, 249 passam pelas regras. O botão leva aos exemplos de desacordo da amostra.",
+            "fragments": [20.3, 20.6, 20.9],
+            "hotspots": [
+              {
+                "id": "ver-desacordos",
+                "label": "Ver 3 desacordos da amostra",
+                "target": "desacordos",
+                "region": { "x": 6, "y": 83, "w": 45, "h": 9 }
+              }
+            ]
+          },
+          {
+            "sceneId": "duplicados",
+            "notes": "O assunto dessas questões é inequívoco; o que muda é o lado da árvore. Uma regra do Professor libera todas de uma vez."
+          },
+          {
+            "sceneId": "previsao",
+            "notes": "Primeiro mostrar o 1,00 que o bootstrap dava, depois a previsão corrigida. Com 34 de 34, não dá para garantir 95% com 95% de confiança, e a previsão diz isso.",
+            "fragments": [40.3, 40.6]
+          },
+          {
+            "sceneId": "limpeza",
+            "notes": "Q0099: o modelo lia CSS do Word que o aluno não vê. É por onde uma instrução escondida passaria. Agora só o texto visível chega ao modelo, e texto que fala com o modelo vai para Revisar."
+          },
+          {
+            "sceneId": "custo",
+            "notes": "Projeção para 50 mil questões por semana. O Classificador é medido pelo custo equivalente que o claude -p informa. O maior corte é tirar a árvore inteira do prompt."
+          },
+          {
+            "sceneId": "pedidos",
+            "notes": "Fechar com o que depende do Professor."
+          }
+        ],
+        "slideSequences": [
+          {
+            "id": "desacordos",
+            "label": "Desacordos da amostra",
+            "slides": [
+              {
+                "sceneId": "exemplos",
+                "notes": "Q0205 e Q0268: o Juiz acertou, cada vez seguindo um modelo diferente. Q0180: errou. Por isso o Juiz só sugere."
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/json" id="dados-da-entrega">
+      {
+        "total": 359,
+        "publicar": 249,
+        "revisar": 107,
+        "fora": 3,
+        "concordancia": 295,
+        "desacordo": 61,
+        "tema_duplicado": 36,
+        "duvida": 10,
+        "precisao": 0.97,
+        "precisao_min": 0.9,
+        "precisao_max": 1.0,
+        "cobertura": 0.69,
+        "calibracao": 34,
+        "desacordos_na_amostra": 10,
+        "juiz_no_ramo": 6
+      }
+    </script>
+
+    <div
+      id="root"
+      data-composition-id="root"
+      data-start="0"
+      data-duration="90"
+      data-width="1920"
+      data-height="1080"
+      style="position: relative; width: 100%; height: 100%"
+    >
+    <!-- 1 — resultado -->
+    <div
+      id="cena-resultado"
+      class="scene-frame clip"
+      data-composition-id="resultado"
+      data-start="0"
+      data-duration="10"
+      data-label="Resultado"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>Classificação de 359 questões penais</p>
+      <h1 data-anim>
+        <span data-dado="publicar"></span> das <span data-dado="total"></span> Questões vão direto
+        ao aluno, com previsão de 97 certas em cada 100
+      </h1>
+      <div class="placar" data-anim>
+        <div class="caixa">
+          <div class="numero publicar" data-contar="publicar">0</div>
+          <div class="rotulo">Publicar</div>
+        </div>
+        <div class="caixa">
+          <div class="numero revisar" data-contar="revisar">0</div>
+          <div class="rotulo">Revisar, com sugestão</div>
+        </div>
+        <div class="caixa">
+          <div class="numero fora" data-contar="fora">0</div>
+          <div class="rotulo">Fora da árvore</div>
+        </div>
+      </div>
+      <div class="barra-total" data-anim>
+        <div style="background: var(--publicar)" data-largura="publicar"></div>
+        <div style="background: var(--revisar)" data-largura="revisar"></div>
+        <div style="background: var(--fora)" data-largura="fora"></div>
+      </div>
+    </div>
+
+    <!-- 2 — fluxo -->
+    <div
+      id="cena-fluxo"
+      class="scene-frame clip"
+      data-composition-id="fluxo"
+      data-start="10"
+      data-duration="10"
+      data-label="Como cada Questão é decidida"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>A regra de publicação</p>
+      <h2 data-anim>Só publico quando dois modelos de empresas diferentes concordam no mesmo Ramo</h2>
+      <div class="diagrama">
+      <svg class="setas" viewBox="0 0 1920 1020" aria-hidden="true">
+        <defs>
+          <marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#a9b4cc" stroke="none" />
+          </marker>
+        </defs>
+        <g class="fragmento" id="f-fluxo-1">
+          <path d="M240 670 L240 925 L1390 925 L1390 845 L1436 845" marker-end="url(#ponta)" />
+          <text x="280" y="905">indício de injeção</text>
+        </g>
+        <g class="fragmento" id="f-fluxo-2">
+          <path d="M400 560 L496 447" marker-end="url(#ponta)" />
+          <path d="M400 630 L496 703" marker-end="url(#ponta)" />
+        </g>
+        <g class="fragmento" id="f-fluxo-3">
+          <path d="M960 425 L1036 552" marker-end="url(#ponta)" />
+          <path d="M960 725 L1036 638" marker-end="url(#ponta)" />
+          <path d="M1370 595 L1436 595" marker-end="url(#ponta)" />
+          <path d="M1370 640 L1476 766" marker-end="url(#ponta)" />
+          <text x="1318" y="748">não</text>
+        </g>
+        <g class="fragmento" id="f-fluxo-4">
+          <path d="M1370 550 L1436 433" marker-end="url(#ponta)" />
+          <text x="1345" y="465">sim</text>
+        </g>
+      </svg>
+      <div class="no fragmento" id="f-fluxo-1b" style="left: 80px; top: 520px; width: 320px; height: 150px">
+        Texto visível<small>limpar_html</small>
+      </div>
+      <div class="no saida-revisar fragmento" id="f-fluxo-1c" style="left: 1440px; top: 770px; width: 400px; height: 110px">
+        Revisar
+      </div>
+      <div class="no fragmento" id="f-fluxo-2b" style="left: 500px; top: 350px; width: 460px; height: 150px">
+        Classificador<small>Claude, com Origem</small>
+      </div>
+      <div class="no fragmento" id="f-fluxo-2c" style="left: 500px; top: 650px; width: 460px; height: 150px">
+        Verificador<small>DeepSeek, sem Origem</small>
+      </div>
+      <div class="no decisao fragmento" id="f-fluxo-3b" style="left: 1040px; top: 520px; width: 330px; height: 150px">
+        Mesmo Ramo?
+      </div>
+      <div class="no saida-fora fragmento" id="f-fluxo-3c" style="left: 1440px; top: 540px; width: 400px; height: 110px">
+        Fora<small>nenhum Nó serve</small>
+      </div>
+      <div class="no saida-publicar fragmento" id="f-fluxo-4b" style="left: 1440px; top: 320px; width: 400px; height: 150px">
+        Publicar<small>direto para o aluno</small>
+      </div>
+      </div>
+      <p class="legenda fragmento" id="f-fluxo-4c">
+        Revisar também: Tema duplicado, dúvida ou abaixo do limiar.
+      </p>
+    </div>
+
+    <!-- 3 — funil -->
+    <div
+      id="cena-funil"
+      class="scene-frame clip"
+      data-composition-id="funil"
+      data-start="20"
+      data-duration="10"
+      data-label="Funil"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>A rodada</p>
+      <h2 data-anim>
+        <span data-dado="concordancia"></span> Questões tiveram Concordância, e os
+        <span data-dado="desacordo"></span> desacordos nunca chegam ao aluno
+      </h2>
+      <div class="funil">
+        <div class="degrau fragmento" id="f-funil-1">
+          <div class="faixa" style="background: var(--destaque)" data-faixa="total">
+            <span data-dado="total"></span>&nbsp;Questões
+          </div>
+        </div>
+        <div class="degrau fragmento" id="f-funil-2">
+          <div class="faixa" style="background: #9fb4e0" data-faixa="concordancia">
+            <span data-dado="concordancia"></span>&nbsp;em Concordância
+          </div>
+          <div class="queda">−<span data-dado="desacordo"></span> desacordos, −<span data-dado="fora"></span> Fora</div>
+        </div>
+        <div class="degrau fragmento" id="f-funil-3">
+          <div class="faixa" style="background: var(--publicar)" data-faixa="publicar">
+            <span data-dado="publicar"></span>&nbsp;publicadas
+          </div>
+          <div class="queda">
+            −<span data-dado="tema_duplicado"></span> Tema duplicado, −<span data-dado="duvida"></span> dúvida
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 — temas duplicados -->
+    <div
+      id="cena-duplicados"
+      class="scene-frame clip"
+      data-composition-id="duplicados"
+      data-start="30"
+      data-duration="10"
+      data-label="Temas duplicados"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>A árvore de temas</p>
+      <h2 data-anim>
+        <span data-dado="tema_duplicado"></span> Questões param na fila só porque o tema existe em
+        duas disciplinas
+      </h2>
+      <div class="duplicados" data-anim>
+        <div class="grande">
+          <div class="numero" data-contar="tema_duplicado">0</div>
+          <p class="corpo">esperam uma regra do Professor</p>
+        </div>
+        <ul>
+          <li>Lavagem de Dinheiro <span>— Penal e Legislação Especial</span></li>
+          <li>Lei Maria da Penha <span>— Penal e Legislação Especial</span></li>
+          <li>Organizações Criminosas <span>— Penal e Legislação Especial</span></li>
+          <li>Tráfico de Drogas <span>— Penal e Legislação Especial</span></li>
+          <li>Abuso de Autoridade <span>— Penal e Legislação Especial</span></li>
+          <li>Crimes contra o meio ambiente <span>— Penal e Legislação Especial</span></li>
+          <li>Lei de Execução Penal <span>— Legislação Especial e Processo Penal</span></li>
+          <li>Ação Penal <span>— Penal e Processo Penal</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 — previsão -->
+    <div
+      id="cena-previsao"
+      class="scene-frame clip"
+      data-composition-id="previsao"
+      data-start="40"
+      data-duration="10"
+      data-label="Previsão"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>A previsão</p>
+      <h2 data-anim>
+        A previsão não promete 100%: com <span data-dado="calibracao"></span> acertos em
+        <span data-dado="calibracao"></span>, a precisão fica entre 90% e 100%
+      </h2>
+      <div class="escala">
+        <div class="eixo"></div>
+        <div class="marca" data-posicao="0.85">0,85</div>
+        <div class="marca" data-posicao="0.90">0,90</div>
+        <div class="marca" data-posicao="0.95">0,95</div>
+        <div class="marca" data-posicao="1.00">1,00</div>
+        <div class="regua" data-posicao="0.95"></div>
+        <div class="regua-rotulo" data-posicao="0.95">Régua: 95%</div>
+        <div class="fragmento" id="f-previsao-1">
+          <div class="ponto" style="background: var(--fora)" data-posicao="1.00"></div>
+          <div class="ponto-rotulo fora" style="top: 220px" data-posicao="0.985">bootstrap: 1,00 ± 0</div>
+        </div>
+        <div class="fragmento" id="f-previsao-2">
+          <div class="intervalo" data-intervalo="precisao_min precisao_max"></div>
+          <div class="ponto" style="background: var(--publicar)" data-posicao-dado="precisao"></div>
+          <div class="ponto-rotulo publicar" data-posicao-dado="precisao">previsão: 0,97</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 — limpeza -->
+    <div
+      id="cena-limpeza"
+      class="scene-frame clip"
+      data-composition-id="limpeza"
+      data-start="50"
+      data-duration="10"
+      data-label="Limpeza da entrada"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>Segurança da entrada</p>
+      <h2 data-anim>O texto que o aluno não vê nunca chega ao modelo</h2>
+      <div class="comprimento" data-anim>
+        <div>
+          <p class="linha-rotulo">Antes: Q0099, alternativa B, cerca de 870 caracteres</p>
+          <div class="tira" style="width: 1680px">
+            <div class="visivel" style="width: 18%"></div>
+            <div class="lixo" style="width: 82%"></div>
+          </div>
+        </div>
+        <div>
+          <p class="linha-rotulo">Depois: cerca de 160 caracteres, só o texto visível</p>
+          <div class="tira" style="width: 1680px">
+            <div class="visivel" style="width: 18%"></div>
+          </div>
+        </div>
+        <p class="corpo">
+          Texto que fala com o modelo vai para Revisar sem passar por nenhum modelo. Nenhuma das
+          <span data-dado="total"></span> Questões teve indício de injeção.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7 — custo -->
+    <div
+      id="cena-custo"
+      class="scene-frame clip"
+      data-composition-id="custo"
+      data-start="60"
+      data-duration="10"
+      data-label="Custo em produção"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>50 mil Questões por semana</p>
+      <h2 data-anim>Em produção, 95% do custo está no Classificador, e cortar a árvore do prompt é o maior ganho</h2>
+      <div class="custos" data-anim>
+        <div class="custo">
+          <p class="nome">Classificador (Claude, custo equivalente)</p>
+          <div class="valor-linha"><div class="tira" style="width: 1400px; background: var(--revisar)"></div><span class="valor">US$ 9.700</span></div>
+        </div>
+        <div class="custo">
+          <p class="nome">Verificador e Juiz (DeepSeek, medido)</p>
+          <div class="valor-linha"><div class="tira" style="width: 61px; background: var(--publicar)"></div><span class="valor">US$ 425</span></div>
+        </div>
+        <div class="custo">
+          <p class="nome">Embeddings (Gemini, cota gratuita)</p>
+          <div class="valor-linha"><div class="tira" style="width: 8px; background: var(--fora)"></div><span class="valor">US$ 0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 — pedidos ao Professor -->
+    <div
+      id="cena-pedidos"
+      class="scene-frame clip"
+      data-composition-id="pedidos"
+      data-start="70"
+      data-duration="10"
+      data-label="O que depende do Professor"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>Próximos passos</p>
+      <h2 data-anim>Três decisões do Professor liberam mais publicações sem arriscar a Régua</h2>
+      <div class="cartoes" data-anim>
+        <div class="cartao">
+          <div class="marca-cartao">1</div>
+          <p class="texto">
+            Uma regra para os Temas duplicados <span>— libera <span data-dado="tema_duplicado"></span> Questões</span>
+          </p>
+        </div>
+        <div class="cartao">
+          <div class="marca-cartao">2</div>
+          <p class="texto">
+            Revisar a fila de <span data-dado="revisar"></span> <span>— cada uma chega com sugestão e justificativa</span>
+          </p>
+        </div>
+        <div class="cartao">
+          <div class="marca-cartao">3</div>
+          <p class="texto">
+            Conferir 50 publicadas por semana <span>— conferência humana</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desvio — exemplos de desacordo (só pelo botão do funil) -->
+    <div
+      id="cena-exemplos"
+      class="scene-frame clip"
+      data-composition-id="exemplos"
+      data-start="80"
+      data-duration="10"
+      data-label="Desacordos da amostra"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim>Desacordos da amostra</p>
+      <h2 data-anim>
+        Nos <span data-dado="desacordos_na_amostra"></span> desacordos da amostra, o Juiz acertou o
+        Ramo em <span data-dado="juiz_no_ramo"></span>, por isso ele só sugere
+      </h2>
+      <div class="cartoes" data-anim>
+        <div class="cartao">
+          <div class="marca-cartao publicar">✓</div>
+          <p class="texto">Q0205 <span>— Juiz seguiu o Classificador e acertou</span></p>
+        </div>
+        <div class="cartao">
+          <div class="marca-cartao publicar">✓</div>
+          <p class="texto">Q0268 <span>— Juiz seguiu o Verificador e acertou</span></p>
+        </div>
+        <div class="cartao">
+          <div class="marca-cartao revisar">✗</div>
+          <p class="texto">Q0180 <span>— Juiz escolheu Busca e Apreensão; o certo era Prova Ilícita</span></p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Números: todos saem de #dados-da-entrega, conferido por tests/contrato/test_apresentacao.py -->
+    <script>
+      (function () {
+        var dados = JSON.parse(document.getElementById("dados-da-entrega").textContent);
+        var inteiro = new Intl.NumberFormat("pt-BR");
+        document.querySelectorAll("[data-dado]").forEach(function (el) {
+          el.textContent = inteiro.format(dados[el.dataset.dado]);
+        });
+        document.querySelectorAll("[data-contar]").forEach(function (el) {
+          el.textContent = inteiro.format(dados[el.dataset.contar]);
+        });
+        document.querySelectorAll("[data-largura]").forEach(function (el) {
+          el.style.width = (100 * dados[el.dataset.largura]) / dados.total + "%";
+        });
+        document.querySelectorAll("[data-faixa]").forEach(function (el) {
+          el.style.width = (1180 * dados[el.dataset.faixa]) / dados.total + "px";
+        });
+        // Escala da previsão: 0,85 a 1,00 em 1600px.
+        function x(valor) {
+          return ((valor - 0.85) / 0.15) * 1600;
+        }
+        document.querySelectorAll("[data-posicao]").forEach(function (el) {
+          el.style.left = x(parseFloat(el.dataset.posicao)) + "px";
+        });
+        document.querySelectorAll("[data-posicao-dado]").forEach(function (el) {
+          el.style.left = x(dados[el.dataset.posicaoDado]) + "px";
+        });
+        document.querySelectorAll("[data-intervalo]").forEach(function (el) {
+          var chaves = el.dataset.intervalo.split(" ");
+          var inicio = x(dados[chaves[0]]);
+          el.style.left = inicio + "px";
+          el.style.width = x(dados[chaves[1]]) - inicio + "px";
+        });
+        window.__dadosDaEntrega = dados;
+      })();
+    </script>
+
+    <!-- Timeline raiz: dá o intervalo navegável (harness standalone do slideshow) -->
+    <script>
+      (function () {
+        // Fora do engine, o registro pode não existir.
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        tl.to({}, { duration: 90 });
+        window.__timelines["root"] = tl;
+      })();
+    </script>
+
+    <!-- Visibilidade, entradas e fragmentos guiados pelo playhead -->
+    <script>
+      (function () {
+        var cenas = [
+          { id: "cena-resultado", start: 0, end: 10 },
+          { id: "cena-fluxo", start: 10, end: 20 },
+          { id: "cena-funil", start: 20, end: 30 },
+          { id: "cena-duplicados", start: 30, end: 40 },
+          { id: "cena-previsao", start: 40, end: 50 },
+          { id: "cena-limpeza", start: 50, end: 60 },
+          { id: "cena-custo", start: 60, end: 70 },
+          { id: "cena-pedidos", start: 70, end: 80 },
+          { id: "cena-exemplos", start: 80, end: 90 },
+        ];
+        // Cada fragmento revela um ou mais elementos; os tempos repetem os do island.
+        var fragmentos = [
+          { time: 10.3, ids: ["f-fluxo-1", "f-fluxo-1b", "f-fluxo-1c"] },
+          { time: 10.6, ids: ["f-fluxo-2", "f-fluxo-2b", "f-fluxo-2c"] },
+          { time: 10.9, ids: ["f-fluxo-3", "f-fluxo-3b", "f-fluxo-3c"] },
+          { time: 11.2, ids: ["f-fluxo-4", "f-fluxo-4b", "f-fluxo-4c"] },
+          { time: 20.3, ids: ["f-funil-1"] },
+          { time: 20.6, ids: ["f-funil-2"] },
+          { time: 20.9, ids: ["f-funil-3"] },
+          { time: 40.3, ids: ["f-previsao-1"] },
+          { time: 40.6, ids: ["f-previsao-2"] },
+        ];
+        var ativa = null;
+
+        function entrar(cena) {
+          var animados = cena.querySelectorAll("[data-anim]");
+          if (animados.length) {
+            gsap.fromTo(
+              animados,
+              { opacity: 0, y: 28 },
+              { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "power2.out", overwrite: true },
+            );
+          }
+          cena.querySelectorAll("[data-contar]").forEach(function (el) {
+            var alvo = window.__dadosDaEntrega[el.dataset.contar];
+            var contador = { valor: 0 };
+            gsap.to(contador, {
+              valor: alvo,
+              duration: 1.2,
+              ease: "power2.out",
+              overwrite: true,
+              onUpdate: function () {
+                el.textContent = Math.round(contador.valor).toLocaleString("pt-BR");
+              },
+            });
+          });
+        }
+
+        function mostrar(el, visivel) {
+          gsap.to(el, { opacity: visivel ? 1 : 0, duration: visivel ? 0.35 : 0.15, overwrite: true });
+        }
+
+        function atualizar(t) {
+          for (var i = 0; i < cenas.length; i++) {
+            var c = cenas[i];
+            var el = document.getElementById(c.id);
+            var ultima = i === cenas.length - 1;
+            var esta = t >= c.start && (t < c.end || (ultima && t <= c.end));
+            el.style.opacity = esta ? "1" : "0";
+            el.style.visibility = esta ? "visible" : "hidden";
+            el.style.pointerEvents = esta ? "auto" : "none";
+            if (esta && ativa !== c.id) {
+              ativa = c.id;
+              entrar(el);
+            }
+          }
+          for (var f = 0; f < fragmentos.length; f++) {
+            var frag = fragmentos[f];
+            var deve = t >= frag.time;
+            if (frag.revelado === deve) continue;
+            frag.revelado = deve;
+            frag.ids.forEach(function (id) {
+              mostrar(document.getElementById(id), deve);
+            });
+          }
+        }
+
+        window.__hfSetTime = atualizar;
+        atualizar(0);
+        var raiz = window.__timelines["root"];
+        raiz.eventCallback("onUpdate", function () {
+          atualizar(raiz.time());
+        });
+      })();
+    </script>
+
+    <!-- Avisa ao <hyperframes-slideshow> o intervalo de cada cena -->
+    <script>
+      (function () {
+        var cenas = [
+          { id: "resultado", start: 0, duration: 10 },
+          { id: "fluxo", start: 10, duration: 10 },
+          { id: "funil", start: 20, duration: 10 },
+          { id: "duplicados", start: 30, duration: 10 },
+          { id: "previsao", start: 40, duration: 10 },
+          { id: "limpeza", start: 50, duration: 10 },
+          { id: "custo", start: 60, duration: 10 },
+          { id: "pedidos", start: 70, duration: 10 },
+          { id: "exemplos", start: 80, duration: 10 },
+        ];
+        function publicar() {
+          parent.postMessage(
+            { source: "hf-preview", type: "timeline", durationInFrames: 90 * 30, scenes: cenas },
+            "*",
+          );
+        }
+        if (document.readyState === "complete") {
+          setTimeout(publicar, 300);
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(publicar, 300);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

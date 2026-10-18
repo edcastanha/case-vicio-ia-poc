@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apresentação da entrega</title>
+    <link rel="icon" href="data:," />
+    <!-- Player e slideshow do HyperFrames 0.8.116, guardados em vendor/ (ver vendor/LICENCAS.md) -->
+    <script src="vendor/hyperframes-player.global.js"></script>
+    <script src="vendor/hyperframes-slideshow.global.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0e1422;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- tabindex: o slideshow escuta as setas no próprio elemento -->
+    <hyperframes-slideshow
+      tabindex="0"
+      style="display: block; position: relative; width: 100vw; height: 100vh"
+    >
+      <hyperframes-player
+        interactive
+        style="position: absolute; inset: 0"
+        src="composition/index.html"
+      ></hyperframes-player>
+
+      <!-- CÓPIA do island de composition/index.html; o teste test_apresentacao confere que são iguais -->
+    <script type="application/hyperframes-slideshow+json">
+        {
+          "slides": [
+            {
+              "sceneId": "resultado",
+              "notes": "Abrir pelo resultado. 249 publicadas direto, 107 para o Professor, 3 fora da árvore. A previsão é 97 certas em cada 100, com intervalo de 90 a 100."
+            },
+            {
+              "sceneId": "fluxo",
+              "notes": "Revelar em quatro passos: o texto limpo (e o desvio por injeção), os dois modelos de empresas diferentes, a pergunta do mesmo Ramo, e as regras que ainda barram a publicação.",
+              "fragments": [10.3, 10.6, 10.9, 11.2]
+            },
+            {
+              "sceneId": "funil",
+              "notes": "359 entram, 295 têm Concordância, 249 passam pelas regras. O botão leva aos exemplos de desacordo da amostra.",
+              "fragments": [20.3, 20.6, 20.9],
+              "hotspots": [
+                {
+                  "id": "ver-desacordos",
+                  "label": "Ver 3 desacordos da amostra",
+                  "target": "desacordos",
+                  "region": { "x": 6, "y": 83, "w": 45, "h": 9 }
+                }
+              ]
+            },
+            {
+              "sceneId": "duplicados",
+              "notes": "O assunto dessas questões é inequívoco; o que muda é o lado da árvore. Uma regra do Professor libera todas de uma vez."
+            },
+            {
+              "sceneId": "previsao",
+              "notes": "Primeiro mostrar o 1,00 que o bootstrap dava, depois a previsão corrigida. Com 34 de 34, não dá para garantir 95% com 95% de confiança, e a previsão diz isso.",
+              "fragments": [40.3, 40.6]
+            },
+            {
+              "sceneId": "limpeza",
+              "notes": "Q0099: o modelo lia CSS do Word que o aluno não vê. É por onde uma instrução escondida passaria. Agora só o texto visível chega ao modelo, e texto que fala com o modelo vai para Revisar."
+            },
+            {
+              "sceneId": "custo",
+              "notes": "Projeção para 50 mil questões por semana. O Classificador é medido pelo custo equivalente que o claude -p informa. O maior corte é tirar a árvore inteira do prompt."
+            },
+            {
+              "sceneId": "pedidos",
+              "notes": "Fechar com o que depende do Professor."
+            }
+          ],
+          "slideSequences": [
+            {
+              "id": "desacordos",
+              "label": "Desacordos da amostra",
+              "slides": [
+                {
+                  "sceneId": "exemplos",
+                  "notes": "Q0205 e Q0268: o Juiz acertou, cada vez seguindo um modelo diferente. Q0180: errou. Por isso o Juiz só sugere."
+                }
+              ]
+            }
+          ]
+        }
+      </script>
+    </hyperframes-slideshow>
+    <script>
+      document.querySelector("hyperframes-slideshow").focus();
+    </script>
+  </body>
+</html>

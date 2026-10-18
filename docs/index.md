@@ -2,6 +2,8 @@
 
 O aluno estuda por tema: se uma questão fica no tema errado, ele estuda a matéria errada. Este trabalho classifica 359 questões de Direito Penal, Processo Penal, Legislação Penal Especial e Criminologia na árvore de temas da plataforma e decide, para cada uma, se ela vai **direto para o aluno**, se vai para a **revisão do professor** ou se **nenhum tema serve**. A regra é que pelo menos 95% das questões publicadas estejam certas, e a parte difícil é saber, sem gabarito, quando a máquina acertou.
 
+[Ver a apresentação interativa (8 slides)](apresentacao/index.html){ .md-button }
+
 ## Como cada questão é decidida
 
 --8<-- "README.md:fluxo"

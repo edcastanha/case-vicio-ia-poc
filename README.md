@@ -47,7 +47,7 @@ As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com 
 
 As regras e o porquê de cada uma estão em [`docs/adr/`](docs/adr/); o vocabulário, em [`GLOSSARY.md`](GLOSSARY.md).
 
-Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`.
+Para ler o raciocínio e os resultados sem abrir o código, há um site em [edcastanha.github.io/case-vicio-ia-poc](https://edcastanha.github.io/case-vicio-ia-poc/), gerado destes mesmos arquivos com MkDocs. Para ver localmente: `uv run mkdocs serve`. O site tem também uma apresentação interativa de 8 slides (`docs/apresentacao/`, feita com HyperFrames): use as setas ou aperte P para o modo apresentador. Os números do deck ficam num bloco JSON, e `tests/contrato/test_apresentacao.py` confere que eles batem com `dados/` e com a entrega. O player 0.8.116, o GSAP e a fonte Inter ficam guardados no repositório, com as licenças em `docs/apresentacao/vendor/LICENCAS.md`. Para validar a composição: `npx hyperframes@0.8.116 check docs/apresentacao/composition`.
 
 ## Como rodar
 
