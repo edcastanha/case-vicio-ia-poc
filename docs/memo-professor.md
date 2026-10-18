@@ -4,9 +4,9 @@
 
 ## O que fiz
 
-Cada questão foi lida por dois sistemas de inteligência artificial **de empresas diferentes**, que não se viram. Só publiquei direto para o aluno quando os dois apontaram o mesmo tema (ou o tema e um subtema dele) e nenhum dos dois disse estar em dúvida. Todo o resto vai para a sua fila, com uma sugestão e a justificativa. Para saber quanto posso confiar nisso, conferimos à mão uma amostra de 50 questões, sem olhar o que os sistemas tinham respondido.
+Cada questão foi lida por dois sistemas de inteligência artificial **de empresas diferentes**, que não se viram. Só publiquei direto para o aluno quando os dois apontaram o mesmo tema (ou o tema e um subtema dele) e nenhum dos dois disse estar em dúvida. Todo o resto vai para a sua fila, com uma sugestão e a justificativa. Para saber quanto posso confiar nisso, uma amostra de 50 questões foi conferida uma a uma por um terceiro sistema, de outra empresa e especializado em questões jurídicas, que justificou cada escolha. Não tive um especialista humano para essa conferência, por isso a do senhor (item 3, mais abaixo) é o que confirma o número.
 
-«a preencher: quantas publicadas, quantas na sua fila, precisão esperada»
+Das 359 questões, **249 (69%) foram publicadas direto** para o aluno, **107 estão na sua fila** e 3 não cabem em nenhum tema da árvore. Das 107, 36 estão na fila só porque o tema existe em duas disciplinas (item 1, mais abaixo). Espero que cerca de **97 em cada 100 publicadas** estejam no tema certo. Como a conferência teve só 50 questões, o número real pode ficar entre 90 e 100 em cada 100.
 
 ## O que encontrei na árvore de temas
 
