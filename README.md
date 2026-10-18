@@ -57,7 +57,7 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 
 ## Decisões tomadas à mão
 
-- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): as 50 foram rotuladas por um agente de IA especializado, com uma skill para questões jurídicas, com a justificativa de cada uma em `observacao`. Não houve especialista humano em Direito (ADR 0006). Limitações declaradas: o gabarito da calibração é de um modelo, e os 50 rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados pelo pipeline. As duas coisas puxam a Precisão prevista para cima.
+- **Rótulos da amostra de calibração** (`dados/rotulagem.csv`): as 50 foram rotuladas por um agente de IA especializado (GPT 5.6 Terra, de outra família que os modelos do pipeline), com uma skill para questões jurídicas, com a justificativa de cada uma em `observacao`. Não houve especialista humano em Direito (ADR 0006). Limitações declaradas: o gabarito da calibração é de um modelo, e os 50 rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados pelo pipeline. As duas coisas puxam a Precisão prevista para cima.
 - _A completar ao longo da execução._
 
 ## Modelos, custo e tempo
