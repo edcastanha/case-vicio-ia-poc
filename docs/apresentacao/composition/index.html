@@ -350,7 +350,42 @@
         );
       }
 
-      /* Slide 7 — custo */
+      /* Slide 7 — produção */
+      .etapas {
+        display: flex;
+        gap: 24px;
+        margin-top: 72px;
+        width: 1680px;
+      }
+      .etapa {
+        flex: 1;
+        background: var(--painel);
+        border-radius: 24px;
+        padding: 32px 28px;
+        min-height: 360px;
+      }
+      .etapa .passo {
+        font-size: 56px;
+        font-weight: 800;
+        color: var(--destaque);
+      }
+      .etapa .titulo {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 12px 0 16px;
+      }
+      .etapa .tipo {
+        font-size: 32px;
+        line-height: 1.3;
+        color: var(--suave);
+      }
+      .gargalo {
+        margin-top: 56px;
+        max-width: 1680px;
+        color: var(--revisar);
+      }
+
+      /* Slide 8 — custo */
       .custos {
         margin-top: 88px;
         display: flex;
@@ -455,8 +490,13 @@
             "notes": "Q0099: o modelo lia CSS do Word que o aluno não vê. É por onde uma instrução escondida passaria. Agora só o texto visível chega ao modelo, e texto que fala com o modelo vai para Revisar."
           },
           {
+            "sceneId": "producao",
+            "notes": "Revelar etapa por etapa. A regra do ADR 0002 não muda: só publica com dois votos independentes concordando. O Classificador treinado é um desses votos e nunca publica sozinho. Fechar no gargalo, que é o tempo do Professor.",
+            "fragments": [60.3, 60.6, 60.9, 61.2, 61.5, 61.8]
+          },
+          {
             "sceneId": "custo",
-            "notes": "Projeção para 50 mil questões por semana. O Classificador é medido pelo custo equivalente que o claude -p informa. O maior corte é tirar a árvore inteira do prompt."
+            "notes": "Hoje é medido; as fases são projeção, com as premissas do ADR 0007 (chamadas 5 vezes mais baratas com candidatos, 18% de desacordo). O voto caro sai do caminho principal."
           },
           {
             "sceneId": "pedidos",
@@ -498,11 +538,31 @@
       }
     </script>
 
+    <script type="application/json" id="projecao-de-producao">
+      {
+        "questoes_por_semana": 50000,
+        "custo_deepseek": 3.04,
+        "requisicoes_deepseek": 439,
+        "custo_piloto_classificador": 5.84,
+        "questoes_do_piloto": 30,
+        "fator_dos_candidatos": 5,
+        "embeddings_por_questao": 0.0002,
+        "desacordo": 0.18,
+        "fila_por_semana": 15000,
+        "hoje": 0.2,
+        "fase1": 0.041,
+        "fase2": 0.009,
+        "hoje_semana": 10200,
+        "fase1_semana": 2000,
+        "fase2_semana": 440
+      }
+    </script>
+
     <div
       id="root"
       data-composition-id="root"
       data-start="0"
-      data-duration="90"
+      data-duration="100"
       data-width="1920"
       data-height="1080"
       style="position: relative; width: 100%; height: 100%"
@@ -754,41 +814,90 @@
       </div>
     </div>
 
-    <!-- 7 — custo -->
+    <!-- 7 — produção -->
+    <div
+      id="cena-producao"
+      class="scene-frame clip"
+      data-composition-id="producao"
+      data-start="60"
+      data-duration="10"
+      data-label="Produção"
+      data-width="1920"
+      data-height="1080"
+    >
+      <p class="olho" data-anim><span data-producao="questoes_por_semana"></span> Questões por semana</p>
+      <h2 data-anim>Em produção, o voto caro sai do caminho, e a regra de publicação continua a mesma</h2>
+      <div class="etapas">
+        <div class="etapa fragmento" id="f-producao-1">
+          <p class="passo">1</p>
+          <p class="titulo">Importação</p>
+          <p class="tipo">limpeza e indício de injeção, sem IA</p>
+        </div>
+        <div class="etapa fragmento" id="f-producao-2">
+          <p class="passo">2</p>
+          <p class="titulo">Candidatos</p>
+          <p class="tipo">embeddings: 15 Nós no lugar da árvore inteira</p>
+        </div>
+        <div class="etapa fragmento" id="f-producao-3">
+          <p class="passo">3</p>
+          <p class="titulo">Primeiro voto</p>
+          <p class="tipo">Classificador treinado com as revisões do Professor</p>
+        </div>
+        <div class="etapa fragmento" id="f-producao-4">
+          <p class="passo">4</p>
+          <p class="titulo">Segundo voto</p>
+          <p class="tipo">LLM de outra família, sempre</p>
+        </div>
+        <div class="etapa fragmento" id="f-producao-5">
+          <p class="passo">5</p>
+          <p class="titulo">Desempate</p>
+          <p class="tipo">Claude e Juiz, só nos <span data-producao="desacordo" data-formato="pct"></span> de desacordo</p>
+        </div>
+      </div>
+      <p class="corpo gargalo fragmento" id="f-producao-6">
+        O gargalo é o Professor: ~<span data-producao="fila_por_semana"></span> Questões por semana em
+        Revisar. Cada revisão vira rótulo e retreina o primeiro voto.
+      </p>
+    </div>
+
+    <!-- 8 — custo -->
     <div
       id="cena-custo"
       class="scene-frame clip"
       data-composition-id="custo"
-      data-start="60"
+      data-start="70"
       data-duration="10"
       data-label="Custo em produção"
       data-width="1920"
       data-height="1080"
     >
-      <p class="olho" data-anim>50 mil Questões por semana</p>
-      <h2 data-anim>Em produção, 95% do custo está no Classificador, e cortar a árvore do prompt é o maior ganho</h2>
+      <p class="olho" data-anim>Custo por Questão</p>
+      <h2 data-anim>
+        De US$ <span data-producao="hoje" data-formato="usd"></span> hoje para US$
+        <span data-producao="fase2" data-formato="usd"></span> por Questão em produção
+      </h2>
       <div class="custos" data-anim>
         <div class="custo">
-          <p class="nome">Classificador (Claude, custo equivalente)</p>
-          <div class="valor-linha"><div class="tira" style="width: 1400px; background: var(--revisar)"></div><span class="valor">US$ 9.700</span></div>
+          <p class="nome">Hoje, como no case (medido)</p>
+          <div class="valor-linha"><div class="tira" style="background: var(--revisar)" data-barra="hoje"></div><span class="valor">~US$ <span data-producao="hoje_semana"></span> por semana</span></div>
         </div>
         <div class="custo">
-          <p class="nome">Verificador e Juiz (DeepSeek, medido)</p>
-          <div class="valor-linha"><div class="tira" style="width: 61px; background: var(--publicar)"></div><span class="valor">US$ 425</span></div>
+          <p class="nome">Fase 1: candidatos por embeddings</p>
+          <div class="valor-linha"><div class="tira" style="background: var(--destaque)" data-barra="fase1"></div><span class="valor">~US$ <span data-producao="fase1_semana"></span> por semana</span></div>
         </div>
         <div class="custo">
-          <p class="nome">Embeddings (Gemini, cota gratuita)</p>
-          <div class="valor-linha"><div class="tira" style="width: 8px; background: var(--fora)"></div><span class="valor">US$ 0</span></div>
+          <p class="nome">Fase 2: Classificador treinado como primeiro voto</p>
+          <div class="valor-linha"><div class="tira" style="background: var(--publicar)" data-barra="fase2"></div><span class="valor">~US$ <span data-producao="fase2_semana"></span> por semana</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 8 — pedidos ao Professor -->
+    <!-- 9 — pedidos ao Professor -->
     <div
       id="cena-pedidos"
       class="scene-frame clip"
       data-composition-id="pedidos"
-      data-start="70"
+      data-start="80"
       data-duration="10"
       data-label="O que depende do Professor"
       data-width="1920"
@@ -823,7 +932,7 @@
       id="cena-exemplos"
       class="scene-frame clip"
       data-composition-id="exemplos"
-      data-start="80"
+      data-start="90"
       data-duration="10"
       data-label="Desacordos da amostra"
       data-width="1920"
@@ -886,6 +995,20 @@
           el.style.width = x(dados[chaves[1]]) - inicio + "px";
         });
         window.__dadosDaEntrega = dados;
+
+        // Projeção de produção (ADR 0007): conferida por tests/contrato/test_apresentacao.py
+        var projecao = JSON.parse(document.getElementById("projecao-de-producao").textContent);
+        var formatos = {
+          inteiro: function (v) { return inteiro.format(v); },
+          pct: function (v) { return Math.round(100 * v) + "%"; },
+          usd: function (v) { return v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 3 }); },
+        };
+        document.querySelectorAll("[data-producao]").forEach(function (el) {
+          el.textContent = formatos[el.dataset.formato || "inteiro"](projecao[el.dataset.producao]);
+        });
+        document.querySelectorAll("[data-barra]").forEach(function (el) {
+          el.style.width = Math.max(8, (1300 * projecao[el.dataset.barra]) / projecao.hoje) + "px";
+        });
       })();
     </script>
 
@@ -895,7 +1018,7 @@
         // Fora do engine, o registro pode não existir.
         window.__timelines = window.__timelines || {};
         var tl = gsap.timeline({ paused: true });
-        tl.to({}, { duration: 90 });
+        tl.to({}, { duration: 100 });
         window.__timelines["root"] = tl;
       })();
     </script>
@@ -910,9 +1033,10 @@
           { id: "cena-duplicados", start: 30, end: 40 },
           { id: "cena-previsao", start: 40, end: 50 },
           { id: "cena-limpeza", start: 50, end: 60 },
-          { id: "cena-custo", start: 60, end: 70 },
-          { id: "cena-pedidos", start: 70, end: 80 },
-          { id: "cena-exemplos", start: 80, end: 90 },
+          { id: "cena-producao", start: 60, end: 70 },
+          { id: "cena-custo", start: 70, end: 80 },
+          { id: "cena-pedidos", start: 80, end: 90 },
+          { id: "cena-exemplos", start: 90, end: 100 },
         ];
         // Cada fragmento revela um ou mais elementos; os tempos repetem os do island.
         var fragmentos = [
@@ -925,6 +1049,12 @@
           { time: 20.9, ids: ["f-funil-3"] },
           { time: 40.3, ids: ["f-previsao-1"] },
           { time: 40.6, ids: ["f-previsao-2"] },
+          { time: 60.3, ids: ["f-producao-1"] },
+          { time: 60.6, ids: ["f-producao-2"] },
+          { time: 60.9, ids: ["f-producao-3"] },
+          { time: 61.2, ids: ["f-producao-4"] },
+          { time: 61.5, ids: ["f-producao-5"] },
+          { time: 61.8, ids: ["f-producao-6"] },
         ];
         var ativa = null;
 
@@ -1000,13 +1130,14 @@
           { id: "duplicados", start: 30, duration: 10 },
           { id: "previsao", start: 40, duration: 10 },
           { id: "limpeza", start: 50, duration: 10 },
-          { id: "custo", start: 60, duration: 10 },
-          { id: "pedidos", start: 70, duration: 10 },
-          { id: "exemplos", start: 80, duration: 10 },
+          { id: "producao", start: 60, duration: 10 },
+          { id: "custo", start: 70, duration: 10 },
+          { id: "pedidos", start: 80, duration: 10 },
+          { id: "exemplos", start: 90, duration: 10 },
         ];
         function publicar() {
           parent.postMessage(
-            { source: "hf-preview", type: "timeline", durationInFrames: 90 * 30, scenes: cenas },
+            { source: "hf-preview", type: "timeline", durationInFrames: 100 * 30, scenes: cenas },
             "*",
           );
         }

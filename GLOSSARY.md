@@ -76,6 +76,12 @@ _Avoid_: Revisor
 **Juiz**:
 Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor.
 
+**Classificador treinado**:
+Em produção (ADR 0007), modelo barato treinado sobre embeddings com as revisões do Professor; conta como um dos dois votos independentes e nunca publica sozinho. Não existe no case.
+
+**Candidatos**:
+Em produção (ADR 0007), os ~15 Nós mais próximos da Questão pelos embeddings, enviados aos modelos no lugar da Árvore de temas inteira.
+
 **Prompt do papel**:
 Instruções de sistema que um papel (Classificador, Verificador ou Juiz) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
 _Avoid_: Prompt do sistema, instrução
