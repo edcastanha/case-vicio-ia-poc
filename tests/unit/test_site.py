@@ -57,6 +57,16 @@ def test_previsao_vira_tabela_legivel():
     assert "| Cobertura (fração publicada) | 60% | 55% – 66% |" in bloco
 
 
+def test_explicacao_da_previsao_aparece_abaixo_da_tabela_mesmo_com_dois_pontos():
+    previsao = (
+        "precisao_prevista: 0.97\nprecisao_intervalo: 0.93-0.99\n"
+        "cobertura_prevista: 0.60\ncobertura_intervalo: 0.55-0.66\n\n"
+        "Como chegamos: 34 de 34.\n"
+    )
+    bloco = bloco_da_previsao(previsao)
+    assert bloco.index("| Precisão") < bloco.index("Como chegamos: 34 de 34.")
+
+
 def resultados(entrega=None, amostra=None, enunciado="Enunciado"):
     classificacoes = {
         "Q0001": classificacao("Q0001", 100, 101),

@@ -52,13 +52,16 @@ def corrigir_links(markdown: str, origem: str, paginas: Mapping[str, str], repos
 def bloco_da_previsao(previsao: str | None) -> str:
     if previsao is None:
         return _AVISO_SEM_ENTREGA
-    valores = dict(linha.split(":", 1) for linha in previsao.splitlines() if ":" in linha)
+    # As 4 primeiras linhas são os valores do LEIA-ME; depois vem a explicação em texto livre.
+    valores_e_explicacao = previsao.splitlines()
+    valores = dict(linha.split(":", 1) for linha in valores_e_explicacao[:4])
     linhas = ["| | Previsto | Intervalo |", "|---|---|---|"]
     for chave, rotulo in _ROTULOS_DA_PREVISAO.items():
         ponto = _porcento(valores[f"{chave}_prevista"])
         minimo, maximo = (_porcento(v) for v in valores[f"{chave}_intervalo"].split("-"))
         linhas.append(f"| {rotulo} | {ponto} | {minimo} – {maximo} |")
-    return "\n".join(linhas) + "\n"
+    explicacao = "\n".join(valores_e_explicacao[4:]).strip()
+    return "\n".join(linhas) + "\n" + (f"\n{explicacao}\n" if explicacao else "")
 
 
 def pagina_de_resultados(

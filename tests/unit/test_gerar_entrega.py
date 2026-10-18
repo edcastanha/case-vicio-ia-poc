@@ -15,7 +15,7 @@ def classificacao(id, a, b, juiz=None, extras_a=(), extras_b=()):
     )
 
 
-def gerar(classificacoes, ids, sinais=None, limiar=0.5, curva=lambda p: 0.96):
+def gerar(classificacoes, ids, sinais=None, limiar=0.5, curva=lambda p: 0.96, rotulos=None):
     return gerar_entrega(
         ids,
         {c.questao_id: c for c in classificacoes},
@@ -24,6 +24,7 @@ def gerar(classificacoes, ids, sinais=None, limiar=0.5, curva=lambda p: 0.96):
         limiar_de_pontuacao=limiar,
         curva=curva,
         estimativa=ESTIMATIVA,
+        rotulos=rotulos or {},
     )
 
 
@@ -79,6 +80,7 @@ def test_previsao_segue_o_formato_do_leia_me_com_intervalo_de_cobertura_do_boots
         limiar_de_pontuacao=0.5,
         curva=lambda p: 0.96,
         estimativa=estimativa,
+        rotulos={},
     )
     assert entrega.previsao.splitlines()[:4] == [
         "precisao_prevista: 0.97",
@@ -86,3 +88,49 @@ def test_previsao_segue_o_formato_do_leia_me_com_intervalo_de_cobertura_do_boots
         "cobertura_prevista: 0.50",
         "cobertura_intervalo: 0.00-0.50",
     ]
+
+
+def test_intervalo_de_cobertura_so_conta_questoes_que_algum_limiar_publicaria():
+    # Q0002 concorda, mas um modelo declarou dúvida: nenhum limiar a publica
+    em_duvida = Classificacao("Q0002", Proposta(100, 0.3, "c"), Proposta(100, 0.9, "v"), None)
+    estimativa = EstimativaDePrecisao(0.97, (0.93, 0.99), limiares=(0.0,))
+    entrega = gerar_entrega(
+        ["Q0001", "Q0002"],
+        {"Q0001": classificacao("Q0001", 100, 100), "Q0002": em_duvida},
+        ARVORE,
+        {},
+        limiar_de_pontuacao=0.0,
+        curva=lambda p: 0.96,
+        estimativa=estimativa,
+        rotulos={},
+    )
+    assert entrega.previsao.splitlines()[3] == "cobertura_intervalo: 0.50-0.50"
+
+
+def test_confianca_fora_da_publicacao_e_o_acerto_suavizado_do_mesmo_motivo_na_amostra():
+    # desacordos: a sugestão (Juiz, 11) acertou nas 2 rotuladas → (2+1)/(2+2)
+    desacordos = [classificacao(f"Q000{i}", 100, 11, juiz=11) for i in (1, 2, 3)]
+    fora = Classificacao("Q0004", Proposta(None, 0.9, "c"), Proposta(None, 0.9, "v"), None)
+    entrega = gerar(
+        [*desacordos, fora],
+        ["Q0001", "Q0002", "Q0003", "Q0004"],
+        rotulos={"Q0001": 11, "Q0002": 11},
+    )
+    confiancas = [(linha["decisao"], linha["confianca"]) for linha in entrega.linhas]
+    assert confiancas == [
+        ("revisar", "0.75"),
+        ("revisar", "0.75"),
+        ("revisar", "0.75"),
+        ("fora", "0.50"),  # nenhum Fora na amostra: (0+1)/(0+2)
+    ]
+
+
+def test_previsao_explica_em_texto_livre_como_chegou_nos_numeros():
+    entrega = gerar(
+        [classificacao("Q0001", 100, 100), classificacao("Q0002", 100, 100)],
+        ["Q0001", "Q0002"],
+        rotulos={"Q0001": 100, "Q0002": 11},
+    )
+    explicacao = "\n".join(entrega.previsao.splitlines()[4:])
+    assert "1 de 2" in explicacao  # rotuladas publicadas que estão no Ramo do rótulo
+    assert "Laplace" in explicacao and "Wilson" in explicacao and "bootstrap" in explicacao
