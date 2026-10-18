@@ -4,7 +4,7 @@ from pathlib import Path
 
 from classificacao.aplicacao.prompts import Prompt, PromptsDosPapeis
 
-PAPEIS = ("classificador", "verificador", "juiz")
+PAPEIS = ("classificador", "verificador", "desempatador")
 
 
 class PromptInexistente(FileNotFoundError):

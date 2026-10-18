@@ -151,7 +151,7 @@ def _detalhe(
         for papel, proposta in (
             ("Classificador", classificacao and classificacao.classificador),
             ("Verificador", classificacao and classificacao.verificador),
-            ("Juiz", classificacao and classificacao.juiz),
+            ("Desempatador", classificacao and classificacao.desempatador),
         )
         if proposta is not None
     )

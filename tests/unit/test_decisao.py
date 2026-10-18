@@ -20,7 +20,7 @@ def test_concordancia_com_confianca_acima_do_limiar_publica_no_no_de_consenso():
         ARVORE,
         classificador=Voto(100, 0.9),
         verificador=Voto(101, 0.9),
-        juiz=None,
+        desempatador=None,
         confianca=0.95,
         limiar=LIMIAR,
     )
@@ -33,7 +33,7 @@ def test_concordancia_com_confianca_abaixo_do_limiar_vai_para_revisar_com_o_cons
         ARVORE,
         classificador=Voto(100),
         verificador=Voto(100),
-        juiz=None,
+        desempatador=None,
         confianca=0.7,
         limiar=LIMIAR,
     )
@@ -42,12 +42,12 @@ def test_concordancia_com_confianca_abaixo_do_limiar_vai_para_revisar_com_o_cons
     assert resultado.motivo
 
 
-def test_desacordo_nunca_publica_e_sugere_o_classificador_quando_nao_ha_juiz():
+def test_desacordo_nunca_publica_e_sugere_o_classificador_quando_nao_ha_desempatador():
     resultado = decidir(
         ARVORE,
         classificador=Voto(100),
         verificador=Voto(11),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -56,12 +56,12 @@ def test_desacordo_nunca_publica_e_sugere_o_classificador_quando_nao_ha_juiz():
     assert resultado.motivo
 
 
-def test_juiz_escolhe_a_sugestao_do_desacordo_mas_nunca_publica():
+def test_desempatador_escolhe_a_sugestao_do_desacordo_mas_nunca_publica():
     resultado = decidir(
         ARVORE,
         classificador=Voto(100),
         verificador=Voto(11),
-        juiz=Voto(11),
+        desempatador=Voto(11),
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -74,7 +74,7 @@ def test_fora_quando_classificador_e_verificador_concordam_que_nenhum_no_serve()
         ARVORE,
         classificador=Voto(None),
         verificador=Voto(None),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -88,7 +88,7 @@ def test_so_um_diz_que_nenhum_no_serve_vai_para_revisar_com_o_no_do_outro():
         ARVORE,
         classificador=Voto(None),
         verificador=Voto(11),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -101,7 +101,7 @@ def test_falha_do_verificador_nunca_publica_com_um_voto_so():
         ARVORE,
         classificador=Voto(100),
         verificador=None,
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -115,7 +115,7 @@ def test_concordancia_na_disciplina_nao_publica():
         ARVORE,
         classificador=Voto(1),
         verificador=Voto(1),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -127,7 +127,7 @@ def test_sem_voto_valido_revisa_com_a_sugestao_de_reserva():
         ARVORE,
         classificador=None,
         verificador=Voto(4521),
-        juiz=None,
+        desempatador=None,
         confianca=0.0,
         limiar=LIMIAR,
         reserva=11,
@@ -150,7 +150,7 @@ def test_concordancia_em_tema_duplicado_nao_publica():
         arvore,
         classificador=Voto(12, 0.95),
         verificador=Voto(12, 0.95),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -164,7 +164,7 @@ def test_modelo_que_declara_duvida_impede_a_publicacao_mesmo_com_concordancia():
         ARVORE,
         classificador=Voto(100, 0.2),
         verificador=Voto(100, 0.9),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
     )
@@ -178,7 +178,7 @@ def test_indicio_de_injecao_vai_para_revisar_com_a_reserva_mesmo_com_votos_publi
         ARVORE,
         classificador=Voto(100, 0.99),
         verificador=Voto(100, 0.99),
-        juiz=None,
+        desempatador=None,
         confianca=0.99,
         limiar=LIMIAR,
         reserva=11,
@@ -194,7 +194,7 @@ def test_indicio_de_injecao_nunca_vira_fora():
         ARVORE,
         classificador=None,
         verificador=None,
-        juiz=None,
+        desempatador=None,
         confianca=0.0,
         limiar=LIMIAR,
         reserva=None,

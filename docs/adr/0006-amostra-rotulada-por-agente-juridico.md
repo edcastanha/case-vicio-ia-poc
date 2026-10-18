@@ -9,14 +9,14 @@ A arbitragem do ADR 0004 foi descartada, com o `classificacao consolidar`, a pla
 | | No Ramo do rótulo |
 |---|---|
 | Concordância entre Classificador e Verificador (o que pode ser publicado) | 40 de 40 (35 no mesmo Nó, 5 no mesmo Ramo) |
-| Desacordo (nunca publicado; o Nó é a sugestão do Juiz) | 7 de 10 |
+| Desacordo (nunca publicado; o Nó é a sugestão do Desempatador) | 7 de 10 |
 | Rotulador (Opus, às cegas) | 46 de 50 |
 
 ## Limitações declaradas
 
 Estas limitações entram no relatório junto da previsão de Precisão:
 
-- **O gabarito da calibração é de um modelo, não de um especialista.** A previsão mede o quanto o pipeline concorda com um agente jurídico, e não com o Professor. Se o agente erra junto com os modelos do pipeline, o erro chega à amostra como acerto, e a Precisão prevista fica otimista. O agente é de outra família (GPT, da OpenAI) que o Classificador (Claude) e o Verificador e o Juiz (DeepSeek). Isso reduz os erros em comum, mas não os elimina, porque os três foram treinados em textos jurídicos parecidos.
+- **O gabarito da calibração é de um modelo, não de um especialista.** A previsão mede o quanto o pipeline concorda com um agente jurídico, e não com o Professor. Se o agente erra junto com os modelos do pipeline, o erro chega à amostra como acerto, e a Precisão prevista fica otimista. O agente é de outra família (GPT, da OpenAI) que o Classificador (Claude) e o Verificador e o Desempatador (DeepSeek). Isso reduz os erros em comum, mas não os elimina, porque os três foram treinados em textos jurídicos parecidos.
 - **Os 50 rótulos saíram de dentro da lista de candidatos da planilha.** A lista é cega quanto à fonte, mas sempre contém os Nós votados pelo pipeline, embaralhados com homônimos (Temas duplicados) e Nós de preenchimento. Um rotulador que escolhe dentro da lista nunca aponta um Nó em que nenhum modelo pensou, e isso também puxa a Precisão prevista para cima.
 - **Temas duplicados são convenção, não Direito.** Na Q0036 (Lei Maria da Penha) e na Q0087 (Lei de Execução Penal), o assunto é inequívoco, e a escolha entre as Disciplinas repetidas é uma convenção do catálogo. Por isso essas Questões nunca são publicadas (ADR 0002).
 

@@ -23,10 +23,10 @@ PASTA_DE_PROMPTS = Path("prompts")
 MODELO_PADRAO = {
     ("classificador", "api"): "claude-sonnet-5-5",
     ("verificador", "api"): "gemini-3.8-flash",
-    ("juiz", "api"): "deepseek-v4-pro",
+    ("desempatador", "api"): "deepseek-v4-pro",
     ("classificador", "claude-code"): "sonnet",
     ("verificador", "claude-code"): "opus",
-    ("juiz", "claude-code"): "opus",
+    ("desempatador", "claude-code"): "opus",
     # ADR 0004: o Rotulador é o modelo mais forte disponível, fora dos papéis do pipeline.
     ("rotulador", "api"): "claude-opus-5-5",
     ("rotulador", "claude-code"): "opus",
@@ -49,7 +49,7 @@ def criar_papeis() -> Papeis:
     return Papeis(
         classificador=criar_modelo("classificador"),
         verificador=criar_modelo("verificador"),
-        juiz=criar_modelo("juiz"),
+        desempatador=criar_modelo("desempatador"),
     )
 
 

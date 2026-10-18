@@ -10,7 +10,7 @@ _URL = "https://api.deepseek.com"
 
 
 class ModeloDeepSeek:
-    """Juiz no backend api: JSON mode (sem schema imposto) com thinking ligado."""
+    """Desempatador no backend api: JSON mode (sem schema imposto) com thinking ligado."""
 
     def __init__(
         self, modelo: str, cliente: openai.OpenAI | None = None, esforco: str = "high"

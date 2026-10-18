@@ -6,7 +6,7 @@
 
 Um modelo de linguagem acerta a maioria das questões. O difícil é saber, sem gabarito, **quais** ele acertou, porque a Régua cobra 95% de acerto nas publicadas e uma previsão feita antes do resultado. Por isso comecei pela pergunta "que sinal separa acerto de erro?", e não pela escolha do modelo. Cheguei a três decisões:
 
-1. **Dois modelos de famílias diferentes precisam concordar.** Modelos diferentes, com informações diferentes, erram de jeitos diferentes. O Classificador (Claude) vê a classificação de origem da questão. O Verificador (DeepSeek) não vê a origem nem a resposta do Classificador. Quando os dois discordam, um terceiro modelo, o Juiz, escolhe a sugestão que vai para o Professor, mas nunca publica: o desacordo é justamente o sinal de questão difícil.
+1. **Dois modelos de famílias diferentes precisam concordar.** Modelos diferentes, com informações diferentes, erram de jeitos diferentes. O Classificador (Claude) vê a classificação de origem da questão. O Verificador (DeepSeek) não vê a origem nem a resposta do Classificador. Quando os dois discordam, um terceiro modelo, o Desempatador, escolhe a sugestão que vai para o Professor, mas nunca publica: o desacordo é justamente o sinal de questão difícil.
 2. **Subtemas irmãos sobem para o tema pai.** A Régua aceita o tema certo, o pai ou o filho. Se um modelo escolhe um subtema e o outro escolhe o irmão, publico no tema pai, que está certo nos dois casos. Subir até a disciplina seria o mesmo atalho levado ao extremo, e recriaria a lixeira que o case critica.
 3. **A previsão vem de uma amostra conferida, não da confiança que o modelo declara.** Sorteei 50 questões e as rotulei com um agente de IA especializado em Direito (GPT 5.6 Terra, de outra empresa), que justificou cada escolha. Não tive um especialista humano (ADR 0006). Nas 40 em que os dois modelos concordaram, todas estavam no ramo do rótulo. Nas 10 de desacordo, a sugestão acertou 7. Há duas limitações, ambas declaradas, e as duas deixam a previsão otimista: o gabarito é de um modelo, e o rótulo foi escolhido numa lista que sempre continha os temas votados.
 
@@ -52,7 +52,7 @@ Um modelo de linguagem acerta a maioria das questões. O difícil é saber, sem 
 | Revisar | 107 (30%) | 61 desacordos, 36 temas duplicados e 10 com um modelo em dúvida |
 | Fora | 3 (1%) | Os dois modelos disseram que nenhum tema serve |
 
-Os modelos concordaram em 295 questões: 255 no mesmo tema e 40 em temas do mesmo ramo. **A previsão é de 0,97 de precisão (de 0,90 a 1,00) e 0,69 de cobertura (de 0,54 a 0,69).** O intervalo de precisão é largo de propósito, porque 34 acertos em 34 não bastam para garantir 95%. A cobertura não passa de 0,69 porque nenhuma questão foi barrada só pelo limiar de confiança. Nos 10 desacordos da amostra, o Juiz acertou o ramo em 6, e é por isso que ele só sugere.
+Os modelos concordaram em 295 questões: 255 no mesmo tema e 40 em temas do mesmo ramo. **A previsão é de 0,97 de precisão (de 0,90 a 1,00) e 0,69 de cobertura (de 0,54 a 0,69).** O intervalo de precisão é largo de propósito, porque 34 acertos em 34 não bastam para garantir 95%. A cobertura não passa de 0,69 porque nenhuma questão foi barrada só pelo limiar de confiança. Nos 10 desacordos da amostra, o Desempatador acertou o ramo em 6, e é por isso que ele só sugere.
 
 ## c) Produção: 50 mil questões por semana
 
@@ -64,7 +64,7 @@ A regra de publicação continua a mesma: dois votos independentes, de famílias
 | 2. Candidatos | Embeddings escolhem os ~15 temas mais próximos | Sempre | ~US$ 0,0002 |
 | 3. Primeiro voto | Classificador treinado com as revisões do Professor (até haver rótulos, o LLM Classificador) | Sempre | ~0 |
 | 4. Segundo voto | LLM de outra família (DeepSeek) | Sempre | US$ 0,0014 |
-| 5. Desempate | Claude; o Juiz só sugere | No desacordo, ~18% | US$ 0,040 |
+| 5. Desempate | Claude; o Desempatador só sugere | No desacordo, ~18% | US$ 0,040 |
 | 6. Revisão | O Professor | Em Revisar | Tempo dele |
 
 **Custo.** Hoje, cada chamada leva a árvore inteira, que é 92% do texto. Com 15 candidatos no lugar dela, assumo chamadas 5 vezes mais baratas.

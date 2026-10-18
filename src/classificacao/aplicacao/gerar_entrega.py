@@ -41,9 +41,9 @@ def gerar_entrega(
     for questao_id in questoes_ids:
         c = classificacoes.get(questao_id, Classificacao(questao_id, None, None, None))
         sinal = sinais.get(questao_id, Sinais())
-        classificador, verificador, juiz = (
+        classificador, verificador, desempatador = (
             None if proposta is None else proposta.voto()
-            for proposta in (c.classificador, c.verificador, c.juiz)
+            for proposta in (c.classificador, c.verificador, c.desempatador)
         )
         pontuacao = (
             0.0
@@ -54,13 +54,13 @@ def gerar_entrega(
             arvore,
             classificador,
             verificador,
-            juiz,
+            desempatador,
             confianca=pontuacao,
             limiar=math.inf if limiar_de_pontuacao is None else limiar_de_pontuacao,
             reserva=sinal.reserva,
             indicios_de_injecao=c.indicios_de_injecao,
         )
-        if _publicaria_com_limiar_zero(arvore, classificador, verificador, juiz, pontuacao):
+        if _publicaria_com_limiar_zero(arvore, classificador, verificador, desempatador, pontuacao):
             pontuacoes_publicaveis.append(pontuacao)
         extras = _extras_em_comum(c, arvore, resultado.tema_central_id)
         itens.append(ItemDaEntrega(questao_id, resultado, extras, curva(pontuacao)))
@@ -82,9 +82,11 @@ def gerar_entrega(
     return Entrega(linhas, previsao)
 
 
-def _publicaria_com_limiar_zero(arvore: Arvore, classificador, verificador, juiz, pontuacao):
+def _publicaria_com_limiar_zero(
+    arvore: Arvore, classificador, verificador, desempatador, pontuacao
+):
     # Tema duplicado e dúvida declarada nunca publicam: não entram na incerteza da cobertura.
-    resultado = decidir(arvore, classificador, verificador, juiz, pontuacao, limiar=0.0)
+    resultado = decidir(arvore, classificador, verificador, desempatador, pontuacao, limiar=0.0)
     return resultado.decisao is Decisao.PUBLICAR
 
 
