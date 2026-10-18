@@ -84,7 +84,7 @@ _Avoid_: Prompt do sistema, instrução
 Um texto fixo do Prompt do papel (`v1`, `v2`…), identificado em cada voto por `papel/versao@hash`; mudar o texto cria uma versão nova.
 
 **Rotulador**:
-Modelo fora do pipeline que responde a Amostra de calibração às cegas, sem ver Origem nem votos, para que o humano só arbitre os Conflitos.
+Modelo fora do pipeline que responde a Amostra de calibração às cegas, sem ver Origem nem votos; é segunda opinião, não fonte de rótulo (ADR 0006).
 
 **Professor**:
 O especialista humano em Direito que atende a fila de Revisar.
@@ -112,13 +112,7 @@ Trecho do texto de uma Questão que fala com o modelo em vez de com o aluno (ord
 _Avoid_: Ataque, questão maliciosa
 
 **Amostra de calibração**:
-As Questões sorteadas cuja resposta certa é levantada (pelo Rotulador e pela Arbitragem) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
-
-**Conflito**:
-Questão da Amostra de calibração em que o Rotulador aponta um Nó fora do Ramo do Nó que o pipeline usaria.
-
-**Arbitragem**:
-Escolha humana entre as duas respostas de um Conflito, apresentadas como A e B em ordem sorteada, sem dizer qual é do pipeline.
+As Questões sorteadas cuja resposta certa é levantada (neste case, por um agente jurídico especializado; ADR 0006) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
 
 **Régua**:
 Exigência de que pelo menos 95% das Questões publicadas estejam no mesmo Ramo do Gabarito.

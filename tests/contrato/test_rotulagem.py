@@ -51,3 +51,20 @@ def test_linha_sem_resposta_ainda_nao_foi_rotulada_e_fica_de_fora(tmp_path):
     caminho = tmp_path / "rotulagem.csv"
     caminho.write_text("id,resposta\nQ0001,100\nQ0002,\n")
     assert ler_rotulos(caminho, ARVORE) == {"Q0001": 100}
+
+
+def test_resposta_colada_de_um_candidato_vale_pelo_id(tmp_path):
+    caminho = tmp_path / "rotulagem.csv"
+    caminho.write_text(
+        "id,resposta\n"
+        "Q0001,101 — Penal > Teoria do Crime > Culpabilidade\n"
+        "Q0002,  110 —  Penal > Teoria da Pena > Dosimetria \n"
+    )
+    assert ler_rotulos(caminho, ARVORE) == {"Q0001": 101, "Q0002": 110}
+
+
+def test_resposta_com_caminho_que_nao_e_o_do_id_e_erro_de_copia(tmp_path):
+    caminho = tmp_path / "rotulagem.csv"
+    caminho.write_text("id,resposta\nQ0003,101 — Penal > Teoria da Pena\n")
+    with pytest.raises(RotuloInvalido, match="Q0003.*101"):
+        ler_rotulos(caminho, ARVORE)
