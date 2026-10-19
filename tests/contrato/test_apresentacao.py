@@ -87,10 +87,10 @@ def medido() -> dict:
     brutos = json.loads((RAIZ / "dados/rodada/sinais.json").read_text())
     sinais = {id: Sinais(**valores) for id, valores in brutos.items()}
     desacordos = [id for id in rotulos if situacao(classificacoes[id], arvore) == "desacordo"]
-    juiz_no_ramo = sum(
-        classificacoes[id].juiz is not None
-        and classificacoes[id].juiz.no_id is not None
-        and arvore.mesmo_ramo(classificacoes[id].juiz.no_id, rotulos[id])
+    desempatador_no_ramo = sum(
+        classificacoes[id].desempatador is not None
+        and classificacoes[id].desempatador.no_id is not None
+        and arvore.mesmo_ramo(classificacoes[id].desempatador.no_id, rotulos[id])
         for id in desacordos
     )
     return {
@@ -108,7 +108,7 @@ def medido() -> dict:
         "cobertura": float(previsao["cobertura_prevista"]),
         "calibracao": len(rotulos_de_calibracao(classificacoes, rotulos, arvore, sinais)),
         "desacordos_na_amostra": len(desacordos),
-        "juiz_no_ramo": juiz_no_ramo,
+        "desempatador_no_ramo": desempatador_no_ramo,
     }
 
 

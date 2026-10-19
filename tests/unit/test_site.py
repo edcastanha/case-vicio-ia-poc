@@ -70,7 +70,7 @@ def test_explicacao_da_previsao_aparece_abaixo_da_tabela_mesmo_com_dois_pontos()
 def resultados(entrega=None, amostra=None, enunciado="Enunciado"):
     classificacoes = {
         "Q0001": classificacao("Q0001", 100, 101),
-        "Q0002": classificacao("Q0002", 100, 11, juiz=11),
+        "Q0002": classificacao("Q0002", 100, 11, desempatador=11),
     }
     questoes = {"Q0001": questao("Q0001", enunciado), "Q0002": questao("Q0002")}
     return pagina_de_resultados(classificacoes, questoes, ARVORE, entrega, amostra or {})
@@ -110,7 +110,7 @@ def test_questao_da_amostra_mostra_a_resposta_e_quem_a_deu():
 def test_detalhe_traz_o_voto_de_cada_papel_com_a_versao_do_prompt():
     pagina = resultados()
     assert '<details id="q0002">' in pagina
-    assert "Juiz" in pagina and "Penal > Teoria da Pena" in pagina
+    assert "Desempatador" in pagina and "Penal > Teoria da Pena" in pagina
 
 
 def test_texto_da_questao_e_escapado_no_html_do_detalhe():

@@ -41,7 +41,7 @@ class Prompt:
 class PromptsDosPapeis:
     classificador: Prompt
     verificador: Prompt
-    juiz: Prompt
+    desempatador: Prompt
 
 
 class VersoesDePromptMisturadas(ValueError):
@@ -53,7 +53,7 @@ def exigir_versao_unica(classificacoes: Iterable["Classificacao"]) -> list[str]:
     sem_versao: list[str] = []
     por_prompt: dict[str, set[str]] = defaultdict(set)
     for c in classificacoes:
-        for proposta in (c.classificador, c.verificador, c.juiz):
+        for proposta in (c.classificador, c.verificador, c.desempatador):
             if proposta is None:
                 continue
             if not proposta.prompt:

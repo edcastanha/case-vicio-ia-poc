@@ -6,7 +6,7 @@ from classificacao.aplicacao.prompts import Prompt, PromptsDosPapeis
 PROMPTS = PromptsDosPapeis(
     classificador=Prompt("classificador", "v1", "Você classifica questões.\n"),
     verificador=Prompt("verificador", "v1", "Você é professor de cursinho.\n"),
-    juiz=Prompt("juiz", "v1", "Dois classificadores discordaram.\n"),
+    desempatador=Prompt("desempatador", "v1", "Dois classificadores discordaram.\n"),
 )
 
 

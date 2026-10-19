@@ -49,12 +49,16 @@ def no_do_pipeline(classificacao: Classificacao | None, arvore: Arvore) -> int |
     """O Nó que o pipeline levaria ao aluno ou ao Professor, ignorando o limiar."""
     if classificacao is None:
         return None
-    classificador, verificador, juiz = (
+    classificador, verificador, desempatador = (
         None if proposta is None else proposta.voto()
-        for proposta in (classificacao.classificador, classificacao.verificador, classificacao.juiz)
+        for proposta in (
+            classificacao.classificador,
+            classificacao.verificador,
+            classificacao.desempatador,
+        )
     )
     return decidir(
-        arvore, classificador, verificador, juiz, confianca=0.0, limiar=0.0
+        arvore, classificador, verificador, desempatador, confianca=0.0, limiar=0.0
     ).tema_central_id
 
 

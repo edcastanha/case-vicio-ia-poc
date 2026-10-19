@@ -48,7 +48,11 @@ def _candidatos(
     """Nós votados + vizinhos na árvore (distratores difíceis) + nós ao acaso, embaralhados."""
     votados = {
         proposta.no_id
-        for proposta in (classificacao.classificador, classificacao.verificador, classificacao.juiz)
+        for proposta in (
+            classificacao.classificador,
+            classificacao.verificador,
+            classificacao.desempatador,
+        )
         if proposta is not None and arvore.pode_receber_questao(proposta.no_id)
     }
     publicaveis = sorted(no.id for no in arvore.nos_que_podem_receber_questao())

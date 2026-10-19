@@ -242,7 +242,7 @@ def escrever_resumo(registro: RegistroEmArquivo, arvore: Arvore, caminho: Path) 
         )
         for c in sorted(registro.todas(), key=lambda c: c.questao_id):
             situacao_da_questao = situacao(c, arvore)
-            for papel in ("classificador", "verificador", "juiz"):
+            for papel in ("classificador", "verificador", "desempatador"):
                 proposta = getattr(c, papel)
                 if proposta is not None:
                     escritor.writerow(

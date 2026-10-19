@@ -4,7 +4,7 @@ Classifica 359 questões de Penal, Processo Penal, Legislação Penal Especial e
 
 **Relatório para leitura: [`relatorio.pdf`](relatorio.pdf)** (5 páginas A4, com as seções a) a c) e o memo ao Professor na última página). Ele é gerado de [`docs/relatorio.md`](docs/relatorio.md) e [`docs/memo-professor.md`](docs/memo-professor.md) por `uv run python scripts/gerar_relatorio_pdf.py` (precisa de um Chrome ou Chromium; passe o caminho ou defina `CHROME`).
 
-> **Configuração usada na entrega:** Classificador = `claude -p` com `sonnet` (assinatura Claude Code, sem chave da API da Anthropic), Verificador = `deepseek-flash`, Juiz = `deepseek-v4-pro`, embeddings = `gemini-embedding-2`. Classificador e Verificador são de famílias diferentes, que é o que a regra de publicação exige (ADR 0002). O Verificador planejado era o `gemini-3.8-flash`, mas a chave do Gemini disponível é do plano gratuito, que permite 20 chamadas por dia. A tentativa parou na 29ª Questão, e a rodada completa com DeepSeek foi mantida. A calibração foi feita nessa mesma configuração.
+> **Configuração usada na entrega:** Classificador = `claude -p` com `sonnet` (assinatura Claude Code, sem chave da API da Anthropic), Verificador = `deepseek-flash`, Desempatador = `deepseek-v4-pro`, embeddings = `gemini-embedding-2`. Classificador e Verificador são de famílias diferentes, que é o que a regra de publicação exige (ADR 0002). O Verificador planejado era o `gemini-3.8-flash`, mas a chave do Gemini disponível é do plano gratuito, que permite 20 chamadas por dia. A tentativa parou na 29ª Questão, e a rodada completa com DeepSeek foi mantida. A calibração foi feita nessa mesma configuração.
 
 ### A solução do case inteira: classifica as 359 Questões na Árvore de temas e decide Publicar, Revisar ou Fora sob a Régua.
 
@@ -17,7 +17,7 @@ flowchart LR
     I -- "não" --> C["Classificador<br>claude -p sonnet, vê a Origem"]
     I -- "não" --> V["Verificador<br>deepseek-flash, sem Origem"]
     C & V --> K{"Concordância<br>de Ramo?"}
-    K -- "não" --> J["Juiz<br>deepseek-v4-pro, só sugere"] --> R
+    K -- "não" --> J["Desempatador<br>deepseek-v4-pro, só sugere"] --> R
     K -- "os dois: nenhum Nó serve" --> F["Fora"]
     K -- "sim" --> D{"Tema duplicado, dúvida declarada<br>ou abaixo do limiar calibrado?"}
     D -- "sim" --> R
@@ -43,7 +43,7 @@ As decisões estão nos ADRs: sem mensageria nem banco (0001), publicar só com 
 
 1. **Classificador** (Anthropic, Sonnet via `claude -p`) escolhe o nó da árvore vendo a questão e a classificação de origem.
 2. **Verificador** (DeepSeek, `deepseek-flash`) escolhe de forma independente, **sem** ver a origem nem o Classificador.
-3. **Juiz** (DeepSeek, `deepseek-v4-pro`) só entra quando os dois discordam, e só escolhe a sugestão que vai para o professor: **nunca publica**.
+3. **Desempatador** (DeepSeek, `deepseek-v4-pro`) só entra quando os dois discordam, e só escolhe a sugestão que vai para o professor: **nunca publica**.
 4. **Embeddings** (Gemini, `gemini-embedding-2`) dão um sinal extra (similaridade) e uma sugestão de reserva.
 5. **Publica** só quem tem concordância de ramo entre dois provedores diferentes, nenhum modelo em dúvida, tema não duplicado e pontuação acima do limiar calibrado numa Amostra de 50 rotulada às cegas por um agente jurídico de IA (ADR 0006), mirando 97%.
 
@@ -101,13 +101,13 @@ Testes em `tests/unit/` (regras, com fakes) e `tests/contrato/` (adaptadores, co
 
 **Tempo.** A rodada das 359 levou cerca de 3h45 de relógio (16/10/2026, das 00:20 às 04:05, pelos horários do cache), com 2 Questões em paralelo. O que limita é o `claude -p` da assinatura. Os embeddings dependem da cota gratuita do Gemini (100 textos por minuto), e o passo 6 (`entrega`, com 1.000 reamostras do bootstrap) leva segundos. Rotular a Amostra de 50 com o agente jurídico foi feito fora do código. Refazer tudo a partir de `dados/` não chama nenhum modelo.
 
-**DeepSeek (Verificador e Juiz), painel de uso da conta em 18/10/2026:** US$ 3,04 em 439 requisições e 6.475.840 tokens. O número é acumulado desde a primeira chamada: inclui os testes de fumaça e as reclassificações. A rodada responde por 420 dessas requisições (359 do Verificador e 61 do Juiz, que só entra nos desacordos), e a reclassificação da Q0030 e da Q0099 depois da limpeza (ADR 0005) por mais 2.
+**DeepSeek (Verificador e Desempatador), painel de uso da conta em 18/10/2026:** US$ 3,04 em 439 requisições e 6.475.840 tokens. O número é acumulado desde a primeira chamada: inclui os testes de fumaça e as reclassificações. A rodada responde por 420 dessas requisições (359 do Verificador e 61 do Desempatador, que só entra nos desacordos), e a reclassificação da Q0030 e da Q0099 depois da limpeza (ADR 0005) por mais 2.
 
 | | Valor |
 |---|---|
 | Custo por requisição | US$ 0,0069 |
 | Tokens por requisição | ~14,8 mil (a Árvore de temas inteira vai no system prompt) |
-| Requisições por Questão | 1,17 (o Juiz em 17% delas) |
+| Requisições por Questão | 1,17 (o Desempatador em 17% delas) |
 | Custo DeepSeek por Questão | até US$ 0,0085 (teto: divide o total, testes incluídos, pelas 359) |
 
 **Embeddings (`gemini-embedding-2`):** cota gratuita do Gemini, sem custo. O que limita é a cota: 100 textos por minuto e um teto diário. Uma rodada de `sinais` vetoriza cerca de 730 textos (359 Questões e 371 Nós).

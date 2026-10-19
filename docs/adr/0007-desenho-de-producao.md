@@ -10,7 +10,7 @@ Para 50 mil Questões por semana, a regra do ADR 0002 não muda: só publica que
 | 2. Candidatos | embeddings: os ~15 Nós mais próximos da Questão | toda Questão |
 | 3. Primeiro voto | Classificador treinado, sobre os mesmos embeddings | quando houver rótulos do Professor bastantes para calibrá-lo; antes disso, o Classificador (LLM) |
 | 4. Segundo voto | LLM de outra família (hoje o Verificador, DeepSeek) | toda Questão |
-| 5. Desempate | o Classificador (Claude) e, se ainda houver desacordo, o Juiz, que só sugere | só no desacordo entre os votos 3 e 4 |
+| 5. Desempate | o Classificador (Claude) e, se ainda houver desacordo, o Desempatador, que só sugere | só no desacordo entre os votos 3 e 4 |
 | 6. Revisão | o Professor | toda Questão em Revisar |
 
 O **Classificador treinado conta como um dos dois votos independentes.** Ele aprende só com as revisões do Professor e não vê o voto do LLM, então o erro dele não é o erro do LLM. Se os votos 3 e 4 concordam, vale a regra do ADR 0002. Se discordam, a Questão volta ao par do case, Classificador e Verificador, e publica só se esses dois concordarem. Ele entra como primeiro voto depois de ter a própria calibração na auditoria (ver Qualidade), nunca antes.
@@ -32,6 +32,7 @@ Na Fase 2, o Classificador (LLM) só entra nos ~18% de desacordo, a taxa de desa
 ## O gargalo é o Professor
 
 Com as taxas do case, 30% de 50 mil são cerca de 15 mil Questões por semana em Revisar. Isso pesa mais que o custo dos modelos. Há três alavancas:
+
 - a regra dos Temas duplicados, que tira cerca de 10 pontos da fila;
 - a fila priorizada pelos Temas mais estudados;
 - cada revisão virar rótulo do Classificador treinado.

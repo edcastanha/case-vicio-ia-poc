@@ -14,24 +14,24 @@ def voto(no_id: int, prompt: str) -> Proposta:
     return Proposta(no_id, 0.9, "j", prompt=prompt)
 
 
-def classificacao(id: str, classificador: str, verificador: str, juiz: str | None = None):
+def classificacao(id: str, classificador: str, verificador: str, desempatador: str | None = None):
     return Classificacao(
         id,
         voto(10, classificador),
         voto(10, verificador),
-        None if juiz is None else voto(10, juiz),
+        None if desempatador is None else voto(10, desempatador),
     )
 
 
 def test_uma_versao_por_prompt_devolve_as_versoes_usadas():
     classificacoes = [
-        classificacao("Q0001", "classificador/v1@a", "verificador/v1@b", "juiz/v1@c"),
-        # Juiz sozinho usa o prompt do Verificador: não é mistura.
+        classificacao("Q0001", "classificador/v1@a", "verificador/v1@b", "desempatador/v1@c"),
+        # Desempatador sozinho usa o prompt do Verificador: não é mistura.
         classificacao("Q0002", "classificador/v1@a", "verificador/v1@b", "verificador/v1@b"),
     ]
     assert exigir_versao_unica(classificacoes) == [
         "classificador/v1@a",
-        "juiz/v1@c",
+        "desempatador/v1@c",
         "verificador/v1@b",
     ]
 

@@ -27,7 +27,7 @@ def test_rotulo_em_outro_ramo_ou_nenhum_e_erro():
 def test_so_entram_questoes_publicaveis_e_rotuladas():
     resultado = calibrar(
         [
-            classificacao("Q0001", 100, 11, juiz=11),  # desacordo: nunca publica
+            classificacao("Q0001", 100, 11, desempatador=11),  # desacordo: nunca publica
             classificacao("Q0002", 100, 100),  # sem rótulo
             classificacao("Q0003", 100, 100),
         ],

@@ -6,12 +6,12 @@ from tests.unit.test_decisao import ARVORE
 ESTIMATIVA = EstimativaDePrecisao(0.97, (0.93, 0.99), limiares=(0.5, 0.6, 0.7))
 
 
-def classificacao(id, a, b, juiz=None, extras_a=(), extras_b=()):
+def classificacao(id, a, b, desempatador=None, extras_a=(), extras_b=()):
     return Classificacao(
         id,
         None if a is None else Proposta(a, 0.9, "c", extras_a),
         None if b is None else Proposta(b, 0.9, "v", extras_b),
-        None if juiz is None else Proposta(juiz, 0.7, "j"),
+        None if desempatador is None else Proposta(desempatador, 0.7, "j"),
     )
 
 
@@ -30,7 +30,7 @@ def gerar(classificacoes, ids, sinais=None, limiar=0.5, curva=lambda p: 0.96, ro
 
 def test_concordancia_acima_do_limiar_publica_com_a_confianca_da_curva():
     entrega = gerar(
-        [classificacao("Q0001", 100, 100), classificacao("Q0002", 100, 11, juiz=11)],
+        [classificacao("Q0001", 100, 100), classificacao("Q0002", 100, 11, desempatador=11)],
         ["Q0001", "Q0002"],
     )
     q1, q2 = entrega.linhas
@@ -73,7 +73,7 @@ def test_previsao_segue_o_formato_do_leia_me_com_intervalo_de_cobertura_do_boots
         ["Q0001", "Q0002"],
         {
             "Q0001": classificacao("Q0001", 100, 100),
-            "Q0002": classificacao("Q0002", 100, 11, juiz=11),
+            "Q0002": classificacao("Q0002", 100, 11, desempatador=11),
         },
         ARVORE,
         {},
@@ -108,8 +108,8 @@ def test_intervalo_de_cobertura_so_conta_questoes_que_algum_limiar_publicaria():
 
 
 def test_confianca_fora_da_publicacao_e_o_acerto_suavizado_do_mesmo_motivo_na_amostra():
-    # desacordos: a sugestão (Juiz, 11) acertou nas 2 rotuladas → (2+1)/(2+2)
-    desacordos = [classificacao(f"Q000{i}", 100, 11, juiz=11) for i in (1, 2, 3)]
+    # desacordos: a sugestão (Desempatador, 11) acertou nas 2 rotuladas → (2+1)/(2+2)
+    desacordos = [classificacao(f"Q000{i}", 100, 11, desempatador=11) for i in (1, 2, 3)]
     fora = Classificacao("Q0004", Proposta(None, 0.9, "c"), Proposta(None, 0.9, "v"), None)
     entrega = gerar(
         [*desacordos, fora],

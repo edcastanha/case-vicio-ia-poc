@@ -73,8 +73,9 @@ Primeiro modelo, que propõe o Tema central e os Extras de uma Questão vendo ta
 Segundo modelo, que classifica a mesma Questão de forma independente, sem ver a Origem nem a proposta do Classificador.
 _Avoid_: Revisor
 
-**Juiz**:
-Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor.
+**Desempatador**:
+Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor e nunca publica.
+_Avoid_: Juiz (num produto jurídico, sugere uma autoridade que decide; até 18/10/2026 era esse o nome do papel)
 
 **Classificador treinado**:
 Em produção (ADR 0007), modelo barato treinado sobre embeddings com as revisões do Professor; conta como um dos dois votos independentes e nunca publica sozinho. Não existe no case.
@@ -83,7 +84,7 @@ Em produção (ADR 0007), modelo barato treinado sobre embeddings com as revisõ
 Em produção (ADR 0007), os ~15 Nós mais próximos da Questão pelos embeddings, enviados aos modelos no lugar da Árvore de temas inteira.
 
 **Prompt do papel**:
-Instruções de sistema que um papel (Classificador, Verificador ou Juiz) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
+Instruções de sistema que um papel (Classificador, Verificador ou Desempatador) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
 _Avoid_: Prompt do sistema, instrução
 
 **Versão do prompt**:

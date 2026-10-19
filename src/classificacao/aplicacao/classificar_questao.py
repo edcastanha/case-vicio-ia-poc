@@ -23,7 +23,7 @@ from classificacao.dominio.questao import Questao
 class Papeis:
     classificador: ModeloDeLinguagem
     verificador: ModeloDeLinguagem
-    juiz: ModeloDeLinguagem
+    desempatador: ModeloDeLinguagem
 
 
 @dataclass(frozen=True)
@@ -43,7 +43,7 @@ class Classificacao:
     questao_id: str
     classificador: Proposta | None
     verificador: Proposta | None
-    juiz: Proposta | None
+    desempatador: Proposta | None
     indicios_de_injecao: tuple[str, ...] = ()  # não vazio: nenhum modelo viu a Questão
 
     @property
@@ -114,7 +114,7 @@ def classificar_questao(
         prompts.verificador,
         questao_para_prompt(questao, com_origem=False),
     )
-    juiz = None
+    desempatador = None
     houve_desacordo = (
         classificador is not None
         and verificador is not None
@@ -122,22 +122,22 @@ def classificar_questao(
         and arvore.no_de_consenso(classificador.no_id, verificador.no_id) is None
     )
     if houve_desacordo:
-        juiz = votar(
-            "juiz",
-            papeis.juiz,
-            prompts.juiz,
+        desempatador = votar(
+            "desempatador",
+            papeis.desempatador,
+            prompts.desempatador,
             disputa_para_prompt(questao, classificador, verificador),
         )
     elif _sem_voto_valido(arvore, classificador, verificador):
-        # Q42: sem embeddings, o Juiz classifica sozinho (com o prompt do Verificador)
+        # Q42: sem embeddings, o Desempatador classifica sozinho (com o prompt do Verificador)
         # para que Revisar tenha uma sugestão.
-        juiz = votar(
-            "juiz",
-            papeis.juiz,
+        desempatador = votar(
+            "desempatador",
+            papeis.desempatador,
             prompts.verificador,
             questao_para_prompt(questao, com_origem=False),
         )
-    return Classificacao(questao.id, classificador, verificador, juiz)
+    return Classificacao(questao.id, classificador, verificador, desempatador)
 
 
 def votar_com_cache(

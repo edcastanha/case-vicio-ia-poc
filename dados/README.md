@@ -4,7 +4,7 @@ Versionados para que a entrega seja auditável e reproduzível sem gastar chamad
 
 | Caminho | O que é |
 |---|---|
-| `rodada/classificacoes.jsonl` | Votos do Classificador, Verificador e Juiz nas 359 Questões, com a versão do prompt de cada voto (ADR 0003). Insumo da entrega. |
+| `rodada/classificacoes.jsonl` | Votos do Classificador, Verificador e Desempatador nas 359 Questões, com a versão do prompt de cada voto (ADR 0003). Insumo da entrega. |
 | `rodada/classificacoes.pre-versionamento.jsonl` | O mesmo arquivo antes do versionamento de prompts, com o histórico de tentativas incompletas. |
 | `rodada/sinais.json` | Similaridade entre a Questão e o Nó votado, e o Nó mais parecido como reserva (embeddings Gemini). |
 | `rodada/resumo.csv` | Leitura humana da rodada: situação (mesmo nó, mesmo ramo, desacordo, fora), caminho do Nó e justificativa. |

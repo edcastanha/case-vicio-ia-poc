@@ -1,91 +1,105 @@
 # Relatório — classificação de tópicos
 
+> **Em resumo.** Das 359 questões, **249 (69%) vão direto ao aluno**, 107 vão para o Professor com uma sugestão e 3 não cabem em nenhum tema. Prevejo que **97 em cada 100 publicadas estejam certas** (entre 90 e 100). Só publico quando dois modelos de empresas diferentes, sem ver um ao outro, escolhem o mesmo ramo da árvore.
+
 ## a) Como pensei
 
-**O problema real não é classificar, é saber quando a classificação é confiável.** Um modelo de linguagem acerta a maioria das questões; o que a régua cobra é que, entre as publicadas, 95% estejam certas — e que eu diga antes quanto vou acertar. Então o desenho começou pela pergunta "que sinal, observável sem gabarito, separa acerto de erro?", e não pela escolha do modelo.
+Um modelo de linguagem acerta a maioria das questões. O difícil é saber, sem gabarito, **quais** ele acertou, porque a Régua cobra 95% de acerto nas publicadas e uma previsão feita antes do resultado. Por isso comecei pela pergunta "que sinal separa acerto de erro?", e não pela escolha do modelo. Cheguei a três decisões:
 
-**Hipótese central: dois modelos de famílias diferentes concordando é um sinal forte e barato.** Modelos diferentes, com entradas diferentes, erram de jeitos diferentes; quando concordam, é mais provável que estejam certos. Por isso: o Classificador vê a classificação de origem (útil, mas às vezes errada); o Verificador não vê nem a origem nem o Classificador. Um terceiro modelo, o Juiz, só entra no desacordo, e só para escolher a sugestão que vai ao professor — nunca para publicar, porque desacordo é exatamente o sinal de questão difícil.
+1. **Dois modelos de famílias diferentes precisam concordar.** Modelos diferentes, com informações diferentes, erram de jeitos diferentes. O Classificador (Claude) vê a classificação de origem da questão. O Verificador (DeepSeek) não vê a origem nem a resposta do Classificador. Quando os dois discordam, um terceiro modelo, o Desempatador, escolhe a sugestão que vai para o Professor, mas nunca publica: o desacordo é justamente o sinal de questão difícil.
+2. **Subtemas irmãos sobem para o tema pai.** A Régua aceita o tema certo, o pai ou o filho. Se um modelo escolhe um subtema e o outro escolhe o irmão, publico no tema pai, que está certo nos dois casos. Subir até a disciplina seria o mesmo atalho levado ao extremo, e recriaria a lixeira que o case critica.
+3. **A previsão vem de uma amostra conferida, não da confiança que o modelo declara.** Sorteei 50 questões e as rotulei com um agente de IA especializado em Direito (GPT 5.6 Terra, de outra empresa), que justificou cada escolha. Não tive um especialista humano (ADR 0006). Nas 40 em que os dois modelos concordaram, todas estavam no ramo do rótulo. Nas 10 de desacordo, a sugestão acertou 7. Há duas limitações, ambas declaradas, e as duas deixam a previsão otimista: o gabarito é de um modelo, e o rótulo foi escolhido numa lista que sempre continha os temas votados.
 
-**Usar a régua a favor, sem trapacear.** A régua aceita como certo o nó do gabarito, o pai ou o filho. Quando os dois modelos escolhem subtemas irmãos, publico no tema pai: ele está certo se o gabarito for qualquer um dos dois. Publicar na disciplina (o "pai do pai") seria o mesmo atalho levado ao extremo — e recriaria a lixeira que o case critica; descartei.
+**O que testei e mudei no caminho**
 
-**A previsão de precisão vem de uma amostra rotulada, não da confiança do modelo.** Sorteei 50 questões, 80% delas entre as que poderiam ser publicadas, para estimar sem viés a precisão de quem publica. Não tive acesso a um advogado ou professor de Direito para rotular, então rotulei as 50 com um agente de IA especializado (GPT 5.6 Terra), de outra família que os modelos do pipeline, com uma skill para questões jurídicas, e registrei a justificativa de cada escolha na planilha. Nas 40 em que Classificador e Verificador concordaram, o Nó do pipeline ficou no Ramo do rótulo em todas. Nas 10 de desacordo, que nunca são publicadas, ficou em 7. Um terceiro modelo, o Rotulador (Opus), respondeu às cegas como segunda opinião e caiu no Ramo do rótulo em 46 de 50. As limitações estão declaradas: o gabarito da calibração é de um modelo, não de um especialista, e os rótulos saíram da lista de candidatos da planilha, que sempre contém os Nós votados. As duas coisas podem deixar a previsão otimista (ADR 0006).
-
-**Becos sem saída e correções de rota:**
-
-- **Infraestrutura (descartada para o case).** Comecei planejando RabbitMQ com DLQ e um banco vetorial/grafo. Para 359 questões isso consome o tempo que deveria ir para calibração. Fiquei com fila e DLQ em arquivo, retomáveis, e levei o desenho com mensageria para a seção de produção (ADR 0001).
-- **Agente + crítico auditor (descartado).** Um crítico que lê a resposta do primeiro agente tende a concordar com ela (ancoragem); a aprovação dele deixaria de ser um sinal independente e a previsão ficaria otimista. Aproveitei só a ideia boa — perguntar "esse tema não é genérico demais?" — como instrução nos três prompts.
-- **Calibração ingênua (corrigida).** Escolher o limiar na amostra rotulada e medir a precisão nela mesma infla o número. Num teste com pontuação sem informação nenhuma, a conta ingênua dizia 100% de precisão; o bootstrap do procedimento inteiro (recalibrar em reamostras e medir fora delas) estimou 77%, perto dos 80% reais. A previsão entregue usa o bootstrap.
-- **Concordância que não informa (corrigida).** No piloto, questões que misturam cinco assuntos tiveram os dois modelos concordando… com confiança declarada de 0,2. Passou a valer: se um dos modelos se declara em dúvida, não publica.
-- **Mesmo modelo nos dois papéis (corrigido).** Com só uma chave de API, testei Classificador e Verificador no mesmo modelo: na Q0328 vieram o mesmo nó, a mesma confiança e quase a mesma justificativa. Era o modelo concordando consigo mesmo. Daí em diante, os papéis ficaram com famílias diferentes: Claude no Classificador e DeepSeek no Verificador. O Gemini no Verificador parou na 29ª Questão pela cota gratuita, e misturar dois Verificadores numa rodada faria a calibração medir dois sistemas. Ele ficou só nos embeddings.
-- **Prompts sem versão (corrigido).** Os prompts nasceram como constantes no código, e nada dizia qual texto gerou cada voto. Como a previsão vale para um par (modelo, prompt), cada papel ganhou um prompt versionado em arquivo, cada voto grava a versão, e a calibração recusa rodadas com versões misturadas. Refazer as 359 pelo cache reproduziu todas as classificações sem nenhuma chamada (ADR 0003).
-- **Texto que o aluno não vê chegava ao modelo (corrigido).** Auditando as entradas, achei na Q0099 cerca de 700 caracteres de metadados e CSS do Word em cada alternativa, restos de comentários condicionais que a limpeza antiga não tirava. Era lixo, mas é exatamente por onde uma instrução escondida passaria. A limpeza passou a manter só o texto visível, e uma Questão cujo texto fala com o modelo ("ignore as instruções", "classifique no nó", `no_id`) vai para Revisar sem passar por nenhum modelo. Nenhuma das 359 dispara (ADR 0005).
-- **Números mais confiantes que a amostra (corrigidos).** A primeira entrega previu precisão 1,00 com intervalo 1,00–1,00, porque os 34 rótulos da calibração estavam todos certos e o bootstrap só reamostra o que existe. Agora o ponto é o menor entre o bootstrap e a suavização de Laplace, (34+1)/(34+2) = 0,97, e o intervalo inclui o de Wilson para 34 de 34, que começa em 0,90 (ADR 0002). A mesma regra corrigiu a coluna `confianca`, que valia 1,00 em todas as linhas, até em Revisar e Fora. Agora ela é a taxa suavizada de cada grupo na Amostra: 0,97 em Publicar, 0,67 nos desacordos (a sugestão acertou 7 de 10), 0,83 em Tema duplicado, 0,75 com dúvida declarada e 0,50 em Fora, que não tem nenhuma na Amostra. E o teto da cobertura era 0,82 porque contava as 46 Questões de Tema duplicado ou com dúvida, que nunca publicam. O intervalo agora vai de 0,54 a 0,69.
+| Tentativa | O que aconteceu | O que ficou |
+|---|---|---|
+| RabbitMQ e banco vetorial | Tempo demais para 359 questões | Fila em arquivo; a mensageria foi para a produção (ADR 0001) |
+| Um agente crítico revisando o primeiro | O crítico concorda com o que lê (ancoragem) | Só a pergunta "o tema não é genérico demais?" nos prompts |
+| O mesmo modelo nos dois papéis | Na Q0328: mesmo tema, mesma confiança, mesma justificativa | Sempre duas famílias diferentes |
+| Gemini como Verificador | A cota gratuita parou na 29ª questão | DeepSeek na rodada inteira; Gemini só nos embeddings |
+| Publicar com concordância, mesmo com dúvida | Os modelos concordavam com confiança 0,2 em questões de cinco assuntos | Dúvida declarada vai para Revisar |
+| Calibrar e medir na mesma amostra | Num teste sem nenhum sinal, a conta dava 100%; o real era 80% | Reamostrar: calibrar numa parte e medir na outra (deu 77%) |
+| Prompts escritos dentro do código | Não dava para saber que texto gerou cada voto | Prompts versionados, com a versão gravada em cada voto (ADR 0003) |
+| A limpeza antiga do HTML | A Q0099 mandava ao modelo ~700 caracteres de CSS do Word | Só o texto visível; texto que dá ordens ao modelo vai para Revisar (ADR 0005) |
+| Previsão só pela reamostragem | Deu 1,00 sem margem, porque a amostra não tinha nenhum erro | 34 acertos em 34 viram 0,97, de 0,90 a 1,00; a mesma regra corrigiu a confiança e a cobertura (ADR 0002) |
 
 ## b) Diagnóstico: o que atrapalha classificar certo
 
 **Na árvore de temas**
 
-1. **Oito temas duplicados entre disciplinas** (lista no memo). Achei no piloto: na Q0112, um modelo escolheu "Penal > Organizações Criminosas" e o outro "Legislação Especial > Organizações Criminosas". Cada lado é um ramo diferente, e dois classificadores, humanos ou máquinas, podem acertar o assunto e errar o tema. Nenhuma questão nesses temas é publicada até a convenção ficar clara.
-2. **Descrições que não descrevem**: 333 dos 377 temas têm como "descrição" um texto automático ("Subtema de X. 44 questões no source"). Pior que inútil: a contagem empurra um classificador automático justamente para os nós grandes — as lixeiras. Removi essas descrições dos prompts.
-3. **Lixeiras previsíveis**: os nós com mais questões no banco de origem são genéricos ou introdutórios — "Sistemas e Princípios Processuais Penais" (538), "Teoria da Pena" (453), "Introdução ao Estudo do Direito Penal" (424). Há 26 nós com título do tipo "introdução / noções gerais / disposições gerais / conceito / princípios".
-4. **Granularidade desigual**: 60 temas não têm subtemas, outros têm dezenas; e defeitos de cadastro ("Escolas Crimonológicas", "12 Disposições Gerais…").
+- **Oito temas existem em duas disciplinas**, como Lei Maria da Penha em Penal e em Legislação Especial (lista no memo). O assunto é claro, o lado é que não é: na Q0112, um modelo escolheu "Penal > Organizações Criminosas" e o outro, "Legislação Especial > Organizações Criminosas". Não publico nesses temas, e há 36 questões paradas por isso.
+- **As descrições não descrevem.** 333 dos 377 temas têm um texto automático, como "Subtema de X. 44 questões no source". Pior: a contagem empurra a máquina para os temas grandes, que são as lixeiras. Tirei essas descrições dos prompts.
+- **As lixeiras são previsíveis.** Os temas com mais questões são os genéricos: "Sistemas e Princípios Processuais Penais" (538), "Teoria da Pena" (453) e "Introdução ao Estudo do Direito Penal" (424). Há 26 temas com títulos como "introdução", "noções gerais" ou "disposições gerais".
+- **Há desníveis e erros de cadastro.** 60 temas não têm subtemas, outros têm dezenas, e há erros como "Escolas Crimonológicas".
 
 **Nas questões**
 
-5. **Classificação de origem não confiável**: 7 questões vêm marcadas com disciplinas fora do recorte (Constitucional, Tributário, Ambiental, Civil), às vezes erradas — a Q0016, "Direito Constitucional", é sobre prisão. 18 vêm sem assunto; 68 têm assuntos fatiados ("Ação Penal (Parte 01)", "(Parte 02)"), que são divisões de apostila, não de matéria.
-6. **Formato inconsistente**: HTML cru no enunciado e nas alternativas; 94 questões sem comando; 58 de Certo/Errado, algumas com comando de questão discursiva ("Explique as condições…", Q0008).
+- **A classificação de origem não é confiável.** 7 questões vêm de disciplinas fora do recorte, às vezes erradas (a Q0016 está em "Direito Constitucional", mas é sobre prisão). 18 vêm sem assunto, e 68 vêm com assuntos fatiados como apostila, por exemplo "Ação Penal (Parte 01)".
+- **O formato é inconsistente.** O texto vem em HTML cru, 94 questões não têm comando, e algumas de Certo/Errado têm comando de questão discursiva (Q0008).
 
 **Que questão é difícil, e por quê**
 
-- **Multitemáticas** (várias assertivas, cada uma de um assunto): não existe "o" tema central; qualquer escolha é defensável e o gabarito é uma convenção.
-- **Questões cujo contexto não é o assunto**: o enunciado fala de um crime, mas o que decide a resposta é uma regra processual (Q0120: parece "resposta à acusação", decide-se pelo interrogatório, art. 189 do CPP).
-- **Fronteira entre disciplinas**: prescrição disciplinar (Administrativo) que usa o prazo penal (Q0113); lei especial que também está na parte especial do CP.
+- **Multitemáticas:** cada assertiva trata de um assunto, e não existe "o" tema central.
+- **Contexto diferente do assunto:** o enunciado fala de um crime, mas a resposta depende de uma regra processual. Na Q0120, parece "resposta à acusação", mas o que decide é o interrogatório.
+- **Fronteira entre disciplinas:** a Q0113 é prescrição disciplinar, de Direito Administrativo, mas usa o prazo penal.
 
-**Os números da rodada.** As 359 foram classificadas, sem nenhuma falha que sobrasse. Houve Concordância de Ramo em 295 (82%): 255 no mesmo Nó e 40 em Nós do mesmo Ramo. Houve 61 desacordos (17%), e em 3 os dois modelos disseram que nenhum Nó servia.
+**Os números**
 
 | Decisão | Questões | Por quê |
 |---|---|---|
-| Publicar | 249 (69%) | Concordância, fora de Tema duplicado, sem dúvida declarada e acima do limiar calibrado (0,55) |
-| Revisar | 107 (30%) | 61 desacordos, 36 Temas duplicados, 10 com um modelo em dúvida |
-| Fora | 3 (1%) | os dois modelos: nenhum Nó serve |
+| Publicar | 249 (69%) | Os dois modelos no mesmo ramo, sem tema duplicado e sem dúvida declarada |
+| Revisar | 107 (30%) | 61 desacordos, 36 temas duplicados e 10 com um modelo em dúvida |
+| Fora | 3 (1%) | Os dois modelos disseram que nenhum tema serve |
 
-Nenhuma Questão foi barrada só pelo limiar: as regras de Ramo, de Tema duplicado e de dúvida declarada já tiram as arriscadas. A previsão é **precisão de 0,97 (de 0,90 a 1,00) e cobertura de 0,69 (de 0,54 a 0,69)**. O intervalo de precisão é largo de propósito: 34 acertos em 34 não provam 95% com 95% de confiança. A cobertura não passa de 0,69 porque um limiar mais baixo não publicaria mais nada, e um mais alto, como alguns que o bootstrap escolheu, publicaria menos.
-
-**O que os rótulos mostraram.** Das 50 Questões da amostra, 8 têm o rótulo num Tema duplicado, e isso confirma a regra de não publicar ali. Nos 10 desacordos da amostra, o Juiz ficou no Ramo do rótulo em 6, o Classificador em 4 e o Verificador em 6. A sugestão que chega ao Professor, que é a do Juiz ou, sem ela, a do primeiro voto válido, acertou em 7. O Juiz ajuda a sugerir, mas não é um desempate confiável: é por isso que ele nunca publica.
+Os modelos concordaram em 295 questões: 255 no mesmo tema e 40 em temas do mesmo ramo. **A previsão é de 0,97 de precisão (de 0,90 a 1,00) e 0,69 de cobertura (de 0,54 a 0,69).** O intervalo de precisão é largo de propósito, porque 34 acertos em 34 não bastam para garantir 95%. A cobertura não passa de 0,69 porque nenhuma questão foi barrada só pelo limiar de confiança. Nos 10 desacordos da amostra, o Desempatador acertou o ramo em 6, e é por isso que ele só sugere.
 
 ## c) Produção: 50 mil questões por semana
 
-A regra de publicação não muda: só publica quem tem dois votos independentes, de famílias diferentes, concordando no mesmo Ramo. O que muda é quem vota e quanto texto vai em cada chamada (ADR 0007).
+A regra de publicação continua a mesma: dois votos independentes, de famílias diferentes, no mesmo ramo. O que muda é **quem vota** e **quanto texto vai em cada chamada** (ADR 0007).
 
-| Etapa | Tipo de IA | Quando entra | Custo por Questão |
+| Etapa | Tipo de IA | Quando entra | Custo por questão |
 |---|---|---|---|
-| 1. Importação | nenhuma: limpeza do HTML e Indício de injeção | sempre | ~0 |
-| 2. Candidatos | embeddings: os ~15 Nós mais próximos | sempre | ~US$ 0,0002 |
-| 3. Primeiro voto | Classificador treinado com as revisões do Professor (antes de haver rótulos, o LLM Classificador) | sempre | ~0 |
-| 4. Segundo voto | LLM de outra família (DeepSeek) | sempre | US$ 0,0014 |
-| 5. Desempate | Classificador (Claude); o Juiz só sugere | no desacordo, ~18% | US$ 0,040 |
-| 6. Revisão | Professor | Revisar | tempo dele |
+| 1. Importação | Nenhuma: limpeza do HTML e indício de injeção | Sempre | ~0 |
+| 2. Candidatos | Embeddings escolhem os ~15 temas mais próximos | Sempre | ~US$ 0,0002 |
+| 3. Primeiro voto | Classificador treinado com as revisões do Professor (até haver rótulos, o LLM Classificador) | Sempre | ~0 |
+| 4. Segundo voto | LLM de outra família (DeepSeek) | Sempre | US$ 0,0014 |
+| 5. Desempate | Claude; o Desempatador só sugere | No desacordo, ~18% | US$ 0,040 |
+| 6. Revisão | O Professor | Em Revisar | Tempo dele |
 
-**Custo.** Hoje: US$ 0,20 por Questão, ~US$ 10.200 por semana, 95% no Classificador. A Árvore é 92% do texto de entrada, e com 15 candidatos a entrada cai cerca de 8 vezes. Assumo chamadas 5 vezes mais baratas, porque a saída não encolhe. Só com os candidatos, são US$ 0,041 (~US$ 2.000 por semana). Com o Classificador treinado como primeiro voto e o LLM caro só no desacordo, US$ 0,009 (~US$ 440). O fator 5 e os 18% são premissas a medir no piloto.
+**Custo.** Hoje, cada chamada leva a árvore inteira, que é 92% do texto. Com 15 candidatos no lugar dela, assumo chamadas 5 vezes mais baratas.
 
-**Agentes ficam fora da decisão.** Um agente que revisa outro ancora nele, como o crítico auditor descartado na seção a). Eles servem onde não publicam: montar o dossiê de cada Questão da fila do Professor, agrupar reportes de alunos e rascunhar descrições de Temas.
+| | Por questão | Por semana |
+|---|---|---|
+| Hoje, medido no case | US$ 0,20 | ~US$ 10.200 |
+| Com candidatos | US$ 0,041 | ~US$ 2.000 |
+| Com o Classificador treinado como primeiro voto | US$ 0,009 | ~US$ 440 |
 
-**O gargalo é o Professor, não o custo.** Com as taxas de hoje, são cerca de 15 mil Questões por semana em Revisar. As alavancas são a regra dos Temas duplicados (−10 pontos), a fila priorizada pelos Temas mais estudados e cada revisão virar rótulo do Classificador treinado. O que não for revisado fica fora do aluno: a fila nunca é esvaziada publicando.
+O fator 5 e os 18% de desacordo são premissas a medir no piloto.
 
-**Encaixe no fluxo.** A importação passa pelas etapas 1 a 5 e sai em Publicar, na fila ou em Fora. Toda semana, as revisões retreinam o Classificador treinado e recalibram o limiar. Um reporte de aluno tira a Questão da publicação na hora e a põe na fila.
+**O gargalo é o Professor, não o custo.** Com as taxas de hoje, seriam cerca de 15 mil questões por semana em Revisar. Para reduzir a fila, há três caminhos:
+
+- a regra dos temas duplicados, que tira 10 pontos da fila;
+- a fila ordenada pelos temas mais estudados;
+- cada revisão virar exemplo para o Classificador treinado.
+
+O que não for revisado não chega ao aluno.
+
+**Agentes não decidem.** Pelo mesmo motivo do crítico descartado na seção a), os agentes não decidem. Eles preparam o trabalho do Professor: montam o dossiê de cada questão da fila, agrupam os reportes de alunos e rascunham descrições de temas.
+
+**O fluxo de cada semana.** As questões importadas passam pelas etapas 1 a 5. As revisões da semana retreinam o primeiro voto e recalibram o limiar. Um reporte de aluno tira a questão do ar na hora e a põe na fila.
 
 **Qualidade contínua, com gatilhos**
 
-- **Auditoria:** o Professor confere às cegas 50 publicadas sorteadas por semana. Com 3 erros ou mais, a publicação automática para até a recalibração. A Precisão é estimada nas últimas 4 semanas.
-- **Reportes:** um Tema com o dobro da taxa mediana de reporte passa a só Revisar. É assim que aparece uma Lixeira nova.
-- **Deriva:** se a Concordância ou a dúvida declarada de um lote muda mais de 5 pontos, o lote vai para Revisar.
-- **Mudou modelo ou prompt:** a calibração é refeita antes de publicar, e cada voto grava a versão (ADR 0003).
+- **Auditoria:** o Professor confere, às cegas, 50 publicadas sorteadas por semana. Com 3 erros ou mais, a publicação automática para até recalibrar.
+- **Reportes:** um tema com o dobro da taxa normal de reportes passa a ir só para Revisar. É assim que uma lixeira nova aparece.
+- **Mudanças:** um lote em que a concordância muda mais de 5 pontos vai para Revisar. Trocou de modelo ou de prompt, a calibração é refeita antes de publicar (ADR 0003).
 
 ## O que faria com mais tempo
 
-1. **Gabarito humano e Amostra maior.** O Professor rotularia a Amostra às cegas, e `entrega` refaz a previsão sem mudar código. Mesmo sem nenhum erro, o piso de Wilson só passa de 0,95 com 73 acertos em 73.
-2. **A regra dos Temas duplicados**: até 36 Questões a mais, 10 pontos de cobertura.
-3. **Prompts v2 e o Gemini como Verificador numa cota paga**, cada um com rodada e calibração novas.
+1. **Trocar o gabarito da amostra por um humano** e aumentar a amostra. Mesmo sem nenhum erro, só com 73 acertos em 73 dá para garantir 95%.
+2. **Aplicar a regra dos temas duplicados**: até 36 questões a mais, ou 10 pontos de cobertura.
+3. **Testar prompts novos e o Gemini como Verificador** numa cota paga, cada um com rodada e calibração novas.
 
 ## d) Memo ao professor
 

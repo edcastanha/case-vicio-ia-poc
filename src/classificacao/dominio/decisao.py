@@ -30,7 +30,7 @@ def decidir(
     arvore: Arvore,
     classificador: Voto | None,
     verificador: Voto | None,
-    juiz: Voto | None,
+    desempatador: Voto | None,
     confianca: float,
     limiar: float,
     reserva: int | None = None,
@@ -40,7 +40,9 @@ def decidir(
         # ADR 0005: o texto tenta instruir o modelo; vai ao Professor, nunca a Fora nem ao aluno.
         motivo = f"possível injeção de prompt ({'; '.join(indicios_de_injecao)})"
         return Resultado(Decisao.REVISAR, reserva, motivo)
-    resultado = _decidir_pelos_votos(arvore, classificador, verificador, juiz, confianca, limiar)
+    resultado = _decidir_pelos_votos(
+        arvore, classificador, verificador, desempatador, confianca, limiar
+    )
     if resultado.decisao is Decisao.REVISAR and resultado.tema_central_id is None:
         motivo = f"{resultado.motivo}; sem voto válido, sugestão por similaridade"
         return Resultado(Decisao.REVISAR, reserva, motivo)
@@ -51,11 +53,11 @@ def _decidir_pelos_votos(
     arvore: Arvore,
     classificador: Voto | None,
     verificador: Voto | None,
-    juiz: Voto | None,
+    desempatador: Voto | None,
     confianca: float,
     limiar: float,
 ) -> Resultado:
-    sugestao = _primeira_sugestao_valida(arvore, juiz, classificador, verificador)
+    sugestao = _primeira_sugestao_valida(arvore, desempatador, classificador, verificador)
     if classificador is None or verificador is None:
         return Resultado(Decisao.REVISAR, sugestao, "falha do provedor: só um voto disponível")
     if classificador.no_id is None and verificador.no_id is None:
