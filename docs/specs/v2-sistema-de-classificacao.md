@@ -44,9 +44,9 @@ Modelo de linguagem só entra antes da decisão, para enriquecer os Temas. Ele v
   - lei citada para Nó;
   - Origem para Nó;
   - estrutura da Árvore (nível, Lixeira, Tema duplicado).
-- **Ranqueador:** a similaridade pura, o kNN, a regressão logística e um MLP pequeno são comparados na mesma validação cruzada. Fica o que der mais cobertura com a precisão suavizada ≥ 0,97.
+- **Ranqueador:** a similaridade pura, o kNN, a regressão logística e um MLP pequeno são comparados na mesma validação cruzada. Fica o que der mais cobertura com a precisão suavizada ≥ 0,96. Depois entrou o tipo `ramo`, que pontua cada Nó pela massa do seu Ramo.
 - **Folha-verdade:** sem holdout. Entra toda em validação cruzada estratificada (disciplina e Fora), e as probabilidades fora do fold alimentam a calibração, o limiar e a previsão.
-- **Limiar:** a precisão suavizada por Laplace fora do fold ≥ 0,97, e não o limite inferior ≥ 0,95, que com 100 rótulos exigiria 73 acertos sem nenhum erro. A análise vai para o notebook, a seção b, o `previsao.txt` e a ADR 0008.
+- **Limiar:** a precisão suavizada por Laplace fora do fold ≥ 0,96 (era 0,97; revisto em 21/10/2026 com os resultados, ADR 0008), e não o limite inferior ≥ 0,95, que com 100 rótulos exigiria 73 acertos sem nenhum erro. A análise vai para o notebook, a seção b, o `previsao.txt` e a ADR 0008.
 - **Fora:** só com sinal forte. O perfil "parece Fora" vai para Revisar.
 - **Tema duplicado:** publica no lado que a Folha-verdade mostra. Sem exemplo, vai para Revisar.
 - **Notebooks:** `notebooks/` para a análise e a comparação, com as saídas salvas, lendo as funções de `src/`. A entrega sai só pela CLI. Docker Compose com Jupyter é opcional.

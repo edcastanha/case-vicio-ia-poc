@@ -7,6 +7,10 @@ from classificacao.nucleo.dominio.arvore import Arvore
 from classificacao.nucleo.dominio.decisao import Decisao, Resultado
 from classificacao.v2.dominio.leis import normalizar
 
+# ADR 0008: taxa suavizada (Laplace) fora do fold que o limiar precisa alcançar; 1 ponto de
+# margem sobre a Régua. 0,97 exigiria 32 acertos seguidos, e o Ranqueador chega a 26 a 30.
+ALVO = 0.96
+
 
 @dataclass(frozen=True)
 class Pontuado:

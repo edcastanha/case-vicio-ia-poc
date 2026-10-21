@@ -26,6 +26,7 @@ CONFIANCA_DE_FORA = 0.5  # nenhuma Questão militar na Folha-verdade para medir
 
 @dataclass(frozen=True)
 class Previsao:
+    alvo: float
     precisao: float
     precisao_intervalo: tuple[float, float]
     cobertura: float
@@ -131,6 +132,7 @@ def _prever(
     antigas = [i for i in avaliadas if int(i[1:]) <= 359]
     novas = [i for i in avaliadas if int(i[1:]) > 359]
     return Previsao(
+        alvo=alvo,
         precisao=precisao,
         precisao_intervalo=precisao_intervalo,
         cobertura=cobertura,
@@ -162,7 +164,7 @@ def texto_da_previsao(p: Previsao, tipo: str, modelo: str) -> str:
             f"Precisão. Validação cruzada estratificada (10 folds) nas 100 Questões da "
             f"Folha-verdade: cada uma foi pontuada por um Ranqueador que não a viu, e o kNN só "
             f"via as Questões de treino do fold. O limiar é o de maior cobertura em que a taxa "
-            f"suavizada (Laplace) passa de 0,97 (ADR 0008): {v.acertos} certas de "
+            f"suavizada (Laplace) passa de {p.alvo:.2f} (ADR 0008): {v.acertos} certas de "
             f"{v.publicadas} publicadas fora do fold, ({v.acertos}+1)/({v.publicadas}+2) = "
             f"{p.precisao:.2f}. O intervalo une o de Wilson dessas publicadas ao bootstrap do "
             "procedimento (sorteia a Folha-verdade, escolhe o limiar e mede fora da reamostra).",

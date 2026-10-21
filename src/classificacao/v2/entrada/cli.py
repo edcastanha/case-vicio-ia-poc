@@ -126,14 +126,12 @@ def rodar_embeddings(argumentos: argparse.Namespace) -> None:
         print(f"{len(nos)} Nós → {pasta}/nos.npy")
 
 
-ALVO = 0.97  # ADR 0008: taxa suavizada com margem sobre a Régua de 95%
-
-
 def rodar_comparacao(argumentos: argparse.Namespace) -> None:
     import json
 
     from classificacao.nucleo.adaptadores.anexos import ler_folha_verdade
     from classificacao.v2.aplicacao.validacao_cruzada import validar
+    from classificacao.v2.dominio.decisao import ALVO
     from classificacao.v2.entrada.conhecimento import carregar_conhecimento, montador
 
     questoes = {q.id: q for q in ler_questoes(argumentos.zip)}

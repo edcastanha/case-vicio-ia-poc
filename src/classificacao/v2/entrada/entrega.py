@@ -11,9 +11,9 @@ from pathlib import Path
 
 from classificacao.nucleo.adaptadores.anexos import ler_folha_verdade, ler_questoes
 from classificacao.v2.aplicacao.gerar_entrega import gerar_entrega, texto_da_previsao
+from classificacao.v2.dominio.decisao import ALVO
 from classificacao.v2.entrada.conhecimento import DADOS, carregar_conhecimento, montador
 
-ALVO = 0.97  # ADR 0008
 ESCOLHA = DADOS / "escolha.json"  # Ranqueador e embeddings escolhidos pela comparação
 
 

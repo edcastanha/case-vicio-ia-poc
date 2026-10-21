@@ -69,7 +69,7 @@ A análise dos dados crus está no notebook [`notebooks/01_analise_dos_dados.ipy
 
 - ⟨revisão dos 30 Temas⟩
 - **Dicionário de leis** e **regra de Fora para Direito Penal Militar** (a árvore não tem a disciplina; as demais origens erradas não bastam para Fora, por exemplo a Q0016, que vem como Constitucional e é sobre prisão).
-- **Alvo de 0,97** para a taxa suavizada no limiar (ADR 0008).
+- **Alvo de 0,96** para a taxa suavizada no limiar (ADR 0008): 0,97 exigiria 32 acertos seguidos com 100 rótulos, e o Ranqueador chega a 26 a 30.
 - Nenhuma linha do `publicacao.csv` foi editada à mão.
 
 ## Código
