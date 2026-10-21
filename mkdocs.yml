@@ -57,9 +57,9 @@ extra_css:
 nav:
   - Resumo: index.md
   - Apresentação: apresentacao/index.html
-  - Relatório: relatorio.md
+  - Relatório (v1): v1/relatorio.md
   - Resultados: resultados.md
-  - Memo ao Professor: memo-professor.md
+  - Memo ao Professor (v1): v1/memo-professor.md
   - Decisões:
       - adr/0001-poc-sem-mensageria-nem-banco.md
       - adr/0002-publicar-so-com-concordancia-entre-provedores.md
