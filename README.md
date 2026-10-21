@@ -52,7 +52,7 @@ uv run classificacao v2 embeddings --modelo e5-base
 uv run classificacao v2 comparar               # 4. validação cruzada dos Ranqueadores (sem modelo)
 ```
 
-A análise dos dados crus está no notebook [`notebooks/01_analise_dos_dados.ipynb`](notebooks/01_analise_dos_dados.ipynb), com as saídas salvas (`uv sync --group analise` para rodar de novo).
+A análise dos dados crus está no notebook [`notebooks/01_analise_dos_dados.ipynb`](notebooks/01_analise_dos_dados.ipynb), com as saídas salvas. Para rodar de novo: `uv sync --group analise`, ou `docker compose up jupyter` (opcional, em http://127.0.0.1:8888).
 
 ## De onde veio cada artefato
 
