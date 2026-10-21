@@ -1,0 +1,5 @@
+{
+ "embeddings": "bge-m3",
+ "ranqueador": "ramo",
+ "motivo": "Maior cobertura com taxa suavizada >= 0,96 fora do fold na comparacao (dados/v2/comparacao.json): 28 de 28; sem Origem, 27 de 27."
+}

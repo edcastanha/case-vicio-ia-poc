@@ -57,7 +57,7 @@ def gerar_entrega(
     por_id = {q.id: q for q in questoes}
     validacao = validar(tipo, arvore, por_id, folha, montar, alvo, semente=semente)
     rotulos = [Rotulo(p.pontuacao, p.acertou) for p in validacao.previsoes]
-    curva = ajustar_curva(rotulos, faixas=5)
+    curva = _curva_separada_no_limiar(rotulos, validacao.limiar)
     sinais_da_folha = montar([por_id[i] for i in folha], folha)
     ranqueador = Ranqueador(tipo, semente).treinar(arvore, sinais_da_folha, folha)
 
@@ -78,6 +78,25 @@ def gerar_entrega(
     publicadas = {i.id for i in itens if i.resultado.decisao is Decisao.PUBLICAR}
     previsao = _prever(validacao, rotulos, pontuacoes, publicadas, folha, repeticoes, semente, alvo)
     return Entrega(linhas, previsao)
+
+
+def _curva_separada_no_limiar(rotulos: Sequence[Rotulo], limiar: float | None):
+    """Confiança calibrada sem misturar os dois lados do limiar.
+
+    Acima dele, a taxa suavizada das publicadas fora do fold (a mesma da previsão); abaixo,
+    a curva isotônica das demais. Numa faixa só, uma publicada herdaria a taxa das revisadas.
+    """
+    acima = [r for r in rotulos if limiar is not None and r.pontuacao >= limiar]
+    abaixo = [r for r in rotulos if r not in acima] or list(rotulos)
+    taxa_acima = taxa_de_laplace(sum(r.acertou for r in acima), len(acima))
+    curva_abaixo = ajustar_curva(abaixo, faixas=5)
+
+    def curva(pontuacao: float) -> float:
+        if limiar is not None and pontuacao >= limiar:
+            return taxa_acima
+        return curva_abaixo(pontuacao)
+
+    return curva
 
 
 def _item(arvore, questao_id, resultado, escolhido, pontuados, validacao, curva) -> ItemDaEntrega:
@@ -145,6 +164,10 @@ def _prever(
     )
 
 
+def _br(valor: float) -> str:
+    return f"{valor:.2f}".replace(".", ",")
+
+
 def texto_da_previsao(p: Previsao, tipo: str, modelo: str) -> str:
     v = p.validacao
     (pmin, pmax), (cmin, cmax) = p.precisao_intervalo, p.cobertura_intervalo
@@ -164,9 +187,9 @@ def texto_da_previsao(p: Previsao, tipo: str, modelo: str) -> str:
             f"Precisão. Validação cruzada estratificada (10 folds) nas 100 Questões da "
             f"Folha-verdade: cada uma foi pontuada por um Ranqueador que não a viu, e o kNN só "
             f"via as Questões de treino do fold. O limiar é o de maior cobertura em que a taxa "
-            f"suavizada (Laplace) passa de {p.alvo:.2f} (ADR 0008): {v.acertos} certas de "
+            f"suavizada (Laplace) passa de {_br(p.alvo)} (ADR 0008): {v.acertos} certas de "
             f"{v.publicadas} publicadas fora do fold, ({v.acertos}+1)/({v.publicadas}+2) = "
-            f"{p.precisao:.2f}. O intervalo une o de Wilson dessas publicadas ao bootstrap do "
+            f"{_br(p.precisao)}. O intervalo une o de Wilson dessas publicadas ao bootstrap do "
             "procedimento (sorteia a Folha-verdade, escolhe o limiar e mede fora da reamostra).",
             "",
             f"Cobertura. Fração publicada nas {p.avaliadas} Questões fora da Folha-verdade: "
@@ -175,13 +198,14 @@ def texto_da_previsao(p: Previsao, tipo: str, modelo: str) -> str:
             "",
             "Por que pode errar. Os 100 rótulos são todos de Q0001 a Q0359, e 300 das "
             "avaliadas são novas. Nelas, a Origem aponta um Nó com bem menos frequência "
-            f"(notebooks/01), e a cobertura muda: {p.cobertura_antigas:.2f} nas "
-            f"antigas e {p.cobertura_novas:.2f} nas novas. A precisão nas novas pode ficar "
+            f"(notebooks/01), e a cobertura muda: {_br(p.cobertura_antigas)} nas "
+            f"antigas e {_br(p.cobertura_novas)} nas novas. A precisão nas novas pode ficar "
             "abaixo da medida na Folha-verdade, e o intervalo largo é a forma honesta de dizer "
             "isso com 100 rótulos.",
             "",
-            "Coluna confianca do publicacao.csv. Em publicar e revisar, é a taxa de acerto "
-            "suavizada da faixa de pontuação fora do fold (curva isotônica). Em fora, 0,50: a "
+            "Coluna confianca do publicacao.csv. Em publicar, é a taxa suavizada das publicadas "
+            "fora do fold (a mesma da precisão prevista). Em revisar, a da faixa de pontuação "
+            "fora do fold, abaixo do limiar (curva isotônica). Em fora, 0,50: a "
             "Folha-verdade não tem nenhuma Questão de disciplina militar para medir.",
             "",
         ]

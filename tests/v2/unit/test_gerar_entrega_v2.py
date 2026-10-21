@@ -47,3 +47,9 @@ def test_entrega_tem_todas_as_questoes_publica_acima_do_limiar_e_preve_fora_da_f
     texto = texto_da_previsao(p, "similaridade", "fake")
     assert texto.splitlines()[0] == "precisao_prevista: 0.98"
     assert texto.splitlines()[2] == "cobertura_prevista: 0.90"
+
+
+def test_toda_publicada_tem_a_confianca_das_publicadas_fora_do_fold():
+    entrega = gerar_entrega(QUESTOES, ARVORE, FOLHA, montar, "similaridade", 0.9, repeticoes=10)
+    confiancas = {x["confianca"] for x in entrega.linhas if x["decisao"] == "publicar"}
+    assert confiancas == {"0.98"}  # (40+1)/(40+2)
