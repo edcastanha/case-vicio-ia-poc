@@ -1,0 +1,10 @@
+{
+ "modelo": "intfloat/multilingual-e5-base",
+ "revisao": "d128750597153bb5987e10b1c3493a34e5a4502a",
+ "tamanho_maximo": 512,
+ "gerado_em": "2026-10-21T04:54:22+00:00",
+ "textos_sha256": "780b0d88110fd01b490b8611c90e306ebc7712d45046b49fd405e8d748b00bb1",
+ "enriquecimento": [
+  "enriquecedor/v1@ddd9626b"
+ ]
+}
