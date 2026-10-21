@@ -1,4 +1,5 @@
 import argparse
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -52,8 +53,11 @@ def rodar_enriquecimento(argumentos: argparse.Namespace) -> None:
     TEMAS_ENRIQUECIDOS.parent.mkdir(parents=True, exist_ok=True)
 
     def guardar(temas):
+        # fsync por lote: se a máquina cair no meio, o arquivo não fica com uma linha pela metade.
         with TEMAS_ENRIQUECIDOS.open("a") as arquivo:
             arquivo.writelines(para_json(tema) + "\n" for tema in temas)
+            arquivo.flush()
+            os.fsync(arquivo.fileno())
         print(f"+{len(temas)} Nós ({rotulo})", flush=True)
 
     falhas = enriquecer_temas(
