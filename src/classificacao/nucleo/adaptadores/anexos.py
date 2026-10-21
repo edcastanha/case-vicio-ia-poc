@@ -9,6 +9,7 @@ from pathlib import Path
 
 from classificacao.nucleo.dominio.arvore import Arvore, No
 from classificacao.nucleo.dominio.questao import Questao
+from classificacao.nucleo.dominio.regua import Gabarito
 
 _ESPACOS = re.compile(r"[ \t\u00a0]+")
 _QUEBRAS = {"br", "p"}
@@ -105,6 +106,21 @@ def ler_arvore(zip_anexos: Path) -> Arvore:
             nivel=int(linha["nivel"]),
             caminho=linha["caminho"].strip(),
             ativo=linha["status"].strip() == "active",
+            titulo=linha["titulo"].strip(),
+            descricao=linha["descricao"].strip(),
         )
         for linha in linhas
     )
+
+
+def ler_folha_verdade(zip_anexos: Path) -> dict[str, Gabarito]:
+    """folha_verdade.csv (v2): o Gabarito que a equipe deu a 100 Questões."""
+    linhas = csv.DictReader(io.StringIO(_ler_texto(zip_anexos, "folha_verdade.csv")))
+    return {
+        linha["id"]: Gabarito(
+            tema_central_id=int(linha["tema_central_id"]) if linha["tema_central_id"] else None,
+            extras=tuple(int(extra) for extra in linha["extras_ids"].split(";") if extra),
+            fora=linha["fora_da_taxonomia"] == "1",
+        )
+        for linha in linhas
+    }
