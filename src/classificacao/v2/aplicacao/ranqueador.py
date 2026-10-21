@@ -12,6 +12,7 @@ from sklearn.preprocessing import StandardScaler
 from classificacao.nucleo.dominio.arvore import Arvore
 from classificacao.nucleo.dominio.regua import Gabarito, certo_pela_regua
 from classificacao.v2.aplicacao.montar_sinais import CandidatoComSinais
+from classificacao.v2.dominio.ramo import massa_por_ramo
 
 NOMES_DAS_FEATURES = (
     "similaridade",
@@ -59,11 +60,19 @@ class Escolha:
 
 
 class Ranqueador:
-    """Tipos comparados no ticket 08: similaridade, knn, logistica, mlp."""
+    """Tipos comparados no ticket 08: similaridade, knn, logistica, mlp e ramo.
+
+    `ramo` aprende a chance de cada Candidato ser o próprio Gabarito (Tema central ou Extra) e
+    pontua cada um pela massa do seu Ramo (dominio/ramo.py). Os outros aprendem direto "certo
+    pela Régua", e o Nó pai e o filho viram exemplos positivos ao mesmo tempo.
+    """
 
     def __init__(self, tipo: str, semente: int = 0) -> None:
         self.tipo = tipo
         self._modelo = {
+            "ramo": lambda: make_pipeline(
+                StandardScaler(), LogisticRegression(C=1.0, max_iter=3000)
+            ),
             "logistica": lambda: make_pipeline(
                 StandardScaler(), LogisticRegression(C=1.0, max_iter=2000)
             ),
@@ -88,7 +97,7 @@ class Ranqueador:
             if candidatos:
                 linhas.append(features(arvore, candidatos))
                 gabarito = gabaritos[questao_id]
-                rotulos += [certo_pela_regua(arvore, c.no_id, gabarito) for c in candidatos]
+                rotulos += [self._rotulo(arvore, c.no_id, gabarito) for c in candidatos]
         self._modelo.fit(np.vstack(linhas), np.array(rotulos, dtype=int))
         return self
 
@@ -102,7 +111,15 @@ class Ranqueador:
             return np.array(
                 [c.sinais.voto_das_vizinhas + 1e-3 * c.sinais.similaridade for c in candidatos]
             )
-        return self._modelo.predict_proba(features(arvore, candidatos))[:, 1]
+        chances = self._modelo.predict_proba(features(arvore, candidatos))[:, 1]
+        if self.tipo == "ramo":
+            return np.array(massa_por_ramo(arvore, [c.no_id for c in candidatos], chances))
+        return chances
+
+    def _rotulo(self, arvore: Arvore, no_id: int, gabarito: Gabarito) -> bool:
+        if self.tipo == "ramo":
+            return no_id == gabarito.tema_central_id or no_id in gabarito.extras
+        return certo_pela_regua(arvore, no_id, gabarito)
 
     def escolher(self, arvore: Arvore, candidatos: Sequence[CandidatoComSinais]) -> Escolha:
         pontuacoes = self.pontuar(arvore, candidatos)

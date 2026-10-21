@@ -41,7 +41,9 @@ def main(argv: list[str] | None = None) -> None:
         "comparar", help="compara Ranqueadores e embeddings por validação cruzada (sem modelo)"
     )
     comparar.add_argument("--modelos", nargs="+", default=["bge-m3", "e5-base"])
-    comparar.add_argument("--tipos", nargs="+", default=["similaridade", "knn", "logistica", "mlp"])
+    comparar.add_argument(
+        "--tipos", nargs="+", default=["similaridade", "knn", "logistica", "mlp", "ramo"]
+    )
     entrega = comandos.add_parser(
         "entrega", help="gera publicacao.csv e previsao.txt só com artefatos versionados"
     )
@@ -142,7 +144,7 @@ def rodar_comparacao(argumentos: argparse.Namespace) -> None:
         com_origem = montador(conhecimento)
         variantes = [(tipo, "com origem", com_origem) for tipo in argumentos.tipos]
         # Ablação: as Questões novas quase nunca têm Origem que vire Nó (notebooks/01).
-        variantes += [(t, "sem origem", _sem_origem(com_origem)) for t in ("logistica", "mlp")]
+        variantes += [(t, "sem origem", _sem_origem(com_origem)) for t in ("logistica", "ramo")]
         for tipo, variante, montar in variantes:
             r = validar(tipo, conhecimento.arvore, questoes, folha, montar, ALVO)
             linha = {

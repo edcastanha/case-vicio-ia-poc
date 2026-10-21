@@ -41,3 +41,27 @@ def test_nenhuma_questao_do_fold_de_teste_e_vista_como_rotulada_e_todas_sao_prev
     assert sorted(p.questao_id for p in resultado.previsoes) == sorted(folha)
     assert resultado.acertos == resultado.publicadas == 20
     assert resultado.cobertura == 1.0
+
+
+def test_ranqueador_ramo_pontua_pela_massa_do_ramo_e_publica_no_pai_na_duvida_entre_irmaos():
+    from classificacao.v2.aplicacao.ranqueador import Ranqueador
+
+    arvore = Arvore(
+        [
+            No(1, None, 0, "Penal"),
+            No(10, 1, 1, "Penal > A", titulo="A"),
+            No(100, 10, 2, "Penal > A > x", titulo="x"),
+            No(101, 10, 2, "Penal > A > y", titulo="y"),
+        ]
+    )
+    folha = {f"Q{i}": Gabarito(100 if i % 2 else 101) for i in range(20)}
+    # Os dois Subtemas parecem igualmente prováveis; o pai, de similaridade baixa, nunca é Gabarito.
+    candidatos = [
+        CandidatoComSinais(10, sinais(0.1)),
+        CandidatoComSinais(100, sinais(0.8)),
+        CandidatoComSinais(101, sinais(0.8)),
+    ]
+    ranqueador = Ranqueador("ramo").treinar(arvore, {q: candidatos for q in folha}, folha)
+    escolha = ranqueador.escolher(arvore, candidatos)
+    assert escolha.no_id == 10
+    assert escolha.pontuacao > 0.9
