@@ -38,10 +38,17 @@ def main(argv: list[str] | None = None) -> None:
     )
     embeddings.add_argument("--modelo", choices=["bge-m3", "e5-base"], default="bge-m3")
     embeddings.add_argument("--parte", choices=["questoes", "nos", "tudo"], default="tudo")
-    argumentos = parser.parse_args(argv)
-    {"enriquecer": rodar_enriquecimento, "embeddings": rodar_embeddings}[argumentos.comando](
-        argumentos
+    comparar = comandos.add_parser(
+        "comparar", help="compara Ranqueadores e embeddings por validação cruzada (sem modelo)"
     )
+    comparar.add_argument("--modelos", nargs="+", default=["bge-m3", "e5-base"])
+    comparar.add_argument("--tipos", nargs="+", default=["similaridade", "knn", "logistica", "mlp"])
+    argumentos = parser.parse_args(argv)
+    {
+        "enriquecer": rodar_enriquecimento,
+        "embeddings": rodar_embeddings,
+        "comparar": rodar_comparacao,
+    }[argumentos.comando](argumentos)
 
 
 def rodar_enriquecimento(argumentos: argparse.Namespace) -> None:
@@ -104,3 +111,38 @@ def rodar_embeddings(argumentos: argparse.Namespace) -> None:
         manifesto = base | {"textos_sha256": sha256_dos_textos(textos), "enriquecimento": prompts}
         cache_de_embeddings.gravar(pasta, "nos", [no.id for no in nos], vetores, manifesto)
         print(f"{len(nos)} Nós → {pasta}/nos.npy")
+
+
+ALVO = 0.97  # ADR 0008: taxa suavizada com margem sobre a Régua de 95%
+
+
+def rodar_comparacao(argumentos: argparse.Namespace) -> None:
+    import json
+    from functools import partial
+
+    from classificacao.nucleo.adaptadores.anexos import ler_folha_verdade
+    from classificacao.v2.aplicacao.montar_sinais import montar_sinais
+    from classificacao.v2.aplicacao.validacao_cruzada import validar
+    from classificacao.v2.entrada.conhecimento import carregar_conhecimento
+
+    questoes = {q.id: q for q in ler_questoes(argumentos.zip)}
+    folha = ler_folha_verdade(argumentos.zip)
+    linhas = []
+    for modelo in argumentos.modelos:
+        conhecimento = carregar_conhecimento(argumentos.zip, modelo)
+        montar = partial(montar_sinais, conhecimento=conhecimento)
+        for tipo in argumentos.tipos:
+            r = validar(tipo, conhecimento.arvore, questoes, folha, montar, ALVO)
+            linha = {
+                "embeddings": modelo,
+                "ranqueador": tipo,
+                "acerto_do_top1": sum(p.acertou for p in r.previsoes) / len(r.previsoes),
+                "limiar": r.limiar,
+                "publicadas": r.publicadas,
+                "acertos": r.acertos,
+                "cobertura": r.cobertura,
+                "precisao_suavizada": r.precisao_suavizada,
+            }
+            linhas.append(linha)
+            print(json.dumps(linha, ensure_ascii=False), flush=True)
+    (DADOS / "comparacao.json").write_text(json.dumps(linhas, ensure_ascii=False, indent=1) + "\n")

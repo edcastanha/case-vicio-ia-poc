@@ -15,6 +15,13 @@ dependencies = [
 classificacao = "classificacao.cli:main"
 
 [dependency-groups]
+analise = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "nbconvert>=7.17.2",
+    "nbformat>=5.11.1",
+    "pandas>=3.0.6",
+]
 dev = [
     "mkdocs>=1.6.1,<2",
     "mkdocs-material>=9.7.7",
