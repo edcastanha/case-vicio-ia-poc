@@ -7,13 +7,11 @@ linguagem nem de embeddings é importado aqui (tests/v2/contrato/test_entrega_se
 import csv
 import json
 import time
-from functools import partial
 from pathlib import Path
 
 from classificacao.nucleo.adaptadores.anexos import ler_folha_verdade, ler_questoes
 from classificacao.v2.aplicacao.gerar_entrega import gerar_entrega, texto_da_previsao
-from classificacao.v2.aplicacao.montar_sinais import montar_sinais
-from classificacao.v2.entrada.conhecimento import DADOS, carregar_conhecimento
+from classificacao.v2.entrada.conhecimento import DADOS, carregar_conhecimento, montador
 
 ALVO = 0.97  # ADR 0008
 ESCOLHA = DADOS / "escolha.json"  # Ranqueador e embeddings escolhidos pela comparação
@@ -27,7 +25,7 @@ def rodar(zip_anexos: Path, saida: Path, repeticoes: int) -> None:
         ler_questoes(zip_anexos),
         conhecimento.arvore,
         ler_folha_verdade(zip_anexos),
-        partial(montar_sinais, conhecimento=conhecimento),
+        montador(conhecimento),
         escolha["ranqueador"],
         ALVO,
         repeticoes=repeticoes,

@@ -129,19 +129,17 @@ ALVO = 0.97  # ADR 0008: taxa suavizada com margem sobre a Régua de 95%
 
 def rodar_comparacao(argumentos: argparse.Namespace) -> None:
     import json
-    from functools import partial
 
     from classificacao.nucleo.adaptadores.anexos import ler_folha_verdade
-    from classificacao.v2.aplicacao.montar_sinais import montar_sinais
     from classificacao.v2.aplicacao.validacao_cruzada import validar
-    from classificacao.v2.entrada.conhecimento import carregar_conhecimento
+    from classificacao.v2.entrada.conhecimento import carregar_conhecimento, montador
 
     questoes = {q.id: q for q in ler_questoes(argumentos.zip)}
     folha = ler_folha_verdade(argumentos.zip)
     linhas = []
     for modelo in argumentos.modelos:
         conhecimento = carregar_conhecimento(argumentos.zip, modelo)
-        com_origem = partial(montar_sinais, conhecimento=conhecimento)
+        com_origem = montador(conhecimento)
         variantes = [(tipo, "com origem", com_origem) for tipo in argumentos.tipos]
         # Ablação: as Questões novas quase nunca têm Origem que vire Nó (notebooks/01).
         variantes += [(t, "sem origem", _sem_origem(com_origem)) for t in ("logistica", "mlp")]
