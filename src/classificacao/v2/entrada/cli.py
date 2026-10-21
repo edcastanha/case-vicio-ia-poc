@@ -157,9 +157,21 @@ def rodar_comparacao(argumentos: argparse.Namespace) -> None:
                 "acertos": r.acertos,
                 "cobertura": r.cobertura,
                 "precisao_suavizada": r.precisao_suavizada,
+                "erros_do_top1": [
+                    {
+                        "questao": e.questao_id,
+                        "pontuacao": round(e.pontuacao, 4),
+                        "publicaria": r.limiar is not None and e.pontuacao >= r.limiar,
+                        "escolhido": _caminho(conhecimento.arvore, e.no_id),
+                        "equipe": _caminho_do_gabarito(conhecimento.arvore, folha[e.questao_id]),
+                    }
+                    for e in sorted(r.previsoes, key=lambda p: -p.pontuacao)
+                    if not e.acertou
+                ],
             }
             linhas.append(linha)
-            print(json.dumps(linha, ensure_ascii=False), flush=True)
+            resumo = {k: v for k, v in linha.items() if k != "erros_do_top1"}
+            print(json.dumps(resumo, ensure_ascii=False), flush=True)
     (DADOS / "comparacao.json").write_text(json.dumps(linhas, ensure_ascii=False, indent=1) + "\n")
 
 
@@ -202,3 +214,14 @@ def rodar_revisao_dos_temas(argumentos: argparse.Namespace) -> None:
         escritor.writeheader()
         escritor.writerows(linhas)
     print(f"{len(linhas)} Temas para revisar em {caminho}: marque ok ou escreva a correção")
+
+
+def _caminho(arvore, no_id):
+    return arvore.no(no_id).caminho if no_id is not None else None
+
+
+def _caminho_do_gabarito(arvore, gabarito):
+    if gabarito.fora:
+        return "fora"
+    alvos = (gabarito.tema_central_id, *gabarito.extras)
+    return " + ".join(arvore.no(no).caminho for no in alvos)
