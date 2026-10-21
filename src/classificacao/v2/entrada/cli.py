@@ -6,7 +6,6 @@ from pathlib import Path
 from classificacao.nucleo.adaptadores.anexos import ler_arvore, ler_questoes
 from classificacao.v2.adaptadores import cache_de_embeddings
 from classificacao.v2.adaptadores.cache_de_embeddings import sha256_dos_textos
-from classificacao.v2.adaptadores.claude_code import ModeloClaudeCode
 from classificacao.v2.adaptadores.dicionarios import ler_temas_enriquecidos
 from classificacao.v2.aplicacao.enriquecer_temas import (
     enriquecer_temas,
@@ -43,8 +42,14 @@ def main(argv: list[str] | None = None) -> None:
     )
     comparar.add_argument("--modelos", nargs="+", default=["bge-m3", "e5-base"])
     comparar.add_argument("--tipos", nargs="+", default=["similaridade", "knn", "logistica", "mlp"])
+    entrega = comandos.add_parser(
+        "entrega", help="gera publicacao.csv e previsao.txt só com artefatos versionados"
+    )
+    entrega.add_argument("--saida", type=Path, default=Path("."))
+    entrega.add_argument("--repeticoes", type=int, default=1000)
     argumentos = parser.parse_args(argv)
     {
+        "entrega": rodar_entrega,
         "enriquecer": rodar_enriquecimento,
         "embeddings": rodar_embeddings,
         "comparar": rodar_comparacao,
@@ -52,6 +57,8 @@ def main(argv: list[str] | None = None) -> None:
 
 
 def rodar_enriquecimento(argumentos: argparse.Namespace) -> None:
+    from classificacao.v2.adaptadores.claude_code import ModeloClaudeCode
+
     texto = (PROMPTS / "enriquecedor" / f"{argumentos.versao}.md").read_text()
     rotulo = rotulo_do_prompt(texto, argumentos.versao)
     feitos = ler_temas_enriquecidos(TEMAS_ENRIQUECIDOS)
@@ -146,3 +153,9 @@ def rodar_comparacao(argumentos: argparse.Namespace) -> None:
             linhas.append(linha)
             print(json.dumps(linha, ensure_ascii=False), flush=True)
     (DADOS / "comparacao.json").write_text(json.dumps(linhas, ensure_ascii=False, indent=1) + "\n")
+
+
+def rodar_entrega(argumentos: argparse.Namespace) -> None:
+    from classificacao.v2.entrada import entrega
+
+    entrega.rodar(argumentos.zip, argumentos.saida, argumentos.repeticoes)
