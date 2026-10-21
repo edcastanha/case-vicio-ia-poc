@@ -4,7 +4,7 @@
 
 ## O que fiz e o resultado
 
-Montei um sistema que aprende com as **100 questões que a sua equipe classificou**. Ele compara cada questão nova com essas 100, com uma descrição de cada tema e com as leis que ela cita, e só publica quando a chance de acerto, medida nos exemplos da equipe, é alta. **⟨publicadas⟩ das 559 questões avaliadas vão direto ao aluno**, e as demais vão à sua fila com uma sugestão. Espero que **⟨precisão⟩ em cada 100 publicadas** estejam certas. Nenhum sistema de inteligência artificial escolhe o tema: ele só ajudou a escrever as descrições dos temas antes, e eu as revisei.
+Montei um sistema que aprende com as **100 questões que a sua equipe classificou**. Ele compara cada questão nova com essas 100, com uma descrição de cada tema e com as leis que ela cita, e só publica quando a chance de acerto, medida nos exemplos da equipe, é alta. **125 das 559 questões avaliadas (22%) vão direto ao aluno**, e as demais vão à sua fila com uma sugestão. Espero que **97 em cada 100 publicadas** estejam certas, e o número real deve ficar entre 78 e 100: com 100 exemplos, não dá para prometer mais do que isso. Nenhum sistema de inteligência artificial escolhe o tema: ele só ajudou a escrever, antes, as descrições dos temas, que passam por revisão humana.
 
 ## O que recomendo mudar nos temas
 

@@ -38,7 +38,7 @@ Requer [uv](https://docs.astral.sh/uv/).
 ```bash
 uv sync
 uv run pytest                          # testes (nenhum chama rede nem modelo)
-uv run classificacao v2 entrega        # regenera publicacao.csv e previsao.txt (⟨tempo⟩ s, sem rede)
+uv run classificacao v2 entrega        # regenera publicacao.csv e previsao.txt (~65 s na CPU, sem rede)
 ```
 
 Só isso gera a entrega. Os comandos abaixo **refazem os artefatos** de `dados/v2/`, que já estão versionados:
@@ -67,7 +67,7 @@ A análise dos dados crus está no notebook [`notebooks/01_analise_dos_dados.ipy
 
 ## Decisões tomadas à mão
 
-- ⟨revisão dos 30 Temas⟩
+- **Revisão dos Temas enriquecidos:** a planilha `dados/v2/revisao_temas.csv` (30 Nós: os 16 dos Temas duplicados e as 14 maiores Lixeiras) está com o autor para revisão; as correções entram como uma nova versão do enriquecimento.
 - **Dicionário de leis** e **regra de Fora para Direito Penal Militar** (a árvore não tem a disciplina; as demais origens erradas não bastam para Fora, por exemplo a Q0016, que vem como Constitucional e é sobre prisão).
 - **Alvo de 0,96** para a taxa suavizada no limiar (ADR 0008): 0,97 exigiria 32 acertos seguidos com 100 rótulos, e o Ranqueador chega a 26 a 30.
 - Nenhuma linha do `publicacao.csv` foi editada à mão.
@@ -78,6 +78,7 @@ Clean Architecture em `src/classificacao/v2/`, com dependências apontando para 
 
 ## Custo e tempo
 
-- **Entrega:** ⟨tempo⟩ s na CPU, sem rede.
-- **Enriquecimento:** ~19 chamadas `claude -p sonnet` (assinatura), uma única vez.
-- **Embeddings:** ⟨tempo⟩ min na CPU para cada modelo, uma vez.
+- **Entrega:** ~65 s na CPU de 4 núcleos, sem rede, com saída idêntica a cada rodada (a maior parte é a validação cruzada e o bootstrap da previsão).
+- **Enriquecimento:** 19 lotes de `claude -p sonnet` (assinatura, sem custo por chamada), cerca de 1 hora, uma única vez.
+- **Embeddings:** uma vez, na CPU: bge-m3, 23 min (Questões) e 10 min (Nós); e5-base, 7 e 3 min.
+- **Comparação:** ~6 min na CPU (`classificacao v2 comparar`).

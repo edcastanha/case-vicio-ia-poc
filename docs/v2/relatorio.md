@@ -1,77 +1,84 @@
 # Relatório v2: um sistema de classificação sem modelo de linguagem na decisão
 
-> **Em resumo.** ⟨publicadas⟩ das 559 Questões avaliadas (⟨cobertura⟩) vão direto ao aluno. Prevejo que ⟨precisão⟩ delas estejam certas (⟨intervalo⟩). Quem decide é um Ranqueador treinado nos 100 exemplos da equipe. Nenhum modelo de linguagem escolhe, vota ou valida o Tema, e `uv run classificacao v2 entrega` regenera tudo em segundos, sem rede.
+> **Em resumo.** 125 das 559 Questões avaliadas (22%) vão direto ao aluno. Prevejo que 97 em cada 100 delas estejam certas (intervalo de 0,78 a 1,00). Quem decide é um Ranqueador treinado nas 100 Questões da equipe. Nenhum modelo de linguagem escolhe, vota ou valida o Tema, e `uv run classificacao v2 entrega` regenera os dois arquivos em cerca de um minuto, na CPU, sem rede, com saída idêntica a cada rodada.
 
 ## a) O sistema, peça por peça
 
-O problema não é achar o Tema de cada Questão: é saber **quando o sistema pode confiar em si mesmo**. Por isso cada peça existe para gerar um sinal que separa acerto de erro, e a decisão é de um modelo pequeno, calibrado nos exemplos da equipe.
+O difícil não é achar um Tema provável: é saber **quando o sistema pode confiar em si mesmo**. Cada peça gera um sinal que ajuda a separar acerto de erro, e a decisão é de um modelo pequeno, calibrado nos exemplos da equipe.
 
 | Peça | O que faz | Por que está ali |
 |---|---|---|
-| Limpeza do texto | Só o texto que o aluno lê (sem CSS do Word nem caracteres invisíveis) | Herdada da v1; o lixo do HTML distorce qualquer sinal |
-| Temas enriquecidos | Um modelo de linguagem descreveu os 371 Nós (o que entra, o que não entra, termos, leis), **vendo só a Árvore**, com prompt versionado | 333 dos 377 temas tinham descrição automática ("44 questões no source"), sem nada que separe um Tema do vizinho |
-| Embeddings locais | Vetores das Questões e dos Temas enriquecidos, gerados na CPU por modelos abertos e guardados no repositório | Similaridade de assunto, sem custo nem cota, reproduzível por qualquer um |
-| Leis citadas | Regex para "Lei nº 11.340/2006", "Lei Maria da Penha", "LEP"… e um dicionário de 29 leis para os seus Nós | Uma lei citada diz o assunto. Aparece em 113 Questões e aponta o Ramo certo em 9 de 13 exemplos |
-| Origem para Nó | O assunto de origem, sem "(Parte 01)", casado com o título de um Nó | Sinal barato, mas fraco: certo em 22 de 92 exemplos |
-| Vizinhas da Folha-verdade | As 5 Questões rotuladas mais parecidas votam no Nó pela Régua | É o que ensina a **convenção da equipe**, como LEP em Legislação Especial |
-| Candidatos | Top-10 por similaridade, mais os Nós das leis, da Origem e das vizinhas, mais o pai de cada Subtema | Poucos Nós por Questão, e o pai sempre disponível para a dúvida entre irmãos |
-| Ranqueador | ⟨tipo vencedor⟩ sobre 11 sinais por Candidato | Aprende quanto confiar em cada sinal |
-| Decisão | Publica acima do limiar calibrado; Tema duplicado só com exemplo da equipe; Direito Penal Militar é Fora | Regras curtas, testadas, sem modelo |
+| Limpeza do texto | Mantém só o que o aluno lê | Vem da v1; o lixo do HTML distorce qualquer sinal |
+| Temas enriquecidos | `claude -p` descreveu os 371 Nós (o que entra, o que não entra, termos, leis) **vendo só a Árvore**, com prompt versionado | 333 temas tinham descrição automática ("44 questões no source") |
+| Embeddings locais | Vetores das Questões e dos Temas, gerados uma vez na CPU e versionados | Similaridade de assunto, sem custo nem cota |
+| Leis citadas | Número ou apelido, com um dicionário de 29 leis | A lei diz o assunto; certa em 9 de 13 exemplos |
+| Origem → Nó | O assunto do site casado com o título de um Nó | Sinal fraco: certo em 22 de 92 exemplos |
+| Vizinhas | As 5 Questões rotuladas mais parecidas votam pela Régua | Ensinam a **convenção da equipe** |
+| Candidatos | Top-10 por similaridade, mais leis, Origem, vizinhas e o pai de cada Subtema | O Gabarito está entre eles em 90 de 92 exemplos |
+| Ranqueador por Ramo | Regressão logística com 11 sinais estima a chance de cada Candidato **ser o Gabarito**; cada Nó é pontuado pela soma das chances do seu Ramo | Pela Régua, o Tema pai acerta qualquer Subtema; a dúvida entre irmãos sobe para ele sem regra especial |
+| Decisão | Publica acima do limiar; Tema duplicado só com exemplo da equipe; Direito Penal Militar é Fora | Regras curtas e testadas |
 
-**O que testei e descartei**
+**O que testei e descartei.** A métrica é a da Régua: publicadas e acertos fora do fold no limiar de maior cobertura com taxa suavizada ≥ 0,96.
 
-| Tentativa | Resultado | O que ficou |
-|---|---|---|
-| ⟨tabela da comparação: similaridade pura, kNN, logística, MLP × bge-m3, e5-base⟩ | | |
-| Exigir limite inferior de Wilson ≥ 0,95 | Exigiria 73 acertos sem nenhum erro; zera a cobertura com 100 rótulos | Taxa suavizada ≥ 0,97 (ADR 0008) |
-| Usar os votos dos LLMs da v1 como sinal | Seria um modelo de linguagem votando por tabela | Fora da v2 |
-| Embeddings por API (Gemini) | Cota e custo; a v1 parou na 29ª Questão por cota | Modelos locais |
+| Ranqueador | bge-m3: top-1 | bge-m3: publicadas | e5-base: top-1 | e5-base: publicadas |
+|---|---|---|---|---|
+| Similaridade pura | 0,58 | 0 | 0,56 | 0 |
+| kNN na Folha-verdade | 0,31 | 0 | 0,26 | 0 |
+| Regressão logística ("certo pela Régua") | 0,63 | 0 | 0,69 | 0 |
+| MLP pequeno | 0,60 | 0 | 0,67 | 0 |
+| **Logística por massa do Ramo** | 0,66 | **28 de 28** | 0,73 | 0 |
+| Por Ramo, sem a Origem | 0,65 | 27 de 27 | 0,74 | 0 |
+
+O e5-base acerta mais no top-1, mas espalha os erros pelo topo da lista. O que a Régua exige é um topo limpo, e é aí que o bge-m3 por Ramo ganha. Também descartei: sinais extras da hierarquia (aumentam o top-1, mas puxam um erro para a 17ª posição); votos dos LLMs da v1 (seriam um modelo de linguagem votando por tabela); embeddings por API (cota e custo).
 
 ## b) Os 100 rótulos
 
-**Como usei.** Todos em validação cruzada estratificada (10 folds, por disciplina e Fora). Cada Questão foi pontuada por um Ranqueador que não a viu, e o kNN só enxergava as Questões de treino do fold. Essas pontuações fora do fold escolheram o Ranqueador, o limiar e a curva de confiança, e são a base da previsão. Não separei um holdout: com 100 rótulos para 371 Nós, tirar 30 deixaria o treino pobre e o teste com intervalo ainda mais largo.
+**Como usei.** Todos em validação cruzada estratificada (10 folds, por disciplina e Fora), sem holdout: com 371 Nós, separar 30 deixaria o treino pobre e o teste ainda mais incerto. Cada Questão foi pontuada por um Ranqueador que não a viu, e o kNN só via as Questões de treino do fold. Essas pontuações escolheram o Ranqueador, o limiar e a confiança, e são a base da previsão.
 
-**O que mostraram sobre o sistema.** ⟨acerto do top-1, publicadas e acertos fora do fold, cobertura; ablação sem Origem⟩
+**O que mostraram sobre o sistema.** As 28 Questões de pontuação mais alta estão todas certas. Depois, os erros aparecem logo. Esse é o limite do que 100 rótulos provam: o limite inferior de Wilson ≥ 0,95 exigiria 73 acertos sem erro, e mesmo o alvo de 0,97 exigiria 32. Por isso o alvo é a taxa suavizada ≥ 0,96, com o intervalo largo declarado (ADR 0008). Sem a Origem, o resultado quase não muda (27 de 27), o que importa porque as Questões novas quase não têm Origem útil.
 
 **O que mostraram sobre a convenção da equipe**
 
-- **Fora é mais amplo do que parece.** 8 de 100 são Fora, inclusive Questões que caberiam em "Teoria da Pena" ("Sobre a fixação da pena…"). A v1, com dois LLMs votando, publicou 4 delas, e medida contra a Folha-verdade acertou 75 de 83 publicadas (0,90), abaixo da Régua.
-- **Execução penal vai para a LEP, quase sempre em Legislação Especial.** A equipe usou a LEP 4 vezes em Legislação Especial e uma em Processo Penal. A convenção existe, mas não é absoluta.
-- **Os exemplos cobrem pouco da árvore.** São 61 Nós distintos de 371. Nos outros, a decisão depende do Tema enriquecido e das leis.
-- **Os 100 são todos antigos (Q0001–Q0359).** Nas 300 novas, a Origem vira Nó em 19% das Questões, contra 59% nas antigas. É a maior fonte de incerteza da previsão.
+- **Fora é mais amplo do que parece.** 8 de 100 são Fora, inclusive questões sobre fixação da pena. Os dois erros mais confiantes do sistema são esses. A v1, com dois LLMs votando, publicou 4 deles e ficou em 0,90 na Folha-verdade.
+- **Execução penal vai para a LEP**, quase sempre em Legislação Especial (4 vezes contra 1 em Processo Penal).
+- **Os exemplos cobrem 61 dos 371 Nós.** Nos outros, quem decide é o Tema enriquecido.
+- **Os 100 são antigos (Q0001–Q0359).** A Origem vira Nó em 59% das antigas e em 19% das novas.
 
 ## c) Diagnóstico
 
-**Nos temas.** Oito temas existem em duas disciplinas. 333 descrições são automáticas, e a contagem que trazem empurra para as Lixeiras: "Sistemas e Princípios Processuais Penais" (538), "Teoria da Pena" (453), "Introdução ao Estudo do Direito Penal" (424). Há ainda fatias como "Teoria da Pena (Parte 1)" sem descrição, e erros de cadastro ("Escolas Crimonológicas").
+**Nos temas.** Oito temas existem em duas disciplinas, e um nono tem título com erro de digitação ("Estaturo de Idoso"), por isso nem é reconhecido como duplicado. 333 descrições são automáticas, e a contagem que trazem empurra para as Lixeiras ("Teoria da Pena", 453; "Sistemas e Princípios Processuais Penais", 538). Fatias de apostila ("Teoria da Pena (Parte 1)") viraram Nós.
 
-**Nas questões.** A Origem engana (Q0016 vem como Constitucional e é sobre prisão), traz disciplinas fora da árvore (Penal Militar) e fatia assuntos como apostila. 94 Questões não têm comando.
+**Nas questões.** A Origem engana (a Q0016 vem como Constitucional e é sobre prisão) e traz disciplinas fora da árvore (Penal Militar). 94 Questões não têm comando.
 
-**O que o sistema ainda erra, e o que resolveria**
+**O que o sistema ainda erra (os 34 erros do top-1 fora do fold)**
 
-| Tipo de Questão | Por que erra | O que resolveria |
+| Tipo | Exemplos | O que resolveria |
 |---|---|---|
-| ⟨tipos, a partir dos erros fora do fold⟩ | | |
-| Multitemática (cada assertiva de um assunto) | Não existe "o" tema central | Regra da equipe (pedido ao Professor) |
-| Contexto diferente do assunto (Q0120) | O enunciado fala de um crime, e quem decide é a regra processual | Mais exemplos rotulados desse padrão |
-| Tema sem nenhum exemplo | O kNN não tem voto, sobra a similaridade | Rótulos do Professor nesses Temas (aprendizado ativo) |
+| Fora pela equipe, posto num Tema genérico | Q0043 e Q0252, em "Teoria da Pena" | O critério de Fora da equipe (pedido ao Professor) e mais exemplos de Fora |
+| Lixeira atrai o específico | LEP e teorias da pena da Criminologia caem em "Teoria da Pena" | Descrição do Tema aprovada pelo Professor; mais exemplos de LEP |
+| Homônimos entre disciplinas | Tráfico, LEP, Juizado, Estatuto do Idoso | Decidir o lado de cada um (memo) |
+| Contexto diferente do assunto | Q0316 e Q0202: o enunciado fala do crime, o tema é Erro de Tipo | Exemplos rotulados desse padrão |
+| Temas vizinhos | Provas em Espécie e Teoria Geral das Provas; Sentença e Recursos | Descrições que digam o que não entra (já enriquecidas) e mais exemplos |
+
+Os erros de pontuação alta são quase todos dos dois primeiros tipos. Os de pontuação baixa já vão para a fila.
 
 ## d) Produção: 50 mil questões por semana
 
-**Custo e tempo.** A decisão roda na CPU: sinais, Ranqueador e regra levam ⟨tempo⟩ para 659 Questões, ou seja, minutos para 50 mil. O único custo por Questão nova é o embedding, zero com o modelo local, numa máquina comum. O enriquecimento dos Temas só roda de novo quando a árvore muda. **O gargalo é o tempo do Professor**, não a máquina.
+**Custo e tempo.** A decisão roda na CPU: 659 Questões levam ~1 minuto (dominado pela validação cruzada e pelo bootstrap; a decisão em si leva segundos). O embedding de cada Questão nova é local: ~2 s por Questão na CPU de 4 núcleos usada aqui, ou seja, ~28 horas por semana para 50 mil numa máquina comum, ou minutos numa GPU modesta, sem custo por chamada. O enriquecimento só roda quando a árvore muda. **O gargalo é o Professor:** com a cobertura de hoje, ~78% vão para a fila.
 
 **Como a correção do Professor vira treino**
 
-1. Cada Questão revisada vira um par (Questão, Nó certo). Ela entra no índice do kNN no mesmo dia: o kNN não precisa de treino.
-2. **Auditoria semanal às cegas:** 50 publicadas sorteadas. São os únicos rótulos sem viés de seleção, e só eles medem a precisão. A fila só traz as Questões difíceis.
-3. A fila é ordenada por incerteza (aprendizado ativo): o Professor rotula primeiro o que mais ensina.
+1. Cada Questão revisada vira um par (Questão, Nó certo) e entra no índice das vizinhas no mesmo dia.
+2. **Auditoria semanal às cegas:** 50 publicadas sorteadas. São os únicos rótulos sem viés de seleção, e só eles medem a precisão; a fila só traz as difíceis.
+3. A fila é ordenada pela incerteza do Ranqueador (aprendizado ativo), e os Temas sem exemplo entram primeiro.
 
-**De quanto em quanto tempo retreinar.** Toda semana, com as revisões e a auditoria, porque o treino leva segundos. O limiar é recalibrado na janela das últimas 4 semanas. Há retreino extra quando a árvore muda (o enriquecimento roda de novo para os Nós afetados), quando a auditoria tem 3 erros ou mais em 50 (a publicação automática para), quando a distribuição dos sinais de um lote de importação muda mais de 5 pontos, e quando um Tema recebe o dobro da taxa normal de reportes.
+**De quanto em quanto tempo retreinar.** Toda semana, porque o treino leva segundos, com o limiar recalibrado na janela das últimas semanas. Com ~200 rótulos auditados, o critério passa ao limite inferior do intervalo (ADR 0008). Há retreino extra quando a árvore muda, quando a auditoria tem 3 erros ou mais em 50 (a publicação automática para), quando os sinais de um lote de importação mudam mais de 5 pontos e quando um Tema recebe o dobro da taxa normal de reportes.
 
 ## O que faria com mais tempo
 
-1. Mais rótulos nos Temas sem exemplo, por aprendizado ativo.
-2. Validação aninhada para escolher os sinais sem nenhum otimismo.
-3. Ajustar o modelo de embeddings (fine-tuning) com os rótulos acumulados.
+1. Mais exemplos de Fora e de Temas sem exemplo, pedidos ao Professor por aprendizado ativo.
+2. Validação aninhada para escolher sinais e hiperparâmetros sem otimismo.
+3. Ajustar o modelo de embeddings com os rótulos acumulados.
 
 ## e) Memo ao professor
 
