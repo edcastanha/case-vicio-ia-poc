@@ -1,8 +1,8 @@
 # Amostra de calibração rotulada por um agente jurídico especializado, sem arbitragem
 
-Substitui o ADR 0004. As 50 Questões da Amostra de calibração (`dados/rotulagem.csv`) foram rotuladas uma a uma por um agente de IA especializado (GPT 5.6 Terra, da OpenAI), com uma skill feita para questões jurídicas, conduzido pelo autor do case. A coluna `resposta` tem o Nó escolhido, e a `observacao` tem a justificativa de cada escolha. Não houve um especialista humano em Direito: o case não tinha acesso a um advogado ou professor da área para a rotulagem.
+Substitui o ADR 0004. As 50 Questões da Amostra de calibração (`dados/v1/rotulagem.csv`) foram rotuladas uma a uma por um agente de IA especializado (GPT 5.6 Terra, da OpenAI), com uma skill feita para questões jurídicas, conduzido pelo autor do case. A coluna `resposta` tem o Nó escolhido, e a `observacao` tem a justificativa de cada escolha. Não houve um especialista humano em Direito: o case não tinha acesso a um advogado ou professor da área para a rotulagem.
 
-A arbitragem do ADR 0004 foi descartada, com o `classificacao consolidar`, a planilha A/B e o Conflito. Ela existia para um humano decidir só onde o Rotulador e o pipeline divergiam, e esse humano não existe neste case. O Rotulador continua como segunda opinião às cegas: `classificacao rotular` grava `dados/rotulador.json` e mede quantas respostas dele caem no Ramo do rótulo da Amostra. Ele não gera rótulo.
+A arbitragem do ADR 0004 foi descartada, com o `classificacao v1 consolidar`, a planilha A/B e o Conflito. Ela existia para um humano decidir só onde o Rotulador e o pipeline divergiam, e esse humano não existe neste case. O Rotulador continua como segunda opinião às cegas: `classificacao v1 rotular` grava `dados/v1/rotulador.json` e mede quantas respostas dele caem no Ramo do rótulo da Amostra. Ele não gera rótulo.
 
 ## O que os rótulos mostraram
 

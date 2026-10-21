@@ -1,0 +1,360 @@
+id,decisao,tema_central_id,extras_ids,confianca,motivo
+Q0001,publicar,5527,5528,0.97,
+Q0002,publicar,4378,,0.97,
+Q0003,publicar,5534,5562,0.97,
+Q0004,publicar,5484,5483,0.97,
+Q0005,publicar,5199,5203,0.97,
+Q0006,publicar,5157,5159,0.97,
+Q0007,revisar,5468,,0.67,classificador e verificador discordam
+Q0008,revisar,5201,,0.67,classificador e verificador discordam
+Q0009,publicar,5158,5159,0.97,
+Q0010,revisar,4688,,0.67,classificador e verificador discordam
+Q0011,revisar,4702,,0.67,classificador e verificador discordam
+Q0012,publicar,5569,5562,0.97,
+Q0013,publicar,5503,,0.97,
+Q0014,publicar,5477,,0.97,
+Q0015,publicar,5498,5500,0.97,
+Q0016,publicar,5584,5519;5586,0.97,
+Q0017,revisar,5533,5531,0.75,um dos modelos declarou dúvida
+Q0018,publicar,5540,,0.97,
+Q0019,revisar,5475,,0.83,tema duplicado na árvore
+Q0020,revisar,5203,5159,0.67,classificador e verificador discordam
+Q0021,publicar,5503,,0.97,
+Q0022,publicar,5089,,0.97,
+Q0023,publicar,5524,5526;5527;5528,0.97,
+Q0024,publicar,4388,4379;4387,0.97,
+Q0025,publicar,5101,5093,0.97,
+Q0026,revisar,4704,,0.67,classificador e verificador discordam
+Q0027,publicar,5487,5489,0.97,
+Q0028,publicar,5526,5527,0.97,
+Q0029,revisar,4684,,0.83,tema duplicado na árvore
+Q0030,publicar,5135,,0.97,
+Q0031,publicar,4385,,0.97,
+Q0032,publicar,5497,5500,0.97,
+Q0033,publicar,5519,,0.97,
+Q0034,publicar,5477,,0.97,
+Q0035,publicar,4706,,0.97,
+Q0036,revisar,6724,5471,0.67,classificador e verificador discordam
+Q0037,revisar,5118,5081;5132,0.75,um dos modelos declarou dúvida
+Q0038,publicar,5549,,0.97,
+Q0039,revisar,4695,,0.67,classificador e verificador discordam
+Q0040,revisar,5529,5515,0.67,classificador e verificador discordam
+Q0041,publicar,5184,,0.97,
+Q0042,publicar,5222,,0.97,
+Q0043,publicar,5199,5203;5204,0.97,
+Q0044,publicar,5488,,0.97,
+Q0045,publicar,5091,,0.97,
+Q0046,publicar,5509,5511,0.97,
+Q0047,publicar,5164,,0.97,
+Q0048,publicar,5193,4703,0.97,
+Q0049,publicar,5152,,0.97,
+Q0050,revisar,4708,5557;6728,0.83,tema duplicado na árvore
+Q0051,publicar,5182,,0.97,
+Q0052,revisar,4703,,0.83,tema duplicado na árvore
+Q0053,publicar,5541,5542,0.97,
+Q0054,publicar,5174,,0.97,
+Q0055,publicar,5550,5535,0.97,
+Q0056,publicar,5066,5069,0.97,
+Q0057,publicar,5176,5175,0.97,
+Q0058,revisar,4378,,0.67,classificador e verificador discordam
+Q0059,revisar,4388,,0.67,classificador e verificador discordam
+Q0060,publicar,5093,5096,0.97,
+Q0061,revisar,6734,,0.67,classificador e verificador discordam
+Q0062,publicar,5182,,0.97,
+Q0063,revisar,4704,,0.83,tema duplicado na árvore
+Q0064,publicar,5165,,0.97,
+Q0065,publicar,5161,,0.97,
+Q0066,publicar,4373,,0.97,
+Q0067,publicar,5091,,0.97,
+Q0068,publicar,5096,,0.97,
+Q0069,publicar,5173,,0.97,
+Q0070,publicar,5193,5201,0.97,
+Q0071,revisar,4688,,0.67,classificador e verificador discordam
+Q0072,publicar,5592,5595,0.97,
+Q0073,publicar,5087,5084,0.97,
+Q0074,publicar,5181,6734,0.97,
+Q0075,publicar,5191,,0.97,
+Q0076,publicar,4373,4372,0.97,
+Q0077,revisar,5170,5194,0.75,um dos modelos declarou dúvida
+Q0078,publicar,4697,,0.97,
+Q0079,publicar,5581,,0.97,
+Q0080,publicar,4370,,0.97,
+Q0081,publicar,4373,,0.97,
+Q0082,publicar,5100,,0.97,
+Q0083,publicar,5218,5222,0.97,
+Q0084,revisar,4704,,0.83,tema duplicado na árvore
+Q0085,publicar,5076,5091,0.97,
+Q0086,publicar,5092,,0.97,
+Q0087,revisar,4703,5521;6734,0.83,tema duplicado na árvore
+Q0088,publicar,4389,4381,0.97,
+Q0089,revisar,5172,,0.67,classificador e verificador discordam
+Q0090,revisar,5530,,0.75,um dos modelos declarou dúvida
+Q0091,publicar,5201,4703,0.97,
+Q0092,publicar,5511,,0.97,
+Q0093,publicar,5223,5142,0.97,
+Q0094,publicar,4388,,0.97,
+Q0095,publicar,5197,5077;5150,0.97,
+Q0096,publicar,5480,,0.97,
+Q0097,revisar,4708,4702,0.67,classificador e verificador discordam
+Q0098,publicar,5548,,0.97,
+Q0099,publicar,5100,5077,0.97,
+Q0100,publicar,5103,5224,0.97,
+Q0101,revisar,4704,6724,0.83,tema duplicado na árvore
+Q0102,publicar,5572,5574,0.97,
+Q0103,publicar,5478,,0.97,
+Q0104,revisar,5500,5499,0.67,classificador e verificador discordam
+Q0105,publicar,4388,4378;4387,0.97,
+Q0106,publicar,5166,,0.97,
+Q0107,publicar,5119,,0.97,
+Q0108,publicar,5561,5188,0.97,
+Q0109,revisar,4708,,0.83,tema duplicado na árvore
+Q0110,revisar,5484,5482;5483,0.67,classificador e verificador discordam
+Q0111,publicar,4373,,0.97,
+Q0112,revisar,4705,,0.67,classificador e verificador discordam
+Q0113,revisar,5190,,0.67,classificador e verificador discordam
+Q0114,revisar,5507,5181;5471;6724,0.67,classificador e verificador discordam
+Q0115,publicar,4388,4387,0.97,
+Q0116,revisar,4708,,0.83,tema duplicado na árvore
+Q0117,publicar,4384,5200,0.97,
+Q0118,publicar,5507,5519,0.97,
+Q0119,publicar,5194,5181,0.97,
+Q0120,revisar,5533,,0.67,classificador e verificador discordam
+Q0121,revisar,5472,,0.83,tema duplicado na árvore
+Q0122,revisar,4703,,0.83,tema duplicado na árvore
+Q0123,revisar,4377,4379;4388,0.75,um dos modelos declarou dúvida
+Q0124,publicar,4384,,0.97,
+Q0125,publicar,5181,4708,0.97,
+Q0126,publicar,5182,,0.97,
+Q0127,revisar,5575,,0.67,classificador e verificador discordam
+Q0128,revisar,5466,5184,0.83,tema duplicado na árvore
+Q0129,publicar,5550,,0.97,
+Q0130,publicar,5160,5205,0.97,
+Q0131,publicar,5072,5073;5074,0.97,
+Q0132,publicar,5543,5549,0.97,
+Q0133,revisar,5528,,0.67,classificador e verificador discordam
+Q0134,publicar,5092,,0.97,
+Q0135,publicar,5169,,0.97,
+Q0136,revisar,4704,5131,0.67,classificador e verificador discordam
+Q0137,publicar,5498,,0.97,
+Q0138,publicar,5205,5207,0.97,
+Q0139,publicar,5211,,0.97,
+Q0140,publicar,5157,5159;5160,0.97,
+Q0141,publicar,4385,,0.97,
+Q0142,fora,,,0.50,nenhum nó da árvore serve
+Q0143,publicar,5507,,0.97,
+Q0144,publicar,5562,5529,0.97,
+Q0145,revisar,4702,4695;5084,0.83,tema duplicado na árvore
+Q0146,publicar,5594,5555,0.97,
+Q0147,publicar,5500,5502;5556;5557,0.97,
+Q0148,publicar,5199,,0.97,
+Q0149,publicar,5500,,0.97,
+Q0150,revisar,4708,,0.67,classificador e verificador discordam
+Q0151,publicar,5523,5521;5522,0.97,
+Q0152,revisar,5472,,0.83,tema duplicado na árvore
+Q0153,publicar,5218,,0.97,
+Q0154,fora,,,0.50,nenhum nó da árvore serve
+Q0155,revisar,4703,6734,0.83,tema duplicado na árvore
+Q0156,revisar,4688,,0.83,tema duplicado na árvore
+Q0157,publicar,5520,4693,0.97,
+Q0158,publicar,4707,5209,0.97,
+Q0159,revisar,5226,5177,0.67,classificador e verificador discordam
+Q0160,publicar,5205,,0.97,
+Q0161,publicar,5588,5518;5554;5589,0.97,
+Q0162,revisar,4381,,0.75,um dos modelos declarou dúvida
+Q0163,revisar,5133,4703,0.67,classificador e verificador discordam
+Q0164,revisar,4703,,0.83,tema duplicado na árvore
+Q0165,revisar,4705,,0.67,classificador e verificador discordam
+Q0166,revisar,5521,,0.67,classificador e verificador discordam
+Q0167,publicar,5528,5486,0.97,
+Q0168,fora,,,0.50,nenhum nó da árvore serve
+Q0169,publicar,5492,,0.97,
+Q0170,publicar,5203,,0.97,
+Q0171,revisar,4693,,0.75,um dos modelos declarou dúvida
+Q0172,revisar,5484,5188,0.67,classificador e verificador discordam
+Q0173,revisar,4703,,0.83,tema duplicado na árvore
+Q0174,revisar,5166,4709,0.67,classificador e verificador discordam
+Q0175,publicar,5092,5091;5093,0.97,
+Q0176,publicar,5081,,0.97,
+Q0177,publicar,5547,,0.97,
+Q0178,publicar,4697,,0.97,
+Q0179,publicar,4369,,0.97,
+Q0180,revisar,5554,,0.67,classificador e verificador discordam
+Q0181,publicar,4695,,0.97,
+Q0182,revisar,5138,,0.67,classificador e verificador discordam
+Q0183,revisar,5561,,0.67,classificador e verificador discordam
+Q0184,revisar,4708,5518,0.83,tema duplicado na árvore
+Q0185,revisar,4703,6734,0.83,tema duplicado na árvore
+Q0186,publicar,5202,,0.97,
+Q0187,revisar,5201,5092,0.67,classificador e verificador discordam
+Q0188,publicar,5231,,0.97,
+Q0189,revisar,5472,,0.83,tema duplicado na árvore
+Q0190,publicar,5539,5541;5542,0.97,
+Q0191,publicar,5560,5561;5567,0.97,
+Q0192,publicar,5087,5081;5089,0.97,
+Q0193,publicar,5557,,0.97,
+Q0194,publicar,5076,5089,0.97,
+Q0195,publicar,4373,,0.97,
+Q0196,publicar,4388,4378,0.97,
+Q0197,revisar,5498,5499,0.67,classificador e verificador discordam
+Q0198,publicar,5073,,0.97,
+Q0199,revisar,5218,5221;5230,0.75,um dos modelos declarou dúvida
+Q0200,revisar,4705,,0.67,classificador e verificador discordam
+Q0201,publicar,5103,,0.97,
+Q0202,revisar,5224,,0.67,classificador e verificador discordam
+Q0203,revisar,4702,,0.83,tema duplicado na árvore
+Q0204,publicar,5507,,0.97,
+Q0205,revisar,5567,,0.67,classificador e verificador discordam
+Q0206,publicar,5583,,0.97,
+Q0207,revisar,4703,,0.83,tema duplicado na árvore
+Q0208,revisar,5231,,0.67,classificador e verificador discordam
+Q0209,publicar,5499,5582,0.97,
+Q0210,publicar,4697,4693,0.97,
+Q0211,revisar,5535,5582,0.67,classificador e verificador discordam
+Q0212,publicar,5488,,0.97,
+Q0213,revisar,4708,5533;6728,0.83,tema duplicado na árvore
+Q0214,publicar,5494,,0.97,
+Q0215,publicar,5201,5576,0.97,
+Q0216,revisar,5539,,0.67,classificador e verificador discordam
+Q0217,revisar,4371,4384,0.75,um dos modelos declarou dúvida
+Q0218,publicar,5518,,0.97,
+Q0219,publicar,5072,5071,0.97,
+Q0220,publicar,5501,,0.97,
+Q0221,publicar,5199,5184;5203,0.97,
+Q0222,publicar,4374,,0.97,
+Q0223,publicar,5086,,0.97,
+Q0224,publicar,5199,,0.97,
+Q0225,publicar,5478,,0.97,
+Q0226,publicar,5544,,0.97,
+Q0227,publicar,5103,5104,0.97,
+Q0228,publicar,5208,6734,0.97,
+Q0229,publicar,5584,5519;5520;5586,0.97,
+Q0230,publicar,5214,5071;5184,0.97,
+Q0231,publicar,5224,,0.97,
+Q0232,publicar,5079,5080;5082;5084,0.97,
+Q0233,publicar,5178,5179,0.97,
+Q0234,publicar,4381,4382,0.97,
+Q0235,publicar,5561,,0.97,
+Q0236,revisar,5490,5491;5495,0.67,classificador e verificador discordam
+Q0237,publicar,5178,,0.97,
+Q0238,publicar,5523,,0.97,
+Q0239,publicar,5207,,0.97,
+Q0240,publicar,5500,5473;5501,0.97,
+Q0241,publicar,5224,,0.97,
+Q0242,revisar,5560,,0.67,classificador e verificador discordam
+Q0243,publicar,5178,,0.97,
+Q0244,publicar,5091,,0.97,
+Q0245,publicar,5185,5189,0.97,
+Q0246,publicar,5527,5213,0.97,
+Q0247,publicar,5502,,0.97,
+Q0248,publicar,5087,5092;5100,0.97,
+Q0249,publicar,5492,,0.97,
+Q0250,publicar,5201,,0.97,
+Q0251,publicar,5191,5193,0.97,
+Q0252,publicar,5206,5193;5208,0.97,
+Q0253,publicar,4373,,0.97,
+Q0254,revisar,4704,,0.67,classificador e verificador discordam
+Q0255,publicar,5213,,0.97,
+Q0256,revisar,5214,,0.67,classificador e verificador discordam
+Q0257,revisar,5227,5172;5219,0.75,um dos modelos declarou dúvida
+Q0258,publicar,5545,,0.97,
+Q0259,publicar,5183,,0.97,
+Q0260,revisar,4368,4370;4376,0.67,classificador e verificador discordam
+Q0261,publicar,5136,,0.97,
+Q0262,revisar,4703,6734,0.67,classificador e verificador discordam
+Q0263,publicar,5492,,0.97,
+Q0264,publicar,5102,5103,0.97,
+Q0265,publicar,5185,5066,0.97,
+Q0266,publicar,5482,,0.97,
+Q0267,revisar,4708,,0.67,classificador e verificador discordam
+Q0268,revisar,5118,,0.67,classificador e verificador discordam
+Q0269,revisar,4375,,0.67,classificador e verificador discordam
+Q0270,publicar,5091,5092,0.97,
+Q0271,publicar,5512,5562,0.97,
+Q0272,revisar,4703,,0.83,tema duplicado na árvore
+Q0273,publicar,5089,,0.97,
+Q0274,publicar,5160,,0.97,
+Q0275,publicar,5539,,0.97,
+Q0276,publicar,5543,5547,0.97,
+Q0277,publicar,4696,,0.97,
+Q0278,publicar,5542,,0.97,
+Q0279,publicar,5188,5159;5178,0.97,
+Q0280,publicar,5122,5064;5121,0.97,
+Q0281,revisar,5582,5594,0.67,classificador e verificador discordam
+Q0282,revisar,4704,4690;4697,0.83,tema duplicado na árvore
+Q0283,publicar,5496,,0.97,
+Q0284,publicar,5231,5214;5224,0.97,
+Q0285,publicar,4376,,0.97,
+Q0286,publicar,5199,5202;5203;5204,0.97,
+Q0287,publicar,5228,,0.97,
+Q0288,revisar,5068,,0.67,classificador e verificador discordam
+Q0289,revisar,4704,,0.83,tema duplicado na árvore
+Q0290,publicar,4701,5539,0.97,
+Q0291,revisar,4708,,0.83,tema duplicado na árvore
+Q0292,publicar,4374,,0.97,
+Q0293,publicar,5189,5187,0.97,
+Q0294,publicar,5212,5213;5214,0.97,
+Q0295,publicar,5489,5488,0.97,
+Q0296,revisar,5472,,0.83,tema duplicado na árvore
+Q0297,publicar,4695,4689,0.97,
+Q0298,revisar,4694,,0.67,classificador e verificador discordam
+Q0299,publicar,4388,4373,0.97,
+Q0300,publicar,5084,,0.97,
+Q0301,publicar,5197,,0.97,
+Q0302,publicar,5224,5222,0.97,
+Q0303,publicar,5180,5181,0.97,
+Q0304,publicar,5540,4701;5541;5542,0.97,
+Q0305,revisar,5471,5469;5473,0.83,tema duplicado na árvore
+Q0306,publicar,5146,,0.97,
+Q0307,publicar,4707,,0.97,
+Q0308,publicar,5501,,0.97,
+Q0309,revisar,4688,6717,0.83,tema duplicado na árvore
+Q0310,publicar,5505,5506;5508,0.97,
+Q0311,publicar,5488,,0.97,
+Q0312,publicar,4384,5200,0.97,
+Q0313,publicar,5209,5475;5577,0.97,
+Q0314,publicar,5477,,0.97,
+Q0315,publicar,5189,5187,0.97,
+Q0316,publicar,5224,,0.97,
+Q0317,publicar,5198,5471,0.97,
+Q0318,publicar,5178,5177,0.97,
+Q0319,publicar,5073,5072,0.97,
+Q0320,publicar,5550,,0.97,
+Q0321,publicar,5071,,0.97,
+Q0322,publicar,5561,5531,0.97,
+Q0323,publicar,5590,5547;5557;5593,0.97,
+Q0324,publicar,5199,4703;5184,0.97,
+Q0325,revisar,5467,5473;5494,0.83,tema duplicado na árvore
+Q0326,revisar,4708,6728,0.83,tema duplicado na árvore
+Q0327,publicar,5203,,0.97,
+Q0328,revisar,4382,4381,0.67,classificador e verificador discordam
+Q0329,publicar,5557,4705;6725,0.97,
+Q0330,publicar,5501,,0.97,
+Q0331,publicar,5477,,0.97,
+Q0332,publicar,5541,,0.97,
+Q0333,publicar,4373,,0.97,
+Q0334,publicar,4381,,0.97,
+Q0335,publicar,5221,5222;5223,0.97,
+Q0336,publicar,5159,5177,0.97,
+Q0337,revisar,4684,6716,0.83,tema duplicado na árvore
+Q0338,publicar,5590,5548;5550,0.97,
+Q0339,revisar,5527,,0.67,classificador e verificador discordam
+Q0340,publicar,5071,5074;5076,0.97,
+Q0341,publicar,5157,5164;5166;5169,0.97,
+Q0342,publicar,5546,5545,0.97,
+Q0343,publicar,5196,5195;5472,0.97,
+Q0344,revisar,4688,6717,0.83,tema duplicado na árvore
+Q0345,publicar,5103,5203,0.97,
+Q0346,publicar,5583,,0.97,
+Q0347,publicar,5069,,0.97,
+Q0348,revisar,6719,5182,0.67,classificador e verificador discordam
+Q0349,publicar,5178,,0.97,
+Q0350,revisar,4702,,0.67,classificador e verificador discordam
+Q0351,publicar,5118,,0.97,
+Q0352,publicar,5512,5513;5514,0.97,
+Q0353,revisar,5535,5186,0.67,classificador e verificador discordam
+Q0354,publicar,5218,5226;5227,0.97,
+Q0355,revisar,4708,,0.67,classificador e verificador discordam
+Q0356,publicar,5066,5067;5068;5070,0.97,
+Q0357,publicar,5135,,0.97,
+Q0358,publicar,5133,,0.97,
+Q0359,revisar,4696,4701,0.67,classificador e verificador discordam

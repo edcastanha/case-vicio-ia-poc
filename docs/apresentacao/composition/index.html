@@ -961,7 +961,7 @@
 
     </div>
 
-    <!-- Números: todos saem de #dados-da-entrega, conferido por tests/contrato/test_apresentacao.py -->
+    <!-- Números: todos saem de #dados-da-entrega, conferido por tests/v1/contrato/test_apresentacao.py -->
     <script>
       (function () {
         var dados = JSON.parse(document.getElementById("dados-da-entrega").textContent);
@@ -996,7 +996,7 @@
         });
         window.__dadosDaEntrega = dados;
 
-        // Projeção de produção (ADR 0007): conferida por tests/contrato/test_apresentacao.py
+        // Projeção de produção (ADR 0007): conferida por tests/v1/contrato/test_apresentacao.py
         var projecao = JSON.parse(document.getElementById("projecao-de-producao").textContent);
         var formatos = {
           inteiro: function (v) { return inteiro.format(v); },

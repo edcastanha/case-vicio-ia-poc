@@ -1,6 +1,6 @@
 """Hook do MkDocs: lê os arquivos do repositório e gera as páginas que não existem em docs/.
 
-A lógica fica em classificacao.entrada.site (testada sem I/O); aqui só há leitura de arquivos.
+A lógica fica em classificacao.v1.entrada.site (testada sem I/O); aqui só há leitura de arquivos.
 """
 
 import csv
@@ -8,10 +8,10 @@ from pathlib import Path
 
 from mkdocs.structure.files import File
 
-from classificacao.adaptadores.anexos import ler_arvore, ler_questoes
-from classificacao.adaptadores.arquivos import RegistroEmArquivo
-from classificacao.adaptadores.rotulagem import ler_rotulos
-from classificacao.entrada.site import bloco_da_previsao, corrigir_links, pagina_de_resultados
+from classificacao.nucleo.adaptadores.anexos import ler_arvore, ler_questoes
+from classificacao.v1.adaptadores.arquivos import RegistroEmArquivo
+from classificacao.v1.adaptadores.rotulagem import ler_rotulos
+from classificacao.v1.entrada.site import bloco_da_previsao, corrigir_links, pagina_de_resultados
 
 RAIZ = Path(__file__).resolve().parents[2]
 FONTE_DOS_ROTULOS = "agente jurídico"  # ADR 0006
@@ -20,7 +20,7 @@ REPOSITORIO = "https://github.com/edcastanha/case-vicio-ia-poc"
 PAGINAS_DA_RAIZ = {
     "README.md": "como-rodar.md",
     "GLOSSARY.md": "glossario.md",
-    "dados/README.md": "dados.md",
+    "dados/v1/README.md": "dados.md",
 }
 
 
@@ -35,20 +35,20 @@ def on_files(files, config):
 def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri != "index.md":
         return markdown
-    previsao = RAIZ / "previsao.txt"
+    previsao = RAIZ / "entregas/v1/previsao.txt"
     bloco = bloco_da_previsao(previsao.read_text() if previsao.exists() else None)
     return markdown.replace("<!-- previsao -->", bloco)
 
 
 def _resultados() -> str:
-    zip_anexos = RAIZ / "anexos-case-ia.zip"
-    classificacoes = RegistroEmArquivo(RAIZ / "dados/rodada/classificacoes.jsonl").todas()
+    zip_anexos = RAIZ / "anexos/v1/anexos-case-ia.zip"
+    classificacoes = RegistroEmArquivo(RAIZ / "dados/v1/rodada/classificacoes.jsonl").todas()
     return pagina_de_resultados(
         {c.questao_id: c for c in classificacoes},
         {q.id: q for q in ler_questoes(zip_anexos)},
         ler_arvore(zip_anexos),
-        _entrega(RAIZ / "publicacao.csv"),
-        _amostra(RAIZ / "dados/rotulagem.csv", ler_arvore(zip_anexos)),
+        _entrega(RAIZ / "entregas/v1/publicacao.csv"),
+        _amostra(RAIZ / "dados/v1/rotulagem.csv", ler_arvore(zip_anexos)),
     )
 
 

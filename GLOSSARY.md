@@ -97,7 +97,7 @@ _Avoid_: Juiz (num produto jurídico, sugere uma autoridade que decide; até 18/
 (v1, ADR 0007) Em produção, modelo treinado sobre embeddings que seria um dos dois votos ao lado de um modelo de linguagem. Na v2, deu lugar ao Ranqueador.
 
 **Prompt do papel**:
-Instruções de sistema que um papel (Classificador, Verificador ou Desempatador) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
+Instruções de sistema que um papel (Classificador, Verificador ou Desempatador) recebe antes da Árvore de temas, guardadas em `prompts/v1/<papel>/`.
 _Avoid_: Prompt do sistema, instrução
 
 **Versão do prompt**:

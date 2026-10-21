@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
-classificacao = "classificacao.entrada.cli:main"
+classificacao = "classificacao.cli:main"
 
 [dependency-groups]
 dev = [
