@@ -1,0 +1,14 @@
+precisao_prevista: 0.97
+precisao_intervalo: 0.90-1.00
+cobertura_prevista: 0.69
+cobertura_intervalo: 0.54-0.69
+
+Como chegamos nestes números
+
+Precisão. Antes de ver qualquer resultado, sorteamos uma Amostra de 50 Questões (80% entre as que podiam ser publicadas) e um agente jurídico de IA rotulou cada uma sem saber qual era o voto do pipeline (ADR 0006). Das Questões da Amostra que esta entrega publica, 34 de 34 estão no Ramo do rótulo. O ponto é o menor de dois números: o bootstrap do procedimento inteiro (calibra o limiar numa reamostra e mede a precisão fora dela) e a suavização de Laplace, (34+1)/(34+2). O intervalo junta o do bootstrap (percentis 2,5% e 97,5%) com o de Wilson para 34 de 34. Sem nenhum erro na Amostra, o bootstrap sozinho diria 1,00 sem margem; Laplace e Wilson impedem isso.
+
+Cobertura. O ponto é a fração que esta entrega publica: 249 de 359. O intervalo vem dos limiares que o bootstrap escolheu em cada reamostra: cada limiar daria uma cobertura, e ficam os percentis 2,5% e 97,5%. Só contam Questões que algum limiar publicaria; Tema duplicado e dúvida declarada nunca publicam.
+
+Por que pode estar otimista. O gabarito da Amostra é de um modelo, não da equipe de especialistas, e cada rótulo foi escolhido de uma lista de candidatos que sempre contém os Nós votados pelo pipeline. Os dois vieses puxam a precisão para cima e não estão no intervalo, que só mede o tamanho da Amostra.
+
+Coluna confianca do publicacao.csv. Em publicar, é a taxa de acerto suavizada (Laplace) da faixa de pontuação na Amostra. Em revisar e fora, é a taxa suavizada das Questões da Amostra com a mesma decisão e o mesmo motivo; sem nenhuma na Amostra, 0,50.

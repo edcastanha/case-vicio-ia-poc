@@ -58,47 +58,60 @@ _Avoid_: Rótulo, categoria principal
 Outros Nós que a Questão também cobre, além do Tema central.
 
 **Gabarito**:
-O Tema central atribuído pela equipe de especialistas, usado para avaliar a entrega e nunca visto por nós.
+O Tema central e os Extras atribuídos pela equipe de especialistas às Questões avaliadas, usados para avaliar a entrega e nunca vistos por nós.
 _Avoid_: Ground truth, rótulo verdadeiro
 
+**Folha-verdade**:
+As 100 Questões cujo Gabarito a equipe nos entregou (v2), com Tema central, Extras e a marca de Fora; servem para treinar, calibrar e prever, e não entram na avaliação.
+_Avoid_: Amostra, gabarito conhecido, dataset de treino
+
 **Confiança**:
-Probabilidade estimada de o Tema central estar no mesmo Ramo do Gabarito: a taxa de acerto suavizada (Laplace) do mesmo grupo na Amostra, que é a faixa de pontuação em Publicar e o mesmo motivo em Revisar e Fora. Não confundir com a confiança que cada modelo declara no voto.
+Probabilidade calibrada de o Tema central estar certo pela Régua. Na v2, vem do Ranqueador calibrado na Folha-verdade; na v1, era a taxa de acerto suavizada (Laplace) do mesmo grupo na Amostra de calibração. Não confundir com a confiança que um modelo de linguagem declara no voto (v1).
 
 ## Papéis
 
+**Ranqueador**:
+O sistema que decide na v2: ordena os Candidatos de cada Questão e dá a cada um a probabilidade de estar certo pela Régua, sem chamar nenhum modelo de linguagem.
+_Avoid_: Classificador (é o papel de LLM da v1), modelo, IA
+
+**Candidatos**:
+Os poucos Nós que concorrem ao Tema central de uma Questão, levantados pelos sinais (similaridade, Questões vizinhas da Folha-verdade, lei citada, Origem) antes de o Ranqueador ordenar.
+
+**Tema enriquecido**:
+Nó com descrição do que entra e do que não entra, termos-chave e leis típicas, gerados por modelo de linguagem a partir só da Árvore de temas e guardados como dado revisado.
+
+Os papéis abaixo são de modelos de linguagem e existem só na v1; na v2, nenhum modelo de linguagem escolhe, vota ou valida o Tema.
+
 **Classificador**:
-Primeiro modelo, que propõe o Tema central e os Extras de uma Questão vendo também a Origem.
+(v1) Primeiro modelo, que propõe o Tema central e os Extras de uma Questão vendo também a Origem.
 
 **Verificador**:
-Segundo modelo, que classifica a mesma Questão de forma independente, sem ver a Origem nem a proposta do Classificador.
+(v1) Segundo modelo, que classifica a mesma Questão de forma independente, sem ver a Origem nem a proposta do Classificador.
 _Avoid_: Revisor
 
 **Desempatador**:
-Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor e nunca publica.
+(v1) Terceiro modelo, acionado só quando Classificador e Verificador discordam; escolhe a sugestão que vai para o Professor e nunca publica.
 _Avoid_: Juiz (num produto jurídico, sugere uma autoridade que decide; até 18/10/2026 era esse o nome do papel)
 
 **Classificador treinado**:
-Em produção (ADR 0007), modelo barato treinado sobre embeddings com as revisões do Professor; conta como um dos dois votos independentes e nunca publica sozinho. Não existe no case.
-
-**Candidatos**:
-Em produção (ADR 0007), os ~15 Nós mais próximos da Questão pelos embeddings, enviados aos modelos no lugar da Árvore de temas inteira.
+(v1, ADR 0007) Em produção, modelo treinado sobre embeddings que seria um dos dois votos ao lado de um modelo de linguagem. Na v2, deu lugar ao Ranqueador.
 
 **Prompt do papel**:
-Instruções de sistema que um papel (Classificador, Verificador ou Desempatador) recebe antes da Árvore de temas, guardadas em `prompts/<papel>/`.
+Instruções de sistema que um papel (Classificador, Verificador ou Desempatador) recebe antes da Árvore de temas, guardadas em `prompts/v1/<papel>/`.
 _Avoid_: Prompt do sistema, instrução
 
 **Versão do prompt**:
 Um texto fixo do Prompt do papel (`v1`, `v2`…), identificado em cada voto por `papel/versao@hash`; mudar o texto cria uma versão nova.
 
 **Rotulador**:
-Modelo fora do pipeline que responde a Amostra de calibração às cegas, sem ver Origem nem votos; é segunda opinião, não fonte de rótulo (ADR 0006).
+(v1) Modelo fora do pipeline que responde a Amostra de calibração às cegas, sem ver Origem nem votos; é segunda opinião, não fonte de rótulo (ADR 0006).
 
 **Professor**:
 O especialista humano em Direito que atende a fila de Revisar.
 _Avoid_: Revisor, especialista
 
 **Concordância**:
-Classificador e Verificador apontam Nós do mesmo Ramo para a mesma Questão.
+(v1) Classificador e Verificador apontam Nós do mesmo Ramo para a mesma Questão.
 
 ## Decisão
 
@@ -119,13 +132,13 @@ Trecho do texto de uma Questão que fala com o modelo em vez de com o aluno (ord
 _Avoid_: Ataque, questão maliciosa
 
 **Amostra de calibração**:
-As Questões sorteadas cuja resposta certa é levantada (neste case, por um agente jurídico especializado; ADR 0006) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
+(v1; substituída pela Folha-verdade) As Questões sorteadas cuja resposta certa é levantada (neste case, por um agente jurídico especializado; ADR 0006) para calibrar o limiar e prever a Precisão; substitui o Gabarito, que nunca vemos.
 
 **Régua**:
-Exigência de que pelo menos 95% das Questões publicadas estejam no mesmo Ramo do Gabarito.
+Exigência de que pelo menos 95% das Questões publicadas estejam no mesmo Ramo do Tema central ou de um dos Extras do Gabarito; publicar num Subtema irmão é erro.
 
 **Precisão**:
-Fração das Questões publicadas que estão no mesmo Ramo do Gabarito.
+Fração das Questões publicadas que estão certas pela Régua.
 
 **Cobertura**:
 Fração do total de Questões que recebeu a Decisão Publicar.
