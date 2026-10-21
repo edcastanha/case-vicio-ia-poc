@@ -1,4 +1,4 @@
-scraft/
+.scraft/
 .env
 .venv/
 __pycache__/

@@ -8,6 +8,7 @@ dependencies = [
     "google-genai>=2.31.0",
     "numpy>=2.5.4",
     "openai>=3.31.0",
+    "scikit-learn>=1.9.1",
 ]
 
 [project.scripts]
@@ -19,6 +20,10 @@ dev = [
     "mkdocs-material>=9.7.7",
     "pytest>=8",
     "ruff>=0.6",
+]
+embeddings = [
+    "sentence-transformers>=6.1.0",
+    "torch>=2.14.1",
 ]
 
 [build-system]
@@ -37,3 +42,11 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

@@ -6,7 +6,7 @@ Cada versão do case tem a sua CLI; este módulo só escolhe qual delas recebe o
 import importlib
 import sys
 
-CLI_DA_VERSAO = {"v1": "classificacao.v1.entrada.cli"}
+CLI_DA_VERSAO = {"v1": "classificacao.v1.entrada.cli", "v2": "classificacao.v2.entrada.cli"}
 
 
 def main(argv: list[str] | None = None) -> None:

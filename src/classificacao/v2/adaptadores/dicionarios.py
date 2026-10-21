@@ -1,7 +1,9 @@
 import csv
+import json
 from pathlib import Path
 
 from classificacao.v2.dominio.leis import Lei
+from classificacao.v2.dominio.temas import TemaEnriquecido
 
 
 def ler_leis(caminho: Path) -> list[Lei]:
@@ -16,3 +18,22 @@ def ler_leis(caminho: Path) -> list[Lei]:
             )
             for linha in csv.DictReader(arquivo)
         ]
+
+
+def ler_temas_enriquecidos(caminho: Path) -> dict[int, TemaEnriquecido]:
+    """dados/v2/temas_enriquecidos.jsonl: um Nó por linha; vazio se o arquivo não existe."""
+    if not caminho.exists():
+        return {}
+    temas = {}
+    for linha in caminho.read_text().splitlines():
+        if linha.strip():
+            bruto = json.loads(linha)
+            temas[bruto["no_id"]] = TemaEnriquecido(
+                no_id=bruto["no_id"],
+                descricao=bruto["descricao"],
+                nao_entra=bruto["nao_entra"],
+                termos=tuple(bruto["termos"]),
+                leis=tuple(bruto["leis"]),
+                prompt=bruto["prompt"],
+            )
+    return temas
