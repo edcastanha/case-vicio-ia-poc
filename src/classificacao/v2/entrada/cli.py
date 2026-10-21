@@ -47,8 +47,12 @@ def main(argv: list[str] | None = None) -> None:
     )
     entrega.add_argument("--saida", type=Path, default=Path("."))
     entrega.add_argument("--repeticoes", type=int, default=1000)
+    comandos.add_parser(
+        "revisao-temas", help="planilha com 30 Temas enriquecidos para o autor revisar"
+    )
     argumentos = parser.parse_args(argv)
     {
+        "revisao-temas": rodar_revisao_dos_temas,
         "entrega": rodar_entrega,
         "enriquecer": rodar_enriquecimento,
         "embeddings": rodar_embeddings,
@@ -137,12 +141,16 @@ def rodar_comparacao(argumentos: argparse.Namespace) -> None:
     linhas = []
     for modelo in argumentos.modelos:
         conhecimento = carregar_conhecimento(argumentos.zip, modelo)
-        montar = partial(montar_sinais, conhecimento=conhecimento)
-        for tipo in argumentos.tipos:
+        com_origem = partial(montar_sinais, conhecimento=conhecimento)
+        variantes = [(tipo, "com origem", com_origem) for tipo in argumentos.tipos]
+        # Ablação: as Questões novas quase nunca têm Origem que vire Nó (notebooks/01).
+        variantes += [(t, "sem origem", _sem_origem(com_origem)) for t in ("logistica", "mlp")]
+        for tipo, variante, montar in variantes:
             r = validar(tipo, conhecimento.arvore, questoes, folha, montar, ALVO)
             linha = {
                 "embeddings": modelo,
                 "ranqueador": tipo,
+                "variante": variante,
                 "acerto_do_top1": sum(p.acertou for p in r.previsoes) / len(r.previsoes),
                 "limiar": r.limiar,
                 "publicadas": r.publicadas,
@@ -159,3 +167,38 @@ def rodar_entrega(argumentos: argparse.Namespace) -> None:
     from classificacao.v2.entrada import entrega
 
     entrega.rodar(argumentos.zip, argumentos.saida, argumentos.repeticoes)
+
+
+def _sem_origem(montar):
+    from dataclasses import replace
+
+    from classificacao.v2.aplicacao.montar_sinais import CandidatoComSinais
+
+    def montar_sem_origem(questoes, rotuladas):
+        return {
+            questao_id: [
+                CandidatoComSinais(c.no_id, replace(c.sinais, origem=0.0)) for c in candidatos
+            ]
+            for questao_id, candidatos in montar(questoes, rotuladas).items()
+        }
+
+    return montar_sem_origem
+
+
+def rodar_revisao_dos_temas(argumentos: argparse.Namespace) -> None:
+    import csv
+
+    from classificacao.v2.aplicacao.revisao_dos_temas import (
+        amostra_para_revisao,
+        linhas_da_revisao,
+    )
+
+    arvore = ler_arvore(argumentos.zip)
+    temas = ler_temas_enriquecidos(TEMAS_ENRIQUECIDOS)
+    linhas = linhas_da_revisao(arvore, amostra_para_revisao(arvore), temas)
+    caminho = DADOS / "revisao_temas.csv"
+    with caminho.open("w", newline="") as arquivo:
+        escritor = csv.DictWriter(arquivo, fieldnames=list(linhas[0]))
+        escritor.writeheader()
+        escritor.writerows(linhas)
+    print(f"{len(linhas)} Temas para revisar em {caminho}: marque ok ou escreva a correção")
