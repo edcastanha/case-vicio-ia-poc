@@ -1,7 +1,8 @@
-"""Gera relatorio.pdf na raiz: relatório (seções a–c) e, na última página, o memo ao Professor.
+"""Gera o PDF do relatório de uma versão, com o memo ao Professor na última página.
 
-Uso: uv run python scripts/gerar_relatorio_pdf.py [caminho do Chrome ou Chromium]
-Sem argumento, usa a variável CHROME ou procura chromium/google-chrome no PATH.
+Uso: uv run python scripts/gerar_relatorio_pdf.py {v1,v2} [caminho do Chrome ou Chromium]
+A v2 grava relatorio.pdf na raiz (a entrega vigente); a v1, entregas/v1/relatorio.pdf.
+Sem o caminho, usa a variável CHROME ou procura chromium/google-chrome no PATH.
 """
 
 import os
@@ -52,15 +53,24 @@ def _para_html(texto: str, origem: str) -> str:
     return markdown.markdown(_links_para_o_github(texto, origem), extensions=["tables"])
 
 
-def _html() -> str:
-    relatorio = (RAIZ / "docs/relatorio.md").read_text()
-    # A seção d) é o próprio memo, na última página, em vez do link para ele.
-    relatorio = re.sub(r"## d\) Memo ao professor\s+Em \[[^\n]*\n?", "", relatorio)
-    memo = (RAIZ / "docs/memo-professor.md").read_text()
-    memo = memo.replace("# Memo ao professor", "## d) Memo ao professor", 1)
+SAIDA = {"v1": "entregas/v1/relatorio.pdf", "v2": "relatorio.pdf"}
+SECAO_DO_MEMO = {"v1": "d", "v2": "e"}
+
+
+def _html(versao: str) -> str:
+    origem_relatorio, origem_memo = (
+        f"docs/{versao}/relatorio.md",
+        f"docs/{versao}/memo-professor.md",
+    )
+    secao = SECAO_DO_MEMO[versao]
+    relatorio = (RAIZ / origem_relatorio).read_text()
+    # A última seção é o próprio memo, na última página, em vez do link para ele.
+    relatorio = re.sub(rf"## {secao}\) Memo ao professor\s+Em \[[^\n]*\n?", "", relatorio)
+    memo = (RAIZ / origem_memo).read_text()
+    memo = memo.replace("# Memo ao professor", f"## {secao}) Memo ao professor", 1)
     partes = [
-        _para_html(relatorio, "docs/relatorio.md"),
-        f'<div class="memo">{_para_html(memo, "docs/memo-professor.md")}</div>',
+        _para_html(relatorio, origem_relatorio),
+        f'<div class="memo">{_para_html(memo, origem_memo)}</div>',
     ]
     titulo = "<title>Relatório — classificação de tópicos</title>"
     cabecalho = f'<!doctype html><meta charset="utf-8">{titulo}'
@@ -77,11 +87,14 @@ def _chrome(argumento: str | None) -> str:
 
 
 def main() -> None:
-    chrome = _chrome(sys.argv[1] if len(sys.argv) > 1 else None)
-    saida = RAIZ / "relatorio.pdf"
+    if len(sys.argv) < 2 or sys.argv[1] not in SAIDA:
+        raise SystemExit("uso: gerar_relatorio_pdf.py {v1,v2} [chrome]")
+    versao = sys.argv[1]
+    chrome = _chrome(sys.argv[2] if len(sys.argv) > 2 else None)
+    saida = RAIZ / SAIDA[versao]
     with tempfile.TemporaryDirectory() as pasta:
         pagina = Path(pasta) / "relatorio.html"
-        pagina.write_text(_html())
+        pagina.write_text(_html(versao))
         subprocess.run(
             [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
              f"--print-to-pdf={saida}", pagina.as_uri()],

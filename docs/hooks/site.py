@@ -8,10 +8,11 @@ from pathlib import Path
 
 from mkdocs.structure.files import File
 
-from classificacao.nucleo.adaptadores.anexos import ler_arvore, ler_questoes
+from classificacao.nucleo.adaptadores.anexos import ler_arvore, ler_folha_verdade, ler_questoes
 from classificacao.v1.adaptadores.arquivos import RegistroEmArquivo
 from classificacao.v1.adaptadores.rotulagem import ler_rotulos
 from classificacao.v1.entrada.site import bloco_da_previsao, corrigir_links, pagina_de_resultados
+from classificacao.v2.entrada import site as site_v2
 
 RAIZ = Path(__file__).resolve().parents[2]
 FONTE_DOS_ROTULOS = "agente jurídico"  # ADR 0006
@@ -20,7 +21,7 @@ REPOSITORIO = "https://github.com/edcastanha/case-vicio-ia-poc"
 PAGINAS_DA_RAIZ = {
     "README.md": "como-rodar.md",
     "GLOSSARY.md": "glossario.md",
-    "dados/v1/README.md": "dados.md",
+    "dados/v1/README.md": "v1/dados.md",
 }
 
 
@@ -28,14 +29,15 @@ def on_files(files, config):
     for origem, pagina in PAGINAS_DA_RAIZ.items():
         texto = corrigir_links((RAIZ / origem).read_text(), origem, PAGINAS_DA_RAIZ, REPOSITORIO)
         files.append(File.generated(config, pagina, content=texto))
-    files.append(File.generated(config, "resultados.md", content=_resultados()))
+    files.append(File.generated(config, "resultados.md", content=_resultados_v2()))
+    files.append(File.generated(config, "v1/resultados.md", content=_resultados()))
     return files
 
 
 def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri != "index.md":
         return markdown
-    previsao = RAIZ / "entregas/v1/previsao.txt"
+    previsao = RAIZ / "previsao.txt"  # a entrega vigente (v2)
     bloco = bloco_da_previsao(previsao.read_text() if previsao.exists() else None)
     return markdown.replace("<!-- previsao -->", bloco)
 
@@ -63,3 +65,12 @@ def _amostra(caminho: Path, arvore) -> dict[str, tuple[int | None, str]]:
     if not caminho.exists():
         return {}
     return {id: (no_id, FONTE_DOS_ROTULOS) for id, no_id in ler_rotulos(caminho, arvore).items()}
+
+
+def _resultados_v2() -> str:
+    zip_anexos = RAIZ / "anexos/v2/anexos-case-ia.zip"
+    with (RAIZ / "publicacao.csv").open(newline="") as arquivo:
+        linhas = list(csv.DictReader(arquivo))
+    return site_v2.pagina_de_resultados(
+        linhas, ler_arvore(zip_anexos), ler_folha_verdade(zip_anexos)
+    )

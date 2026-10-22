@@ -117,3 +117,17 @@ def ajustar_curva(amostra: Sequence[Rotulo], faixas: int) -> Callable[[float], f
 
 def _taxa(rotulos: Sequence[Rotulo]) -> float:
     return sum(r.acertou for r in rotulos) / len(rotulos)
+
+
+def limiar_por_laplace(amostra: Sequence[Rotulo], alvo: float) -> float | None:
+    """Menor pontuação em que a taxa suavizada (Laplace) dos rótulos acima dela passa do alvo.
+
+    Com poucos rótulos, exigir que o limite inferior do intervalo passe de 95% zeraria a
+    cobertura (ADR 0008); a suavização com alvo acima da Régua é a margem que sobra.
+    """
+    melhor = None
+    for limiar in sorted({r.pontuacao for r in amostra}, reverse=True):
+        acima = [r for r in amostra if r.pontuacao >= limiar]
+        if taxa_de_laplace(sum(r.acertou for r in acima), len(acima)) >= alvo:
+            melhor = limiar
+    return melhor

@@ -1,0 +1,8 @@
+{
+ "modelo": "BAAI/bge-m3",
+ "revisao": "5617a9f61b028005a4858fdac845db406aefb181",
+ "tamanho_maximo": 1024,
+ "gerado_em": "2026-10-21T04:08:23+00:00",
+ "textos_sha256": "aa7daab30532f78f4709fe19f6e99856cce0fa02e63b20d94b0676870f6fd3a4",
+ "zip": "anexos/v2/anexos-case-ia.zip"
+}

@@ -2,7 +2,13 @@ from pathlib import Path
 
 import pytest
 
-from classificacao.nucleo.adaptadores.anexos import ler_arvore, ler_questoes, limpar_html
+from classificacao.nucleo.adaptadores.anexos import (
+    ler_arvore,
+    ler_folha_verdade,
+    ler_questoes,
+    limpar_html,
+)
+from classificacao.nucleo.dominio.regua import Gabarito
 
 ZIP = Path(__file__).parents[3] / "anexos/v1/anexos-case-ia.zip"
 Q0016_HTML = (
@@ -124,3 +130,27 @@ def test_arvore_real_tem_8_pares_de_temas_duplicados_entre_disciplinas():
     arvore = ler_arvore(ZIP)
     temas = [no for no in arvore.nos_que_podem_receber_questao() if no.nivel == 1]
     assert sum(arvore.em_tema_duplicado(no.id) for no in temas) == 16
+
+
+ZIP_V2 = Path(__file__).parents[3] / "anexos/v2/anexos-case-ia.zip"
+
+
+def test_folha_verdade_v2_tem_100_gabaritos_com_extras_e_fora():
+    folha = ler_folha_verdade(ZIP_V2)
+    assert len(folha) == 100
+    assert sum(g.fora for g in folha.values()) == 8
+    assert sum(bool(g.extras) for g in folha.values()) == 39
+    assert folha["Q0012"] == Gabarito(tema_central_id=5562, extras=(4701, 5569))
+    assert folha["Q0002"] == Gabarito(tema_central_id=None, fora=True)
+
+
+def test_v2_tem_659_questoes_e_as_359_primeiras_sao_as_da_v1():
+    v1, v2 = ler_questoes(ZIP), ler_questoes(ZIP_V2)
+    assert len(v2) == 659
+    assert v2[:359] == v1
+
+
+def test_arvore_v2_le_titulo_e_descricao_dos_nos():
+    no = ler_arvore(ZIP_V2).no(5199)
+    assert no.titulo == "Teoria da Pena"
+    assert no.descricao

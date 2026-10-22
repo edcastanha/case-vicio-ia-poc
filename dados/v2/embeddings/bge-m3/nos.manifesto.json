@@ -1,0 +1,11 @@
+{
+ "modelo": "BAAI/bge-m3",
+ "revisao": "5617a9f61b028005a4858fdac845db406aefb181",
+ "tamanho_maximo": 1024,
+ "gerado_em": "2026-10-22T16:42:12+00:00",
+ "textos_sha256": "b88ee29d9bc4f528ea554d8ddefee346a1503724c83dc0621d77a4bbfb283941",
+ "enriquecimento": [
+  "enriquecedor/v1@ddd9626b"
+ ],
+ "correcoes_sha256": "a3e13965a1d048bd88d0de5fcd3ca6812ce3ebd5e7ca8ac4ba2f15d2b6a37ea4"
+}

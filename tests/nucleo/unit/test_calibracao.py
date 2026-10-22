@@ -5,6 +5,7 @@ from classificacao.nucleo.dominio.calibracao import (
     ajustar_curva,
     calibrar,
     estimar_precisao,
+    limiar_por_laplace,
 )
 
 AMOSTRA = [
@@ -106,3 +107,15 @@ def test_bootstrap_guarda_o_limiar_de_cada_repeticao_para_a_incerteza_da_cobertu
     estimativa = estimar_precisao(amostra, alvo=0.97, repeticoes=100, semente=1)
     assert 0 < len(estimativa.limiares) <= 100
     assert len(set(estimativa.limiares)) > 1
+
+
+def test_limiar_por_laplace_fica_com_a_maior_cobertura_cuja_taxa_suavizada_passa_do_alvo():
+    # 32 acertos seguidos: (32+1)/(32+2) = 0,9706 ≥ 0,97; 31 seguidos daria 0,9697.
+    amostra = [Rotulo(1.0 - i / 100, True) for i in range(32)] + [Rotulo(0.5, False)]
+    assert limiar_por_laplace(amostra, alvo=0.97) == pytest.approx(0.69)
+    assert limiar_por_laplace(amostra[:31], alvo=0.97) is None
+
+
+def test_limiar_por_laplace_aceita_um_erro_quando_ha_acertos_bastantes_acima():
+    amostra = [Rotulo(1.0, True)] * 70 + [Rotulo(0.9, False)] + [Rotulo(0.8, True)] * 5
+    assert limiar_por_laplace(amostra, alvo=0.97) == 0.8  # (75+1)/(76+2) = 0,974

@@ -1,0 +1,9 @@
+# Ambiente da análise (notebooks) com o mesmo lock do uv; a entrega não precisa disto.
+FROM python:3.14-slim
+COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /usr/local/bin/uv
+WORKDIR /repo
+COPY pyproject.toml uv.lock ./
+RUN uv sync --locked --no-install-project --group analise --group embeddings
+ENV PATH="/repo/.venv/bin:$PATH" PYTHONPATH=/repo/src
+EXPOSE 8888
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--notebook-dir=/repo/notebooks"]

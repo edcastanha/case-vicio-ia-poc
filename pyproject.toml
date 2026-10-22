@@ -8,17 +8,29 @@ dependencies = [
     "google-genai>=2.31.0",
     "numpy>=2.5.4",
     "openai>=3.31.0",
+    "scikit-learn>=1.9.1",
 ]
 
 [project.scripts]
 classificacao = "classificacao.cli:main"
 
 [dependency-groups]
+analise = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "nbconvert>=7.17.2",
+    "nbformat>=5.11.1",
+    "pandas>=3.0.6",
+]
 dev = [
     "mkdocs>=1.6.1,<2",
     "mkdocs-material>=9.7.7",
     "pytest>=8",
     "ruff>=0.6",
+]
+embeddings = [
+    "sentence-transformers>=6.1.0",
+    "torch>=2.14.1",
 ]
 
 [build-system]
@@ -37,3 +49,15 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[tool.ruff.lint.per-file-ignores]
+# Notebooks de análise: linhas longas e atalhos de exploração; o código da entrega segue a régua.
+"notebooks/*" = ["E501", "E702", "E731", "E741"]

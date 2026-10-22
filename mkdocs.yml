@@ -1,5 +1,5 @@
 site_name: Classificação de tópicos — case Vício
-site_description: Como 359 questões penais foram classificadas na árvore de temas, e quando cada uma pode ir direto para o aluno.
+site_description: Como 659 questões penais são classificadas na árvore de temas por um sistema próprio, sem modelo de linguagem na decisão.
 site_url: https://edcastanha.github.io/case-vicio-ia-poc/
 repo_url: https://github.com/edcastanha/case-vicio-ia-poc
 repo_name: edcastanha/case-vicio-ia-poc
@@ -56,10 +56,10 @@ extra_css:
 
 nav:
   - Resumo: index.md
-  - Apresentação: apresentacao/index.html
-  - Relatório: relatorio.md
+  - Relatório: v2/relatorio.md
+  - Memo ao Professor: v2/memo-professor.md
   - Resultados: resultados.md
-  - Memo ao Professor: memo-professor.md
+  - Especificação: specs/v2-sistema-de-classificacao.md
   - Decisões:
       - adr/0001-poc-sem-mensageria-nem-banco.md
       - adr/0002-publicar-so-com-concordancia-entre-provedores.md
@@ -68,6 +68,12 @@ nav:
       - adr/0005-texto-da-questao-e-dado-nunca-instrucao.md
       - adr/0006-amostra-rotulada-por-agente-juridico.md
       - adr/0007-desenho-de-producao.md
+      - adr/0008-limiar-pela-taxa-suavizada-com-margem.md
   - Glossário: glossario.md
   - Como rodar: como-rodar.md
-  - Dados gerados: dados.md
+  - Primeira etapa (v1):
+      - Relatório (v1): v1/relatorio.md
+      - Memo ao Professor (v1): v1/memo-professor.md
+      - Resultados (v1): v1/resultados.md
+      - Apresentação (v1): apresentacao/index.html
+      - Dados gerados (v1): v1/dados.md

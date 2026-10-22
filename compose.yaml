@@ -1,0 +1,19 @@
+# Opcional: `docker compose up jupyter` sobe a análise sem instalar nada na máquina.
+# Para gerar a entrega, basta `uv run classificacao v2 entrega`.
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.analise
+    ports:
+      - "127.0.0.1:8888:8888"
+    volumes:
+      - ./src:/repo/src:ro
+      - ./anexos:/repo/anexos:ro
+      - ./dados:/repo/dados:ro
+      - ./entregas:/repo/entregas:ro
+      - ./notebooks:/repo/notebooks
+      - huggingface:/root/.cache/huggingface
+    mem_limit: 4g
+volumes:
+  huggingface:

@@ -10,6 +10,8 @@ class No:
     nivel: int
     caminho: str
     ativo: bool = True
+    titulo: str = ""
+    descricao: str = ""
 
 
 class Arvore:
