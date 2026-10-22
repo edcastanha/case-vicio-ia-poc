@@ -35,7 +35,7 @@ Modelo de linguagem só entra antes da decisão, para enriquecer os Temas. Ele v
 - **Entrega:** a raiz recebe a entrega v2 e a v1 fica em `entregas/v1/`. As ADRs seguem numa sequência única: a v2 começa na 0008, e as ADRs 0002, 0006 e 0007 passam a substituídas.
 - **Votos de LLM da v1:** fora da v2. Não entram como feature, nem como pseudo-rótulo, nem como Candidato.
 - **Enriquecimento:** `claude -p sonnet` descreve os 371 Nós que podem receber Questão (o que entra, o que não entra, termos, leis). O prompt fica em `prompts/v2/enriquecedor/` com rótulo `enriquecedor/vN@hash`, e a saída em `dados/v2/temas_enriquecidos.jsonl`.
-- **Revisão do enriquecimento:** checagens automáticas mais uma amostra de 30 Nós revisada pelo autor, focada nos Temas duplicados e nas Lixeiras.
+- **Revisão do enriquecimento:** checagens automáticas mais uma amostra de 30 Nós, focada nos Temas duplicados e nas Lixeiras. Em 22/10/2026, um segundo modelo com prompt versionado (`prompts/v2/revisor_dos_temas/v1.md`) propôs as correções, e o autor revisou e aceitou cada uma antes de entrar em `dados/v2/correcoes_dos_temas.jsonl`. O texto do enriquecedor fica intacto, e as correções são aplicadas na leitura.
 - **Embeddings:** só locais na CPU, bge-m3 comparado com multilingual-e5-base pela validação cruzada. O cache fica em `dados/v2/embeddings/<modelo>/` com um manifesto de linhagem (modelo, revisão, hash dos textos, versão do enriquecimento). As dependências pesadas ficam no grupo `embeddings`, fora do caminho da entrega.
 - **Sinais:**
   - similaridade da Questão com o Tema enriquecido;

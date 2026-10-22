@@ -1,5 +1,5 @@
 precisao_prevista: 0.97
-precisao_intervalo: 0.78-1.00
+precisao_intervalo: 0.76-1.00
 cobertura_prevista: 0.22
 cobertura_intervalo: 0.00-0.35
 

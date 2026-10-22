@@ -1,6 +1,6 @@
 # Relatório v2: um sistema de classificação sem modelo de linguagem na decisão
 
-> **Em resumo.** 125 das 559 Questões avaliadas (22%) vão direto ao aluno. Prevejo que 97 em cada 100 delas estejam certas (intervalo de 0,78 a 1,00). Quem decide é um Ranqueador treinado nas 100 Questões da equipe. Nenhum modelo de linguagem escolhe, vota ou valida o Tema, e `uv run classificacao v2 entrega` regenera os dois arquivos em cerca de um minuto, na CPU, sem rede, com saída idêntica a cada rodada.
+> **Em resumo.** 125 das 559 Questões avaliadas (22%) vão direto ao aluno. Prevejo que 97 em cada 100 delas estejam certas (intervalo de 0,76 a 1,00). Quem decide é um Ranqueador treinado nas 100 Questões da equipe. Nenhum modelo de linguagem escolhe, vota ou valida o Tema, e `uv run classificacao v2 entrega` regenera os dois arquivos em cerca de um minuto, na CPU, sem rede, com saída idêntica a cada rodada.
 
 ## a) O sistema, peça por peça
 
@@ -9,7 +9,7 @@ O difícil não é achar um Tema provável: é saber **quando o sistema pode con
 | Peça | O que faz | Por que está ali |
 |---|---|---|
 | Limpeza do texto | Mantém só o que o aluno lê | Vem da v1; o lixo do HTML distorce qualquer sinal |
-| Temas enriquecidos | `claude -p` descreveu os 371 Nós (o que entra, o que não entra, termos, leis) **vendo só a Árvore**, com prompt versionado | 333 temas tinham descrição automática ("44 questões no source") |
+| Temas enriquecidos | `claude -p` descreveu os 371 Nós (o que entra, o que não entra, termos, leis) **vendo só a Árvore**, com prompt versionado; numa amostra de 30, um segundo modelo propôs 22 correções, revisadas e aceitas pelo autor, e um teste confere contra a Árvore todo caminho citado | 333 temas tinham descrição automática ("44 questões no source") |
 | Embeddings locais | Vetores das Questões e dos Temas, gerados uma vez na CPU e versionados | Similaridade de assunto, sem custo nem cota |
 | Leis citadas | Número ou apelido, com um dicionário de 29 leis | A lei diz o assunto; certa em 9 de 13 exemplos |
 | Origem → Nó | O assunto do site casado com o título de um Nó | Sinal fraco: certo em 22 de 92 exemplos |
@@ -22,12 +22,12 @@ O difícil não é achar um Tema provável: é saber **quando o sistema pode con
 
 | Ranqueador | bge-m3: top-1 | bge-m3: publicadas | e5-base: top-1 | e5-base: publicadas |
 |---|---|---|---|---|
-| Similaridade pura | 0,58 | 0 | 0,56 | 0 |
+| Similaridade pura | 0,59 | 0 | 0,57 | 0 |
 | kNN na Folha-verdade | 0,31 | 0 | 0,26 | 0 |
 | Regressão logística ("certo pela Régua") | 0,63 | 0 | 0,69 | 0 |
-| MLP pequeno | 0,60 | 0 | 0,67 | 0 |
-| **Logística por massa do Ramo** | 0,66 | **28 de 28** | 0,73 | 0 |
-| Por Ramo, sem a Origem | 0,65 | 27 de 27 | 0,74 | 0 |
+| MLP pequeno | 0,58 | 0 | 0,68 | 0 |
+| **Logística por massa do Ramo** | 0,67 | **28 de 28** | 0,73 | 0 |
+| Por Ramo, sem a Origem | 0,66 | 27 de 27 | 0,74 | 0 |
 
 O e5-base acerta mais no top-1, mas espalha os erros pelo topo da lista. O que a Régua exige é um topo limpo, e é aí que o bge-m3 por Ramo ganha. Também descartei: sinais extras da hierarquia (aumentam o top-1, mas puxam um erro para a 17ª posição); votos dos LLMs da v1 (seriam um modelo de linguagem votando por tabela); embeddings por API (cota e custo).
 
@@ -50,7 +50,7 @@ O e5-base acerta mais no top-1, mas espalha os erros pelo topo da lista. O que a
 
 **Nas questões.** A Origem engana (a Q0016 vem como Constitucional e é sobre prisão) e traz disciplinas fora da árvore (Penal Militar). 94 Questões não têm comando.
 
-**O que o sistema ainda erra (os 34 erros do top-1 fora do fold)**
+**O que o sistema ainda erra (os 33 erros do top-1 fora do fold)**
 
 | Tipo | Exemplos | O que resolveria |
 |---|---|---|

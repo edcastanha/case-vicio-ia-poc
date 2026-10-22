@@ -1,660 +1,660 @@
 id,decisao,tema_central_id,extras_ids,confianca,motivo
 Q0001,publicar,5524,,0.97,
-Q0002,revisar,4377,,0.29,pontuação 0.13 abaixo do limiar 0.76
+Q0002,revisar,4377,,0.29,pontuação 0.14 abaixo do limiar 0.76
 Q0003,revisar,5560,,0.29,pontuação 0.28 abaixo do limiar 0.76
 Q0004,revisar,5480,,0.64,pontuação 0.71 abaixo do limiar 0.76
-Q0005,revisar,5199,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0005,revisar,5199,,0.53,pontuação 0.38 abaixo do limiar 0.76
 Q0006,publicar,5157,,0.97,
 Q0007,revisar,5063,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0008,revisar,5087,,0.47,pontuação 0.41 abaixo do limiar 0.76
+Q0008,revisar,5087,,0.53,pontuação 0.41 abaixo do limiar 0.76
 Q0009,publicar,5157,,0.97,
-Q0010,revisar,6717,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0011,revisar,5087,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0010,revisar,6717,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0011,revisar,5087,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0012,publicar,5560,,0.97,
-Q0013,revisar,5498,,0.64,pontuação 0.74 abaixo do limiar 0.76
-Q0014,revisar,5476,,0.62,pontuação 0.57 abaixo do limiar 0.76
+Q0013,revisar,5498,,0.64,pontuação 0.72 abaixo do limiar 0.76
+Q0014,revisar,5476,,0.62,pontuação 0.59 abaixo do limiar 0.76
 Q0015,publicar,5498,,0.97,
-Q0016,revisar,5584,,0.47,pontuação 0.44 abaixo do limiar 0.76
+Q0016,revisar,5517,,0.53,pontuação 0.43 abaixo do limiar 0.76
 Q0017,revisar,5466,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0018,revisar,5539,,0.47,pontuação 0.43 abaixo do limiar 0.76
+Q0018,revisar,5539,,0.53,pontuação 0.43 abaixo do limiar 0.76
 Q0019,revisar,5466,,0.64,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0020,revisar,5116,,0.29,pontuação 0.21 abaixo do limiar 0.76
-Q0021,revisar,5498,,0.62,pontuação 0.59 abaixo do limiar 0.76
+Q0021,revisar,5498,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0022,revisar,5087,,0.64,pontuação 0.65 abaixo do limiar 0.76
 Q0023,publicar,5524,,0.97,
 Q0024,revisar,4385,,0.62,pontuação 0.57 abaixo do limiar 0.76
 Q0025,publicar,5087,,0.97,
 Q0026,revisar,6724,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0027,revisar,5487,,0.29,pontuação 0.31 abaixo do limiar 0.76
-Q0028,revisar,5487,,0.47,pontuação 0.33 abaixo do limiar 0.76
+Q0027,revisar,5487,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0028,revisar,5487,,0.29,pontuação 0.32 abaixo do limiar 0.76
 Q0029,revisar,4684,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0030,revisar,5157,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0031,revisar,4385,,0.62,pontuação 0.65 abaixo do limiar 0.76
-Q0032,revisar,5498,,0.64,pontuação 0.72 abaixo do limiar 0.76
-Q0033,publicar,5517,,0.97,
+Q0030,revisar,5157,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0031,revisar,4385,,0.64,pontuação 0.65 abaixo do limiar 0.76
+Q0032,revisar,5498,,0.64,pontuação 0.71 abaixo do limiar 0.76
+Q0033,revisar,5517,,0.64,pontuação 0.76 abaixo do limiar 0.76
 Q0034,publicar,5476,,0.97,
 Q0035,publicar,4706,,0.97,
 Q0036,revisar,4704,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0037,revisar,5128,,0.62,pontuação 0.50 abaixo do limiar 0.76
-Q0038,revisar,5583,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0039,revisar,4687,,0.47,pontuação 0.40 abaixo do limiar 0.76
+Q0037,revisar,5128,,0.62,pontuação 0.51 abaixo do limiar 0.76
+Q0038,revisar,5583,,0.53,pontuação 0.37 abaixo do limiar 0.76
+Q0039,revisar,4687,,0.53,pontuação 0.42 abaixo do limiar 0.76
 Q0040,revisar,5560,,0.64,pontuação 0.72 abaixo do limiar 0.76
 Q0041,revisar,5184,,0.64,pontuação 0.75 abaixo do limiar 0.76
 Q0042,publicar,5218,,0.97,
-Q0043,revisar,5199,,0.64,pontuação 0.73 abaixo do limiar 0.76
-Q0044,revisar,5487,,0.47,pontuação 0.42 abaixo do limiar 0.76
+Q0043,revisar,5199,,0.64,pontuação 0.72 abaixo do limiar 0.76
+Q0044,revisar,5487,,0.53,pontuação 0.42 abaixo do limiar 0.76
 Q0045,publicar,5087,,0.97,
-Q0046,revisar,5509,,0.62,pontuação 0.56 abaixo do limiar 0.76
-Q0047,revisar,5157,,0.47,pontuação 0.43 abaixo do limiar 0.76
-Q0048,revisar,5199,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0049,revisar,5149,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0050,revisar,5543,,0.62,pontuação 0.57 abaixo do limiar 0.76
-Q0051,revisar,5180,,0.29,pontuação 0.19 abaixo do limiar 0.76
-Q0052,revisar,5199,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0046,revisar,5509,,0.62,pontuação 0.57 abaixo do limiar 0.76
+Q0047,revisar,5157,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0048,revisar,5199,,0.53,pontuação 0.45 abaixo do limiar 0.76
+Q0049,revisar,5149,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0050,revisar,5543,,0.62,pontuação 0.55 abaixo do limiar 0.76
+Q0051,revisar,5180,,0.29,pontuação 0.20 abaixo do limiar 0.76
+Q0052,revisar,5199,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0053,revisar,5539,,0.62,pontuação 0.51 abaixo do limiar 0.76
-Q0054,revisar,5157,,0.47,pontuação 0.44 abaixo do limiar 0.76
-Q0055,revisar,5530,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0054,revisar,5157,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0055,revisar,5530,,0.29,pontuação 0.29 abaixo do limiar 0.76
 Q0056,publicar,5066,,0.97,
 Q0057,publicar,5175,,0.97,
-Q0058,revisar,4374,,0.29,pontuação 0.29 abaixo do limiar 0.76
-Q0059,revisar,5199,,0.47,pontuação 0.35 abaixo do limiar 0.76
+Q0058,revisar,4374,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0059,revisar,5199,,0.53,pontuação 0.35 abaixo do limiar 0.76
 Q0060,publicar,5087,,0.97,
-Q0061,revisar,6734,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0062,revisar,5180,,0.29,pontuação 0.28 abaixo do limiar 0.76
-Q0063,revisar,6724,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0064,revisar,5185,,0.47,pontuação 0.39 abaixo do limiar 0.76
+Q0061,revisar,6734,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0062,revisar,5180,,0.29,pontuação 0.30 abaixo do limiar 0.76
+Q0063,revisar,4704,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0064,revisar,5157,,0.53,pontuação 0.40 abaixo do limiar 0.76
 Q0065,publicar,5157,,0.97,
-Q0066,revisar,4371,,0.62,pontuação 0.63 abaixo do limiar 0.76
+Q0066,revisar,4371,,0.62,pontuação 0.65 abaixo do limiar 0.76
 Q0067,publicar,5087,,0.97,
-Q0068,revisar,5102,,0.29,pontuação 0.31 abaixo do limiar 0.76
-Q0069,revisar,5170,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0070,revisar,5199,,0.29,pontuação 0.26 abaixo do limiar 0.76
+Q0068,revisar,5102,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0069,revisar,5170,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0070,revisar,5199,,0.29,pontuação 0.25 abaixo do limiar 0.76
 Q0071,revisar,4688,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0072,revisar,5524,,0.29,pontuação 0.25 abaixo do limiar 0.76
 Q0073,publicar,5087,,0.97,
-Q0074,revisar,5572,,0.29,pontuação 0.20 abaixo do limiar 0.76
-Q0075,revisar,5191,,0.64,pontuação 0.70 abaixo do limiar 0.76
-Q0076,revisar,4380,,0.47,pontuação 0.44 abaixo do limiar 0.76
-Q0077,revisar,4698,,0.47,pontuação 0.44 abaixo do limiar 0.76
+Q0074,revisar,5572,,0.29,pontuação 0.22 abaixo do limiar 0.76
+Q0075,revisar,5191,,0.64,pontuação 0.71 abaixo do limiar 0.76
+Q0076,revisar,4380,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0077,revisar,4698,,0.62,pontuação 0.47 abaixo do limiar 0.76
 Q0078,revisar,4691,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0079,revisar,5580,,0.64,pontuação 0.75 abaixo do limiar 0.76
+Q0079,revisar,5580,,0.64,pontuação 0.76 abaixo do limiar 0.76
 Q0080,publicar,4368,,0.97,
 Q0081,publicar,4371,,0.97,
-Q0082,revisar,5087,,0.62,pontuação 0.51 abaixo do limiar 0.76
+Q0082,revisar,5087,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0083,publicar,5149,,0.97,
-Q0084,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0084,revisar,6724,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0085,publicar,5071,,0.97,
 Q0086,publicar,5087,,0.97,
-Q0087,revisar,4703,,0.47,pontuação 0.34 abaixo do limiar 0.76
-Q0088,revisar,4389,,0.47,pontuação 0.41 abaixo do limiar 0.76
-Q0089,revisar,5170,,0.47,pontuação 0.42 abaixo do limiar 0.76
+Q0087,revisar,4703,,0.53,pontuação 0.34 abaixo do limiar 0.76
+Q0088,revisar,4389,,0.53,pontuação 0.41 abaixo do limiar 0.76
+Q0089,revisar,5170,,0.53,pontuação 0.44 abaixo do limiar 0.76
 Q0090,revisar,5466,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0091,revisar,5199,,0.62,pontuação 0.59 abaixo do limiar 0.76
-Q0092,revisar,5509,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0093,revisar,5138,,0.29,pontuação 0.26 abaixo do limiar 0.76
-Q0094,revisar,4385,,0.29,pontuação 0.28 abaixo do limiar 0.76
-Q0095,revisar,5191,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0092,revisar,5509,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0093,revisar,5138,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0094,revisar,4385,,0.29,pontuação 0.27 abaixo do limiar 0.76
+Q0095,revisar,5191,,0.29,pontuação 0.33 abaixo do limiar 0.76
 Q0096,publicar,5480,,0.97,
-Q0097,revisar,4702,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0097,revisar,6728,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0098,revisar,5543,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0099,revisar,5087,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0099,revisar,5087,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0100,publicar,5102,,0.97,
 Q0101,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0102,revisar,5572,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0102,revisar,5572,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0103,revisar,5476,,0.62,pontuação 0.59 abaixo do limiar 0.76
 Q0104,revisar,5498,,0.64,pontuação 0.73 abaixo do limiar 0.76
-Q0105,revisar,4377,,0.47,pontuação 0.38 abaixo do limiar 0.76
-Q0106,revisar,5157,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0105,revisar,4377,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0106,revisar,5157,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0107,revisar,5116,,0.62,pontuação 0.56 abaixo do limiar 0.76
-Q0108,revisar,5560,,0.47,pontuação 0.41 abaixo do limiar 0.76
-Q0109,revisar,5199,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0108,revisar,5560,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0109,revisar,5199,,0.29,pontuação 0.26 abaixo do limiar 0.76
 Q0110,revisar,5480,,0.29,pontuação 0.26 abaixo do limiar 0.76
-Q0111,revisar,4371,,0.62,pontuação 0.64 abaixo do limiar 0.76
+Q0111,revisar,4371,,0.62,pontuação 0.65 abaixo do limiar 0.76
 Q0112,revisar,6725,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0113,revisar,5185,,0.64,pontuação 0.75 abaixo do limiar 0.76
+Q0113,publicar,5185,,0.97,
 Q0114,revisar,5498,,0.29,pontuação 0.20 abaixo do limiar 0.76
 Q0115,publicar,4385,,0.97,
 Q0116,revisar,4708,,0.64,pontuação 0.71 abaixo do limiar 0.76
-Q0117,revisar,5199,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0118,revisar,5517,,0.62,pontuação 0.58 abaixo do limiar 0.76
+Q0117,revisar,5199,,0.62,pontuação 0.49 abaixo do limiar 0.76
+Q0118,revisar,5517,,0.62,pontuação 0.59 abaixo do limiar 0.76
 Q0119,revisar,5170,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0120,revisar,5543,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0121,revisar,5466,,0.47,pontuação 0.40 abaixo do limiar 0.76
-Q0122,revisar,5199,,0.47,pontuação 0.39 abaixo do limiar 0.76
-Q0123,revisar,4377,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0120,revisar,5543,,0.53,pontuação 0.36 abaixo do limiar 0.76
+Q0121,revisar,5466,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0122,revisar,5199,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0123,revisar,4377,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0124,publicar,4384,,0.97,
 Q0125,revisar,4708,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0126,revisar,5211,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0127,revisar,6728,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0128,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0129,revisar,5543,,0.62,pontuação 0.50 abaixo do limiar 0.76
-Q0130,revisar,5157,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0131,revisar,5071,,0.62,pontuação 0.59 abaixo do limiar 0.76
+Q0126,revisar,5211,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0127,revisar,6728,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0128,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0129,revisar,5543,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0130,revisar,5157,,0.29,pontuação 0.29 abaixo do limiar 0.76
+Q0131,revisar,5071,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0132,revisar,4701,,0.29,pontuação 0.22 abaixo do limiar 0.76
 Q0133,publicar,5524,,0.97,
 Q0134,publicar,5087,,0.97,
-Q0135,revisar,5157,,0.64,pontuação 0.74 abaixo do limiar 0.76
-Q0136,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0135,revisar,5157,,0.64,pontuação 0.73 abaixo do limiar 0.76
+Q0136,revisar,6724,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0137,publicar,5498,,0.97,
 Q0138,publicar,5199,,0.97,
-Q0139,revisar,5211,,0.62,pontuação 0.49 abaixo do limiar 0.76
-Q0140,revisar,5157,,0.64,pontuação 0.66 abaixo do limiar 0.76
+Q0139,revisar,5211,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0140,revisar,5157,,0.64,pontuação 0.68 abaixo do limiar 0.76
 Q0141,publicar,4385,,0.97,
 Q0142,revisar,5157,,0.29,pontuação 0.31 abaixo do limiar 0.76
-Q0143,revisar,5505,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0143,revisar,5505,,0.29,pontuação 0.31 abaixo do limiar 0.76
 Q0144,revisar,5524,,0.62,pontuação 0.51 abaixo do limiar 0.76
 Q0145,revisar,4702,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0146,revisar,5228,,0.29,pontuação 0.21 abaixo do limiar 0.76
-Q0147,revisar,5498,,0.47,pontuação 0.41 abaixo do limiar 0.76
+Q0146,revisar,5228,,0.29,pontuação 0.22 abaixo do limiar 0.76
+Q0147,revisar,5498,,0.53,pontuação 0.41 abaixo do limiar 0.76
 Q0148,publicar,5199,,0.97,
-Q0149,revisar,5498,,0.64,pontuação 0.68 abaixo do limiar 0.76
-Q0150,revisar,6728,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0149,revisar,5498,,0.64,pontuação 0.67 abaixo do limiar 0.76
+Q0150,revisar,6728,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0151,revisar,5517,,0.64,pontuação 0.75 abaixo do limiar 0.76
 Q0152,revisar,5466,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0153,revisar,5218,,0.62,pontuação 0.62 abaixo do limiar 0.76
-Q0154,revisar,5149,,0.29,pontuação 0.17 abaixo do limiar 0.76
+Q0153,revisar,5218,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0154,revisar,5149,,0.29,pontuação 0.15 abaixo do limiar 0.76
 Q0155,revisar,5199,,0.29,pontuação 0.19 abaixo do limiar 0.76
 Q0156,revisar,6717,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0157,revisar,5517,,0.62,pontuação 0.62 abaixo do limiar 0.76
-Q0158,revisar,4707,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0159,revisar,5157,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0160,revisar,5199,,0.64,pontuação 0.74 abaixo do limiar 0.76
+Q0157,revisar,5517,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0158,revisar,4707,,0.62,pontuação 0.49 abaixo do limiar 0.76
+Q0159,revisar,5157,,0.53,pontuação 0.38 abaixo do limiar 0.76
+Q0160,revisar,5199,,0.64,pontuação 0.75 abaixo do limiar 0.76
 Q0161,revisar,5584,,0.29,pontuação 0.29 abaixo do limiar 0.76
-Q0162,revisar,4368,,0.47,pontuação 0.42 abaixo do limiar 0.76
+Q0162,revisar,4368,,0.53,pontuação 0.43 abaixo do limiar 0.76
 Q0163,revisar,6728,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0164,revisar,4703,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0164,revisar,4703,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0165,revisar,6725,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0166,revisar,6734,,0.47,pontuação 0.39 abaixo do limiar 0.76
-Q0167,revisar,5583,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0168,revisar,5087,,0.47,pontuação 0.43 abaixo do limiar 0.76
-Q0169,publicar,5490,,0.97,
-Q0170,revisar,5087,,0.62,pontuação 0.53 abaixo do limiar 0.76
-Q0171,revisar,5185,,0.29,pontuação 0.26 abaixo do limiar 0.76
-Q0172,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0173,revisar,4703,,0.47,pontuação 0.37 abaixo do limiar 0.76
+Q0166,revisar,6734,,0.53,pontuação 0.39 abaixo do limiar 0.76
+Q0167,revisar,5583,,0.53,pontuação 0.35 abaixo do limiar 0.76
+Q0168,revisar,5087,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0169,revisar,5490,,0.64,pontuação 0.75 abaixo do limiar 0.76
+Q0170,revisar,5087,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0171,revisar,5185,,0.29,pontuação 0.27 abaixo do limiar 0.76
+Q0172,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0173,revisar,4703,,0.53,pontuação 0.37 abaixo do limiar 0.76
 Q0174,revisar,5157,,0.29,pontuação 0.24 abaixo do limiar 0.76
 Q0175,revisar,5087,,0.62,pontuação 0.64 abaixo do limiar 0.76
 Q0176,revisar,5079,,0.64,pontuação 0.74 abaixo do limiar 0.76
 Q0177,revisar,5543,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0178,revisar,4697,,0.62,pontuação 0.60 abaixo do limiar 0.76
-Q0179,revisar,4368,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0180,revisar,5543,,0.62,pontuação 0.57 abaixo do limiar 0.76
-Q0181,revisar,4695,,0.62,pontuação 0.51 abaixo do limiar 0.76
-Q0182,revisar,5138,,0.29,pontuação 0.21 abaixo do limiar 0.76
+Q0178,revisar,4697,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0179,revisar,4368,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0180,revisar,5543,,0.62,pontuação 0.58 abaixo do limiar 0.76
+Q0181,revisar,4695,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0182,revisar,5138,,0.29,pontuação 0.24 abaixo do limiar 0.76
 Q0183,revisar,5185,,0.29,pontuação 0.22 abaixo do limiar 0.76
-Q0184,revisar,5517,,0.47,pontuação 0.37 abaixo do limiar 0.76
-Q0185,revisar,5199,,0.29,pontuação 0.27 abaixo do limiar 0.76
+Q0184,revisar,5517,,0.53,pontuação 0.38 abaixo do limiar 0.76
+Q0185,revisar,5199,,0.29,pontuação 0.30 abaixo do limiar 0.76
 Q0186,publicar,5199,,0.97,
-Q0187,revisar,5087,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0187,revisar,5087,,0.29,pontuação 0.33 abaixo do limiar 0.76
 Q0188,revisar,5170,,0.29,pontuação 0.18 abaixo do limiar 0.76
-Q0189,revisar,5466,,0.47,pontuação 0.39 abaixo do limiar 0.76
-Q0190,revisar,5539,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0189,revisar,5466,,0.53,pontuação 0.39 abaixo do limiar 0.76
+Q0190,revisar,5539,,0.62,pontuação 0.59 abaixo do limiar 0.76
 Q0191,revisar,5560,,0.64,pontuação 0.72 abaixo do limiar 0.76
 Q0192,publicar,5087,,0.97,
 Q0193,publicar,5543,,0.97,
 Q0194,publicar,5087,,0.97,
 Q0195,revisar,4371,,0.62,pontuação 0.63 abaixo do limiar 0.76
-Q0196,revisar,4377,,0.47,pontuação 0.38 abaixo do limiar 0.76
-Q0197,revisar,5498,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0196,revisar,4377,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0197,revisar,5498,,0.62,pontuação 0.61 abaixo do limiar 0.76
 Q0198,publicar,5071,,0.97,
-Q0199,revisar,5218,,0.62,pontuação 0.55 abaixo do limiar 0.76
+Q0199,revisar,5218,,0.62,pontuação 0.57 abaixo do limiar 0.76
 Q0200,revisar,6725,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0201,publicar,5102,,0.97,
 Q0202,revisar,5102,,0.62,pontuação 0.64 abaixo do limiar 0.76
-Q0203,revisar,6723,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0204,revisar,5505,,0.64,pontuação 0.70 abaixo do limiar 0.76
-Q0205,revisar,5560,,0.62,pontuação 0.46 abaixo do limiar 0.76
-Q0206,revisar,5583,,0.62,pontuação 0.47 abaixo do limiar 0.76
-Q0207,revisar,5517,,0.29,pontuação 0.23 abaixo do limiar 0.76
-Q0208,revisar,5149,,0.47,pontuação 0.41 abaixo do limiar 0.76
-Q0209,revisar,5580,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0203,revisar,4702,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0204,revisar,5505,,0.64,pontuação 0.71 abaixo do limiar 0.76
+Q0205,revisar,5560,,0.53,pontuação 0.45 abaixo do limiar 0.76
+Q0206,revisar,5583,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0207,revisar,5517,,0.29,pontuação 0.24 abaixo do limiar 0.76
+Q0208,revisar,5149,,0.53,pontuação 0.43 abaixo do limiar 0.76
+Q0209,revisar,5580,,0.53,pontuação 0.37 abaixo do limiar 0.76
 Q0210,publicar,4697,,0.97,
 Q0211,revisar,5543,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0212,revisar,5487,,0.62,pontuação 0.60 abaixo do limiar 0.76
-Q0213,revisar,5530,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0214,revisar,5087,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0215,revisar,5199,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0212,revisar,5487,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0213,revisar,5530,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0214,revisar,5087,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0215,revisar,5199,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0216,revisar,5539,,0.62,pontuação 0.50 abaixo do limiar 0.76
-Q0217,revisar,4384,,0.29,pontuação 0.20 abaixo do limiar 0.76
-Q0218,revisar,5517,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0219,revisar,5071,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0217,revisar,5170,,0.29,pontuação 0.21 abaixo do limiar 0.76
+Q0218,revisar,5517,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0219,revisar,5071,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0220,publicar,5498,,0.97,
-Q0221,revisar,5199,,0.62,pontuação 0.59 abaixo do limiar 0.76
+Q0221,revisar,5199,,0.62,pontuação 0.60 abaixo do limiar 0.76
 Q0222,publicar,4374,,0.97,
-Q0223,revisar,5079,,0.64,pontuação 0.70 abaixo do limiar 0.76
-Q0224,revisar,5199,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0225,revisar,5476,,0.29,pontuação 0.26 abaixo do limiar 0.76
+Q0223,revisar,5079,,0.64,pontuação 0.69 abaixo do limiar 0.76
+Q0224,revisar,5199,,0.29,pontuação 0.29 abaixo do limiar 0.76
+Q0225,revisar,5476,,0.29,pontuação 0.28 abaixo do limiar 0.76
 Q0226,publicar,5543,,0.97,
 Q0227,publicar,5102,,0.97,
-Q0228,revisar,5199,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0228,revisar,5199,,0.29,pontuação 0.29 abaixo do limiar 0.76
 Q0229,revisar,5517,,0.62,pontuação 0.55 abaixo do limiar 0.76
-Q0230,revisar,5211,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0231,revisar,5218,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0230,revisar,5211,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0231,revisar,5218,,0.53,pontuação 0.38 abaixo do limiar 0.76
 Q0232,publicar,5079,,0.97,
 Q0233,publicar,5175,,0.97,
-Q0234,revisar,4380,,0.47,pontuação 0.44 abaixo do limiar 0.76
+Q0234,revisar,4380,,0.62,pontuação 0.46 abaixo do limiar 0.76
 Q0235,publicar,5560,,0.97,
 Q0236,revisar,5490,,0.29,pontuação 0.30 abaixo do limiar 0.76
 Q0237,publicar,5175,,0.97,
-Q0238,revisar,5517,,0.47,pontuação 0.42 abaixo do limiar 0.76
-Q0239,revisar,5199,,0.47,pontuação 0.34 abaixo do limiar 0.76
-Q0240,revisar,5487,,0.29,pontuação 0.18 abaixo do limiar 0.76
+Q0238,revisar,5517,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0239,revisar,5199,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0240,revisar,5498,,0.29,pontuação 0.19 abaixo do limiar 0.76
 Q0241,publicar,5218,,0.97,
-Q0242,revisar,5560,,0.62,pontuação 0.58 abaixo do limiar 0.76
+Q0242,revisar,5560,,0.62,pontuação 0.57 abaixo do limiar 0.76
 Q0243,publicar,5175,,0.97,
 Q0244,publicar,5087,,0.97,
 Q0245,publicar,5185,,0.97,
 Q0246,publicar,5524,,0.97,
 Q0247,publicar,5498,,0.97,
 Q0248,publicar,5087,,0.97,
-Q0249,revisar,5583,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0249,revisar,5583,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0250,revisar,5199,,0.64,pontuação 0.72 abaixo do limiar 0.76
 Q0251,publicar,5191,,0.97,
-Q0252,revisar,5199,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0252,revisar,5199,,0.62,pontuação 0.51 abaixo do limiar 0.76
 Q0253,publicar,4371,,0.97,
-Q0254,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0254,revisar,4704,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0255,publicar,5211,,0.97,
-Q0256,revisar,5218,,0.47,pontuação 0.40 abaixo do limiar 0.76
-Q0257,revisar,5170,,0.47,pontuação 0.39 abaixo do limiar 0.76
+Q0256,revisar,5218,,0.53,pontuação 0.40 abaixo do limiar 0.76
+Q0257,revisar,5170,,0.53,pontuação 0.39 abaixo do limiar 0.76
 Q0258,publicar,5543,,0.97,
 Q0259,publicar,5157,,0.97,
 Q0260,publicar,4374,,0.97,
 Q0261,revisar,5063,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0262,revisar,5184,,0.62,pontuação 0.44 abaixo do limiar 0.76
-Q0263,revisar,5583,,0.47,pontuação 0.34 abaixo do limiar 0.76
+Q0262,revisar,5184,,0.62,pontuação 0.45 abaixo do limiar 0.76
+Q0263,revisar,5583,,0.53,pontuação 0.34 abaixo do limiar 0.76
 Q0264,publicar,5102,,0.97,
-Q0265,revisar,5066,,0.47,pontuação 0.43 abaixo do limiar 0.76
-Q0266,revisar,5480,,0.47,pontuação 0.40 abaixo do limiar 0.76
+Q0265,revisar,5066,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0266,revisar,5480,,0.53,pontuação 0.41 abaixo do limiar 0.76
 Q0267,revisar,5543,,0.29,pontuação 0.31 abaixo do limiar 0.76
-Q0268,revisar,5120,,0.64,pontuação 0.66 abaixo do limiar 0.76
-Q0269,revisar,4374,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0268,revisar,5120,,0.64,pontuação 0.65 abaixo do limiar 0.76
+Q0269,revisar,4374,,0.29,pontuação 0.29 abaixo do limiar 0.76
 Q0270,publicar,5087,,0.97,
-Q0271,revisar,5512,,0.47,pontuação 0.34 abaixo do limiar 0.76
-Q0272,revisar,5185,,0.47,pontuação 0.37 abaixo do limiar 0.76
-Q0273,revisar,5087,,0.62,pontuação 0.47 abaixo do limiar 0.76
-Q0274,revisar,5175,,0.47,pontuação 0.41 abaixo do limiar 0.76
-Q0275,revisar,4701,,0.47,pontuação 0.37 abaixo do limiar 0.76
-Q0276,revisar,5543,,0.62,pontuação 0.63 abaixo do limiar 0.76
-Q0277,revisar,6722,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0278,revisar,5539,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0271,revisar,5512,,0.53,pontuação 0.35 abaixo do limiar 0.76
+Q0272,revisar,5185,,0.53,pontuação 0.38 abaixo do limiar 0.76
+Q0273,revisar,5087,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0274,revisar,5175,,0.53,pontuação 0.43 abaixo do limiar 0.76
+Q0275,revisar,4701,,0.53,pontuação 0.37 abaixo do limiar 0.76
+Q0276,revisar,5543,,0.62,pontuação 0.62 abaixo do limiar 0.76
+Q0277,revisar,6722,,0.53,pontuação 0.36 abaixo do limiar 0.76
+Q0278,revisar,5539,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0279,revisar,5157,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0280,revisar,5087,,0.47,pontuação 0.38 abaixo do limiar 0.76
+Q0280,revisar,5087,,0.53,pontuação 0.38 abaixo do limiar 0.76
 Q0281,revisar,5543,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0282,revisar,4697,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0283,revisar,5490,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0282,revisar,4704,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0283,revisar,5490,,0.29,pontuação 0.32 abaixo do limiar 0.76
 Q0284,revisar,5530,,0.29,pontuação 0.16 abaixo do limiar 0.76
-Q0285,revisar,4374,,0.62,pontuação 0.49 abaixo do limiar 0.76
+Q0285,revisar,4374,,0.62,pontuação 0.51 abaixo do limiar 0.76
 Q0286,revisar,5066,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0287,revisar,5228,,0.64,pontuação 0.67 abaixo do limiar 0.76
+Q0287,revisar,5228,,0.64,pontuação 0.68 abaixo do limiar 0.76
 Q0288,revisar,5066,,0.62,pontuação 0.51 abaixo do limiar 0.76
 Q0289,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0290,revisar,4701,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0291,revisar,5498,,0.64,pontuação 0.72 abaixo do limiar 0.76
-Q0292,revisar,4374,,0.47,pontuação 0.33 abaixo do limiar 0.76
-Q0293,revisar,5185,,0.64,pontuação 0.74 abaixo do limiar 0.76
+Q0292,revisar,4374,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0293,revisar,5185,,0.64,pontuação 0.75 abaixo do limiar 0.76
 Q0294,publicar,5211,,0.97,
-Q0295,revisar,5487,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0296,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0295,revisar,5487,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0296,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0297,revisar,4695,,0.62,pontuação 0.54 abaixo do limiar 0.76
-Q0298,revisar,4695,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0299,revisar,4371,,0.62,pontuação 0.53 abaixo do limiar 0.76
-Q0300,revisar,5157,,0.62,pontuação 0.47 abaixo do limiar 0.76
-Q0301,revisar,5191,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0302,revisar,5218,,0.29,pontuação 0.17 abaixo do limiar 0.76
-Q0303,revisar,5170,,0.29,pontuação 0.18 abaixo do limiar 0.76
-Q0304,revisar,5539,,0.62,pontuação 0.45 abaixo do limiar 0.76
+Q0298,revisar,4695,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0299,revisar,4371,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0300,revisar,5157,,0.62,pontuação 0.49 abaixo do limiar 0.76
+Q0301,revisar,5191,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0302,revisar,5218,,0.29,pontuação 0.18 abaixo do limiar 0.76
+Q0303,revisar,5157,,0.29,pontuação 0.19 abaixo do limiar 0.76
+Q0304,revisar,5539,,0.53,pontuação 0.45 abaixo do limiar 0.76
 Q0305,revisar,5466,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0306,revisar,6725,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0307,revisar,5498,,0.29,pontuação 0.24 abaixo do limiar 0.76
-Q0308,revisar,5498,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0308,revisar,5498,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0309,revisar,4688,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0310,revisar,5505,,0.62,pontuação 0.56 abaixo do limiar 0.76
+Q0310,revisar,5505,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0311,revisar,5487,,0.64,pontuação 0.75 abaixo do limiar 0.76
-Q0312,revisar,4384,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0313,revisar,5572,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0312,revisar,4384,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0313,revisar,5572,,0.62,pontuação 0.54 abaixo do limiar 0.76
 Q0314,publicar,5476,,0.97,
-Q0315,revisar,5185,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0316,revisar,5149,,0.64,pontuação 0.69 abaixo do limiar 0.76
+Q0315,revisar,5185,,0.64,pontuação 0.70 abaixo do limiar 0.76
+Q0316,revisar,5149,,0.64,pontuação 0.68 abaixo do limiar 0.76
 Q0317,publicar,5191,,0.97,
 Q0318,publicar,5175,,0.97,
-Q0319,revisar,5071,,0.47,pontuação 0.42 abaixo do limiar 0.76
-Q0320,revisar,5543,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0319,revisar,5071,,0.53,pontuação 0.43 abaixo do limiar 0.76
+Q0320,revisar,5543,,0.62,pontuação 0.54 abaixo do limiar 0.76
 Q0321,publicar,5071,,0.97,
-Q0322,revisar,5560,,0.64,pontuação 0.68 abaixo do limiar 0.76
-Q0323,revisar,5590,,0.47,pontuação 0.43 abaixo do limiar 0.76
-Q0324,revisar,5199,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0322,revisar,5560,,0.64,pontuação 0.69 abaixo do limiar 0.76
+Q0323,revisar,5590,,0.53,pontuação 0.44 abaixo do limiar 0.76
+Q0324,revisar,5199,,0.62,pontuação 0.61 abaixo do limiar 0.76
 Q0325,revisar,5191,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0326,revisar,6728,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0327,revisar,5199,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0328,revisar,4380,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0326,revisar,6728,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0327,revisar,5199,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0328,revisar,4380,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0329,revisar,5087,,0.62,pontuação 0.59 abaixo do limiar 0.76
-Q0330,revisar,5498,,0.64,pontuação 0.69 abaixo do limiar 0.76
+Q0330,revisar,5498,,0.64,pontuação 0.70 abaixo do limiar 0.76
 Q0331,publicar,5476,,0.97,
 Q0332,publicar,5539,,0.97,
-Q0333,revisar,5175,,0.62,pontuação 0.59 abaixo do limiar 0.76
-Q0334,revisar,4380,,0.62,pontuação 0.59 abaixo do limiar 0.76
-Q0335,revisar,5218,,0.47,pontuação 0.44 abaixo do limiar 0.76
-Q0336,revisar,5157,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0333,revisar,5175,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0334,revisar,4380,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0335,revisar,5218,,0.53,pontuação 0.45 abaixo do limiar 0.76
+Q0336,revisar,5157,,0.62,pontuação 0.54 abaixo do limiar 0.76
 Q0337,revisar,4684,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0338,revisar,5543,,0.62,pontuação 0.59 abaixo do limiar 0.76
-Q0339,revisar,5560,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0338,revisar,5543,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0339,revisar,5560,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0340,publicar,5071,,0.97,
-Q0341,revisar,5157,,0.64,pontuação 0.72 abaixo do limiar 0.76
+Q0341,revisar,5157,,0.64,pontuação 0.71 abaixo do limiar 0.76
 Q0342,revisar,5543,,0.62,pontuação 0.54 abaixo do limiar 0.76
-Q0343,revisar,5191,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0343,revisar,5191,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0344,revisar,4688,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0345,publicar,5102,,0.97,
-Q0346,revisar,5583,,0.29,pontuação 0.25 abaixo do limiar 0.76
-Q0347,revisar,5199,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0346,revisar,5583,,0.29,pontuação 0.26 abaixo do limiar 0.76
+Q0347,revisar,5199,,0.53,pontuação 0.37 abaixo do limiar 0.76
 Q0348,publicar,5087,,0.97,
-Q0349,revisar,5175,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0349,revisar,5175,,0.62,pontuação 0.47 abaixo do limiar 0.76
 Q0350,revisar,6723,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0351,publicar,5116,,0.97,
-Q0352,revisar,5512,,0.29,pontuação 0.31 abaixo do limiar 0.76
-Q0353,revisar,5185,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0352,revisar,5512,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0353,revisar,5185,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0354,revisar,5218,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0355,revisar,4708,,0.47,pontuação 0.44 abaixo do limiar 0.76
+Q0355,revisar,4708,,0.53,pontuação 0.45 abaixo do limiar 0.76
 Q0356,publicar,5066,,0.97,
-Q0357,revisar,5134,,0.29,pontuação 0.20 abaixo do limiar 0.76
-Q0358,revisar,5128,,0.29,pontuação 0.19 abaixo do limiar 0.76
-Q0359,revisar,4696,,0.47,pontuação 0.36 abaixo do limiar 0.76
-Q0360,revisar,5583,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0357,revisar,5134,,0.29,pontuação 0.22 abaixo do limiar 0.76
+Q0358,revisar,5125,,0.29,pontuação 0.20 abaixo do limiar 0.76
+Q0359,revisar,4696,,0.53,pontuação 0.38 abaixo do limiar 0.76
+Q0360,revisar,5583,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0361,publicar,5211,,0.97,
 Q0362,publicar,5543,,0.97,
 Q0363,publicar,5087,,0.97,
-Q0364,revisar,5228,,0.62,pontuação 0.57 abaixo do limiar 0.76
+Q0364,revisar,5228,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0365,revisar,5191,,0.29,pontuação 0.28 abaixo do limiar 0.76
-Q0366,revisar,5543,,0.47,pontuação 0.34 abaixo do limiar 0.76
+Q0366,revisar,5543,,0.53,pontuação 0.35 abaixo do limiar 0.76
 Q0367,publicar,5530,,0.97,
 Q0368,publicar,5498,,0.97,
 Q0369,revisar,6723,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0370,publicar,5517,,0.97,
-Q0371,revisar,5560,,0.29,pontuação 0.25 abaixo do limiar 0.76
+Q0371,revisar,5530,,0.29,pontuação 0.25 abaixo do limiar 0.76
 Q0372,publicar,5543,,0.97,
 Q0373,revisar,5180,,0.64,pontuação 0.68 abaixo do limiar 0.76
-Q0374,revisar,5147,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0375,revisar,5218,,0.29,pontuação 0.17 abaixo do limiar 0.76
-Q0376,revisar,5218,,0.47,pontuação 0.36 abaixo do limiar 0.76
-Q0377,revisar,5476,,0.64,pontuação 0.75 abaixo do limiar 0.76
-Q0378,revisar,5116,,0.62,pontuação 0.44 abaixo do limiar 0.76
+Q0374,revisar,5147,,0.64,pontuação 0.66 abaixo do limiar 0.76
+Q0375,revisar,5218,,0.29,pontuação 0.18 abaixo do limiar 0.76
+Q0376,revisar,5218,,0.53,pontuação 0.37 abaixo do limiar 0.76
+Q0377,revisar,5476,,0.64,pontuação 0.74 abaixo do limiar 0.76
+Q0378,revisar,5116,,0.62,pontuação 0.45 abaixo do limiar 0.76
 Q0379,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0380,revisar,5572,,0.62,pontuação 0.53 abaixo do limiar 0.76
-Q0381,revisar,5498,,0.47,pontuação 0.38 abaixo do limiar 0.76
-Q0382,revisar,5218,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0380,revisar,5572,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0381,revisar,5498,,0.53,pontuação 0.39 abaixo do limiar 0.76
+Q0382,revisar,5218,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0383,revisar,6723,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0384,revisar,5560,,0.62,pontuação 0.62 abaixo do limiar 0.76
-Q0385,revisar,5543,,0.47,pontuação 0.41 abaixo do limiar 0.76
+Q0385,revisar,5543,,0.53,pontuação 0.42 abaixo do limiar 0.76
 Q0386,revisar,5128,,0.29,pontuação 0.22 abaixo do limiar 0.76
-Q0387,revisar,5590,,0.62,pontuação 0.56 abaixo do limiar 0.76
+Q0387,revisar,5590,,0.62,pontuação 0.57 abaixo do limiar 0.76
 Q0388,revisar,5530,,0.62,pontuação 0.53 abaixo do limiar 0.76
-Q0389,revisar,5218,,0.29,pontuação 0.29 abaixo do limiar 0.76
-Q0390,revisar,4374,,0.29,pontuação 0.28 abaixo do limiar 0.76
-Q0391,revisar,5063,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0389,revisar,5218,,0.29,pontuação 0.30 abaixo do limiar 0.76
+Q0390,revisar,4374,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0391,revisar,5063,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0392,publicar,5199,,0.97,
 Q0393,fora,,,0.50,disciplina de origem fora da árvore (Direito Penal Militar)
-Q0394,revisar,5480,,0.47,pontuação 0.35 abaixo do limiar 0.76
-Q0395,revisar,5476,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0394,revisar,5480,,0.53,pontuação 0.36 abaixo do limiar 0.76
+Q0395,revisar,5476,,0.64,pontuação 0.69 abaixo do limiar 0.76
 Q0396,publicar,5087,,0.97,
-Q0397,revisar,5170,,0.47,pontuação 0.37 abaixo do limiar 0.76
-Q0398,revisar,5175,,0.64,pontuação 0.67 abaixo do limiar 0.76
+Q0397,revisar,5170,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0398,revisar,5175,,0.64,pontuação 0.68 abaixo do limiar 0.76
 Q0399,publicar,5087,,0.97,
 Q0400,revisar,5211,,0.64,pontuação 0.75 abaixo do limiar 0.76
-Q0401,revisar,5191,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0402,revisar,4684,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0403,revisar,4691,,0.29,pontuação 0.20 abaixo do limiar 0.76
+Q0401,revisar,5191,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0402,revisar,4684,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0403,revisar,4691,,0.29,pontuação 0.22 abaixo do limiar 0.76
 Q0404,publicar,5116,,0.97,
-Q0405,revisar,5560,,0.47,pontuação 0.35 abaixo do limiar 0.76
+Q0405,revisar,5560,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0406,publicar,5087,,0.97,
 Q0407,revisar,5572,,0.64,pontuação 0.71 abaixo do limiar 0.76
 Q0408,publicar,5490,,0.97,
-Q0409,revisar,5211,,0.47,pontuação 0.37 abaixo do limiar 0.76
+Q0409,revisar,5211,,0.53,pontuação 0.37 abaixo do limiar 0.76
 Q0410,publicar,5211,,0.97,
-Q0411,revisar,5087,,0.64,pontuação 0.72 abaixo do limiar 0.76
+Q0411,revisar,5087,,0.64,pontuação 0.71 abaixo do limiar 0.76
 Q0412,publicar,5087,,0.97,
 Q0413,publicar,5087,,0.97,
-Q0414,publicar,4695,,0.97,
-Q0415,revisar,4695,,0.62,pontuação 0.45 abaixo do limiar 0.76
+Q0414,revisar,4695,,0.64,pontuação 0.76 abaixo do limiar 0.76
+Q0415,revisar,4695,,0.62,pontuação 0.46 abaixo do limiar 0.76
 Q0416,fora,,,0.50,disciplina de origem fora da árvore (Direito Penal Militar)
-Q0417,revisar,4384,,0.29,pontuação 0.27 abaixo do limiar 0.76
-Q0418,revisar,4704,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0417,revisar,4384,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0418,revisar,4704,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0419,publicar,4385,,0.97,
-Q0420,revisar,4704,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0421,revisar,5498,,0.62,pontuação 0.55 abaixo do limiar 0.76
-Q0422,revisar,5087,,0.29,pontuação 0.14 abaixo do limiar 0.76
-Q0423,revisar,4695,,0.62,pontuação 0.65 abaixo do limiar 0.76
+Q0420,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0421,revisar,5498,,0.62,pontuação 0.56 abaixo do limiar 0.76
+Q0422,revisar,5087,,0.29,pontuação 0.28 abaixo do limiar 0.76
+Q0423,revisar,4695,,0.64,pontuação 0.65 abaixo do limiar 0.76
 Q0424,fora,,,0.50,disciplina de origem fora da árvore (Direito Processual Penal Militar)
-Q0425,revisar,5572,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0426,revisar,5175,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0425,revisar,5572,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0426,revisar,5175,,0.29,pontuação 0.32 abaixo do limiar 0.76
 Q0427,revisar,5466,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0428,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0428,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0429,revisar,5149,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0430,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0430,revisar,4704,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0431,revisar,5466,,0.64,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0432,revisar,5466,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0433,publicar,5071,,0.97,
 Q0434,publicar,5498,,0.97,
 Q0435,revisar,4374,,0.29,pontuação 0.23 abaixo do limiar 0.76
-Q0436,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0437,revisar,5180,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0438,revisar,5116,,0.64,pontuação 0.71 abaixo do limiar 0.76
+Q0436,revisar,6724,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0437,revisar,5180,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0438,revisar,5116,,0.64,pontuação 0.70 abaixo do limiar 0.76
 Q0439,publicar,5087,,0.97,
 Q0440,publicar,5498,,0.97,
-Q0441,revisar,5476,,0.29,pontuação 0.27 abaixo do limiar 0.76
+Q0441,revisar,5476,,0.29,pontuação 0.26 abaixo do limiar 0.76
 Q0442,revisar,5466,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0443,revisar,5211,,0.62,pontuação 0.58 abaixo do limiar 0.76
-Q0444,revisar,5543,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0444,revisar,5543,,0.64,pontuação 0.69 abaixo do limiar 0.76
 Q0445,revisar,6725,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0446,revisar,5517,,0.47,pontuação 0.43 abaixo do limiar 0.76
+Q0446,revisar,5517,,0.53,pontuação 0.44 abaixo do limiar 0.76
 Q0447,publicar,5185,,0.97,
 Q0448,revisar,5572,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0449,revisar,5228,,0.64,pontuação 0.69 abaixo do limiar 0.76
+Q0449,revisar,5228,,0.64,pontuação 0.71 abaixo do limiar 0.76
 Q0450,revisar,5560,,0.64,pontuação 0.74 abaixo do limiar 0.76
-Q0451,revisar,5498,,0.64,pontuação 0.75 abaixo do limiar 0.76
+Q0451,revisar,5498,,0.64,pontuação 0.74 abaixo do limiar 0.76
 Q0452,publicar,5498,,0.97,
-Q0453,revisar,4704,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0454,revisar,5180,,0.62,pontuação 0.62 abaixo do limiar 0.76
-Q0455,revisar,5530,,0.47,pontuação 0.33 abaixo do limiar 0.76
-Q0456,revisar,5180,,0.47,pontuação 0.40 abaixo do limiar 0.76
+Q0453,revisar,6724,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0454,revisar,5180,,0.62,pontuação 0.63 abaixo do limiar 0.76
+Q0455,revisar,5530,,0.29,pontuação 0.34 abaixo do limiar 0.76
+Q0456,revisar,5180,,0.53,pontuação 0.39 abaixo do limiar 0.76
 Q0457,publicar,5476,,0.97,
-Q0458,revisar,5218,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0459,revisar,4695,,0.62,pontuação 0.64 abaixo do limiar 0.76
+Q0458,revisar,5218,,0.29,pontuação 0.31 abaixo do limiar 0.76
+Q0459,revisar,4695,,0.62,pontuação 0.65 abaixo do limiar 0.76
 Q0460,publicar,5144,,0.97,
 Q0461,revisar,5560,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0462,revisar,5191,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0462,revisar,5191,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0463,publicar,5087,,0.97,
 Q0464,revisar,4689,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0465,revisar,5087,,0.62,pontuação 0.59 abaixo do limiar 0.76
+Q0465,revisar,5087,,0.64,pontuação 0.65 abaixo do limiar 0.76
 Q0466,revisar,5218,,0.62,pontuação 0.57 abaixo do limiar 0.76
 Q0467,fora,,,0.50,disciplina de origem fora da árvore (Direito Processual Penal Militar)
-Q0468,revisar,5517,,0.29,pontuação 0.17 abaixo do limiar 0.76
-Q0469,revisar,4377,,0.47,pontuação 0.33 abaixo do limiar 0.76
-Q0470,revisar,4703,,0.29,pontuação 0.29 abaixo do limiar 0.76
-Q0471,revisar,5191,,0.47,pontuação 0.39 abaixo do limiar 0.76
+Q0468,revisar,5517,,0.29,pontuação 0.18 abaixo do limiar 0.76
+Q0469,revisar,4377,,0.53,pontuação 0.35 abaixo do limiar 0.76
+Q0470,revisar,4703,,0.29,pontuação 0.30 abaixo do limiar 0.76
+Q0471,revisar,5191,,0.53,pontuação 0.39 abaixo do limiar 0.76
 Q0472,revisar,5116,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0473,revisar,5498,,0.64,pontuação 0.75 abaixo do limiar 0.76
-Q0474,revisar,5580,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0475,revisar,5175,,0.62,pontuação 0.55 abaixo do limiar 0.76
+Q0473,revisar,5498,,0.64,pontuação 0.76 abaixo do limiar 0.76
+Q0474,revisar,5580,,0.53,pontuação 0.34 abaixo do limiar 0.76
+Q0475,revisar,5175,,0.62,pontuação 0.56 abaixo do limiar 0.76
 Q0476,publicar,5524,,0.97,
 Q0477,revisar,5185,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0478,publicar,5480,,0.97,
 Q0479,fora,,,0.50,disciplina de origem fora da árvore (Direito Processual Penal Militar)
 Q0480,revisar,5199,,0.29,pontuação 0.31 abaixo do limiar 0.76
 Q0481,revisar,5218,,0.62,pontuação 0.57 abaixo do limiar 0.76
-Q0482,revisar,5505,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0482,revisar,5505,,0.62,pontuação 0.56 abaixo do limiar 0.76
 Q0483,revisar,5175,,0.62,pontuação 0.62 abaixo do limiar 0.76
 Q0484,revisar,4702,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0485,revisar,5180,,0.62,pontuação 0.46 abaixo do limiar 0.76
-Q0486,revisar,5560,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0485,revisar,5180,,0.53,pontuação 0.43 abaixo do limiar 0.76
+Q0486,revisar,5560,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0487,publicar,5157,,0.97,
 Q0488,publicar,5087,,0.97,
 Q0489,publicar,5185,,0.97,
 Q0490,publicar,5211,,0.97,
 Q0491,publicar,5157,,0.97,
 Q0492,publicar,5157,,0.97,
-Q0493,revisar,5498,,0.47,pontuação 0.34 abaixo do limiar 0.76
+Q0493,revisar,5498,,0.53,pontuação 0.34 abaixo do limiar 0.76
 Q0494,revisar,5498,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0495,revisar,5087,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0496,revisar,5191,,0.29,pontuação 0.32 abaixo do limiar 0.76
-Q0497,revisar,5476,,0.47,pontuação 0.38 abaixo do limiar 0.76
-Q0498,revisar,5128,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0495,revisar,5087,,0.62,pontuação 0.63 abaixo do limiar 0.76
+Q0496,revisar,5191,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0497,revisar,5476,,0.53,pontuação 0.39 abaixo do limiar 0.76
+Q0498,revisar,5128,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0499,publicar,5218,,0.97,
 Q0500,revisar,4695,,0.62,pontuação 0.58 abaixo do limiar 0.76
-Q0501,revisar,6724,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0501,revisar,4704,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0502,publicar,5087,,0.97,
-Q0503,revisar,4377,,0.64,pontuação 0.73 abaixo do limiar 0.76
-Q0504,revisar,5218,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0503,revisar,4377,,0.64,pontuação 0.74 abaixo do limiar 0.76
+Q0504,revisar,5218,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0505,publicar,5087,,0.97,
-Q0506,revisar,5170,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0507,revisar,5211,,0.62,pontuação 0.52 abaixo do limiar 0.76
+Q0506,revisar,5170,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0507,revisar,5211,,0.62,pontuação 0.53 abaixo do limiar 0.76
 Q0508,publicar,4700,,0.97,
-Q0509,revisar,5498,,0.64,pontuação 0.70 abaixo do limiar 0.76
-Q0510,revisar,5543,,0.62,pontuação 0.49 abaixo do limiar 0.76
-Q0511,revisar,5487,,0.29,pontuação 0.16 abaixo do limiar 0.76
+Q0509,revisar,5498,,0.64,pontuação 0.71 abaixo do limiar 0.76
+Q0510,revisar,5543,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0511,revisar,5487,,0.29,pontuação 0.17 abaixo do limiar 0.76
 Q0512,revisar,5480,,0.64,pontuação 0.65 abaixo do limiar 0.76
-Q0513,revisar,4688,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0514,revisar,5583,,0.29,pontuação 0.30 abaixo do limiar 0.76
+Q0513,revisar,6717,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0514,revisar,5583,,0.29,pontuação 0.32 abaixo do limiar 0.76
 Q0515,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0516,revisar,6723,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0517,revisar,5120,,0.47,pontuação 0.36 abaixo do limiar 0.76
+Q0516,revisar,4690,,0.29,pontuação 0.25 abaixo do limiar 0.76
+Q0517,revisar,5120,,0.53,pontuação 0.35 abaixo do limiar 0.76
 Q0518,publicar,5087,,0.97,
 Q0519,publicar,5498,,0.97,
-Q0520,revisar,5087,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0520,revisar,5087,,0.62,pontuação 0.55 abaixo do limiar 0.76
 Q0521,revisar,4384,,0.64,pontuação 0.70 abaixo do limiar 0.76
-Q0522,revisar,5524,,0.29,pontuação 0.21 abaixo do limiar 0.76
-Q0523,revisar,5191,,0.47,pontuação 0.33 abaixo do limiar 0.76
-Q0524,revisar,5185,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0522,revisar,5524,,0.29,pontuação 0.23 abaixo do limiar 0.76
+Q0523,revisar,5191,,0.53,pontuação 0.34 abaixo do limiar 0.76
+Q0524,revisar,5185,,0.62,pontuação 0.45 abaixo do limiar 0.76
 Q0525,publicar,5199,,0.97,
-Q0526,revisar,4377,,0.29,pontuação 0.29 abaixo do limiar 0.76
+Q0526,revisar,4377,,0.29,pontuação 0.31 abaixo do limiar 0.76
 Q0527,fora,,,0.50,disciplina de origem fora da árvore (Direito Penal Militar)
 Q0528,revisar,5180,,0.62,pontuação 0.52 abaixo do limiar 0.76
 Q0529,publicar,5087,,0.97,
 Q0530,revisar,5543,,0.62,pontuação 0.58 abaixo do limiar 0.76
-Q0531,revisar,5466,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0532,revisar,5157,,0.64,pontuação 0.67 abaixo do limiar 0.76
-Q0533,revisar,5134,,0.62,pontuação 0.49 abaixo do limiar 0.76
-Q0534,revisar,4377,,0.64,pontuação 0.65 abaixo do limiar 0.76
+Q0531,revisar,5063,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0532,revisar,5157,,0.64,pontuação 0.70 abaixo do limiar 0.76
+Q0533,revisar,5134,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0534,revisar,4377,,0.64,pontuação 0.67 abaixo do limiar 0.76
 Q0535,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0536,publicar,5543,,0.97,
 Q0537,revisar,5480,,0.62,pontuação 0.63 abaixo do limiar 0.76
 Q0538,revisar,5199,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0539,revisar,5157,,0.62,pontuação 0.54 abaixo do limiar 0.76
-Q0540,revisar,5218,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0539,revisar,5157,,0.62,pontuação 0.57 abaixo do limiar 0.76
+Q0540,revisar,5218,,0.29,pontuação 0.31 abaixo do limiar 0.76
 Q0541,publicar,5087,,0.97,
 Q0542,revisar,5517,,0.64,pontuação 0.72 abaixo do limiar 0.76
-Q0543,revisar,5560,,0.62,pontuação 0.50 abaixo do limiar 0.76
-Q0544,revisar,5480,,0.29,pontuação 0.22 abaixo do limiar 0.76
-Q0545,revisar,5228,,0.29,pontuação 0.28 abaixo do limiar 0.76
-Q0546,revisar,5087,,0.64,pontuação 0.76 abaixo do limiar 0.76
-Q0547,revisar,5185,,0.64,pontuação 0.70 abaixo do limiar 0.76
+Q0543,revisar,5560,,0.62,pontuação 0.51 abaixo do limiar 0.76
+Q0544,revisar,5480,,0.29,pontuação 0.20 abaixo do limiar 0.76
+Q0545,revisar,5228,,0.29,pontuação 0.29 abaixo do limiar 0.76
+Q0546,publicar,5087,,0.97,
+Q0547,revisar,5185,,0.64,pontuação 0.71 abaixo do limiar 0.76
 Q0548,publicar,5560,,0.97,
-Q0549,revisar,6734,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0549,revisar,6734,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0550,publicar,5157,,0.97,
 Q0551,revisar,5063,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0552,revisar,5509,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0553,revisar,5530,,0.29,pontuação 0.26 abaixo do limiar 0.76
+Q0552,revisar,5509,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0553,revisar,5087,,0.29,pontuação 0.27 abaixo do limiar 0.76
 Q0554,publicar,5128,,0.97,
-Q0555,revisar,5199,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0556,revisar,4385,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0557,revisar,5539,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0558,revisar,5580,,0.47,pontuação 0.42 abaixo do limiar 0.76
+Q0555,revisar,5199,,0.62,pontuação 0.56 abaixo do limiar 0.76
+Q0556,revisar,4385,,0.62,pontuação 0.62 abaixo do limiar 0.76
+Q0557,revisar,5539,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0558,revisar,5580,,0.53,pontuação 0.44 abaixo do limiar 0.76
 Q0559,publicar,5087,,0.97,
-Q0560,revisar,4697,,0.29,pontuação 0.13 abaixo do limiar 0.76
+Q0560,revisar,4697,,0.29,pontuação 0.12 abaixo do limiar 0.76
 Q0561,publicar,5116,,0.97,
 Q0562,publicar,5087,,0.97,
 Q0563,publicar,4385,,0.97,
-Q0564,revisar,4385,,0.62,pontuação 0.62 abaixo do limiar 0.76
-Q0565,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0564,revisar,4385,,0.62,pontuação 0.63 abaixo do limiar 0.76
+Q0565,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0566,publicar,5087,,0.97,
-Q0567,revisar,5199,,0.62,pontuação 0.65 abaixo do limiar 0.76
+Q0567,revisar,5199,,0.64,pontuação 0.66 abaixo do limiar 0.76
 Q0568,revisar,5218,,0.29,pontuação 0.26 abaixo do limiar 0.76
-Q0569,revisar,5199,,0.29,pontuação 0.19 abaixo do limiar 0.76
-Q0570,revisar,5530,,0.47,pontuação 0.40 abaixo do limiar 0.76
-Q0571,revisar,5543,,0.62,pontuação 0.46 abaixo do limiar 0.76
-Q0572,revisar,4697,,0.64,pontuação 0.67 abaixo do limiar 0.76
+Q0569,revisar,5199,,0.29,pontuação 0.18 abaixo do limiar 0.76
+Q0570,revisar,5530,,0.53,pontuação 0.41 abaixo do limiar 0.76
+Q0571,revisar,5543,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0572,revisar,4697,,0.64,pontuação 0.68 abaixo do limiar 0.76
 Q0573,publicar,5157,,0.97,
-Q0574,revisar,4697,,0.29,pontuação 0.21 abaixo do limiar 0.76
-Q0575,revisar,5490,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0576,revisar,5087,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0577,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0574,revisar,4697,,0.29,pontuação 0.20 abaixo do limiar 0.76
+Q0575,revisar,5490,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0576,revisar,5087,,0.62,pontuação 0.60 abaixo do limiar 0.76
+Q0577,revisar,6724,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0578,revisar,4702,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0579,revisar,5543,,0.47,pontuação 0.39 abaixo do limiar 0.76
+Q0579,revisar,5543,,0.53,pontuação 0.38 abaixo do limiar 0.76
 Q0580,revisar,4690,,0.64,pontuação 0.70 abaixo do limiar 0.76
 Q0581,revisar,5466,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0582,revisar,4693,,0.29,pontuação 0.19 abaixo do limiar 0.76
 Q0583,publicar,5185,,0.97,
-Q0584,revisar,5185,,0.64,pontuação 0.71 abaixo do limiar 0.76
-Q0585,revisar,5175,,0.62,pontuação 0.45 abaixo do limiar 0.76
-Q0586,revisar,5517,,0.47,pontuação 0.41 abaixo do limiar 0.76
+Q0584,revisar,5185,,0.64,pontuação 0.72 abaixo do limiar 0.76
+Q0585,revisar,5175,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0586,revisar,5517,,0.53,pontuação 0.42 abaixo do limiar 0.76
 Q0587,publicar,5185,,0.97,
 Q0588,publicar,4385,,0.97,
-Q0589,revisar,5199,,0.29,pontuação 0.25 abaixo do limiar 0.76
+Q0589,revisar,5199,,0.29,pontuação 0.24 abaixo do limiar 0.76
 Q0590,publicar,5228,,0.97,
 Q0591,revisar,5560,,0.64,pontuação 0.72 abaixo do limiar 0.76
-Q0592,revisar,5087,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0592,revisar,5087,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0593,publicar,5157,,0.97,
 Q0594,revisar,5087,,0.64,pontuação 0.70 abaixo do limiar 0.76
 Q0595,publicar,5498,,0.97,
-Q0596,revisar,5180,,0.62,pontuação 0.47 abaixo do limiar 0.76
+Q0596,revisar,5180,,0.53,pontuação 0.37 abaixo do limiar 0.76
 Q0597,revisar,5572,,0.29,pontuação 0.18 abaixo do limiar 0.76
-Q0598,revisar,4368,,0.47,pontuação 0.33 abaixo do limiar 0.76
+Q0598,revisar,4368,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0599,fora,,,0.50,disciplina de origem fora da árvore (Direito Processual Penal Militar)
-Q0600,revisar,5185,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0600,revisar,5185,,0.62,pontuação 0.47 abaixo do limiar 0.76
 Q0601,publicar,5539,,0.97,
-Q0602,revisar,5466,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0602,revisar,5466,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0603,publicar,5087,,0.97,
 Q0604,publicar,5087,,0.97,
 Q0605,revisar,5487,,0.29,pontuação 0.23 abaixo do limiar 0.76
-Q0606,revisar,5087,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0607,revisar,4368,,0.29,pontuação 0.30 abaixo do limiar 0.76
-Q0608,revisar,5180,,0.64,pontuação 0.74 abaixo do limiar 0.76
-Q0609,revisar,4695,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0610,revisar,4700,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0606,revisar,5087,,0.29,pontuação 0.33 abaixo do limiar 0.76
+Q0607,revisar,4368,,0.29,pontuação 0.32 abaixo do limiar 0.76
+Q0608,revisar,5180,,0.64,pontuação 0.75 abaixo do limiar 0.76
+Q0609,revisar,4695,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0610,revisar,4700,,0.62,pontuação 0.54 abaixo do limiar 0.76
 Q0611,publicar,5116,,0.97,
 Q0612,revisar,5120,,0.62,pontuação 0.48 abaixo do limiar 0.76
-Q0613,revisar,4689,,0.62,pontuação 0.52 abaixo do limiar 0.76
-Q0614,revisar,4698,,0.29,pontuação 0.20 abaixo do limiar 0.76
-Q0615,revisar,5191,,0.62,pontuação 0.57 abaixo do limiar 0.76
+Q0613,revisar,4689,,0.62,pontuação 0.53 abaixo do limiar 0.76
+Q0614,revisar,4698,,0.29,pontuação 0.21 abaixo do limiar 0.76
+Q0615,revisar,5191,,0.62,pontuação 0.58 abaixo do limiar 0.76
 Q0616,revisar,5180,,0.62,pontuação 0.46 abaixo do limiar 0.76
-Q0617,revisar,5498,,0.62,pontuação 0.46 abaixo do limiar 0.76
-Q0618,revisar,5218,,0.62,pontuação 0.61 abaixo do limiar 0.76
+Q0617,revisar,5498,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0618,revisar,5218,,0.62,pontuação 0.63 abaixo do limiar 0.76
 Q0619,revisar,4689,,0.29,pontuação 0.24 abaixo do limiar 0.76
 Q0620,publicar,5147,,0.97,
-Q0621,revisar,5543,,0.62,pontuação 0.53 abaixo do limiar 0.76
-Q0622,revisar,5180,,0.62,pontuação 0.46 abaixo do limiar 0.76
+Q0621,revisar,5543,,0.62,pontuação 0.54 abaixo do limiar 0.76
+Q0622,revisar,5180,,0.62,pontuação 0.47 abaixo do limiar 0.76
 Q0623,publicar,5543,,0.97,
 Q0624,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0625,publicar,5087,,0.97,
 Q0626,revisar,5560,,0.29,pontuação 0.20 abaixo do limiar 0.76
 Q0627,revisar,5144,,0.62,pontuação 0.51 abaixo do limiar 0.76
-Q0628,revisar,5498,,0.62,pontuação 0.50 abaixo do limiar 0.76
+Q0628,revisar,5498,,0.62,pontuação 0.51 abaixo do limiar 0.76
 Q0629,revisar,4371,,0.62,pontuação 0.48 abaixo do limiar 0.76
 Q0630,publicar,5079,,0.97,
 Q0631,publicar,5087,,0.97,
 Q0632,publicar,5087,,0.97,
 Q0633,publicar,5087,,0.97,
 Q0634,publicar,5487,,0.97,
-Q0635,revisar,5211,,0.64,pontuação 0.69 abaixo do limiar 0.76
-Q0636,revisar,5087,,0.47,pontuação 0.35 abaixo do limiar 0.76
+Q0635,revisar,5211,,0.64,pontuação 0.68 abaixo do limiar 0.76
+Q0636,revisar,5087,,0.53,pontuação 0.36 abaixo do limiar 0.76
 Q0637,publicar,5087,,0.97,
 Q0638,publicar,5087,,0.97,
 Q0639,publicar,4707,,0.97,
-Q0640,revisar,5218,,0.62,pontuação 0.48 abaixo do limiar 0.76
+Q0640,revisar,5218,,0.62,pontuação 0.49 abaixo do limiar 0.76
 Q0641,publicar,5087,,0.97,
 Q0642,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0643,revisar,5180,,0.29,pontuação 0.18 abaixo do limiar 0.76
 Q0644,revisar,5087,,0.64,pontuação 0.75 abaixo do limiar 0.76
 Q0645,revisar,5218,,0.64,pontuação 0.72 abaixo do limiar 0.76
-Q0646,revisar,4371,,0.47,pontuação 0.40 abaixo do limiar 0.76
+Q0646,revisar,4371,,0.53,pontuação 0.40 abaixo do limiar 0.76
 Q0647,publicar,5487,,0.97,
 Q0648,revisar,4705,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0649,fora,,,0.50,disciplina de origem fora da árvore (Direito Penal Militar)
 Q0650,fora,,,0.50,disciplina de origem fora da árvore (Direito Penal Militar)
 Q0651,revisar,4704,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
-Q0652,revisar,5087,,0.62,pontuação 0.61 abaixo do limiar 0.76
-Q0653,revisar,5128,,0.29,pontuação 0.17 abaixo do limiar 0.76
+Q0652,revisar,5087,,0.62,pontuação 0.62 abaixo do limiar 0.76
+Q0653,revisar,5128,,0.29,pontuação 0.18 abaixo do limiar 0.76
 Q0654,fora,,,0.50,disciplina de origem fora da árvore (Direito Processual Penal Militar)
-Q0655,revisar,4385,,0.62,pontuação 0.50 abaixo do limiar 0.76
-Q0656,revisar,6724,,0.47,tema duplicado sem exemplo da equipe entre as vizinhas
+Q0655,revisar,4385,,0.62,pontuação 0.51 abaixo do limiar 0.76
+Q0656,revisar,6724,,0.53,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0657,revisar,6716,,0.62,tema duplicado sem exemplo da equipe entre as vizinhas
 Q0658,revisar,4374,,0.29,pontuação 0.18 abaixo do limiar 0.76
 Q0659,revisar,6723,,0.29,tema duplicado sem exemplo da equipe entre as vizinhas
