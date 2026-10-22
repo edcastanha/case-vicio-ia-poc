@@ -3,7 +3,7 @@
   "embeddings": "bge-m3",
   "ranqueador": "similaridade",
   "variante": "com origem",
-  "acerto_do_top1": 0.58,
+  "acerto_do_top1": 0.59,
   "limiar": null,
   "publicadas": 0,
   "acertos": 0,
@@ -19,7 +19,7 @@
    },
    {
     "questao": "Q0117",
-    "pontuacao": 0.7831,
+    "pontuacao": 0.7832,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Teorias Legitimidoras da Pena"
@@ -144,15 +144,8 @@
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
-    "questao": "Q0231",
-    "pontuacao": 0.6773,
-    "publicaria": false,
-    "escolhido": "Penal > Tráfico de Drogas",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
-   },
-   {
     "questao": "Q0150",
-    "pontuacao": 0.6706,
+    "pontuacao": 0.6721,
     "publicaria": false,
     "escolhido": "Penal > Tráfico de Drogas",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
@@ -815,262 +808,262 @@
   "erros_do_top1": [
    {
     "questao": "Q0216",
-    "pontuacao": 0.9646,
+    "pontuacao": 0.966,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo > Transação Penal",
     "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.9526,
+    "pontuacao": 0.9538,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.95,
+    "pontuacao": 0.9509,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0259",
-    "pontuacao": 0.9166,
+    "pontuacao": 0.9178,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
     "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
    },
    {
     "questao": "Q0339",
-    "pontuacao": 0.8956,
+    "pontuacao": 0.8985,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Embargos de Declaração",
     "equipe": "Processo Penal > Sentença Penal"
    },
    {
     "questao": "Q0324",
-    "pontuacao": 0.8777,
+    "pontuacao": 0.8804,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
-    "questao": "Q0316",
-    "pontuacao": 0.8622,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
-   },
-   {
     "questao": "Q0323",
-    "pontuacao": 0.8588,
+    "pontuacao": 0.8644,
     "publicaria": false,
     "escolhido": "Processo Penal > Teoria Geral das Provas > Prova Emprestada",
     "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
    },
    {
+    "questao": "Q0316",
+    "pontuacao": 0.8581,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
+    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
+   },
+   {
     "questao": "Q0286",
-    "pontuacao": 0.8563,
+    "pontuacao": 0.8579,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Crimes",
     "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
    },
    {
     "questao": "Q0338",
-    "pontuacao": 0.7976,
+    "pontuacao": 0.805,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies > Confissão",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
     "questao": "Q0249",
-    "pontuacao": 0.7694,
+    "pontuacao": 0.7788,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
    },
    {
     "questao": "Q0077",
-    "pontuacao": 0.7112,
+    "pontuacao": 0.7194,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
+    "questao": "Q0325",
+    "pontuacao": 0.7113,
+    "publicaria": false,
+    "escolhido": "Penal > Punibilidade",
+    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
+   },
+   {
     "questao": "Q0028",
-    "pontuacao": 0.7038,
+    "pontuacao": 0.7086,
     "publicaria": false,
     "escolhido": "Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0087",
-    "pontuacao": 0.7029,
+    "pontuacao": 0.7053,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
     "equipe": "fora"
    },
    {
-    "questao": "Q0325",
-    "pontuacao": 0.6994,
-    "publicaria": false,
-    "escolhido": "Penal > Punibilidade",
-    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
-   },
-   {
     "questao": "Q0230",
-    "pontuacao": 0.6811,
+    "pontuacao": 0.6832,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Pessoas",
     "equipe": "Penal > Teoria do Crime: Culpabilidade + Penal > Teoria do Crime: Culpabilidade > Erro de Proibição"
    },
    {
-    "questao": "Q0252",
-    "pontuacao": 0.637,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0313",
-    "pontuacao": 0.6208,
+    "pontuacao": 0.6307,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
+    "questao": "Q0252",
+    "pontuacao": 0.6306,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0167",
-    "pontuacao": 0.6112,
+    "pontuacao": 0.6138,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.5818,
+    "pontuacao": 0.5759,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0265",
-    "pontuacao": 0.5532,
+    "pontuacao": 0.5526,
     "publicaria": false,
     "escolhido": "Penal > Punibilidade",
     "equipe": "Penal > Prescrição + Penal > Concurso de Crimes"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.5419,
+    "pontuacao": 0.5511,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0345",
-    "pontuacao": 0.4667,
+    "pontuacao": 0.4791,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Importunação Sexual",
     "equipe": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável"
    },
    {
     "questao": "Q0061",
-    "pontuacao": 0.4666,
+    "pontuacao": 0.4783,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0110",
-    "pontuacao": 0.4644,
+    "pontuacao": 0.4625,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável",
     "equipe": "Processo Penal > Competência"
    },
    {
     "questao": "Q0308",
-    "pontuacao": 0.4319,
+    "pontuacao": 0.4498,
     "publicaria": false,
     "escolhido": "Processo Penal > Inquérito Policial > Inquérito Civil",
     "equipe": "Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial"
    },
    {
+    "questao": "Q0303",
+    "pontuacao": 0.439,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0208",
-    "pontuacao": 0.4215,
+    "pontuacao": 0.4338,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0202",
-    "pontuacao": 0.4098,
+    "pontuacao": 0.413,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
-    "questao": "Q0303",
-    "pontuacao": 0.4077,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0291",
-    "pontuacao": 0.3927,
+    "pontuacao": 0.3981,
     "publicaria": false,
     "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
     "equipe": "fora"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.3818,
+    "pontuacao": 0.393,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0058",
-    "pontuacao": 0.3541,
+    "pontuacao": 0.3676,
     "publicaria": false,
     "escolhido": "Criminologia > Política Criminal",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
    },
    {
     "questao": "Q0277",
-    "pontuacao": 0.328,
+    "pontuacao": 0.336,
     "publicaria": false,
     "escolhido": "Penal > Estatuto do Idoso - Crimes",
     "equipe": "Direito Penal - Legislação Especial > Estaturo de Idoso - Crimes"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.2545,
+    "pontuacao": 0.2643,
     "publicaria": false,
     "escolhido": "Processo Penal > Ação Penal > Ação Penal Pública Condicionada",
     "equipe": "fora"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.2193,
+    "pontuacao": 0.2224,
     "publicaria": false,
     "escolhido": "Criminologia > Processos de Criminalização e Cifras Criminais",
     "equipe": "fora"
    },
    {
-    "questao": "Q0279",
-    "pontuacao": 0.1918,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
-    "equipe": "Penal > Prescrição + Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior"
-   },
-   {
     "questao": "Q0150",
-    "pontuacao": 0.1884,
+    "pontuacao": 0.195,
     "publicaria": false,
     "escolhido": "Penal > Tráfico de Drogas",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
+   },
+   {
+    "questao": "Q0279",
+    "pontuacao": 0.1926,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
+    "equipe": "Penal > Prescrição + Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior"
    }
   ]
  },
@@ -1078,7 +1071,7 @@
   "embeddings": "bge-m3",
   "ranqueador": "mlp",
   "variante": "com origem",
-  "acerto_do_top1": 0.6,
+  "acerto_do_top1": 0.58,
   "limiar": null,
   "publicadas": 0,
   "acertos": 0,
@@ -1087,282 +1080,296 @@
   "erros_do_top1": [
    {
     "questao": "Q0077",
-    "pontuacao": 0.9171,
+    "pontuacao": 0.9029,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0216",
-    "pontuacao": 0.8763,
+    "pontuacao": 0.9024,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo > Transação Penal",
     "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.8707,
+    "pontuacao": 0.8566,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0049",
-    "pontuacao": 0.8676,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria do Crime: Fato Típico",
-    "equipe": "Penal > Dos Crimes Contra a Vida > Induzimento, Instigação ou Auxílio ao Suicídio + Penal > Dos Crimes Contra a Vida"
-   },
-   {
-    "questao": "Q0043",
-    "pontuacao": 0.8419,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0325",
-    "pontuacao": 0.8253,
+    "pontuacao": 0.8491,
     "publicaria": false,
     "escolhido": "Penal > Punibilidade",
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
-    "questao": "Q0339",
-    "pontuacao": 0.8235,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",
-    "equipe": "Processo Penal > Sentença Penal"
-   },
-   {
-    "questao": "Q0018",
-    "pontuacao": 0.8187,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Competência > Espécies e Fixação de Competência Criminal",
-    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal + Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais"
-   },
-   {
-    "questao": "Q0167",
-    "pontuacao": 0.7983,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
-   },
-   {
-    "questao": "Q0324",
-    "pontuacao": 0.7961,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
-    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
-   },
-   {
-    "questao": "Q0303",
-    "pontuacao": 0.7831,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0338",
-    "pontuacao": 0.77,
+    "pontuacao": 0.8485,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies > Confissão",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
+    "questao": "Q0049",
+    "pontuacao": 0.8118,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria do Crime: Fato Típico",
+    "equipe": "Penal > Dos Crimes Contra a Vida > Induzimento, Instigação ou Auxílio ao Suicídio + Penal > Dos Crimes Contra a Vida"
+   },
+   {
+    "questao": "Q0249",
+    "pontuacao": 0.8034,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sujeitos do Processo",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+   },
+   {
+    "questao": "Q0018",
+    "pontuacao": 0.8034,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Competência > Espécies e Fixação de Competência Criminal",
+    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal + Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais"
+   },
+   {
+    "questao": "Q0303",
+    "pontuacao": 0.8003,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
+    "equipe": "fora"
+   },
+   {
+    "questao": "Q0339",
+    "pontuacao": 0.7982,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",
+    "equipe": "Processo Penal > Sentença Penal"
+   },
+   {
+    "questao": "Q0134",
+    "pontuacao": 0.796,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Ativa",
+    "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
+   },
+   {
+    "questao": "Q0167",
+    "pontuacao": 0.7876,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sujeitos do Processo",
+    "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
+   },
+   {
     "questao": "Q0286",
-    "pontuacao": 0.7466,
+    "pontuacao": 0.774,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Crimes > Pena de Multa no Concurso de Crimes",
     "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
    },
    {
-    "questao": "Q0252",
-    "pontuacao": 0.7279,
+    "questao": "Q0043",
+    "pontuacao": 0.7632,
     "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
+    "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
-    "questao": "Q0259",
-    "pontuacao": 0.7228,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
-    "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
-   },
-   {
     "questao": "Q0323",
-    "pontuacao": 0.7136,
+    "pontuacao": 0.7629,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies",
     "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
    },
    {
+    "questao": "Q0324",
+    "pontuacao": 0.7606,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
+    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
+   },
+   {
+    "questao": "Q0259",
+    "pontuacao": 0.707,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
+    "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
+   },
+   {
     "questao": "Q0316",
-    "pontuacao": 0.7083,
+    "pontuacao": 0.6994,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0117",
-    "pontuacao": 0.6933,
+    "pontuacao": 0.6962,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Teorias Legitimidoras da Pena"
    },
    {
     "questao": "Q0028",
-    "pontuacao": 0.6879,
+    "pontuacao": 0.684,
     "publicaria": false,
     "escolhido": "Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
-    "questao": "Q0249",
-    "pontuacao": 0.6754,
+    "questao": "Q0087",
+    "pontuacao": 0.6772,
     "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
-   },
-   {
-    "questao": "Q0304",
-    "pontuacao": 0.667,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Competência",
-    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal + Processo Penal > Procedimento Sumaríssimo > Transação Penal + Processo Penal > Procedimento Sumaríssimo"
-   },
-   {
-    "questao": "Q0291",
-    "pontuacao": 0.6334,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
+    "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
     "equipe": "fora"
    },
    {
     "questao": "Q0277",
-    "pontuacao": 0.6261,
+    "pontuacao": 0.6672,
     "publicaria": false,
     "escolhido": "Penal > Estatuto do Idoso - Crimes",
     "equipe": "Direito Penal - Legislação Especial > Estaturo de Idoso - Crimes"
    },
    {
-    "questao": "Q0202",
-    "pontuacao": 0.6248,
+    "questao": "Q0304",
+    "pontuacao": 0.6557,
     "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
-   },
-   {
-    "questao": "Q0052",
-    "pontuacao": 0.6026,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
-    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
-   },
-   {
-    "questao": "Q0087",
-    "pontuacao": 0.6015,
-    "publicaria": false,
-    "escolhido": "Penal > Estatuto do Idoso - Crimes",
-    "equipe": "fora"
-   },
-   {
-    "questao": "Q0308",
-    "pontuacao": 0.541,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial > Inquérito Civil",
-    "equipe": "Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial"
-   },
-   {
-    "questao": "Q0090",
-    "pontuacao": 0.5406,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Recursos em Espécies",
-    "equipe": "Processo Penal > Procedimento Ordinário"
-   },
-   {
-    "questao": "Q0230",
-    "pontuacao": 0.5384,
-    "publicaria": false,
-    "escolhido": "Penal > Concurso de Pessoas",
-    "equipe": "Penal > Teoria do Crime: Culpabilidade + Penal > Teoria do Crime: Culpabilidade > Erro de Proibição"
+    "escolhido": "Processo Penal > Competência",
+    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal + Processo Penal > Procedimento Sumaríssimo > Transação Penal + Processo Penal > Procedimento Sumaríssimo"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.5108,
+    "pontuacao": 0.6412,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
-    "questao": "Q0345",
-    "pontuacao": 0.4994,
+    "questao": "Q0252",
+    "pontuacao": 0.6361,
     "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Importunação Sexual",
-    "equipe": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável"
+    "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
+    "equipe": "fora"
    },
    {
-    "questao": "Q0058",
-    "pontuacao": 0.4948,
+    "questao": "Q0291",
+    "pontuacao": 0.6139,
     "publicaria": false,
-    "escolhido": "Criminologia > Política Criminal",
-    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
+    "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
+    "equipe": "fora"
    },
    {
-    "questao": "Q0061",
-    "pontuacao": 0.4762,
+    "questao": "Q0052",
+    "pontuacao": 0.6126,
     "publicaria": false,
-    "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
+    "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0110",
-    "pontuacao": 0.4753,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Peculato e Peculato Mediante Erro de Outrem",
-    "equipe": "Processo Penal > Competência"
-   },
-   {
-    "questao": "Q0068",
-    "pontuacao": 0.4323,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável",
-    "equipe": "Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública + Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades + Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa"
-   },
-   {
-    "questao": "Q0005",
-    "pontuacao": 0.3929,
-    "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
-    "equipe": "Penal > Teoria da Pena"
-   },
-   {
-    "questao": "Q0208",
-    "pontuacao": 0.3425,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
-    "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
-   },
-   {
     "questao": "Q0150",
-    "pontuacao": 0.2923,
+    "pontuacao": 0.6031,
     "publicaria": false,
     "escolhido": "Penal > Tráfico de Drogas",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
    },
    {
-    "questao": "Q0017",
-    "pontuacao": 0.1923,
+    "questao": "Q0202",
+    "pontuacao": 0.6003,
     "publicaria": false,
-    "escolhido": "Processo Penal > Comunicação dos Atos Processuais",
-    "equipe": "fora"
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
+    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
+   },
+   {
+    "questao": "Q0090",
+    "pontuacao": 0.5748,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Recursos em Espécies",
+    "equipe": "Processo Penal > Procedimento Ordinário"
+   },
+   {
+    "questao": "Q0061",
+    "pontuacao": 0.5543,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
+    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
+   },
+   {
+    "questao": "Q0308",
+    "pontuacao": 0.5457,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial > Inquérito Civil",
+    "equipe": "Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial"
+   },
+   {
+    "questao": "Q0345",
+    "pontuacao": 0.5394,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Importunação Sexual",
+    "equipe": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável"
+   },
+   {
+    "questao": "Q0215",
+    "pontuacao": 0.5334,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sentença Penal > Fixação da Pena e do Regime Penitenciário",
+    "equipe": "Penal > Teoria da Pena > Penas Privativas de Liberdade"
+   },
+   {
+    "questao": "Q0230",
+    "pontuacao": 0.5332,
+    "publicaria": false,
+    "escolhido": "Penal > Concurso de Pessoas",
+    "equipe": "Penal > Teoria do Crime: Culpabilidade + Penal > Teoria do Crime: Culpabilidade > Erro de Proibição"
+   },
+   {
+    "questao": "Q0068",
+    "pontuacao": 0.5278,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável",
+    "equipe": "Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública + Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades + Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa"
+   },
+   {
+    "questao": "Q0003",
+    "pontuacao": 0.5247,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial > Inquérito Civil",
+    "equipe": "Processo Penal > Recursos em Espécies + Processo Penal > Recursos em Espécies > Apelação"
+   },
+   {
+    "questao": "Q0058",
+    "pontuacao": 0.5175,
+    "publicaria": false,
+    "escolhido": "Criminologia > Política Criminal",
+    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
+   },
+   {
+    "questao": "Q0110",
+    "pontuacao": 0.473,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Peculato e Peculato Mediante Erro de Outrem",
+    "equipe": "Processo Penal > Competência"
+   },
+   {
+    "questao": "Q0208",
+    "pontuacao": 0.4683,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
+    "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.1808,
+    "pontuacao": 0.255,
     "publicaria": false,
     "escolhido": "Criminologia > Processos de Criminalização e Cifras Criminais",
+    "equipe": "fora"
+   },
+   {
+    "questao": "Q0017",
+    "pontuacao": 0.2345,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Ação Penal > Ação Penal Pública Condicionada",
     "equipe": "fora"
    }
   ]
@@ -1371,8 +1378,8 @@
   "embeddings": "bge-m3",
   "ranqueador": "ramo",
   "variante": "com origem",
-  "acerto_do_top1": 0.66,
-  "limiar": 0.7582876265532716,
+  "acerto_do_top1": 0.67,
+  "limiar": 0.7594690662276832,
   "publicadas": 28,
   "acertos": 28,
   "cobertura": 0.28,
@@ -1380,238 +1387,231 @@
   "erros_do_top1": [
    {
     "questao": "Q0252",
-    "pontuacao": 0.7529,
+    "pontuacao": 0.7516,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.7338,
+    "pontuacao": 0.729,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
     "questao": "Q0316",
-    "pontuacao": 0.6936,
+    "pontuacao": 0.6838,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0291",
-    "pontuacao": 0.6612,
+    "pontuacao": 0.6563,
     "publicaria": false,
     "escolhido": "Processo Penal > Inquérito Policial",
     "equipe": "fora"
    },
    {
-    "questao": "Q0202",
-    "pontuacao": 0.6255,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
-   },
-   {
     "questao": "Q0324",
-    "pontuacao": 0.622,
+    "pontuacao": 0.6269,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
-    "questao": "Q0286",
-    "pontuacao": 0.5895,
+    "questao": "Q0202",
+    "pontuacao": 0.6245,
     "publicaria": false,
-    "escolhido": "Penal > Concurso de Crimes",
-    "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
+    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0338",
-    "pontuacao": 0.588,
+    "pontuacao": 0.5917,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
+    "questao": "Q0286",
+    "pontuacao": 0.5875,
+    "publicaria": false,
+    "escolhido": "Penal > Concurso de Crimes",
+    "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
+   },
+   {
     "questao": "Q0091",
-    "pontuacao": 0.5738,
+    "pontuacao": 0.5799,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0216",
-    "pontuacao": 0.5388,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
-    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
-   },
-   {
     "questao": "Q0249",
-    "pontuacao": 0.5303,
+    "pontuacao": 0.5385,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
    },
    {
+    "questao": "Q0216",
+    "pontuacao": 0.5381,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
+    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
+   },
+   {
     "questao": "Q0313",
-    "pontuacao": 0.5159,
+    "pontuacao": 0.5236,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
     "questao": "Q0117",
-    "pontuacao": 0.4967,
+    "pontuacao": 0.5083,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Teorias Legitimidoras da Pena"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.4845,
+    "pontuacao": 0.4916,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0325",
-    "pontuacao": 0.4422,
-    "publicaria": false,
-    "escolhido": "Penal > Punibilidade",
-    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
-   },
-   {
-    "questao": "Q0150",
-    "pontuacao": 0.442,
-    "publicaria": false,
-    "escolhido": "Penal > Tráfico de Drogas",
-    "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
-   },
-   {
     "questao": "Q0077",
-    "pontuacao": 0.439,
+    "pontuacao": 0.4717,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
+    "questao": "Q0150",
+    "pontuacao": 0.453,
+    "publicaria": false,
+    "escolhido": "Penal > Tráfico de Drogas",
+    "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
+   },
+   {
+    "questao": "Q0325",
+    "pontuacao": 0.4516,
+    "publicaria": false,
+    "escolhido": "Penal > Punibilidade",
+    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
+   },
+   {
     "questao": "Q0039",
-    "pontuacao": 0.4011,
+    "pontuacao": 0.4171,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0208",
-    "pontuacao": 0.3771,
+    "pontuacao": 0.408,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0339",
-    "pontuacao": 0.3724,
+    "pontuacao": 0.3759,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies",
     "equipe": "Processo Penal > Sentença Penal"
    },
    {
+    "questao": "Q0058",
+    "pontuacao": 0.3582,
+    "publicaria": false,
+    "escolhido": "Criminologia > Política Criminal",
+    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
+   },
+   {
     "questao": "Q0167",
-    "pontuacao": 0.3408,
+    "pontuacao": 0.3397,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
    },
    {
+    "questao": "Q0068",
+    "pontuacao": 0.3375,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
+    "equipe": "Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública + Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades + Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa"
+   },
+   {
     "questao": "Q0277",
-    "pontuacao": 0.3317,
+    "pontuacao": 0.3336,
     "publicaria": false,
     "escolhido": "Penal > Estatuto do Idoso - Crimes",
     "equipe": "Direito Penal - Legislação Especial > Estaturo de Idoso - Crimes"
    },
    {
     "questao": "Q0087",
-    "pontuacao": 0.3317,
+    "pontuacao": 0.332,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
     "equipe": "fora"
    },
    {
-    "questao": "Q0068",
-    "pontuacao": 0.3269,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
-    "equipe": "Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública + Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades + Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa"
-   },
-   {
-    "questao": "Q0058",
-    "pontuacao": 0.3201,
-    "publicaria": false,
-    "escolhido": "Criminologia > Política Criminal",
-    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
-   },
-   {
     "questao": "Q0061",
-    "pontuacao": 0.3126,
+    "pontuacao": 0.3246,
     "publicaria": false,
     "escolhido": "Processo Penal > Lei de Execução Penal",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0028",
-    "pontuacao": 0.3124,
+    "pontuacao": 0.3082,
     "publicaria": false,
-    "escolhido": "Processo Penal > Comunicação dos Atos Processuais",
+    "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0279",
-    "pontuacao": 0.2958,
+    "pontuacao": 0.296,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
     "equipe": "Penal > Prescrição + Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.2593,
+    "pontuacao": 0.2688,
     "publicaria": false,
     "escolhido": "Processo Penal > Ação Penal",
     "equipe": "fora"
    },
    {
-    "questao": "Q0090",
-    "pontuacao": 0.1921,
-    "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
-    "equipe": "Processo Penal > Procedimento Ordinário"
-   },
-   {
     "questao": "Q0188",
-    "pontuacao": 0.1896,
+    "pontuacao": 0.1951,
     "publicaria": false,
     "escolhido": "Penal > Introdução ao Estudo do Direito Penal",
     "equipe": "Penal > Teoria do Crime: Ilicitude + Penal > Teoria do Crime: Ilicitude > Causas Supralegais de Exclusão da Ilicitude"
    },
    {
     "questao": "Q0303",
-    "pontuacao": 0.1803,
+    "pontuacao": 0.1944,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
     "equipe": "fora"
    },
    {
-    "questao": "Q0240",
-    "pontuacao": 0.1796,
+    "questao": "Q0090",
+    "pontuacao": 0.1913,
     "publicaria": false,
-    "escolhido": "Processo Penal > Comunicação dos Atos Processuais",
-    "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
+    "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
+    "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.1327,
+    "pontuacao": 0.1367,
     "publicaria": false,
     "escolhido": "Criminologia > Processos de Criminalização e Cifras Criminais",
     "equipe": "fora"
@@ -1631,259 +1631,259 @@
   "erros_do_top1": [
    {
     "questao": "Q0216",
-    "pontuacao": 0.9673,
+    "pontuacao": 0.9687,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo > Transação Penal",
     "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
    },
    {
     "questao": "Q0259",
-    "pontuacao": 0.942,
+    "pontuacao": 0.9427,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
     "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
    },
    {
     "questao": "Q0339",
-    "pontuacao": 0.9224,
+    "pontuacao": 0.9252,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Embargos de Declaração",
     "equipe": "Processo Penal > Sentença Penal"
    },
    {
     "questao": "Q0324",
-    "pontuacao": 0.9027,
+    "pontuacao": 0.9062,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
     "questao": "Q0323",
-    "pontuacao": 0.8969,
+    "pontuacao": 0.8988,
     "publicaria": false,
     "escolhido": "Processo Penal > Teoria Geral das Provas > Prova Emprestada",
     "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
    },
    {
     "questao": "Q0316",
-    "pontuacao": 0.8824,
+    "pontuacao": 0.8854,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.8602,
+    "pontuacao": 0.8654,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
     "questao": "Q0338",
-    "pontuacao": 0.852,
+    "pontuacao": 0.8569,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies > Confissão",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.83,
+    "pontuacao": 0.8331,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0249",
-    "pontuacao": 0.8248,
+    "pontuacao": 0.8297,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
    },
    {
-    "questao": "Q0028",
-    "pontuacao": 0.7462,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento Ordinário > Defesa Preliminar",
-    "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
-   },
-   {
     "questao": "Q0325",
-    "pontuacao": 0.7451,
+    "pontuacao": 0.7571,
     "publicaria": false,
     "escolhido": "Penal > Punibilidade",
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
+    "questao": "Q0028",
+    "pontuacao": 0.7538,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento Ordinário > Defesa Preliminar",
+    "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
+   },
+   {
     "questao": "Q0087",
-    "pontuacao": 0.7422,
+    "pontuacao": 0.7458,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
     "equipe": "fora"
    },
    {
     "questao": "Q0077",
-    "pontuacao": 0.6995,
+    "pontuacao": 0.7069,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.6964,
+    "pontuacao": 0.7038,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.6632,
+    "pontuacao": 0.6696,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "fora"
    },
    {
     "questao": "Q0117",
-    "pontuacao": 0.6491,
+    "pontuacao": 0.6607,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Teorias Legitimidoras da Pena"
    },
    {
     "questao": "Q0167",
-    "pontuacao": 0.636,
+    "pontuacao": 0.6369,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
    },
    {
     "questao": "Q0286",
-    "pontuacao": 0.6253,
+    "pontuacao": 0.6291,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Crimes",
     "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
    },
    {
     "questao": "Q0147",
-    "pontuacao": 0.5958,
+    "pontuacao": 0.6068,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies > Captação Ambiental",
     "equipe": "Processo Penal > Inquérito Policial"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.5876,
+    "pontuacao": 0.5974,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0090",
-    "pontuacao": 0.5683,
-    "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
-    "equipe": "Processo Penal > Procedimento Ordinário"
-   },
-   {
     "questao": "Q0061",
-    "pontuacao": 0.5533,
+    "pontuacao": 0.5685,
     "publicaria": false,
     "escolhido": "Processo Penal > Lei de Execução Penal",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0110",
-    "pontuacao": 0.5131,
+    "questao": "Q0090",
+    "pontuacao": 0.5632,
     "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável",
-    "equipe": "Processo Penal > Competência"
+    "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
+    "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0345",
-    "pontuacao": 0.5079,
+    "pontuacao": 0.5234,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Importunação Sexual",
     "equipe": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável"
    },
    {
+    "questao": "Q0110",
+    "pontuacao": 0.5106,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável",
+    "equipe": "Processo Penal > Competência"
+   },
+   {
     "questao": "Q0308",
-    "pontuacao": 0.4793,
+    "pontuacao": 0.4895,
     "publicaria": false,
     "escolhido": "Processo Penal > Inquérito Policial > Inquérito Civil",
     "equipe": "Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial"
    },
    {
-    "questao": "Q0291",
-    "pontuacao": 0.4681,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0303",
-    "pontuacao": 0.4346,
+    "pontuacao": 0.4678,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
     "equipe": "fora"
    },
    {
+    "questao": "Q0291",
+    "pontuacao": 0.455,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0208",
-    "pontuacao": 0.4329,
+    "pontuacao": 0.447,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
-    "questao": "Q0202",
-    "pontuacao": 0.4243,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
-   },
-   {
     "questao": "Q0058",
-    "pontuacao": 0.4133,
+    "pontuacao": 0.4344,
     "publicaria": false,
     "escolhido": "Criminologia > Política Criminal",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
    },
    {
+    "questao": "Q0202",
+    "pontuacao": 0.4302,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
+    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
+   },
+   {
     "questao": "Q0277",
-    "pontuacao": 0.4024,
+    "pontuacao": 0.4117,
     "publicaria": false,
     "escolhido": "Penal > Estatuto do Idoso - Crimes",
     "equipe": "Direito Penal - Legislação Especial > Estaturo de Idoso - Crimes"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.3924,
+    "pontuacao": 0.4025,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.2256,
+    "pontuacao": 0.227,
     "publicaria": false,
     "escolhido": "Criminologia > Processos de Criminalização e Cifras Criminais",
     "equipe": "fora"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.2248,
+    "pontuacao": 0.222,
     "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri",
+    "escolhido": "Processo Penal > Comunicação dos Atos Processuais",
     "equipe": "fora"
    },
    {
     "questao": "Q0150",
-    "pontuacao": 0.214,
+    "pontuacao": 0.22,
     "publicaria": false,
     "escolhido": "Penal > Tráfico de Drogas",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
    },
    {
     "questao": "Q0279",
-    "pontuacao": 0.1898,
+    "pontuacao": 0.192,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
     "equipe": "Penal > Prescrição + Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior"
@@ -1894,8 +1894,8 @@
   "embeddings": "bge-m3",
   "ranqueador": "ramo",
   "variante": "sem origem",
-  "acerto_do_top1": 0.65,
-  "limiar": 0.7620728858751193,
+  "acerto_do_top1": 0.66,
+  "limiar": 0.7693474933512724,
   "publicadas": 27,
   "acertos": 27,
   "cobertura": 0.27,
@@ -1903,245 +1903,238 @@
   "erros_do_top1": [
    {
     "questao": "Q0252",
-    "pontuacao": 0.7602,
+    "pontuacao": 0.7594,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
     "questao": "Q0316",
-    "pontuacao": 0.704,
+    "pontuacao": 0.693,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0338",
-    "pontuacao": 0.6589,
+    "pontuacao": 0.6626,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
     "questao": "Q0291",
-    "pontuacao": 0.6521,
+    "pontuacao": 0.6472,
     "publicaria": false,
     "escolhido": "Processo Penal > Inquérito Policial",
     "equipe": "fora"
    },
    {
     "questao": "Q0202",
-    "pontuacao": 0.6402,
+    "pontuacao": 0.6388,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0324",
-    "pontuacao": 0.6099,
+    "pontuacao": 0.6144,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.6043,
+    "pontuacao": 0.6089,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
-    "questao": "Q0043",
-    "pontuacao": 0.5853,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0117",
-    "pontuacao": 0.5791,
+    "pontuacao": 0.5884,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Teorias Legitimidoras da Pena"
    },
    {
-    "questao": "Q0216",
-    "pontuacao": 0.551,
+    "questao": "Q0043",
+    "pontuacao": 0.5831,
     "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
-    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
+    "escolhido": "Penal > Teoria da Pena",
+    "equipe": "fora"
    },
    {
     "questao": "Q0249",
-    "pontuacao": 0.5465,
+    "pontuacao": 0.5519,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
    },
    {
+    "questao": "Q0216",
+    "pontuacao": 0.5507,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
+    "equipe": "Direito Penal - Legislação Especial > Juizado Especial Criminal"
+   },
+   {
     "questao": "Q0325",
-    "pontuacao": 0.4792,
+    "pontuacao": 0.4863,
     "publicaria": false,
     "escolhido": "Penal > Punibilidade",
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.4667,
+    "pontuacao": 0.4743,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
+    "questao": "Q0077",
+    "pontuacao": 0.4701,
+    "publicaria": false,
+    "escolhido": "Direito Penal - Legislação Especial > Genocídio",
+    "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
+   },
+   {
     "questao": "Q0091",
-    "pontuacao": 0.4534,
+    "pontuacao": 0.4604,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0150",
-    "pontuacao": 0.4361,
+    "pontuacao": 0.4488,
     "publicaria": false,
     "escolhido": "Penal > Tráfico de Drogas",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
    },
    {
-    "questao": "Q0077",
-    "pontuacao": 0.4351,
+    "questao": "Q0208",
+    "pontuacao": 0.436,
     "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Genocídio",
-    "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
+    "escolhido": "Penal > Dos Crimes Contra a Vida",
+    "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.4168,
+    "pontuacao": 0.4316,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0286",
-    "pontuacao": 0.4051,
+    "pontuacao": 0.4025,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Crimes",
     "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
    },
    {
-    "questao": "Q0208",
-    "pontuacao": 0.4047,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Vida",
-    "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
-   },
-   {
     "questao": "Q0339",
-    "pontuacao": 0.3875,
+    "pontuacao": 0.3901,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies",
     "equipe": "Processo Penal > Sentença Penal"
    },
    {
+    "questao": "Q0058",
+    "pontuacao": 0.3806,
+    "publicaria": false,
+    "escolhido": "Criminologia > Política Criminal",
+    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
+   },
+   {
     "questao": "Q0028",
-    "pontuacao": 0.3626,
+    "pontuacao": 0.3596,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0167",
-    "pontuacao": 0.3585,
+    "pontuacao": 0.3567,
     "publicaria": false,
     "escolhido": "Processo Penal > Sujeitos do Processo",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri"
    },
    {
-    "questao": "Q0058",
-    "pontuacao": 0.3391,
-    "publicaria": false,
-    "escolhido": "Criminologia > Política Criminal",
-    "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
-   },
-   {
     "questao": "Q0068",
-    "pontuacao": 0.3368,
+    "pontuacao": 0.3495,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
     "equipe": "Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública + Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades + Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa"
    },
    {
     "questao": "Q0277",
-    "pontuacao": 0.3349,
+    "pontuacao": 0.3368,
     "publicaria": false,
     "escolhido": "Penal > Estatuto do Idoso - Crimes",
     "equipe": "Direito Penal - Legislação Especial > Estaturo de Idoso - Crimes"
    },
    {
-    "questao": "Q0087",
-    "pontuacao": 0.3295,
-    "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0061",
-    "pontuacao": 0.3222,
+    "pontuacao": 0.3326,
     "publicaria": false,
     "escolhido": "Processo Penal > Lei de Execução Penal",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
+    "questao": "Q0087",
+    "pontuacao": 0.3294,
+    "publicaria": false,
+    "escolhido": "Direito Penal - Legislação Especial > Lei de Execução Penal",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0279",
-    "pontuacao": 0.298,
+    "pontuacao": 0.2989,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
     "equipe": "Penal > Prescrição + Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior"
    },
    {
     "questao": "Q0110",
-    "pontuacao": 0.2553,
+    "pontuacao": 0.2562,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
     "equipe": "Processo Penal > Competência"
    },
    {
-    "questao": "Q0240",
-    "pontuacao": 0.199,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Comunicação dos Atos Processuais",
-    "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
-   },
-   {
     "questao": "Q0303",
-    "pontuacao": 0.1956,
+    "pontuacao": 0.2115,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio",
     "equipe": "fora"
    },
    {
     "questao": "Q0188",
-    "pontuacao": 0.1898,
+    "pontuacao": 0.1956,
     "publicaria": false,
     "escolhido": "Penal > Introdução ao Estudo do Direito Penal",
     "equipe": "Penal > Teoria do Crime: Ilicitude + Penal > Teoria do Crime: Ilicitude > Causas Supralegais de Exclusão da Ilicitude"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.1875,
+    "pontuacao": 0.1865,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.1785,
+    "pontuacao": 0.1757,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "fora"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.1393,
+    "pontuacao": 0.1444,
     "publicaria": false,
     "escolhido": "Criminologia > Processos de Criminalização e Cifras Criminais",
     "equipe": "fora"
@@ -2152,7 +2145,7 @@
   "embeddings": "e5-base",
   "ranqueador": "similaridade",
   "variante": "com origem",
-  "acerto_do_top1": 0.56,
+  "acerto_do_top1": 0.57,
   "limiar": null,
   "publicadas": 0,
   "acertos": 0,
@@ -2335,6 +2328,13 @@
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
+    "questao": "Q0147",
+    "pontuacao": 0.8571,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
+    "equipe": "Processo Penal > Inquérito Policial"
+   },
+   {
     "questao": "Q0061",
     "pontuacao": 0.8571,
     "publicaria": false,
@@ -2356,13 +2356,6 @@
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
-    "questao": "Q0147",
-    "pontuacao": 0.8552,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal",
-    "equipe": "Processo Penal > Inquérito Policial"
-   },
-   {
     "questao": "Q0052",
     "pontuacao": 0.855,
     "publicaria": false,
@@ -2375,13 +2368,6 @@
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes",
     "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
-   },
-   {
-    "questao": "Q0079",
-    "pontuacao": 0.8513,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Teoria Geral das Provas > Sistemas de Avaliação da Prova",
-    "equipe": "Processo Penal > Sistemas e Princípios Processuais Penais"
    },
    {
     "questao": "Q0336",
@@ -2782,18 +2768,18 @@
     "equipe": "Penal > Dos Crimes Contra a Dignidade Sexual + Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável"
    },
    {
-    "questao": "Q0315",
-    "pontuacao": 0.2022,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena",
-    "equipe": "Penal > Prescrição + Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição"
-   },
-   {
     "questao": "Q0003",
     "pontuacao": 0.2022,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Classificação dos Provimentos Judiciais",
     "equipe": "Processo Penal > Recursos em Espécies + Processo Penal > Recursos em Espécies > Apelação"
+   },
+   {
+    "questao": "Q0315",
+    "pontuacao": 0.2022,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria da Pena",
+    "equipe": "Penal > Prescrição + Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição"
    },
    {
     "questao": "Q0012",
@@ -2923,7 +2909,7 @@
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.2013,
+    "pontuacao": 0.2014,
     "publicaria": false,
     "escolhido": "Processo Penal > Lei de Execução Penal",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
@@ -2958,7 +2944,7 @@
    },
    {
     "questao": "Q0099",
-    "pontuacao": 0.201,
+    "pontuacao": 0.2011,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Lei Maria da Penha",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
@@ -3013,217 +2999,217 @@
   "erros_do_top1": [
    {
     "questao": "Q0259",
-    "pontuacao": 0.976,
+    "pontuacao": 0.9764,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
     "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.9726,
+    "pontuacao": 0.9745,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.9615,
+    "pontuacao": 0.963,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0276",
-    "pontuacao": 0.9144,
+    "pontuacao": 0.919,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécie",
     "equipe": "Processo Penal > Provas em Espécies > Busca e Apreensão + Processo Penal > Provas em Espécies"
    },
    {
     "questao": "Q0202",
-    "pontuacao": 0.8895,
+    "pontuacao": 0.8937,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0028",
-    "pontuacao": 0.8613,
+    "pontuacao": 0.8672,
     "publicaria": false,
     "escolhido": "Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
+    "questao": "Q0323",
+    "pontuacao": 0.8664,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
+    "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
+   },
+   {
     "questao": "Q0316",
-    "pontuacao": 0.8509,
+    "pontuacao": 0.8553,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.8414,
+    "pontuacao": 0.8487,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
-    "questao": "Q0323",
-    "pontuacao": 0.8004,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
-    "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
-   },
-   {
     "questao": "Q0215",
-    "pontuacao": 0.7293,
+    "pontuacao": 0.7365,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "Penal > Teoria da Pena > Penas Privativas de Liberdade"
    },
    {
     "questao": "Q0339",
-    "pontuacao": 0.7209,
+    "pontuacao": 0.7244,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",
     "equipe": "Processo Penal > Sentença Penal"
    },
    {
     "questao": "Q0208",
-    "pontuacao": 0.7094,
+    "pontuacao": 0.7089,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0286",
-    "pontuacao": 0.6865,
+    "pontuacao": 0.6929,
     "publicaria": false,
     "escolhido": "Penal > Concurso de Crimes",
     "equipe": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais + Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes + Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição"
    },
    {
     "questao": "Q0134",
-    "pontuacao": 0.6673,
+    "pontuacao": 0.6713,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Concussão e Excesso de Exação",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
    },
    {
-    "questao": "Q0087",
-    "pontuacao": 0.6374,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Prisões em Espécie > Prisão Domiciliar",
-    "equipe": "fora"
-   },
-   {
-    "questao": "Q0249",
-    "pontuacao": 0.6323,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
-   },
-   {
     "questao": "Q0338",
-    "pontuacao": 0.5913,
+    "pontuacao": 0.6655,
     "publicaria": false,
     "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
+    "questao": "Q0087",
+    "pontuacao": 0.6417,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Prisões em Espécie > Prisão Domiciliar",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0061",
-    "pontuacao": 0.5708,
+    "pontuacao": 0.5806,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0324",
-    "pontuacao": 0.5672,
+    "pontuacao": 0.5789,
     "publicaria": false,
     "escolhido": "Penal > Teoria do Crime: Culpabilidade > Inimputabilidade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
-    "questao": "Q0291",
-    "pontuacao": 0.5204,
+    "questao": "Q0249",
+    "pontuacao": 0.5605,
     "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial > Conceito, Finalidade e Caractéristas do Inquérito Policial",
-    "equipe": "fora"
+    "escolhido": "Processo Penal > Competência",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.5129,
+    "pontuacao": 0.5188,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri",
     "equipe": "fora"
    },
    {
+    "questao": "Q0291",
+    "pontuacao": 0.5186,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial > Conceito, Finalidade e Caractéristas do Inquérito Policial",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0077",
-    "pontuacao": 0.4717,
+    "pontuacao": 0.4873,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.4445,
+    "pontuacao": 0.4446,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "fora"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.426,
+    "pontuacao": 0.4329,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.4078,
+    "pontuacao": 0.4126,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0303",
-    "pontuacao": 0.3924,
+    "pontuacao": 0.389,
     "publicaria": false,
     "escolhido": "Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço",
     "equipe": "fora"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.3459,
+    "pontuacao": 0.346,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0058",
-    "pontuacao": 0.1971,
+    "pontuacao": 0.1936,
     "publicaria": false,
     "escolhido": "Penal > Medida de Segurança",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
    },
    {
     "questao": "Q0099",
-    "pontuacao": 0.178,
+    "pontuacao": 0.1821,
     "publicaria": false,
     "escolhido": "Penal > Das Lesões Corporais",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
    },
    {
     "questao": "Q0240",
-    "pontuacao": 0.1385,
+    "pontuacao": 0.1397,
     "publicaria": false,
     "escolhido": "Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição",
     "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.1333,
+    "pontuacao": 0.1295,
     "publicaria": false,
     "escolhido": "Criminologia > Teorias Legitimidoras da Pena",
     "equipe": "fora"
@@ -3234,7 +3220,7 @@
   "embeddings": "e5-base",
   "ranqueador": "mlp",
   "variante": "com origem",
-  "acerto_do_top1": 0.67,
+  "acerto_do_top1": 0.68,
   "limiar": null,
   "publicadas": 0,
   "acertos": 0,
@@ -3243,234 +3229,227 @@
   "erros_do_top1": [
    {
     "questao": "Q0276",
-    "pontuacao": 0.9368,
+    "pontuacao": 0.9333,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécie",
     "equipe": "Processo Penal > Provas em Espécies > Busca e Apreensão + Processo Penal > Provas em Espécies"
    },
    {
-    "questao": "Q0259",
-    "pontuacao": 0.9039,
-    "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
-    "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
-   },
-   {
     "questao": "Q0043",
-    "pontuacao": 0.9003,
+    "pontuacao": 0.9055,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
-    "questao": "Q0202",
-    "pontuacao": 0.8783,
+    "questao": "Q0259",
+    "pontuacao": 0.8925,
     "publicaria": false,
-    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
-    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
+    "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
+    "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.8669,
+    "pontuacao": 0.8848,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
+    "questao": "Q0202",
+    "pontuacao": 0.8666,
+    "publicaria": false,
+    "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
+    "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
+   },
+   {
     "questao": "Q0090",
-    "pontuacao": 0.8522,
+    "pontuacao": 0.8516,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
-    "questao": "Q0028",
-    "pontuacao": 0.8352,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento Ordinário > Defesa Preliminar",
-    "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
-   },
-   {
-    "questao": "Q0325",
-    "pontuacao": 0.8336,
-    "publicaria": false,
-    "escolhido": "Penal > Lei Maria da Penha",
-    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
-   },
-   {
     "questao": "Q0316",
-    "pontuacao": 0.8239,
+    "pontuacao": 0.8406,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
-    "questao": "Q0338",
-    "pontuacao": 0.8222,
+    "questao": "Q0028",
+    "pontuacao": 0.8263,
     "publicaria": false,
-    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
-    "equipe": "Processo Penal > Teoria Geral das Provas"
+    "escolhido": "Processo Penal > Procedimento Ordinário > Defesa Preliminar",
+    "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0208",
-    "pontuacao": 0.8063,
+    "pontuacao": 0.8207,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
+    "questao": "Q0325",
+    "pontuacao": 0.8196,
+    "publicaria": false,
+    "escolhido": "Penal > Lei Maria da Penha",
+    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
+   },
+   {
+    "questao": "Q0338",
+    "pontuacao": 0.7998,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal",
+    "equipe": "Processo Penal > Teoria Geral das Provas"
+   },
+   {
     "questao": "Q0134",
-    "pontuacao": 0.766,
+    "pontuacao": 0.783,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Concussão e Excesso de Exação",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
    },
    {
     "questao": "Q0087",
-    "pontuacao": 0.7646,
+    "pontuacao": 0.7414,
     "publicaria": false,
     "escolhido": "Processo Penal > Prisões em Espécie > Prisão Domiciliar",
     "equipe": "fora"
    },
    {
-    "questao": "Q0324",
-    "pontuacao": 0.695,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria do Crime: Culpabilidade > Inimputabilidade",
-    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
-   },
-   {
-    "questao": "Q0339",
-    "pontuacao": 0.6857,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",
-    "equipe": "Processo Penal > Sentença Penal"
-   },
-   {
-    "questao": "Q0249",
-    "pontuacao": 0.6644,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
-   },
-   {
     "questao": "Q0215",
-    "pontuacao": 0.6634,
+    "pontuacao": 0.7264,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "Penal > Teoria da Pena > Penas Privativas de Liberdade"
    },
    {
-    "questao": "Q0291",
-    "pontuacao": 0.6389,
+    "questao": "Q0339",
+    "pontuacao": 0.701,
     "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial > Conceito, Finalidade e Caractéristas do Inquérito Policial",
+    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",
+    "equipe": "Processo Penal > Sentença Penal"
+   },
+   {
+    "questao": "Q0324",
+    "pontuacao": 0.6865,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria do Crime: Culpabilidade > Inimputabilidade",
+    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
+   },
+   {
+    "questao": "Q0291",
+    "pontuacao": 0.6349,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial",
     "equipe": "fora"
    },
    {
     "questao": "Q0077",
-    "pontuacao": 0.6324,
+    "pontuacao": 0.6345,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0049",
-    "pontuacao": 0.5448,
+    "pontuacao": 0.5803,
     "publicaria": false,
     "escolhido": "Penal > Teoria do Crime: Fato Típico",
     "equipe": "Penal > Dos Crimes Contra a Vida > Induzimento, Instigação ou Auxílio ao Suicídio + Penal > Dos Crimes Contra a Vida"
    },
    {
+    "questao": "Q0249",
+    "pontuacao": 0.5766,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Competência",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+   },
+   {
     "questao": "Q0061",
-    "pontuacao": 0.5395,
+    "pontuacao": 0.5498,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.5151,
+    "pontuacao": 0.5334,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "fora"
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.5062,
+    "pontuacao": 0.5319,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "fora"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.4242,
+    "pontuacao": 0.4085,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Fixação da Pena e do Regime Penitenciário",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0303",
-    "pontuacao": 0.3933,
-    "publicaria": false,
-    "escolhido": "Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0039",
-    "pontuacao": 0.3913,
+    "pontuacao": 0.406,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
-    "questao": "Q0005",
-    "pontuacao": 0.3744,
-    "publicaria": false,
-    "escolhido": "Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição",
-    "equipe": "Penal > Teoria da Pena"
-   },
-   {
     "questao": "Q0058",
-    "pontuacao": 0.2865,
+    "pontuacao": 0.3793,
     "publicaria": false,
     "escolhido": "Criminologia > Teorias Legitimidoras da Pena",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
    },
    {
-    "questao": "Q0150",
-    "pontuacao": 0.2799,
+    "questao": "Q0303",
+    "pontuacao": 0.3594,
     "publicaria": false,
-    "escolhido": "Penal > Tráfico de Drogas",
-    "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
+    "escolhido": "Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço",
+    "equipe": "fora"
    },
    {
     "questao": "Q0240",
-    "pontuacao": 0.2759,
+    "pontuacao": 0.267,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri",
     "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
    },
    {
+    "questao": "Q0150",
+    "pontuacao": 0.2313,
+    "publicaria": false,
+    "escolhido": "Penal > Tráfico de Drogas",
+    "equipe": "Direito Penal - Legislação Especial > Tráfico de Drogas"
+   },
+   {
     "questao": "Q0002",
-    "pontuacao": 0.1953,
+    "pontuacao": 0.1843,
     "publicaria": false,
     "escolhido": "Criminologia > Teorias Legitimidoras da Pena",
     "equipe": "fora"
    },
    {
-    "questao": "Q0086",
-    "pontuacao": 0.1424,
-    "publicaria": false,
-    "escolhido": "Penal > Concurso de Crimes",
-    "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
-   },
-   {
     "questao": "Q0099",
-    "pontuacao": 0.142,
+    "pontuacao": 0.1428,
     "publicaria": false,
     "escolhido": "Penal > Das Lesões Corporais",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
+   },
+   {
+    "questao": "Q0086",
+    "pontuacao": 0.1332,
+    "publicaria": false,
+    "escolhido": "Penal > Concurso de Crimes",
+    "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
    }
   ]
  },
@@ -3487,189 +3466,189 @@
   "erros_do_top1": [
    {
     "questao": "Q0202",
-    "pontuacao": 0.9076,
+    "pontuacao": 0.8891,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.8425,
+    "pontuacao": 0.842,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
-    "questao": "Q0291",
-    "pontuacao": 0.7519,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0208",
-    "pontuacao": 0.7146,
+    "pontuacao": 0.7825,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
+    "questao": "Q0291",
+    "pontuacao": 0.7645,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0091",
-    "pontuacao": 0.6599,
+    "pontuacao": 0.6208,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0316",
-    "pontuacao": 0.5372,
+    "pontuacao": 0.5656,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.5239,
+    "pontuacao": 0.5346,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.502,
+    "pontuacao": 0.4994,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
-    "questao": "Q0039",
-    "pontuacao": 0.4844,
-    "publicaria": false,
-    "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0323",
-    "pontuacao": 0.4246,
+    "pontuacao": 0.4728,
     "publicaria": false,
     "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais",
     "equipe": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal"
    },
    {
+    "questao": "Q0039",
+    "pontuacao": 0.4705,
+    "publicaria": false,
+    "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0028",
-    "pontuacao": 0.3748,
+    "pontuacao": 0.3804,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
-    "questao": "Q0339",
-    "pontuacao": 0.3502,
+    "questao": "Q0338",
+    "pontuacao": 0.3449,
     "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
-    "equipe": "Processo Penal > Sentença Penal"
+    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais",
+    "equipe": "Processo Penal > Teoria Geral das Provas"
+   },
+   {
+    "questao": "Q0303",
+    "pontuacao": 0.3448,
+    "publicaria": false,
+    "escolhido": "Penal > Lei Penal no Tempo e no Espaço",
+    "equipe": "fora"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.3365,
+    "pontuacao": 0.342,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
+    "questao": "Q0339",
+    "pontuacao": 0.3405,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
+    "equipe": "Processo Penal > Sentença Penal"
+   },
+   {
     "questao": "Q0077",
-    "pontuacao": 0.3283,
+    "pontuacao": 0.3384,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0061",
-    "pontuacao": 0.32,
+    "pontuacao": 0.3235,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0325",
-    "pontuacao": 0.3137,
+    "pontuacao": 0.318,
     "publicaria": false,
     "escolhido": "Penal > Lei Maria da Penha",
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
-    "questao": "Q0303",
-    "pontuacao": 0.3088,
+    "questao": "Q0087",
+    "pontuacao": 0.2708,
     "publicaria": false,
-    "escolhido": "Penal > Lei Penal no Tempo e no Espaço",
+    "escolhido": "Processo Penal > Prisões em Espécie",
     "equipe": "fora"
    },
    {
-    "questao": "Q0338",
-    "pontuacao": 0.2862,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sistemas e Princípios Processuais Penais",
-    "equipe": "Processo Penal > Teoria Geral das Provas"
-   },
-   {
     "questao": "Q0324",
-    "pontuacao": 0.2799,
+    "pontuacao": 0.2686,
     "publicaria": false,
     "escolhido": "Penal > Teoria do Crime: Culpabilidade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
     "questao": "Q0052",
-    "pontuacao": 0.2779,
+    "pontuacao": 0.2435,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
-    "questao": "Q0087",
-    "pontuacao": 0.2613,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Prisões em Espécie",
-    "equipe": "fora"
-   },
-   {
-    "questao": "Q0249",
-    "pontuacao": 0.2528,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
-   },
-   {
     "questao": "Q0017",
-    "pontuacao": 0.2418,
+    "pontuacao": 0.237,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
     "equipe": "fora"
    },
    {
     "questao": "Q0099",
-    "pontuacao": 0.208,
+    "pontuacao": 0.193,
     "publicaria": false,
     "escolhido": "Penal > Lei Maria da Penha",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
    },
    {
     "questao": "Q0240",
-    "pontuacao": 0.1847,
+    "pontuacao": 0.1896,
     "publicaria": false,
     "escolhido": "Penal > Prescrição",
     "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
    },
    {
-    "questao": "Q0002",
-    "pontuacao": 0.1729,
+    "questao": "Q0249",
+    "pontuacao": 0.1826,
     "publicaria": false,
-    "escolhido": "Processo Penal > Teoria Geral das Prisões",
+    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+   },
+   {
+    "questao": "Q0002",
+    "pontuacao": 0.173,
+    "publicaria": false,
+    "escolhido": "Penal > Introdução ao Estudo do Direito Penal",
     "equipe": "fora"
    },
    {
     "questao": "Q0058",
-    "pontuacao": 0.17,
+    "pontuacao": 0.1674,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
@@ -3689,105 +3668,98 @@
   "erros_do_top1": [
    {
     "questao": "Q0259",
-    "pontuacao": 0.9868,
+    "pontuacao": 0.9874,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra o Patrimônio > Furto",
     "equipe": "Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal + Penal > Dos Crimes Contra o Patrimônio > Dano"
    },
    {
     "questao": "Q0276",
-    "pontuacao": 0.9516,
+    "pontuacao": 0.9546,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécie",
     "equipe": "Processo Penal > Provas em Espécies > Busca e Apreensão + Processo Penal > Provas em Espécies"
    },
    {
     "questao": "Q0202",
-    "pontuacao": 0.9229,
+    "pontuacao": 0.9262,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0316",
-    "pontuacao": 0.8955,
+    "pontuacao": 0.9004,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Infanticídio",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0043",
-    "pontuacao": 0.873,
+    "pontuacao": 0.8809,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "fora"
    },
    {
     "questao": "Q0091",
-    "pontuacao": 0.855,
+    "pontuacao": 0.8585,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.8282,
+    "pontuacao": 0.8331,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Juizado Especial Criminal",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0028",
-    "pontuacao": 0.8211,
+    "pontuacao": 0.8296,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário > Defesa Preliminar",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0215",
-    "pontuacao": 0.7551,
+    "pontuacao": 0.7633,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais",
     "equipe": "Penal > Teoria da Pena > Penas Privativas de Liberdade"
    },
    {
-    "questao": "Q0087",
-    "pontuacao": 0.7389,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Prisões em Espécie > Prisão Domiciliar",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0208",
-    "pontuacao": 0.7366,
+    "pontuacao": 0.7382,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida > Homicídio",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
     "questao": "Q0134",
-    "pontuacao": 0.7238,
+    "pontuacao": 0.73,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Administração Pública > Concussão e Excesso de Exação",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva"
    },
    {
-    "questao": "Q0249",
-    "pontuacao": 0.7116,
+    "questao": "Q0087",
+    "pontuacao": 0.7264,
     "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+    "escolhido": "Processo Penal > Prisões em Espécie > Prisão Domiciliar",
+    "equipe": "fora"
    },
    {
     "questao": "Q0061",
-    "pontuacao": 0.6506,
+    "pontuacao": 0.6663,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies > Agravo em Execução",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0324",
-    "pontuacao": 0.6389,
+    "pontuacao": 0.6522,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
@@ -3801,84 +3773,91 @@
    },
    {
     "questao": "Q0017",
-    "pontuacao": 0.5403,
+    "pontuacao": 0.5433,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri",
     "equipe": "fora"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.512,
+    "pontuacao": 0.5244,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.5057,
+    "pontuacao": 0.5184,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Livramento Condicional",
     "equipe": "fora"
    },
    {
     "questao": "Q0303",
-    "pontuacao": 0.4656,
+    "pontuacao": 0.4666,
     "publicaria": false,
     "escolhido": "Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço",
     "equipe": "fora"
    },
    {
     "questao": "Q0077",
-    "pontuacao": 0.4504,
+    "pontuacao": 0.4651,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
     "questao": "Q0039",
-    "pontuacao": 0.4261,
+    "pontuacao": 0.4331,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
+    "questao": "Q0249",
+    "pontuacao": 0.4083,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+   },
+   {
     "questao": "Q0052",
-    "pontuacao": 0.3943,
+    "pontuacao": 0.3988,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena > Penas Privativas de Liberdade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
     "questao": "Q0325",
-    "pontuacao": 0.3885,
+    "pontuacao": 0.3953,
     "publicaria": false,
     "escolhido": "Penal > Punibilidade > Perdão Judicial",
     "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
    },
    {
     "questao": "Q0058",
-    "pontuacao": 0.2072,
+    "pontuacao": 0.2006,
     "publicaria": false,
     "escolhido": "Penal > Medida de Segurança",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
    },
    {
     "questao": "Q0099",
-    "pontuacao": 0.1869,
+    "pontuacao": 0.1904,
     "publicaria": false,
     "escolhido": "Penal > Das Lesões Corporais",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
    },
    {
     "questao": "Q0240",
-    "pontuacao": 0.1571,
+    "pontuacao": 0.1599,
     "publicaria": false,
     "escolhido": "Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição",
     "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.0849,
+    "pontuacao": 0.0809,
     "publicaria": false,
     "escolhido": "Processo Penal > Teoria Geral das Prisões > Conceitos e Espécies de Prisão",
     "equipe": "fora"
@@ -3898,182 +3877,182 @@
   "erros_do_top1": [
    {
     "questao": "Q0202",
-    "pontuacao": 0.9041,
+    "pontuacao": 0.8865,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Dignidade Sexual",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
-    "questao": "Q0291",
-    "pontuacao": 0.7561,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Inquérito Policial",
-    "equipe": "fora"
-   },
-   {
     "questao": "Q0208",
-    "pontuacao": 0.7303,
+    "pontuacao": 0.7947,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Concurso de Pessoas > Autores e Partícipes"
    },
    {
+    "questao": "Q0291",
+    "pontuacao": 0.7678,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Inquérito Policial",
+    "equipe": "fora"
+   },
+   {
     "questao": "Q0043",
-    "pontuacao": 0.7298,
+    "pontuacao": 0.7284,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
-    "questao": "Q0091",
-    "pontuacao": 0.569,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena",
-    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
-   },
-   {
     "questao": "Q0316",
-    "pontuacao": 0.5527,
+    "pontuacao": 0.5793,
     "publicaria": false,
     "escolhido": "Penal > Dos Crimes Contra a Vida",
     "equipe": "Penal > Teoria do Crime: Fato Típico > Erro de Tipo"
    },
    {
     "questao": "Q0252",
-    "pontuacao": 0.5378,
+    "pontuacao": 0.5494,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "fora"
    },
    {
+    "questao": "Q0091",
+    "pontuacao": 0.5301,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria da Pena",
+    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
+   },
+   {
     "questao": "Q0039",
-    "pontuacao": 0.5173,
+    "pontuacao": 0.5031,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Crimes contra a Economia Popular",
     "equipe": "fora"
    },
    {
     "questao": "Q0090",
-    "pontuacao": 0.4875,
+    "pontuacao": 0.4861,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Sumaríssimo",
     "equipe": "Processo Penal > Procedimento Ordinário"
    },
    {
     "questao": "Q0028",
-    "pontuacao": 0.4499,
+    "pontuacao": 0.4562,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento Ordinário",
     "equipe": "Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia + Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri"
    },
    {
     "questao": "Q0313",
-    "pontuacao": 0.384,
+    "pontuacao": 0.3911,
     "publicaria": false,
     "escolhido": "Processo Penal > Sentença Penal",
     "equipe": "Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais"
    },
    {
-    "questao": "Q0339",
-    "pontuacao": 0.3392,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
-    "equipe": "Processo Penal > Sentença Penal"
-   },
-   {
     "questao": "Q0303",
-    "pontuacao": 0.3369,
+    "pontuacao": 0.3779,
     "publicaria": false,
     "escolhido": "Penal > Lei Penal no Tempo e no Espaço",
     "equipe": "fora"
    },
    {
-    "questao": "Q0325",
-    "pontuacao": 0.3278,
-    "publicaria": false,
-    "escolhido": "Penal > Lei Maria da Penha",
-    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
-   },
-   {
     "questao": "Q0061",
-    "pontuacao": 0.3241,
+    "pontuacao": 0.3314,
     "publicaria": false,
     "escolhido": "Processo Penal > Recursos em Espécies",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
    },
    {
+    "questao": "Q0325",
+    "pontuacao": 0.3292,
+    "publicaria": false,
+    "escolhido": "Penal > Lei Maria da Penha",
+    "equipe": "Processo Penal > Ação Penal > Denúncia + Direito Penal - Legislação Especial > Lei Maria da Penha + Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada + Processo Penal > Procedimento Sumaríssimo > Transação Penal"
+   },
+   {
+    "questao": "Q0339",
+    "pontuacao": 0.3284,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
+    "equipe": "Processo Penal > Sentença Penal"
+   },
+   {
     "questao": "Q0077",
-    "pontuacao": 0.3153,
+    "pontuacao": 0.3254,
     "publicaria": false,
     "escolhido": "Direito Penal - Legislação Especial > Genocídio",
     "equipe": "Penal > Lei Penal no Tempo e no Espaço > Conflito Aparente de Normas"
    },
    {
-    "questao": "Q0249",
-    "pontuacao": 0.2878,
-    "publicaria": false,
-    "escolhido": "Processo Penal > Sujeitos do Processo",
-    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
-   },
-   {
     "questao": "Q0087",
-    "pontuacao": 0.2844,
+    "pontuacao": 0.2957,
     "publicaria": false,
     "escolhido": "Processo Penal > Prisões em Espécie",
     "equipe": "fora"
    },
    {
-    "questao": "Q0052",
-    "pontuacao": 0.2804,
-    "publicaria": false,
-    "escolhido": "Penal > Teoria da Pena",
-    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
-   },
-   {
     "questao": "Q0324",
-    "pontuacao": 0.275,
+    "pontuacao": 0.2639,
     "publicaria": false,
     "escolhido": "Penal > Teoria do Crime: Culpabilidade",
     "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal + Direito Penal - Legislação Especial > Contravenções Penais + Processo Penal > Lei de Execução Penal"
    },
    {
     "questao": "Q0338",
-    "pontuacao": 0.239,
+    "pontuacao": 0.2469,
     "publicaria": false,
     "escolhido": "Processo Penal > Provas em Espécies",
     "equipe": "Processo Penal > Teoria Geral das Provas"
    },
    {
+    "questao": "Q0052",
+    "pontuacao": 0.2462,
+    "publicaria": false,
+    "escolhido": "Penal > Teoria da Pena",
+    "equipe": "Direito Penal - Legislação Especial > Lei de Execução Penal"
+   },
+   {
     "questao": "Q0017",
-    "pontuacao": 0.2347,
+    "pontuacao": 0.228,
     "publicaria": false,
     "escolhido": "Processo Penal > Procedimento do Tribunal do Júri",
     "equipe": "fora"
    },
    {
+    "questao": "Q0249",
+    "pontuacao": 0.2031,
+    "publicaria": false,
+    "escolhido": "Processo Penal > Procedimento Sumaríssimo",
+    "equipe": "Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade"
+   },
+   {
     "questao": "Q0099",
-    "pontuacao": 0.2204,
+    "pontuacao": 0.2008,
     "publicaria": false,
     "escolhido": "Penal > Lei Maria da Penha",
     "equipe": "Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato"
    },
    {
     "questao": "Q0240",
-    "pontuacao": 0.1939,
+    "pontuacao": 0.1985,
     "publicaria": false,
     "escolhido": "Penal > Prescrição",
     "equipe": "Processo Penal > Inquérito Policial + Processo Penal > Ação Penal > Denúncia"
    },
    {
     "questao": "Q0002",
-    "pontuacao": 0.19,
+    "pontuacao": 0.1906,
     "publicaria": false,
-    "escolhido": "Processo Penal > Teoria Geral das Prisões",
+    "escolhido": "Penal > Introdução ao Estudo do Direito Penal",
     "equipe": "fora"
    },
    {
     "questao": "Q0058",
-    "pontuacao": 0.1784,
+    "pontuacao": 0.1764,
     "publicaria": false,
     "escolhido": "Penal > Teoria da Pena",
     "equipe": "Criminologia > Vitimologia + Criminologia > Processos de Criminalização e Cifras Criminais"
