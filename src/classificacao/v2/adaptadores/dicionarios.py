@@ -37,3 +37,15 @@ def ler_temas_enriquecidos(caminho: Path) -> dict[int, TemaEnriquecido]:
                 prompt=bruto["prompt"],
             )
     return temas
+
+
+def ler_correcoes_dos_temas(caminho: Path) -> dict[int, dict[str, object]]:
+    """dados/v2/correcoes_dos_temas.jsonl: as correções aceitas na revisão; vazio se não há."""
+    if not caminho.exists():
+        return {}
+    correcoes = {}
+    for linha in caminho.read_text().splitlines():
+        if linha.strip():
+            bruto = json.loads(linha)
+            correcoes[bruto["no_id"]] = bruto["correcoes"]
+    return correcoes

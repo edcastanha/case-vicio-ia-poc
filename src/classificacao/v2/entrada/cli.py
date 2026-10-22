@@ -112,8 +112,10 @@ def rodar_embeddings(argumentos: argparse.Namespace) -> None:
         cache_de_embeddings.gravar(pasta, "questoes", [q.id for q in questoes], vetores, manifesto)
         print(f"{len(questoes)} Questões → {pasta}/questoes.npy")
     if argumentos.parte in ("nos", "tudo"):
+        from classificacao.v2.entrada.conhecimento import CORRECOES_DOS_TEMAS, temas_revisados
+
         arvore = ler_arvore(argumentos.zip)
-        temas = ler_temas_enriquecidos(TEMAS_ENRIQUECIDOS)
+        temas = temas_revisados()
         nos = sorted(arvore.nos_que_podem_receber_questao(), key=lambda no: no.id)
         faltando = [no.id for no in nos if no.id not in temas]
         if faltando:
@@ -122,6 +124,9 @@ def rodar_embeddings(argumentos: argparse.Namespace) -> None:
         vetores = embeddings_locais.vetorizar(modelo, textos, modelo.prefixo_do_tema)
         prompts = sorted({tema.prompt for tema in temas.values()})
         manifesto = base | {"textos_sha256": sha256_dos_textos(textos), "enriquecimento": prompts}
+        if (DADOS / CORRECOES_DOS_TEMAS).exists():
+            correcoes = (DADOS / CORRECOES_DOS_TEMAS).read_text()
+            manifesto["correcoes_sha256"] = sha256_dos_textos([correcoes])
         cache_de_embeddings.gravar(pasta, "nos", [no.id for no in nos], vetores, manifesto)
         print(f"{len(nos)} Nós → {pasta}/nos.npy")
 
